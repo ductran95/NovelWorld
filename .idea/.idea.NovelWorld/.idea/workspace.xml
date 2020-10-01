@@ -25,9 +25,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5131cda8-faeb-4f91-92a0-2fe333bd346e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Configurations/AppSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Configurations/UrlConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Error.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/HttpException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/InnerException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ApiClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ServiceProviderHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Entities/Entity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/Request.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/EntityResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/LookupResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/Response.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovelWorld.sln" beforeDir="false" afterPath="$PROJECT_DIR$/NovelWorld.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +78,29 @@
         <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Class1.cs" />
         <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Class1.cs" />
         <option value="$PROJECT_DIR$/src/Services/Reader/NovelWorld.Reader.Data/Class1.cs" />
+        <option value="$PROJECT_DIR$/src/Services/Reader/NovelWorld.Reader.Domain/Class1.cs" />
+        <option value="$PROJECT_DIR$/src/Services/Reader/NovelWorld.Reader.Infrastructure/Class1.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/Class1.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Error.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/HttpException.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/InnerException.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ApiClient.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ServiceProviderHelper.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Configurations/AppSettings.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Configurations/UrlConfig.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Entities/Entity.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/Request.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/Response.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/LookupResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/EntityResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1iHH6Jb4Q6KLEpq0QVHbvLVO6RQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,7 +108,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.NovelWorld.InternalGateway">
@@ -269,7 +303,9 @@
       <updated>1601557426716</updated>
       <workItem from="1601557434993" duration="296000" />
       <workItem from="1601558977303" duration="83000" />
-      <workItem from="1601559281686" duration="1742000" />
+      <workItem from="1601559281686" duration="3259000" />
+      <workItem from="1601562778265" duration="679000" />
+      <workItem from="1601564030909" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="Update structure">
       <created>1601559357949</created>
@@ -278,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601559357949</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Core projects">
+      <created>1601561159078</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601561159078</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,16 +356,25 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update structure" />
+    <MESSAGE value="Add Core projects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Core projects" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="744" y="274" key="FileChooserDialogImpl" timestamp="1601561018325">
+    <state x="744" y="274" key="FileChooserDialogImpl" timestamp="1601561101939">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="744" y="274" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1601561018325" />
-    <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size" timestamp="1601561023672">
+    <state x="744" y="274" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1601561101939" />
+    <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size" timestamp="1601561116967">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1080@0.0.1920.1080" timestamp="1601561023672" />
+    <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1080@0.0.1920.1080" timestamp="1601561116967" />
+    <state x="393" y="234" width="1007" height="747" key="SettingsEditor" timestamp="1601564344017">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="393" y="234" width="1007" height="747" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1601564344017" />
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1601561214361">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1601561214361" />
   </component>
 </project>

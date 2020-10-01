@@ -57,8 +57,10 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.API" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Controllers" t="Include" />
         <e p="NovelWorld.API.csproj" t="IncludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Results" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -93,7 +95,23 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Common" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Attributes" t="Include" />
+        <e p="Configurations" t="Include">
+          <e p="AppSettings.cs" t="Include" />
+          <e p="UrlConfig.cs" t="Include" />
+        </e>
+        <e p="Constants" t="Include" />
+        <e p="Enums" t="Include" />
+        <e p="Error.cs" t="Include" />
+        <e p="Exceptions" t="Include">
+          <e p="HttpException.cs" t="Include" />
+          <e p="InnerException.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include" />
+        <e p="Helpers" t="Include">
+          <e p="ApiClient.cs" t="Include" />
+          <e p="ServiceProviderHelper.cs" t="Include" />
+        </e>
         <e p="NovelWorld.Common.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -105,8 +123,20 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Data" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="DTO" t="Include" />
+        <e p="Entities" t="Include">
+          <e p="Entity.cs" t="Include" />
+        </e>
         <e p="NovelWorld.Data.csproj" t="IncludeRecursive" />
+        <e p="Requests" t="Include">
+          <e p="PagingRequest.cs" t="Include" />
+          <e p="Request.cs" t="Include" />
+        </e>
+        <e p="Responses" t="Include">
+          <e p="EntityResponse.cs" t="Include" />
+          <e p="LookupResponse.cs" t="Include" />
+          <e p="Response.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
