@@ -5,19 +5,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="NHibernate" Version="5.3.3" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Folder Include="Configurations" />
       <Folder Include="Contexts" />
       <Folder Include="EventSourcing" />
       <Folder Include="Repositories" />
       <Folder Include="UoW" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\NovelWorld.Infrastructure\NovelWorld.Infrastructure.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Dapper" Version="2.0.35" />
     </ItemGroup>
 
 </Project>

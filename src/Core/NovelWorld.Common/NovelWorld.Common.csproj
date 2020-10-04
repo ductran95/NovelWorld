@@ -6,9 +6,12 @@
 
     <ItemGroup>
       <Folder Include="Attributes" />
-      <Folder Include="Constants" />
-      <Folder Include="Enums" />
       <Folder Include="Extensions" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="RestSharp" Version="106.11.7" />
+      <PackageReference Include="RestSharp.Serializers.SystemTextJson" Version="106.11.7" />
     </ItemGroup>
 
 </Project>

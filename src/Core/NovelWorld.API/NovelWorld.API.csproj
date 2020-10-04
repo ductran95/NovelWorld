@@ -5,8 +5,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NovelWorld.Authentication\NovelWorld.Authentication.csproj" />
       <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
       <ProjectReference Include="..\NovelWorld.Data\NovelWorld.Data.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Mappings" />
     </ItemGroup>
 
 </Project>

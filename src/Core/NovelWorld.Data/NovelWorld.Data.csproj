@@ -8,4 +8,8 @@
       <Folder Include="DTO" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
+    </ItemGroup>
+
 </Project>

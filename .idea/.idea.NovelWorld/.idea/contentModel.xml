@@ -57,21 +57,36 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.API" t="IncludeRecursive">
-        <e p="Controllers" t="Include" />
+        <e p="Contexts" t="Include">
+          <e p="HttpUserContext.cs" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="ApiController.cs" t="Include" />
+        </e>
+        <e p="Mappings" t="Include" />
         <e p="NovelWorld.API.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
-        <e p="Results" t="Include" />
+        <e p="Results" t="Include">
+          <e p="ListingResult.cs" t="Include" />
+          <e p="PagingResult.cs" t="Include" />
+          <e p="Result.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netstandard2.1" t="Include">
+            <e p="netcoreapp3.1" t="Include">
               <e p="NovelWorld.API.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
       </e>
       <e p="src/Core/NovelWorld.Authentication" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Contexts" t="Include">
+          <e p="IUserContext.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="UnauthenticatedException.cs" t="Include" />
+        </e>
         <e p="NovelWorld.Authentication.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -83,8 +98,12 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Authorization" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Attributes" t="Include" />
+        <e p="Exceptions" t="Include">
+          <e p="UnauthorizedException.cs" t="Include" />
+        </e>
         <e p="NovelWorld.Authorization.csproj" t="IncludeRecursive" />
+        <e p="Services" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -100,8 +119,14 @@
           <e p="AppSettings.cs" t="Include" />
           <e p="UrlConfig.cs" t="Include" />
         </e>
-        <e p="Constants" t="Include" />
-        <e p="Enums" t="Include" />
+        <e p="Constants" t="Include">
+          <e p="AdditionalClaims.cs" t="Include" />
+          <e p="ErrorConstants.cs" t="Include" />
+        </e>
+        <e p="Ensure.cs" t="Include" />
+        <e p="Enums" t="Include">
+          <e p="EntityStateEnum.cs" t="Include" />
+        </e>
         <e p="Error.cs" t="Include" />
         <e p="Exceptions" t="Include">
           <e p="HttpException.cs" t="Include" />
@@ -125,6 +150,9 @@
       <e p="src/Core/NovelWorld.Data" t="IncludeRecursive">
         <e p="DTO" t="Include" />
         <e p="Entities" t="Include">
+          <e p="Auth" t="Include">
+            <e p="User.cs" t="Include" />
+          </e>
           <e p="Entity.cs" t="Include" />
         </e>
         <e p="NovelWorld.Data.csproj" t="IncludeRecursive" />
@@ -135,6 +163,7 @@
         <e p="Responses" t="Include">
           <e p="EntityResponse.cs" t="Include" />
           <e p="LookupResponse.cs" t="Include" />
+          <e p="PagingResponse.cs" t="Include" />
           <e p="Response.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
@@ -147,8 +176,13 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Domain" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="CommandHandlers" t="Include" />
+        <e p="Commands" t="Include" />
+        <e p="EventHandlers" t="Include" />
+        <e p="Events" t="Include" />
+        <e p="Mappings" t="Include" />
         <e p="NovelWorld.Domain.csproj" t="IncludeRecursive" />
+        <e p="Proxies" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -159,8 +193,21 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Infrastructure" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Configurations" t="Include" />
+        <e p="Contexts" t="Include" />
+        <e p="EventSourcing" t="Include">
+          <e p="DbChangedEvent.cs" t="Include" />
+          <e p="IEventSource.cs" t="Include" />
+        </e>
         <e p="NovelWorld.Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="Repositories" t="Include">
+          <e p="IReadonlyRepository.cs" t="Include" />
+          <e p="IRepository.cs" t="Include" />
+          <e p="IWriteonlyRepository.cs" t="Include" />
+        </e>
+        <e p="UoW" t="Include">
+          <e p="IUnitOfWork.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -171,8 +218,12 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Infrastructure.Dapper" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Configurations" t="Include" />
+        <e p="Contexts" t="Include" />
+        <e p="EventSourcing" t="Include" />
         <e p="NovelWorld.Infrastructure.Dapper.csproj" t="IncludeRecursive" />
+        <e p="Repositories" t="Include" />
+        <e p="UoW" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -183,8 +234,27 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Infrastructure.EntityFramework" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Configurations" t="Include">
+          <e p="EntityConfiguration.cs" t="Include" />
+        </e>
+        <e p="Contexts" t="Include">
+          <e p="EntityContext.cs" t="Include" />
+        </e>
+        <e p="EventSourcing" t="Include" />
+        <e p="Extensions" t="Include">
+          <e p="EntityStateEnumExtensions.cs" t="Include" />
+          <e p="ExpresionExtensions.cs" t="Include" />
+          <e p="QueryableExtension.cs" t="Include" />
+        </e>
         <e p="NovelWorld.Infrastructure.EntityFramework.csproj" t="IncludeRecursive" />
+        <e p="Repositories" t="Include">
+          <e p="ReadonlyRepository.cs" t="Include" />
+          <e p="Repository.cs" t="Include" />
+          <e p="WriteonlyRepository.cs" t="Include" />
+        </e>
+        <e p="UoW" t="Include">
+          <e p="UnitOfWork.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -194,8 +264,23 @@
           </e>
         </e>
       </e>
+      <e p="src/Core/NovelWorld.Infrastructure.NHibernate" t="IncludeRecursive">
+        <e p="Configurations" t="Include" />
+        <e p="Contexts" t="Include" />
+        <e p="EventSourcing" t="Include" />
+        <e p="NovelWorld.Infrastructure.NHibernate.csproj" t="IncludeRecursive" />
+        <e p="Repositories" t="Include" />
+        <e p="UoW" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="NovelWorld.Infrastructure.NHibernate.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="src/Core/NovelWorld.Mediator" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
         <e p="NovelWorld.Mediator.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
