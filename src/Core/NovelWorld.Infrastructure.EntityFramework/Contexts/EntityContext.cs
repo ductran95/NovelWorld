@@ -12,12 +12,12 @@ namespace NovelWorld.Infrastructure.EntityFramework.Contexts
 {
     public abstract class EntityContext: DbContext
     {
-        protected readonly IUserContext _userContext;
+        protected readonly IAuthContext AuthContext;
         protected readonly IEventSource _eventSource;
         
-        public EntityContext([NotNull] DbContextOptions options, IUserContext userContext, IEventSource eventSource): base(options)
+        public EntityContext([NotNull] DbContextOptions options, IAuthContext authContext, IEventSource eventSource): base(options)
         {
-            _userContext = userContext;
+            AuthContext = authContext;
             _eventSource = eventSource;
         }
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -35,7 +35,7 @@ namespace NovelWorld.Infrastructure.EntityFramework.Contexts
         public virtual void SetContext()
         {
             var changedObject = ChangeTracker.Entries();
-            var userId = _userContext.User.Id;
+            var userId = AuthContext.User.Id;
             foreach (var entry in changedObject)
             {
                 if (entry.Entity is Entity entity)

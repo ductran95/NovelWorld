@@ -64,7 +64,7 @@
       </e>
       <e p="src/Core/NovelWorld.API" t="IncludeRecursive">
         <e p="Contexts" t="Include">
-          <e p="HttpUserContext.cs" t="Include" />
+          <e p="HttpAuthContext.cs" t="Include" />
         </e>
         <e p="Controllers" t="Include">
           <e p="ApiController.cs" t="Include" />
@@ -88,7 +88,7 @@
       </e>
       <e p="src/Core/NovelWorld.Authentication" t="IncludeRecursive">
         <e p="Contexts" t="Include">
-          <e p="IUserContext.cs" t="Include" />
+          <e p="IAuthContext.cs" t="Include" />
         </e>
         <e p="Exceptions" t="Include">
           <e p="UnauthenticatedException.cs" t="Include" />

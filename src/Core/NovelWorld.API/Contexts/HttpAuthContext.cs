@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Security.Claims;
+using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using NovelWorld.Authentication.Contexts;
 using NovelWorld.Authentication.Exceptions;
@@ -10,9 +12,10 @@ using NovelWorld.Data.Entities.Auth;
 
 namespace NovelWorld.API.Contexts
 {
-    public class HttpUserContext: IUserContext
+    public class HttpAuthContext : IAuthContext
     {
         private readonly User _user;
+        private readonly IEnumerable<string> _roles;
         private readonly IPAddress _ip;
 
         public User User
@@ -28,9 +31,22 @@ namespace NovelWorld.API.Contexts
             }
         }
 
+        public IEnumerable<string> Roles
+        {
+            get
+            {
+                if (_user == null)
+                {
+                    throw new UnauthenticatedException();
+                }
+
+                return _roles;
+            }
+        }
+
         public IPAddress IP => _ip;
 
-        public HttpUserContext(IHttpContextAccessor contextAccessor)
+        public HttpAuthContext(IHttpContextAccessor contextAccessor)
         {
             var context = contextAccessor.HttpContext;
             var contextUser = context.User;
@@ -44,6 +60,9 @@ namespace NovelWorld.API.Contexts
                     FullName = contextUser.FindFirstValue(AdditionalClaims.UserFullName),
                     Email = contextUser.FindFirstValue(AdditionalClaims.UserEmail),
                 };
+
+                _roles = JsonSerializer.Deserialize<IEnumerable<string>>(
+                    contextUser.FindFirstValue(AdditionalClaims.UserId));
             }
 
             _ip = context.Connection.RemoteIpAddress;
