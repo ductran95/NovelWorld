@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NovelWorld.Data.Entities;
 using NovelWorld.Infrastructure.EntityFramework.Contexts;
+using NovelWorld.Infrastructure.EntityFramework.Extensions;
 using NovelWorld.Infrastructure.Repositories;
 
 namespace NovelWorld.Infrastructure.EntityFramework.Repositories
@@ -21,22 +22,28 @@ namespace NovelWorld.Infrastructure.EntityFramework.Repositories
         
         public Task<T> GetById(Guid id, Expression<Func<T, object>> includes = null)
         {
-            throw new NotImplementedException();
+            return GetSingle(x => x.Id == id, includes);
         }
 
         public Task<T> GetSingle(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
         {
-            throw new NotImplementedException();
+            return GetAll(includes).Where(condition).FirstOrDefaultAsync();
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, object>> includes = null)
         {
-            throw new NotImplementedException();
+            var result = _dbSet.AsNoTracking();
+            if (includes != null)
+            {
+                result = result.Includes(includes);
+            }
+
+            return result;
         }
 
         public IQueryable<T> GetMultiple(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
         {
-            throw new NotImplementedException();
+            return GetAll(includes).Where(condition);
         }
     }
 }

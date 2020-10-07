@@ -5,7 +5,7 @@ namespace NovelWorld.API.Results
 {
     public class PagingResult<T>: Result<PagingResponse<T>>
     {
-        public static PagingResult<T> Create(PagingResponse<T> data)
+        public new static PagingResult<T> Create(PagingResponse<T> data)
         {
             return new PagingResult<T>
             {

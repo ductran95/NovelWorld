@@ -3,6 +3,12 @@
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_NovelWorld.262357748.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.5.0/build/netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="ApiGateways" t="Include" />
       <e p="Core" t="Include" />
@@ -198,6 +204,12 @@
         <e p="EventSourcing" t="Include">
           <e p="DbChangedEvent.cs" t="Include" />
           <e p="IEventSource.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="IncludeTooDeepException.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="QueryableExtension.cs" t="Include" />
         </e>
         <e p="NovelWorld.Infrastructure.csproj" t="IncludeRecursive" />
         <e p="Repositories" t="Include">
@@ -633,6 +645,19 @@
           <e p="Debug" t="Include">
             <e p="netstandard2.1" t="Include">
               <e p="NovelWorld.Reader.Infrastructure.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests" t="IncludeRecursive">
+        <e p="IQueryableTest.cs" t="Include" />
+        <e p="NovelWorld.Infrastructure.EntityFramework.FunctionalTests.csproj" t="IncludeRecursive" />
+        <e p="TestEntity.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="NovelWorld.Infrastructure.EntityFramework.FunctionalTests.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>

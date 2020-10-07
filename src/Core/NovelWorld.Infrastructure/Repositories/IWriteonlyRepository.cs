@@ -9,11 +9,17 @@ namespace NovelWorld.Infrastructure.Repositories
     {
         int Add(T entity);
         Task<int> AddAsync(T entity);
+        int Add(IEnumerable<T> entities);
+        Task<int> AddAsync(IEnumerable<T> entities);
         int Update(T entity);
         Task<int> UpdateAsync(T entity);
-        int Delete(T entity);
-        Task<int> DeleteAsync(T entity);
-        int Save(IEnumerable<T> entities);
-        Task<int> SaveAsync(IEnumerable<T> entities);
+        int Update(IEnumerable<T> entities);
+        Task<int> UpdateAsync(IEnumerable<T> entities);
+        int Delete(T entity, bool isHardDelete = false);
+        Task<int> DeleteAsync(T entity, bool isHardDelete = false);
+        int Delete(IEnumerable<T> entities, bool isHardDelete = false);
+        Task<int> DeleteAsync(IEnumerable<T> entities, bool isHardDelete = false);
+        int Save(IEnumerable<T> entities, bool isHardDelete = false);
+        Task<int> SaveAsync(IEnumerable<T> entities, bool isHardDelete = false);
     }
 }

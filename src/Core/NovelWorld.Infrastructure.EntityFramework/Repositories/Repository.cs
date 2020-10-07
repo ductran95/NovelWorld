@@ -12,35 +12,39 @@ namespace NovelWorld.Infrastructure.EntityFramework.Repositories
 {
     public class Repository<T>: IRepository<T> where T: Entity
     {
+        protected IReadonlyRepository<T> _readonlyRepository;
+        protected IWriteonlyRepository<T> _writeonlyRepository;
         protected readonly EntityContext _context;
         protected readonly DbSet<T> _dbSet;
-        public Repository(EntityContext context)
+        public Repository(EntityContext context, IReadonlyRepository<T> readonlyRepository, IWriteonlyRepository<T> writeonlyRepository)
         {
             _context = context;
             _dbSet = _context.Set<T>();
+
+            _readonlyRepository = readonlyRepository;
+            _writeonlyRepository = writeonlyRepository;
         }
 
         #region Read
 
         public Task<T> GetById(Guid id, Expression<Func<T, object>> includes = null)
         {
-            return GetSingle(x => x.Id == id, includes);
+            return _readonlyRepository.GetById(id, includes);
         }
 
         public Task<T> GetSingle(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
         {
-            return GetMultiple(condition, includes).FirstOrDefaultAsync();
+            return _readonlyRepository.GetSingle(condition, includes);
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, object>> includes = null)
         {
-            var query = _dbSet.AsNoTracking();
-            return query;
+            return _readonlyRepository.GetAll(includes);
         }
 
         public IQueryable<T> GetMultiple(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
         {
-            return GetAll().Where(condition);
+            return _readonlyRepository.GetMultiple(condition, includes);
         }
 
         #endregion
@@ -49,42 +53,72 @@ namespace NovelWorld.Infrastructure.EntityFramework.Repositories
 
         public int Add(T entity)
         {
-            throw new NotImplementedException();
+            return _writeonlyRepository.Add(entity);
         }
 
         public Task<int> AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            return _writeonlyRepository.AddAsync(entity);
+        }
+
+        public int Add(IEnumerable<T> entities)
+        {
+            return _writeonlyRepository.Add(entities);
+        }
+
+        public Task<int> AddAsync(IEnumerable<T> entities)
+        {
+            return _writeonlyRepository.AddAsync(entities);
         }
 
         public int Update(T entity)
         {
-            throw new NotImplementedException();
+            return _writeonlyRepository.Update(entity);
         }
 
         public Task<int> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            return _writeonlyRepository.UpdateAsync(entity);
         }
 
-        public int Delete(T entity)
+        public int Update(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            return _writeonlyRepository.Update(entities);
         }
 
-        public Task<int> DeleteAsync(T entity)
+        public Task<int> UpdateAsync(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            return _writeonlyRepository.UpdateAsync(entities);
         }
 
-        public int Save(IEnumerable<T> entities)
+        public int Delete(T entity, bool isHardDelete = false)
         {
-            throw new NotImplementedException();
+            return _writeonlyRepository.Delete(entity, isHardDelete);
         }
 
-        public Task<int> SaveAsync(IEnumerable<T> entities)
+        public Task<int> DeleteAsync(T entity, bool isHardDelete = false)
         {
-            throw new NotImplementedException();
+            return _writeonlyRepository.DeleteAsync(entity, isHardDelete);
+        }
+
+        public int Delete(IEnumerable<T> entities, bool isHardDelete = false)
+        {
+            return _writeonlyRepository.Delete(entities, isHardDelete);
+        }
+
+        public Task<int> DeleteAsync(IEnumerable<T> entities, bool isHardDelete = false)
+        {
+            return _writeonlyRepository.DeleteAsync(entities, isHardDelete);
+        }
+
+        public int Save(IEnumerable<T> entities, bool isHardDelete = false)
+        {
+            return _writeonlyRepository.Save(entities, isHardDelete);
+        }
+
+        public Task<int> SaveAsync(IEnumerable<T> entities, bool isHardDelete = false)
+        {
+            return _writeonlyRepository.SaveAsync(entities, isHardDelete);
         }
 
         #endregion
