@@ -90,6 +90,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Infrastructure.N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Infrastructure.EntityFramework.FunctionalTests", "tests\Core\NovelWorld.Infrastructure.EntityFramework.FunctionalTests\NovelWorld.Infrastructure.EntityFramework.FunctionalTests.csproj", "{AF7C597B-4CB5-4FE8-A1CD-AF0767855278}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{2350D343-5269-46B8-99AA-18D0BAA2A756}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

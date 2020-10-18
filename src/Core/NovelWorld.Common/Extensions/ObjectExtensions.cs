@@ -4,6 +4,11 @@ namespace NovelWorld.Common.Extensions
 {
     public static class ObjectExtensions
     {
+        public static string GetGenericTypeName(this object source)
+        {
+            return source.GetType().GetGenericTypeName();
+        }
+        
         public static object ChangeType(this object @object, Type type)
         {
             object result = null;

@@ -13,12 +13,12 @@ namespace NovelWorld.Infrastructure.EntityFramework.Contexts
     public abstract class EntityContext: DbContext
     {
         protected readonly IAuthContext AuthContext;
-        protected readonly IEventSource _eventSource;
+        protected readonly IDbEventSource IdbEventSource;
         
-        public EntityContext([NotNull] DbContextOptions options, IAuthContext authContext, IEventSource eventSource): base(options)
+        public EntityContext([NotNull] DbContextOptions options, IAuthContext authContext, IDbEventSource idbEventSource): base(options)
         {
             AuthContext = authContext;
-            _eventSource = eventSource;
+            IdbEventSource = idbEventSource;
         }
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
@@ -43,7 +43,7 @@ namespace NovelWorld.Infrastructure.EntityFramework.Contexts
                     entity.State = entry.State.GetState(entity.IsDeleted);
                     entity.SetContext(userId);
                     
-                    _eventSource.Add(new DbChangedEvent
+                    IdbEventSource.Add(new DbChangedEvent
                     {
                         Name = entity.GetType().Name,
                         Action = entity.State.ToString(),

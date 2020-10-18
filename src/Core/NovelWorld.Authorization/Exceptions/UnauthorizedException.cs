@@ -7,7 +7,7 @@ namespace NovelWorld.Authorization.Exceptions
     {
         public override HttpException WrapException()
         {
-            return new HttpException(Message, HttpStatusCode.Forbidden, null, this);
+            return new HttpException(HttpStatusCode.Forbidden, null, Message, this);
         }
     }
 }

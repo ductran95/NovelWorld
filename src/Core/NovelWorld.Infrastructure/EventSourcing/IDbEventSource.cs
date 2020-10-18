@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace NovelWorld.Infrastructure.EventSourcing
 {
-    public interface IEventSource
+    public interface IDbEventSource
     {
         IEnumerable<DbChangedEvent> EventList { get; set; }
         void Add(DbChangedEvent @event);

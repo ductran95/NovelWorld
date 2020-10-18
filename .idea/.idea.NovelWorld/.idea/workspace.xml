@@ -33,44 +33,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5131cda8-faeb-4f91-92a0-2fe333bd346e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ExpresionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/IOrderedQueryableExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/JsonExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ListExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ObjectExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/TypeExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ExpressionHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ReplaceExpressionVisitor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/DefaultValues.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/RequestExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/AuthorizeAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Filters/HttpResponseExceptionFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Filters/RequestValidationFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Filters/SwaggerResponseOperationFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Formatters/TextPlainInputFormatter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/IEnumerableExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/MethodInfoExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/DTO/Auth/AuthenticatedUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Attributes/AuthorizeAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Attributes/UnitOfWorkAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/CommandHandlers/CommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Commands/Command.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/EventHandlers/EventHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Events/Event.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Exceptions/ValidationException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Extensions/RequestExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Extensions/RequestHandlerDelegateExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Mappings/BaseMediatorMapping.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Mappings/BaseModelMapping.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Mappings/BaseServiceMapping.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/AuthorizeProxy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/UnitOfWorkProxy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/ValidationProxy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Abstractions/IQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Implements/Query.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/CustomMediator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/IMediator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/INotificationPipelineBehavior.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/NotificationHandlerWrapper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/Pipeline/INotificationPreProcessor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/Pipeline/NotificationPreProcessorBehavior.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/PublishStrategy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/Publisher.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovelWorld.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/NovelWorld.sln.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NovelWorld.sln" beforeDir="false" afterPath="$PROJECT_DIR$/NovelWorld.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/NovelWorld.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/NovelWorld.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IAuthContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IAuthContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Exceptions/UnauthenticatedException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Exceptions/UnauthenticatedException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/NovelWorld.Authentication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/NovelWorld.Authentication.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/Exceptions/UnauthorizedException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/Exceptions/UnauthorizedException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Configurations/AppSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/AppSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Configurations/UrlConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/UrlConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/AdditionalClaims.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/AdditionalClaims.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/ErrorConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/ErrorConstants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Ensure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Ensure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Enums/EntityStateEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Enums/EntityStateEnum.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/InnerException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/DomainException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Abstractions/ApiClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Entities/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/NovelWorld.Authorization.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/NovelWorld.Authorization.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/DomainException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/DomainException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/HttpException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/HttpException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ObjectExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ObjectExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/TypeExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/TypeExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/AdditionalClaims.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/AdditionalClaims.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/ErrorConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/ErrorConstants.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/PagingResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/PagingResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Configurations/EntityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Configurations/EntityConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/NovelWorld.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/NovelWorld.Domain.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Contexts/EntityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Contexts/EntityContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/EntityStateEnumExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/EntityStateEnumExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/ExpresionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/ExpresionExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/QueryableExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/QueryableExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IEventSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IEventSource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/QueryableExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/QueryableExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/NovelWorld.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/NovelWorld.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/NovelWorld.Infrastructure.EntityFramework.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/NovelWorld.Infrastructure.EntityFramework.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IEventSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IDbEventSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/NovelWorld.Mediator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/NovelWorld.Mediator.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/NovelWorld.Infrastructure.EntityFramework.FunctionalTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/NovelWorld.Infrastructure.EntityFramework.FunctionalTests.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +100,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8BCB532A-A6C4-4672-99C0-EA01CD0B1763/78/8f000df1/ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/AuthorizeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/63/06cc8c10/CustomAttributeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/68/f3138179/TypeCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/08BEEF07-8B27-4C9B-9B70-7BF7F188D920/21/EntityFrameworkQueryableExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/08BEEF07-8B27-4C9B-9B70-7BF7F188D920/1F0/EntityEntry.cs" root0="SKIP_HIGHLIGHTING" />
@@ -89,57 +111,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/Exceptions/UnauthorizedException.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/AdditionalClaims.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/iRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/IRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/UoW/IUnitOfWork.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/UoW/UnitOfWork.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/DbChangedEvent.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Contexts/EntityContext.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/IReadonlyRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/ExpresionExtensions.cs" />
-        <option value="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/UnitTest1.cs" />
-        <option value="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/TestEntity.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Exceptions/IncludeTooDeepException.cs" />
-        <option value="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/IQueryableTest.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/ReadonlyRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/IWriteonlyRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/WriteonlyRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/Repository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Results/PagingResult.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Results/ListingResult.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IUserContext.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpUserContext.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IAuthContext.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Configurations/EntityConfiguration.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IEventSource.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/PagingResponse.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/QueryableExtension.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/DomainException.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Abstractions/ApiClient.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Ensure.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ExpresionExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/ExpresionExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/DefaultValues.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ObjectExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ListExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ReplacExpressionVisitor.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/RequestExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ExpressionHelper.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/IOrderedQueryableExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/QueryableExtension.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/AppSettings.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/UrlConfig.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/AdditionalClaims.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/DefaultValues.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IAuthContext.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/DTO/Auth/AuthenticatedUser.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/Pipeline/INotificationPreProcessor.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/IMediator.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/PublishStrategy.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/Publisher.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/CustomMediator.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/Pipeline/NotificationPreProcessorBehavior.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/DomainException.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/HttpException.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Exceptions/ValidationException.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Filters/HttpResponseExceptionFilter.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Exceptions/UnauthenticatedException.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/Exceptions/UnauthorizedException.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Filters/RequestValidationFilter.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Filters/SwaggerResponseOperationFilter.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Formatters/TextPlainInputFormatter.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/Attributes/AuthorizeAttribute.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/AuthorizeAttribute.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/CommandHandlers/CommandHandler.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Commands/Command.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/EventHandlers/EventHandler.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Events/Event.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/ErrorConstants.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Enums/EntityStateEnum.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/JsonExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Extensions/RequestExtension.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Abstractions/IDetailQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Abstractions/IEntityQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Abstractions/IListQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Implements/SimpleEntityQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Abstractions/IQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Implements/Query.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Mappings/BaseModelMapping.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IDBEventSource.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/TypeExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ObjectExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/IEnumerableExtension.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/ValidationProxy.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Attributes/UnitOfWorkAttribute.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/MethodInfoExtension.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/UnitOfWorkProxy.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Extensions/RequestHandlerDelegateExtension.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Mappings/BaseMediatorMapping.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Mappings/BaseServiceMapping.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/AuthorizeProxy.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Attributes/AuthorizeAttribute.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/INotificationPipelineBehavior.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/NotificationHandlerWrapper.cs" />
       </list>
     </option>
   </component>
@@ -396,7 +418,8 @@
       <workItem from="1601815080272" duration="8182000" />
       <workItem from="1602073839726" duration="7329000" />
       <workItem from="1603013668814" duration="2137000" />
-      <workItem from="1603016118440" duration="7629000" />
+      <workItem from="1603016118440" duration="11823000" />
+      <workItem from="1603034209253" duration="2175000" />
     </task>
     <task id="LOCAL-00001" summary="Update structure">
       <created>1601559357949</created>
@@ -447,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602083155456</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add Infra Extensions">
+      <created>1603028514401</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603028514402</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +519,8 @@
     <MESSAGE value="Update infra EF" />
     <MESSAGE value="Update UserContext: add IP" />
     <MESSAGE value="Refactor UserContext =&gt; AuthContext" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor UserContext =&gt; AuthContext" />
+    <MESSAGE value="Add Infra Extensions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Infra Extensions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="274" key="FileChooserDialogImpl" timestamp="1601822593010">
@@ -584,18 +615,18 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="577" y="200" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603026444883" />
-    <state x="393" y="234" width="1007" height="747" key="SettingsEditor" timestamp="1603027926738">
+    <state x="359" y="319" width="1007" height="747" key="SettingsEditor" timestamp="1603032863681">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="393" y="234" width="1007" height="747" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1603027926738" />
+    <state x="359" y="319" width="1007" height="747" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1603032863681" />
     <state x="100" y="100" width="1720" height="880" key="VCS.FileHistoryDialog" timestamp="1601815744371">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601815744371" />
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1602083169233">
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1603028517274">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1602083169233" />
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603028517274" />
     <state x="764" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602080834394">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -9,7 +9,7 @@ namespace NovelWorld.Common.Exceptions
         public HttpStatusCode StatusCode { get; set; }
         public IEnumerable<Error> Errors { get; set; }
 
-        public HttpException(string message, HttpStatusCode statusCode, IEnumerable<Error> errors, Exception innerException = null): base(message, innerException)
+        public HttpException(HttpStatusCode statusCode, IEnumerable<Error> errors, string message = "", Exception innerException = null): base(message, innerException)
         {
             StatusCode = statusCode;
             Errors = errors;

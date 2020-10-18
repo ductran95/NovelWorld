@@ -8,10 +8,16 @@
       <ProjectReference Include="..\NovelWorld.Authentication\NovelWorld.Authentication.csproj" />
       <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
       <ProjectReference Include="..\NovelWorld.Data\NovelWorld.Data.csproj" />
+      <ProjectReference Include="..\NovelWorld.Domain\NovelWorld.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Mappings" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation" Version="9.2.2" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     </ItemGroup>
 
 </Project>

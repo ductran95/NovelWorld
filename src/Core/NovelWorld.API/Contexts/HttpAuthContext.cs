@@ -8,17 +8,16 @@ using Microsoft.AspNetCore.Http;
 using NovelWorld.Authentication.Contexts;
 using NovelWorld.Authentication.Exceptions;
 using NovelWorld.Data.Constants;
-using NovelWorld.Data.Entities.Auth;
+using NovelWorld.Data.DTO.Auth;
 
 namespace NovelWorld.API.Contexts
 {
     public class HttpAuthContext : IAuthContext
     {
-        private readonly User _user;
-        private readonly IEnumerable<string> _roles;
+        private readonly AuthenticatedUser _user;
         private readonly IPAddress _ip;
 
-        public User User
+        public AuthenticatedUser User
         {
             get
             {
@@ -31,19 +30,6 @@ namespace NovelWorld.API.Contexts
             }
         }
 
-        public IEnumerable<string> Roles
-        {
-            get
-            {
-                if (_user == null)
-                {
-                    throw new UnauthenticatedException();
-                }
-
-                return _roles;
-            }
-        }
-
         public IPAddress IP => _ip;
 
         public HttpAuthContext(IHttpContextAccessor contextAccessor)
@@ -53,16 +39,24 @@ namespace NovelWorld.API.Contexts
             var claims = contextUser?.Claims;
             if (contextUser != null && claims != null && claims.Any())
             {
-                _user = new User()
-                {
-                    Id = Guid.Parse(contextUser.FindFirstValue(AdditionalClaims.UserId)),
-                    UserName = contextUser.FindFirstValue(AdditionalClaims.UserName),
-                    FullName = contextUser.FindFirstValue(AdditionalClaims.UserFullName),
-                    Email = contextUser.FindFirstValue(AdditionalClaims.UserEmail),
-                };
+                var idStr = contextUser.FindFirstValue(AdditionalClaims.UserId);
+                var nameStr = contextUser.FindFirstValue(AdditionalClaims.UserName);
+                var fullNameStr = contextUser.FindFirstValue(AdditionalClaims.UserFullName);
+                var emailStr = contextUser.FindFirstValue(AdditionalClaims.UserEmail);
+                var rolesStr = contextUser.FindFirstValue(AdditionalClaims.UserRoles);
 
-                _roles = JsonSerializer.Deserialize<IEnumerable<string>>(
-                    contextUser.FindFirstValue(AdditionalClaims.UserId));
+                if (string.IsNullOrEmpty(idStr))
+                {
+                    _user = new AuthenticatedUser()
+                    {
+                        // ReSharper disable once AssignNullToNotNullAttribute
+                        Id =  Guid.Parse(idStr),
+                        UserName = nameStr,
+                        FullName = fullNameStr,
+                        Email = emailStr,
+                        Roles = !string.IsNullOrEmpty(rolesStr) ? JsonSerializer.Deserialize<IEnumerable<string>>(rolesStr) : new List<string>()
+                    };
+                }
             }
 
             _ip = context.Connection.RemoteIpAddress;

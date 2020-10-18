@@ -5,8 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Attributes" />
-      <Folder Include="Services" />
+      <Folder Include="Services\Abstractions" />
+      <Folder Include="Services\Implements" />
     </ItemGroup>
 
     <ItemGroup>

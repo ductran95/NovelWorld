@@ -3,12 +3,12 @@
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_NovelWorld.262357748.00" t="ExcludeRecursive" />
-    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.5.0/build/netcoreapp2.1" t="Include">
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.7.1/build/netcoreapp2.1" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
-    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.3/build/netcoreapp2.1/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.3/build/netcoreapp2.1/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.3/build/netcoreapp2.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="ApiGateways" t="Include" />
       <e p="Core" t="Include" />
@@ -24,6 +24,7 @@
         <e p="Core" t="Include" />
         <e p="Services" t="Include" />
       </e>
+      <e p="Tools" t="Include" />
       <e p="Web" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="src/ApiGateways/NovelWorld.InternalGateway" t="IncludeRecursive">
@@ -63,11 +64,22 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.API" t="IncludeRecursive">
+        <e p="Attributes" t="Include">
+          <e p="AuthorizeAttribute.cs" t="Include" />
+        </e>
         <e p="Contexts" t="Include">
           <e p="HttpAuthContext.cs" t="Include" />
         </e>
         <e p="Controllers" t="Include">
           <e p="ApiController.cs" t="Include" />
+        </e>
+        <e p="Filters" t="Include">
+          <e p="HttpResponseExceptionFilter.cs" t="Include" />
+          <e p="RequestValidationFilter.cs" t="Include" />
+          <e p="SwaggerResponseOperationFilter.cs" t="Include" />
+        </e>
+        <e p="Formatters" t="Include">
+          <e p="TextPlainInputFormatter.cs" t="Include" />
         </e>
         <e p="Mappings" t="Include" />
         <e p="NovelWorld.API.csproj" t="IncludeRecursive" />
@@ -104,12 +116,14 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Authorization" t="IncludeRecursive">
-        <e p="Attributes" t="Include" />
         <e p="Exceptions" t="Include">
           <e p="UnauthorizedException.cs" t="Include" />
         </e>
         <e p="NovelWorld.Authorization.csproj" t="IncludeRecursive" />
-        <e p="Services" t="Include" />
+        <e p="Services" t="Include">
+          <e p="Abstractions" t="Include" />
+          <e p="Implements" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -129,9 +143,11 @@
         </e>
         <e p="Extensions" t="Include">
           <e p="ExpresionExtensions.cs" t="Include" />
+          <e p="IEnumerableExtension.cs" t="Include" />
           <e p="IOrderedQueryableExtensions.cs" t="Include" />
           <e p="JsonExtensions.cs" t="Include" />
           <e p="ListExtensions.cs" t="Include" />
+          <e p="MethodInfoExtension.cs" t="Include" />
           <e p="ObjectExtensions.cs" t="Include" />
           <e p="TypeExtensions.cs" t="Include" />
         </e>
@@ -164,7 +180,11 @@
           <e p="DefaultValues.cs" t="Include" />
           <e p="ErrorConstants.cs" t="Include" />
         </e>
-        <e p="DTO" t="Include" />
+        <e p="DTO" t="Include">
+          <e p="Auth" t="Include">
+            <e p="AuthenticatedUser.cs" t="Include" />
+          </e>
+        </e>
         <e p="Entities" t="Include">
           <e p="Auth" t="Include">
             <e p="User.cs" t="Include" />
@@ -195,13 +215,49 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Domain" t="IncludeRecursive">
-        <e p="CommandHandlers" t="Include" />
-        <e p="Commands" t="Include" />
-        <e p="EventHandlers" t="Include" />
-        <e p="Events" t="Include" />
-        <e p="Mappings" t="Include" />
+        <e p="Attributes" t="Include">
+          <e p="AuthorizeAttribute.cs" t="Include" />
+          <e p="UnitOfWorkAttribute.cs" t="Include" />
+        </e>
+        <e p="CommandHandlers" t="Include">
+          <e p="CommandHandler.cs" t="Include" />
+        </e>
+        <e p="Commands" t="Include">
+          <e p="Command.cs" t="Include" />
+        </e>
+        <e p="EventHandlers" t="Include">
+          <e p="EventHandler.cs" t="Include" />
+        </e>
+        <e p="Events" t="Include">
+          <e p="Event.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="ValidationException.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="RequestExtension.cs" t="Include" />
+          <e p="RequestHandlerDelegateExtension.cs" t="Include" />
+        </e>
+        <e p="Mappings" t="Include">
+          <e p="BaseMediatorMapping.cs" t="Include" />
+          <e p="BaseModelMapping.cs" t="Include" />
+          <e p="BaseServiceMapping.cs" t="Include" />
+        </e>
         <e p="NovelWorld.Domain.csproj" t="IncludeRecursive" />
-        <e p="Proxies" t="Include" />
+        <e p="Proxies" t="Include">
+          <e p="AuthorizeProxy.cs" t="Include" />
+          <e p="LoggingProxy.cs" t="Include" />
+          <e p="UnitOfWorkProxy.cs" t="Include" />
+          <e p="ValidationProxy.cs" t="Include" />
+        </e>
+        <e p="Queries" t="Include">
+          <e p="Abstractions" t="Include">
+            <e p="IQuery.cs" t="Include" />
+          </e>
+          <e p="Implements" t="Include">
+            <e p="Query.cs" t="Include" />
+          </e>
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -216,7 +272,7 @@
         <e p="Contexts" t="Include" />
         <e p="EventSourcing" t="Include">
           <e p="DbChangedEvent.cs" t="Include" />
-          <e p="IEventSource.cs" t="Include" />
+          <e p="IDbEventSource.cs" t="Include" />
         </e>
         <e p="Exceptions" t="Include">
           <e p="IncludeTooDeepException.cs" t="Include" />
@@ -307,7 +363,17 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Mediator" t="IncludeRecursive">
+        <e p="CustomMediator.cs" t="Include" />
+        <e p="IMediator.cs" t="Include" />
+        <e p="INotificationPipelineBehavior.cs" t="Include" />
+        <e p="NotificationHandlerWrapper.cs" t="Include" />
         <e p="NovelWorld.Mediator.csproj" t="IncludeRecursive" />
+        <e p="Pipeline" t="Include">
+          <e p="INotificationPreProcessor.cs" t="Include" />
+          <e p="NotificationPreProcessorBehavior.cs" t="Include" />
+        </e>
+        <e p="PublishStrategy.cs" t="Include" />
+        <e p="Publisher.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

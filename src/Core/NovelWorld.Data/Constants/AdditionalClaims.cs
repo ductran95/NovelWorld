@@ -6,5 +6,6 @@ namespace NovelWorld.Data.Constants
         public const string UserName = "user_name";
         public const string UserFullName = "user_full_name";
         public const string UserEmail = "user_email";
+        public const string UserRoles = "user_roles";
     }
 }

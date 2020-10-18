@@ -10,7 +10,7 @@ namespace NovelWorld.Data.Requests
         public int PageSize { get; set; }
         public string Search { get; set; }
         public IEnumerable<FilterRequest> Filters { get; set; }
-        public IEnumerable<SortRequest> Sort { get; set; }
+        public IEnumerable<SortRequest> Sorts { get; set; }
     }
     
     public class FilterRequest: Request
