@@ -1,5 +1,5 @@
 using System;
-using NovelWorld.Common.Enums;
+using NovelWorld.Data.Enums;
 
 namespace NovelWorld.Data.Entities
 {

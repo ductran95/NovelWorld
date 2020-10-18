@@ -3,8 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NovelWorld.Authentication.Contexts;
-using NovelWorld.Common.Enums;
 using NovelWorld.Data.Entities;
+using NovelWorld.Data.Enums;
 using NovelWorld.Infrastructure.EntityFramework.Extensions;
 using NovelWorld.Infrastructure.EventSourcing;
 

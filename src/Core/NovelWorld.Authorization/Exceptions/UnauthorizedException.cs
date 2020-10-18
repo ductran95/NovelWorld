@@ -3,7 +3,7 @@ using NovelWorld.Common.Exceptions;
 
 namespace NovelWorld.Authorization.Exceptions
 {
-    public class UnauthorizedException: InnerException
+    public class UnauthorizedException: DomainException
     {
         public override HttpException WrapException()
         {

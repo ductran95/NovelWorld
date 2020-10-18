@@ -1,4 +1,4 @@
-namespace NovelWorld.Common.Enums
+namespace NovelWorld.Data.Enums
 {
     public enum EntityStateEnum
     {

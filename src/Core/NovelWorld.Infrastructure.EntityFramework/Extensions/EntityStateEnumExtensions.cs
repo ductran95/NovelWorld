@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using NovelWorld.Common.Enums;
+using NovelWorld.Data.Enums;
 
 namespace NovelWorld.Infrastructure.EntityFramework.Extensions
 {

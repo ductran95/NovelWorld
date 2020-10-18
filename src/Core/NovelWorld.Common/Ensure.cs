@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NovelWorld.Common
 {
@@ -12,13 +14,23 @@ namespace NovelWorld.Common
             }
         }
         
-        public static void NotEmpty<T>(T data, string name = "data")
+        public static void NotNullOrEmpty<T>(T data, string name = "data")
         {
             Ensure.NotNull(data, name);
             
             if (data.Equals(default(T)))
             {
                 throw new ArgumentException($"{name} is empty");
+            }
+        }
+        
+        public static void NotContainNull<T>(IEnumerable<T> data, string name = "data")
+        {
+            Ensure.NotNull(data, name);
+            
+            if (data.Any(x=>x == null))
+            {
+                throw new ArgumentException($"{name} contain null");
             }
         }
     }

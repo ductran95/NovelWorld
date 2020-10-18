@@ -9,6 +9,7 @@ namespace NovelWorld.Infrastructure.EntityFramework.Configurations
         public virtual void Configure(EntityTypeBuilder<T> builder)
         {
             builder.Ignore(x => x.State);
+            builder.HasQueryFilter(p => !p.IsDeleted);
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace NovelWorld.Common.Configurations
+namespace NovelWorld.Data.Configurations
 {
     public class UrlConfig
     {

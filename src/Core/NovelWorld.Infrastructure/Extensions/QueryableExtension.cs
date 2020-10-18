@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using NovelWorld.Common;
+using NovelWorld.Data.Requests;
 using NovelWorld.Infrastructure.Exceptions;
+using NovelWorld.Common.Extensions;
 
 namespace NovelWorld.Infrastructure.Extensions
 {
@@ -56,5 +59,71 @@ namespace NovelWorld.Infrastructure.Extensions
             
             return result;
         }
+        
+        public static IQueryable<T> Where<T>(this IQueryable<T> query, IEnumerable<FilterRequest> filters)
+            where T : class
+        {
+            if (filters == null || !filters.Any())
+            {
+                return query;
+            }
+            
+            Ensure.NotContainNull(filters);
+            
+            var exp = filters.ToExpression<T>();
+            
+            return query.Where(exp);
+        }
+        
+        public static IQueryable<T> OrderBy<T>(this IQueryable<T> query, IEnumerable<SortRequest> sorts)
+            where T : class
+        {
+            if (sorts == null || !sorts.Any())
+            {
+                return query;
+            }
+            
+            Ensure.NotContainNull(sorts);
+
+            var firstSort = sorts.FirstOrDefault();
+            IOrderedQueryable<T> result = null;
+
+            // ReSharper disable once PossibleNullReferenceException
+            if (firstSort.Asc)
+            {
+                result = query.OrderBy(firstSort.Field);
+            }
+            else
+            {
+                result = query.OrderByDescending(firstSort.Field);
+            }
+
+            for (int i = 1; i < sorts.Count(); i++)
+            {
+                var sort = sorts.ElementAt(i);
+                if (sort.Asc)
+                {
+                    result = result.ThenBy(sort.Field);
+                }
+                else
+                {
+                    result = result.ThenByDescending(sort.Field);
+                }
+            }
+            
+            return result;
+        }
+        
+        public static IQueryable<T> GetPage<T>(this IQueryable<T> query, int page, int pageSize)
+            where T : class
+        {
+            Ensure.NotNullOrEmpty(page);
+            Ensure.NotNullOrEmpty(pageSize);
+
+            var skip = (page - 1) * pageSize;
+            
+            return query.Skip(skip).Take(pageSize);
+        }
+        
     }
 }

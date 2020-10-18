@@ -121,26 +121,27 @@
       </e>
       <e p="src/Core/NovelWorld.Common" t="IncludeRecursive">
         <e p="Attributes" t="Include" />
-        <e p="Configurations" t="Include">
-          <e p="AppSettings.cs" t="Include" />
-          <e p="UrlConfig.cs" t="Include" />
-        </e>
-        <e p="Constants" t="Include">
-          <e p="AdditionalClaims.cs" t="Include" />
-          <e p="ErrorConstants.cs" t="Include" />
-        </e>
         <e p="Ensure.cs" t="Include" />
-        <e p="Enums" t="Include">
-          <e p="EntityStateEnum.cs" t="Include" />
-        </e>
         <e p="Error.cs" t="Include" />
         <e p="Exceptions" t="Include">
+          <e p="DomainException.cs" t="Include" />
           <e p="HttpException.cs" t="Include" />
-          <e p="InnerException.cs" t="Include" />
         </e>
-        <e p="Extensions" t="Include" />
+        <e p="Extensions" t="Include">
+          <e p="ExpresionExtensions.cs" t="Include" />
+          <e p="IOrderedQueryableExtensions.cs" t="Include" />
+          <e p="JsonExtensions.cs" t="Include" />
+          <e p="ListExtensions.cs" t="Include" />
+          <e p="ObjectExtensions.cs" t="Include" />
+          <e p="TypeExtensions.cs" t="Include" />
+        </e>
         <e p="Helpers" t="Include">
-          <e p="ApiClient.cs" t="Include" />
+          <e p="Abstractions" t="Include">
+            <e p="ApiClient.cs" t="Include" />
+          </e>
+          <e p="ExpressionHelper.cs" t="Include" />
+          <e p="Implements" t="Include" />
+          <e p="ReplaceExpressionVisitor.cs" t="Include" />
           <e p="ServiceProviderHelper.cs" t="Include" />
         </e>
         <e p="NovelWorld.Common.csproj" t="IncludeRecursive" />
@@ -154,12 +155,24 @@
         </e>
       </e>
       <e p="src/Core/NovelWorld.Data" t="IncludeRecursive">
+        <e p="Configurations" t="Include">
+          <e p="AppSettings.cs" t="Include" />
+          <e p="UrlConfig.cs" t="Include" />
+        </e>
+        <e p="Constants" t="Include">
+          <e p="AdditionalClaims.cs" t="Include" />
+          <e p="DefaultValues.cs" t="Include" />
+          <e p="ErrorConstants.cs" t="Include" />
+        </e>
         <e p="DTO" t="Include" />
         <e p="Entities" t="Include">
           <e p="Auth" t="Include">
             <e p="User.cs" t="Include" />
           </e>
           <e p="Entity.cs" t="Include" />
+        </e>
+        <e p="Enums" t="Include">
+          <e p="EntityStateEnum.cs" t="Include" />
         </e>
         <e p="NovelWorld.Data.csproj" t="IncludeRecursive" />
         <e p="Requests" t="Include">
@@ -209,7 +222,9 @@
           <e p="IncludeTooDeepException.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
+          <e p="ExpresionExtensions.cs" t="Include" />
           <e p="QueryableExtension.cs" t="Include" />
+          <e p="RequestExtensions.cs" t="Include" />
         </e>
         <e p="NovelWorld.Infrastructure.csproj" t="IncludeRecursive" />
         <e p="Repositories" t="Include">
@@ -255,7 +270,6 @@
         <e p="EventSourcing" t="Include" />
         <e p="Extensions" t="Include">
           <e p="EntityStateEnumExtensions.cs" t="Include" />
-          <e p="ExpresionExtensions.cs" t="Include" />
           <e p="QueryableExtension.cs" t="Include" />
         </e>
         <e p="NovelWorld.Infrastructure.EntityFramework.csproj" t="IncludeRecursive" />

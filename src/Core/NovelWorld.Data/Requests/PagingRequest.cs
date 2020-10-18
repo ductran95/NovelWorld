@@ -19,7 +19,8 @@ namespace NovelWorld.Data.Requests
         public string ValueString { get; set; }
         public decimal? ValueNumber { get; set; }
         public bool? ValueBool { get; set; }
-        public DateTime? ValueDateTime { get; set; }
+        public DateTime? ValueDateTimeFrom { get; set; }
+        public DateTime? ValueDateTimeTo { get; set; }
         public IEnumerable ValueList { get; set; }
     }
     

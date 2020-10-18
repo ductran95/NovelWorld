@@ -1,4 +1,4 @@
-namespace NovelWorld.Common.Constants
+namespace NovelWorld.Data.Constants
 {
     public static class AdditionalClaims
     {

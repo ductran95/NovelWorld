@@ -10,6 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
       <ProjectReference Include="..\NovelWorld.Data\NovelWorld.Data.csproj" />
     </ItemGroup>
 

@@ -7,7 +7,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using NovelWorld.Authentication.Contexts;
 using NovelWorld.Authentication.Exceptions;
-using NovelWorld.Common.Constants;
+using NovelWorld.Data.Constants;
 using NovelWorld.Data.Entities.Auth;
 
 namespace NovelWorld.API.Contexts

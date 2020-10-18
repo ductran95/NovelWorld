@@ -33,11 +33,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5131cda8-faeb-4f91-92a0-2fe333bd346e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ExpresionExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/IOrderedQueryableExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/JsonExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ListExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ObjectExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/TypeExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ExpressionHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ReplaceExpressionVisitor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/DefaultValues.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/RequestExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NovelWorld.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/NovelWorld.sln.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpUserContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IUserContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IAuthContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Exceptions/UnauthenticatedException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Exceptions/UnauthenticatedException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/NovelWorld.Authentication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/NovelWorld.Authentication.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/Exceptions/UnauthorizedException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/Exceptions/UnauthorizedException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Configurations/AppSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/AppSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Configurations/UrlConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/UrlConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/AdditionalClaims.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/AdditionalClaims.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/ErrorConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/ErrorConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Ensure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Ensure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Enums/EntityStateEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Enums/EntityStateEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/InnerException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/DomainException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Abstractions/ApiClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Entities/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/PagingResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/PagingResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Configurations/EntityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Configurations/EntityConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Contexts/EntityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Contexts/EntityContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/EntityStateEnumExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/EntityStateEnumExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/ExpresionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/ExpresionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/QueryableExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/QueryableExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IEventSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IEventSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/QueryableExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/QueryableExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/NovelWorld.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/NovelWorld.Infrastructure.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +81,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/68/f3138179/TypeCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/08BEEF07-8B27-4C9B-9B70-7BF7F188D920/21/EntityFrameworkQueryableExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/08BEEF07-8B27-4C9B-9B70-7BF7F188D920/1F0/EntityEntry.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/08BEEF07-8B27-4C9B-9B70-7BF7F188D920/A/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
@@ -55,48 +89,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/LookupResponse.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/EntityResponse.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/NovelWorld.API.csproj" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Results/Result.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/PagingResponse.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Controllers/ApiController.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Enums/EntityStateEnum.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Entities/Entity.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/EntityStateEnumExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/Abstractions/IUserContext.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Program.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Program.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.NHibernate/Class1.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Entities/Auth/User.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/Implements/HttpUserContext.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/NovelWorld.Authentication.csproj" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/HttpException.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/Errors.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/ErrorConstants.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Exceptions/UnauthorizedException.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/Exceptions/UnauthenticatedException.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Exceptions/UnauthenticatedException.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authorization/Exceptions/UnauthorizedException.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/AdditionalClaims.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/iRepository.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/IRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Configurations/EntityConfiguration.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/UoW/IUnitOfWork.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/UoW/UnitOfWork.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IEventSource.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/DbChangedEvent.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Contexts/EntityContext.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/IReadonlyRepository.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/ExpresionExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Ensure.cs" />
         <option value="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/TestEntity.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/QueryableExtension.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Exceptions/IncludeTooDeepException.cs" />
         <option value="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/IQueryableTest.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/QueryableExtension.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/ReadonlyRepository.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/IWriteonlyRepository.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/WriteonlyRepository.cs" />
@@ -106,6 +112,34 @@
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IUserContext.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpUserContext.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IAuthContext.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Configurations/EntityConfiguration.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/IEventSource.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Responses/PagingResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Extensions/QueryableExtension.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Exceptions/DomainException.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Abstractions/ApiClient.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Ensure.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ExpresionExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/ExpresionExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Requests/PagingRequest.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Constants/DefaultValues.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ObjectExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/ListExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ReplacExpressionVisitor.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/RequestExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/ExpressionHelper.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/IOrderedQueryableExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Extensions/QueryableExtension.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/AppSettings.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/UrlConfig.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/AdditionalClaims.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/DefaultValues.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/ErrorConstants.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Enums/EntityStateEnum.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/JsonExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/TypeExtensions.cs" />
       </list>
     </option>
   </component>
@@ -122,7 +156,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.NovelWorld.InternalGateway">
@@ -360,7 +394,9 @@
       <workItem from="1601814504321" duration="222000" />
       <workItem from="1601814785259" duration="195000" />
       <workItem from="1601815080272" duration="8182000" />
-      <workItem from="1602073839726" duration="6966000" />
+      <workItem from="1602073839726" duration="7329000" />
+      <workItem from="1603013668814" duration="2137000" />
+      <workItem from="1603016118440" duration="7629000" />
     </task>
     <task id="LOCAL-00001" summary="Update structure">
       <created>1601559357949</created>
@@ -404,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602080795976</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Refactor UserContext =&gt; AuthContext">
+      <created>1602083155456</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1602083155456</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,117 +488,122 @@
     <MESSAGE value="Update infra" />
     <MESSAGE value="Update infra EF" />
     <MESSAGE value="Update UserContext: add IP" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update UserContext: add IP" />
+    <MESSAGE value="Refactor UserContext =&gt; AuthContext" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor UserContext =&gt; AuthContext" />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="274" key="FileChooserDialogImpl" timestamp="1601822593010">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="744" y="274" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1601822593010" />
-    <state width="1874" height="366" key="GridCell.Tab.0.bottom" timestamp="1602079014463">
+    <state width="1874" height="297" key="GridCell.Tab.0.bottom" timestamp="1602083253641">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014463" />
-    <state width="1874" height="366" key="GridCell.Tab.0.center" timestamp="1602079014462">
+    <state width="1874" height="297" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253641" />
+    <state width="1874" height="297" key="GridCell.Tab.0.center" timestamp="1602083253640">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014462" />
-    <state width="1874" height="366" key="GridCell.Tab.0.left" timestamp="1602079014462">
+    <state width="1874" height="297" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253640" />
+    <state width="1874" height="297" key="GridCell.Tab.0.left" timestamp="1602083253640">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014462" />
-    <state width="1874" height="366" key="GridCell.Tab.0.right" timestamp="1602079014463">
+    <state width="1874" height="297" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253640" />
+    <state width="1874" height="297" key="GridCell.Tab.0.right" timestamp="1602083253641">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014463" />
-    <state width="1874" height="366" key="GridCell.Tab.1.bottom" timestamp="1602079014465">
+    <state width="1874" height="297" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253641" />
+    <state width="1874" height="366" key="GridCell.Tab.1.bottom" timestamp="1602083253627">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014465" />
-    <state width="1874" height="366" key="GridCell.Tab.1.center" timestamp="1602079014464">
+    <state width="1874" height="366" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253627" />
+    <state width="1874" height="366" key="GridCell.Tab.1.center" timestamp="1602083253626">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014464" />
-    <state width="1874" height="366" key="GridCell.Tab.1.left" timestamp="1602079014464">
+    <state width="1874" height="366" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253626" />
+    <state width="1874" height="366" key="GridCell.Tab.1.left" timestamp="1602083253626">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014464" />
-    <state width="1874" height="366" key="GridCell.Tab.1.right" timestamp="1602079014464">
+    <state width="1874" height="366" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253626" />
+    <state width="1874" height="366" key="GridCell.Tab.1.right" timestamp="1602083253627">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014464" />
-    <state width="1874" height="366" key="GridCell.Tab.2.bottom" timestamp="1602079014466">
+    <state width="1874" height="366" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253627" />
+    <state width="1874" height="366" key="GridCell.Tab.2.bottom" timestamp="1602083253630">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.2.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014466" />
-    <state width="1874" height="366" key="GridCell.Tab.2.center" timestamp="1602079014466">
+    <state width="1874" height="366" key="GridCell.Tab.2.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253630" />
+    <state width="1874" height="366" key="GridCell.Tab.2.center" timestamp="1602083253628">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.2.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014466" />
-    <state width="1874" height="366" key="GridCell.Tab.2.left" timestamp="1602079014465">
+    <state width="1874" height="366" key="GridCell.Tab.2.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253628" />
+    <state width="1874" height="366" key="GridCell.Tab.2.left" timestamp="1602083253628">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.2.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014465" />
-    <state width="1874" height="366" key="GridCell.Tab.2.right" timestamp="1602079014466">
+    <state width="1874" height="366" key="GridCell.Tab.2.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253628" />
+    <state width="1874" height="366" key="GridCell.Tab.2.right" timestamp="1602083253629">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.2.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014466" />
-    <state width="1874" height="366" key="GridCell.Tab.3.bottom" timestamp="1602079014467">
+    <state width="1874" height="366" key="GridCell.Tab.2.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253629" />
+    <state width="1874" height="366" key="GridCell.Tab.3.bottom" timestamp="1602083253632">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.3.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014467" />
-    <state width="1874" height="366" key="GridCell.Tab.3.center" timestamp="1602079014467">
+    <state width="1874" height="366" key="GridCell.Tab.3.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253632" />
+    <state width="1874" height="366" key="GridCell.Tab.3.center" timestamp="1602083253631">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.3.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014467" />
-    <state width="1874" height="366" key="GridCell.Tab.3.left" timestamp="1602079014466">
+    <state width="1874" height="366" key="GridCell.Tab.3.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253631" />
+    <state width="1874" height="366" key="GridCell.Tab.3.left" timestamp="1602083253630">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.3.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014466" />
-    <state width="1874" height="366" key="GridCell.Tab.3.right" timestamp="1602079014467">
+    <state width="1874" height="366" key="GridCell.Tab.3.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253630" />
+    <state width="1874" height="366" key="GridCell.Tab.3.right" timestamp="1602083253631">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.3.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014467" />
-    <state width="1874" height="366" key="GridCell.Tab.4.bottom" timestamp="1602079014468">
+    <state width="1874" height="366" key="GridCell.Tab.3.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253631" />
+    <state width="1874" height="366" key="GridCell.Tab.4.bottom" timestamp="1602083253634">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.4.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014468" />
-    <state width="1874" height="366" key="GridCell.Tab.4.center" timestamp="1602079014467">
+    <state width="1874" height="366" key="GridCell.Tab.4.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253634" />
+    <state width="1874" height="366" key="GridCell.Tab.4.center" timestamp="1602083253633">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.4.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014467" />
-    <state width="1874" height="366" key="GridCell.Tab.4.left" timestamp="1602079014467">
+    <state width="1874" height="366" key="GridCell.Tab.4.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253633" />
+    <state width="1874" height="366" key="GridCell.Tab.4.left" timestamp="1602083253632">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.4.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014467" />
-    <state width="1874" height="366" key="GridCell.Tab.4.right" timestamp="1602079014467">
+    <state width="1874" height="366" key="GridCell.Tab.4.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253632" />
+    <state width="1874" height="366" key="GridCell.Tab.4.right" timestamp="1602083253634">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="366" key="GridCell.Tab.4.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602079014467" />
+    <state width="1874" height="366" key="GridCell.Tab.4.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602083253634" />
     <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size" timestamp="1601822620313">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1080@0.0.1920.1080" timestamp="1601822620313" />
-    <state x="577" y="200" key="RiderGenerateDialog" timestamp="1602079644177">
+    <state x="577" y="200" key="RiderGenerateDialog" timestamp="1603026444883">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="577" y="200" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602079644177" />
-    <state x="393" y="234" width="1007" height="747" key="SettingsEditor" timestamp="1601814976099">
+    <state x="577" y="200" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603026444883" />
+    <state x="393" y="234" width="1007" height="747" key="SettingsEditor" timestamp="1603027926738">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="393" y="234" width="1007" height="747" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1601814976099" />
+    <state x="393" y="234" width="1007" height="747" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1603027926738" />
     <state x="100" y="100" width="1720" height="880" key="VCS.FileHistoryDialog" timestamp="1601815744371">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601815744371" />
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1602080838985">
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1602083169233">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1602080838985" />
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1602083169233" />
     <state x="764" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602080834394">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="764" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1602080834394" />
+    <state x="624" y="254" key="run.anything.popup" timestamp="1603016671518">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="624" y="254" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603016671518" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1601817267696">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
