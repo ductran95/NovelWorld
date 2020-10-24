@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json.Linq;
 
 namespace NovelWorld.Common.Extensions
 {
@@ -7,6 +8,56 @@ namespace NovelWorld.Common.Extensions
         public static string GetGenericTypeName(this object source)
         {
             return source.GetType().GetGenericTypeName();
+        }
+
+        public static T GetPropertyValue<T>(this object source, string propName)
+        {
+            if (source == null)
+            {
+                return default(T);
+            }
+
+            if(source is JObject jObject)
+            {
+                var jToken = jObject[propName];
+                return jToken.ToObject<T>();
+            }
+
+            var prop = source.GetType().GetProperty(propName);
+            var field = source.GetType().GetField(propName);
+
+            if (prop == null && field == null)
+            {
+                return default(T);
+            }
+
+            var value = prop?.GetValue(source) ?? field?.GetValue(source);
+
+            return value != null ? (T) value : default(T);
+        }
+        
+        public static object GetPropertyValue(this object source, string propName)
+        {
+            if (source == null)
+            {
+                return null;
+            }
+
+            if(source is JObject jObject)
+            {
+                var jToken = jObject[propName];
+                return jToken?.ToString();
+            }
+
+            var prop = source.GetType().GetProperty(propName);
+            var field = source.GetType().GetField(propName);
+
+            if (prop == null && field == null)
+            {
+                return null;
+            }
+
+            return prop?.GetValue(source) ?? field?.GetValue(source);
         }
         
         public static object ChangeType(this object @object, Type type)

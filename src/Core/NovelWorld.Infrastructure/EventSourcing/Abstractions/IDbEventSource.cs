@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NovelWorld.Infrastructure.EventSourcing
+namespace NovelWorld.Infrastructure.EventSourcing.Abstractions
 {
     public interface IDbEventSource
     {

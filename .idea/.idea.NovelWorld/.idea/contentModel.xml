@@ -81,7 +81,10 @@
         <e p="Formatters" t="Include">
           <e p="TextPlainInputFormatter.cs" t="Include" />
         </e>
-        <e p="Mappings" t="Include" />
+        <e p="Mappings" t="Include">
+          <e p="APIModelMapping.cs" t="Include" />
+          <e p="APIServiceMapping.cs" t="Include" />
+        </e>
         <e p="NovelWorld.API.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Results" t="Include">
@@ -138,10 +141,12 @@
         <e p="Ensure.cs" t="Include" />
         <e p="Error.cs" t="Include" />
         <e p="Exceptions" t="Include">
+          <e p="ApiClientException.cs" t="Include" />
           <e p="DomainException.cs" t="Include" />
           <e p="HttpException.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
+          <e p="EnumExtension.cs" t="Include" />
           <e p="ExpresionExtensions.cs" t="Include" />
           <e p="IEnumerableExtension.cs" t="Include" />
           <e p="IOrderedQueryableExtensions.cs" t="Include" />
@@ -149,6 +154,7 @@
           <e p="ListExtensions.cs" t="Include" />
           <e p="MethodInfoExtension.cs" t="Include" />
           <e p="ObjectExtensions.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
           <e p="TypeExtensions.cs" t="Include" />
         </e>
         <e p="Helpers" t="Include">
@@ -156,11 +162,13 @@
             <e p="ApiClient.cs" t="Include" />
           </e>
           <e p="ExpressionHelper.cs" t="Include" />
-          <e p="Implements" t="Include" />
+          <e p="Implements" t="Include">
+            <e p="ApiClient.cs" t="Include" />
+          </e>
           <e p="ReplaceExpressionVisitor.cs" t="Include" />
-          <e p="ServiceProviderHelper.cs" t="Include" />
         </e>
         <e p="NovelWorld.Common.csproj" t="IncludeRecursive" />
+        <e p="WriteOnce.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -173,12 +181,19 @@
       <e p="src/Core/NovelWorld.Data" t="IncludeRecursive">
         <e p="Configurations" t="Include">
           <e p="AppSettings.cs" t="Include" />
+          <e p="AttachmentConfig.cs" t="Include" />
+          <e p="EventBusConfig.cs" t="Include" />
+          <e p="OAuth2Config.cs" t="Include" />
           <e p="UrlConfig.cs" t="Include" />
         </e>
         <e p="Constants" t="Include">
           <e p="AdditionalClaims.cs" t="Include" />
+          <e p="AttachmentConstants.cs" t="Include" />
           <e p="DefaultValues.cs" t="Include" />
           <e p="ErrorConstants.cs" t="Include" />
+          <e p="EventBusConstants.cs" t="Include" />
+          <e p="EventConstants.cs" t="Include" />
+          <e p="ValidationRules.cs" t="Include" />
         </e>
         <e p="DTO" t="Include">
           <e p="Auth" t="Include">
@@ -193,6 +208,7 @@
         </e>
         <e p="Enums" t="Include">
           <e p="EntityStateEnum.cs" t="Include" />
+          <e p="EnvironmentEnum.cs" t="Include" />
         </e>
         <e p="NovelWorld.Data.csproj" t="IncludeRecursive" />
         <e p="Requests" t="Include">
@@ -239,7 +255,6 @@
           <e p="RequestHandlerDelegateExtension.cs" t="Include" />
         </e>
         <e p="Mappings" t="Include">
-          <e p="BaseMediatorMapping.cs" t="Include" />
           <e p="BaseModelMapping.cs" t="Include" />
           <e p="BaseServiceMapping.cs" t="Include" />
         </e>
@@ -271,8 +286,13 @@
         <e p="Configurations" t="Include" />
         <e p="Contexts" t="Include" />
         <e p="EventSourcing" t="Include">
+          <e p="Abstractions" t="Include">
+            <e p="IDbEventSource.cs" t="Include" />
+          </e>
           <e p="DbChangedEvent.cs" t="Include" />
-          <e p="IDbEventSource.cs" t="Include" />
+          <e p="Implements" t="Include">
+            <e p="DbEventSource.cs" t="Include" />
+          </e>
         </e>
         <e p="Exceptions" t="Include">
           <e p="IncludeTooDeepException.cs" t="Include" />
@@ -384,8 +404,22 @@
         </e>
       </e>
       <e p="src/EventBus/NovelWorld.EventBus" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="EventHandlers" t="Include">
+          <e p="DynamicIntegrationEventHandler.cs" t="Include" />
+          <e p="IntegrationEventHandler.cs" t="Include" />
+        </e>
+        <e p="Events" t="Include">
+          <e p="IntegrationEvent.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="ServiceCollectionExtensions.cs" t="Include" />
+        </e>
+        <e p="IEventBus.cs" t="Include" />
+        <e p="IEventBusSubscriptionsManager.cs" t="Include" />
+        <e p="InMemoryEventBusSubscriptionsManager.cs" t="Include" />
         <e p="NovelWorld.EventBus.csproj" t="IncludeRecursive" />
+        <e p="NullEventBus.cs" t="Include" />
+        <e p="SubscriptionInfo.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -396,7 +430,9 @@
         </e>
       </e>
       <e p="src/EventBus/NovelWorld.EventBus.AzureServiceBus" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="DefaultServiceBusPersistentConnection.cs" t="Include" />
+        <e p="EventBusServiceBus.cs" t="Include" />
+        <e p="IServiceBusPersistentConnection.cs" t="Include" />
         <e p="NovelWorld.EventBus.AzureServiceBus.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -408,7 +444,9 @@
         </e>
       </e>
       <e p="src/EventBus/NovelWorld.EventBus.RabbitMQ" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="DefaultRabbitMQPersistentConnection.cs" t="Include" />
+        <e p="EventBusRabbitMQ.cs" t="Include" />
+        <e p="IRabbitMQPersistentConnection.cs" t="Include" />
         <e p="NovelWorld.EventBus.RabbitMQ.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">

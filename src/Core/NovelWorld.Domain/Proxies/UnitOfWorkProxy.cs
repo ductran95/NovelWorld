@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NovelWorld.Domain.Extensions;
 using NovelWorld.Infrastructure.EventSourcing;
+using NovelWorld.Infrastructure.EventSourcing.Abstractions;
 using NovelWorld.Infrastructure.UoW;
 
 namespace NovelWorld.Domain.Proxies

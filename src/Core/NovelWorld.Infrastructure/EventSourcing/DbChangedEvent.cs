@@ -1,6 +1,8 @@
+using NovelWorld.EventBus.Events;
+
 namespace NovelWorld.Infrastructure.EventSourcing
 {
-    public class DbChangedEvent
+    public class DbChangedEvent: IntegrationEvent
     {
         public string Name { get; set; }
         public string Action { get; set; }

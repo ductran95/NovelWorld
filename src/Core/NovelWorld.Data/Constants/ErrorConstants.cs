@@ -4,6 +4,7 @@ namespace NovelWorld.Data.Constants
     {
         public const string InternalServerError = "InternalServerError";
         public const string BadRequest = "BadRequest";
+        public const string ApiClientError = "ApiClientError";
     }
     
     public static class ErrorMessages
