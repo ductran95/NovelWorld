@@ -4,7 +4,7 @@ namespace NovelWorld.Data.Configurations
 {
     public class AppSettings
     {
-        public static EnvironmentEnum Environment { get; set; }
+        public EnvironmentEnum Environment { get; set; }
         public UrlConfig UrlConfig { get; set; }
         public AttachmentConfig AttachmentConfig { get; set; }
         public OAuth2Config OAuth2Config { get; set; }

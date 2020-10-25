@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using NovelWorld.Authentication.Contexts;
+using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Domain.Commands;
 using NovelWorld.Mediator;
 

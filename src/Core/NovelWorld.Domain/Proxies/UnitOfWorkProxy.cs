@@ -7,6 +7,7 @@ using NovelWorld.Domain.Extensions;
 using NovelWorld.Infrastructure.EventSourcing;
 using NovelWorld.Infrastructure.EventSourcing.Abstractions;
 using NovelWorld.Infrastructure.UoW;
+using NovelWorld.Infrastructure.UoW.Abstractions;
 
 namespace NovelWorld.Domain.Proxies
 {

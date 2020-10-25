@@ -1,0 +1,65 @@
+{
+  "IdentityServerConfig": {
+    "CertificatePassword": "ductran95",
+    "ApiScopes": [
+      {
+        "Name": "api",
+        "DisplayName": "NovelWorld API",
+        "Required": false
+      }
+    ],
+    "ApiResources": [
+      {
+        "Name": "novel_world",
+        "DisplayName": "NovelWorld API Audience",
+        "Required": false,
+        "Scopes": [ "api" ],
+        "ApiSecrets": [ { "Value": "1SGj3V3jJ0hBTuFz+hPTeLir1WBoCTt5zwqKYpa7iWM=" } ] // ehBqlsRMcHTgApXhNDUH
+      }
+    ],
+    "IdentityResources": [
+      {
+        "Name": "openid",
+        "DisplayName": "Your user identifier",
+        "UserClaims": [ "sub" ]
+      },
+      {
+        "Name": "profile",
+        "DisplayName": "Your profile data",
+        "UserClaims": [ "name", "email", "user_id", "user_name", "user_full_name", "user_email", "user_roles" ]
+      }
+    ],
+    "Clients": [
+      {
+        "ClientId": "angular_web",
+        "ClientName": "Angular SPA OpenId Client",
+        "ClientSecrets": [ { "Value": "1SGj3V3jJ0hBTuFz+hPTeLir1WBoCTt5zwqKYpa7iWM=" } ], // ehBqlsRMcHTgApXhNDUH
+        "AllowedGrantTypes": [ "implicit" ],
+        "AllowAccessTokensViaBrowser": true,
+        "RequireConsent": false,
+        "RedirectUris": [ "http://localhost:4200" ],
+        "PostLogoutRedirectUris": [ "http://localhost:4200" ],
+        "AllowedScopes": [ "openid", "profile", "api" ],
+        "AccessTokenLifetime": 3600,
+        "IdentityTokenLifetime": 3600
+      },
+      {
+        "ClientId": "novel_world_api_swagger",
+        "ClientName": "NovelWorld API Swagger UI Client",
+        "AllowedGrantTypes": [ "implicit" ],
+        "AllowAccessTokensViaBrowser": true,
+        "RequireConsent": false,
+        "RedirectUris": [
+          "http://localhost:8001/swagger/oauth2-redirect.html"
+        ],
+        "PostLogoutRedirectUris": [
+          "http://localhost:8001/swagger/"
+        ],
+        "AllowedScopes": [ "openid", "profile", "api" ]
+      }
+    ],
+    "OpenIdProviders": [
+      
+    ]
+  }
+}

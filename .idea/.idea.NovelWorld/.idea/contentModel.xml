@@ -3,6 +3,7 @@
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_NovelWorld.262357748.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
     <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.7.1/build/netcoreapp2.1" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
@@ -66,12 +67,16 @@
       <e p="src/Core/NovelWorld.API" t="IncludeRecursive">
         <e p="Attributes" t="Include">
           <e p="AuthorizeAttribute.cs" t="Include" />
+          <e p="SecurityHeadersAttribute.cs" t="Include" />
         </e>
         <e p="Contexts" t="Include">
           <e p="HttpAuthContext.cs" t="Include" />
         </e>
         <e p="Controllers" t="Include">
           <e p="ApiController.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="SameSiteCookiesServiceCollectionExtensions.cs" t="Include" />
         </e>
         <e p="Filters" t="Include">
           <e p="HttpResponseExceptionFilter.cs" t="Include" />
@@ -103,7 +108,9 @@
       </e>
       <e p="src/Core/NovelWorld.Authentication" t="IncludeRecursive">
         <e p="Contexts" t="Include">
-          <e p="IAuthContext.cs" t="Include" />
+          <e p="Implements" t="Include">
+            <e p="IAuthContext.cs" t="Include" />
+          </e>
         </e>
         <e p="Exceptions" t="Include">
           <e p="UnauthenticatedException.cs" t="Include" />
@@ -304,12 +311,16 @@
         </e>
         <e p="NovelWorld.Infrastructure.csproj" t="IncludeRecursive" />
         <e p="Repositories" t="Include">
-          <e p="IReadonlyRepository.cs" t="Include" />
-          <e p="IRepository.cs" t="Include" />
-          <e p="IWriteonlyRepository.cs" t="Include" />
+          <e p="Abstractions" t="Include">
+            <e p="IReadonlyRepository.cs" t="Include" />
+            <e p="IRepository.cs" t="Include" />
+            <e p="IWriteonlyRepository.cs" t="Include" />
+          </e>
         </e>
         <e p="UoW" t="Include">
-          <e p="IUnitOfWork.cs" t="Include" />
+          <e p="Abstractions" t="Include">
+            <e p="IUnitOfWork.cs" t="Include" />
+          </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -350,12 +361,16 @@
         </e>
         <e p="NovelWorld.Infrastructure.EntityFramework.csproj" t="IncludeRecursive" />
         <e p="Repositories" t="Include">
-          <e p="ReadonlyRepository.cs" t="Include" />
-          <e p="Repository.cs" t="Include" />
-          <e p="WriteonlyRepository.cs" t="Include" />
+          <e p="Implements" t="Include">
+            <e p="ReadonlyRepository.cs" t="Include" />
+            <e p="Repository.cs" t="Include" />
+            <e p="WriteonlyRepository.cs" t="Include" />
+          </e>
         </e>
         <e p="UoW" t="Include">
-          <e p="UnitOfWork.cs" t="Include" />
+          <e p="Implements" t="Include">
+            <e p="UnitOfWork.cs" t="Include" />
+          </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -458,27 +473,95 @@
         </e>
       </e>
       <e p="src/Services/Identity/NovelWorld.Identity.API" t="IncludeRecursive">
+        <e p="Attributes" t="Include" />
+        <e p="Contexts" t="Include" />
         <e p="Controllers" t="Include">
+          <e p="AccountController.cs" t="Include" />
+          <e p="ConsentController.cs" t="Include" />
+          <e p="DeviceController.cs" t="Include" />
+          <e p="DiagnosticsController.cs" t="Include" />
+          <e p="ExternalController.cs" t="Include" />
+          <e p="GrantsController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
         </e>
+        <e p="Extensions" t="Include">
+          <e p="Extensions.cs" t="Include" />
+        </e>
+        <e p="Filters" t="Include" />
+        <e p="Formatters" t="Include" />
+        <e p="Mappings" t="Include">
+          <e p="IdentityServiceMapping.cs" t="Include" />
+        </e>
         <e p="Models" t="Include">
-          <e p="ErrorViewModel.cs" t="Include" />
+          <e p="Account" t="Include">
+            <e p="AccountOptions.cs" t="Include" />
+            <e p="ExternalProvider.cs" t="Include" />
+            <e p="LoggedOutViewModel.cs" t="Include" />
+            <e p="LoginInputModel.cs" t="Include" />
+            <e p="LoginViewModel.cs" t="Include" />
+            <e p="LogoutInputModel.cs" t="Include" />
+            <e p="LogoutViewModel.cs" t="Include" />
+            <e p="RedirectViewModel.cs" t="Include" />
+          </e>
+          <e p="Consent" t="Include">
+            <e p="ConsentInputModel.cs" t="Include" />
+            <e p="ConsentOptions.cs" t="Include" />
+            <e p="ConsentViewModel.cs" t="Include" />
+            <e p="ProcessConsentResult.cs" t="Include" />
+            <e p="ScopeViewModel.cs" t="Include" />
+          </e>
+          <e p="Device" t="Include">
+            <e p="DeviceAuthorizationInputModel.cs" t="Include" />
+            <e p="DeviceAuthorizationViewModel.cs" t="Include" />
+          </e>
+          <e p="Diagnostics" t="Include">
+            <e p="DiagnosticsViewModel.cs" t="Include" />
+          </e>
+          <e p="Grants" t="Include">
+            <e p="GrantsViewModel.cs" t="Include" />
+          </e>
+          <e p="Home" t="Include">
+            <e p="ErrorViewModel.cs" t="Include" />
+          </e>
         </e>
         <e p="NovelWorld.Identity.API.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="Results" t="Include" />
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
+          <e p="Account" t="Include">
+            <e p="AccessDenied.cshtml" t="Include" />
+            <e p="LoggedOut.cshtml" t="Include" />
+            <e p="Login.cshtml" t="Include" />
+            <e p="Logout.cshtml" t="Include" />
+          </e>
+          <e p="Consent" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Device" t="Include">
+            <e p="Success.cshtml" t="Include" />
+            <e p="UserCodeCapture.cshtml" t="Include" />
+            <e p="UserCodeConfirmation.cshtml" t="Include" />
+          </e>
+          <e p="Diagnostics" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Grants" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
-            <e p="Privacy.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="Error.cshtml" t="Include" />
+            <e p="Redirect.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
-            <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+            <e p="_Nav.cshtml" t="Include" />
+            <e p="_ScopeListItem.cshtml" t="Include" />
+            <e p="_ValidationSummary.cshtml" t="Include" />
           </e>
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
@@ -486,6 +569,7 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="identityserver.json" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -497,14 +581,19 @@
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
             <e p="site.css" t="Include" />
+            <e p="site.min.css" t="Include" />
+            <e p="site.scss" t="Include" />
           </e>
           <e p="favicon.ico" t="Include" />
+          <e p="icon.jpg" t="Include" />
+          <e p="icon.png" t="Include" />
           <e p="js" t="Include">
-            <e p="site.js" t="Include" />
+            <e p="signin-redirect.js" t="Include" />
+            <e p="signout-redirect.js" t="Include" />
           </e>
           <e p="lib" t="Include">
             <e p="bootstrap" t="Include">
-              <e p="LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
               <e p="dist" t="Include">
                 <e p="css" t="Include">
                   <e p="bootstrap-grid.css" t="Include" />
@@ -531,35 +620,131 @@
                   <e p="bootstrap.min.js.map" t="Include" />
                 </e>
               </e>
+              <e p="scss" t="Include">
+                <e p="_alert.scss" t="Include" />
+                <e p="_badge.scss" t="Include" />
+                <e p="_breadcrumb.scss" t="Include" />
+                <e p="_button-group.scss" t="Include" />
+                <e p="_buttons.scss" t="Include" />
+                <e p="_card.scss" t="Include" />
+                <e p="_carousel.scss" t="Include" />
+                <e p="_close.scss" t="Include" />
+                <e p="_code.scss" t="Include" />
+                <e p="_custom-forms.scss" t="Include" />
+                <e p="_dropdown.scss" t="Include" />
+                <e p="_forms.scss" t="Include" />
+                <e p="_functions.scss" t="Include" />
+                <e p="_grid.scss" t="Include" />
+                <e p="_images.scss" t="Include" />
+                <e p="_input-group.scss" t="Include" />
+                <e p="_jumbotron.scss" t="Include" />
+                <e p="_list-group.scss" t="Include" />
+                <e p="_media.scss" t="Include" />
+                <e p="_mixins.scss" t="Include" />
+                <e p="_modal.scss" t="Include" />
+                <e p="_nav.scss" t="Include" />
+                <e p="_navbar.scss" t="Include" />
+                <e p="_pagination.scss" t="Include" />
+                <e p="_popover.scss" t="Include" />
+                <e p="_print.scss" t="Include" />
+                <e p="_progress.scss" t="Include" />
+                <e p="_reboot.scss" t="Include" />
+                <e p="_root.scss" t="Include" />
+                <e p="_spinners.scss" t="Include" />
+                <e p="_tables.scss" t="Include" />
+                <e p="_toasts.scss" t="Include" />
+                <e p="_tooltip.scss" t="Include" />
+                <e p="_transitions.scss" t="Include" />
+                <e p="_type.scss" t="Include" />
+                <e p="_utilities.scss" t="Include" />
+                <e p="_variables.scss" t="Include" />
+                <e p="bootstrap-grid.scss" t="Include" />
+                <e p="bootstrap-reboot.scss" t="Include" />
+                <e p="bootstrap.scss" t="Include" />
+                <e p="mixins" t="Include">
+                  <e p="_alert.scss" t="Include" />
+                  <e p="_background-variant.scss" t="Include" />
+                  <e p="_badge.scss" t="Include" />
+                  <e p="_border-radius.scss" t="Include" />
+                  <e p="_box-shadow.scss" t="Include" />
+                  <e p="_breakpoints.scss" t="Include" />
+                  <e p="_buttons.scss" t="Include" />
+                  <e p="_caret.scss" t="Include" />
+                  <e p="_clearfix.scss" t="Include" />
+                  <e p="_deprecate.scss" t="Include" />
+                  <e p="_float.scss" t="Include" />
+                  <e p="_forms.scss" t="Include" />
+                  <e p="_gradients.scss" t="Include" />
+                  <e p="_grid-framework.scss" t="Include" />
+                  <e p="_grid.scss" t="Include" />
+                  <e p="_hover.scss" t="Include" />
+                  <e p="_image.scss" t="Include" />
+                  <e p="_list-group.scss" t="Include" />
+                  <e p="_lists.scss" t="Include" />
+                  <e p="_nav-divider.scss" t="Include" />
+                  <e p="_pagination.scss" t="Include" />
+                  <e p="_reset-text.scss" t="Include" />
+                  <e p="_resize.scss" t="Include" />
+                  <e p="_screen-reader.scss" t="Include" />
+                  <e p="_size.scss" t="Include" />
+                  <e p="_table-row.scss" t="Include" />
+                  <e p="_text-emphasis.scss" t="Include" />
+                  <e p="_text-hide.scss" t="Include" />
+                  <e p="_text-truncate.scss" t="Include" />
+                  <e p="_transition.scss" t="Include" />
+                  <e p="_visibility.scss" t="Include" />
+                </e>
+                <e p="utilities" t="Include">
+                  <e p="_align.scss" t="Include" />
+                  <e p="_background.scss" t="Include" />
+                  <e p="_borders.scss" t="Include" />
+                  <e p="_clearfix.scss" t="Include" />
+                  <e p="_display.scss" t="Include" />
+                  <e p="_embed.scss" t="Include" />
+                  <e p="_flex.scss" t="Include" />
+                  <e p="_float.scss" t="Include" />
+                  <e p="_overflow.scss" t="Include" />
+                  <e p="_position.scss" t="Include" />
+                  <e p="_screenreaders.scss" t="Include" />
+                  <e p="_shadows.scss" t="Include" />
+                  <e p="_sizing.scss" t="Include" />
+                  <e p="_spacing.scss" t="Include" />
+                  <e p="_stretched-link.scss" t="Include" />
+                  <e p="_text.scss" t="Include" />
+                  <e p="_visibility.scss" t="Include" />
+                </e>
+                <e p="vendor" t="Include">
+                  <e p="_rfs.scss" t="Include" />
+                </e>
+              </e>
             </e>
             <e p="jquery" t="Include">
               <e p="LICENSE.txt" t="Include" />
+              <e p="README.md" t="Include" />
               <e p="dist" t="Include">
                 <e p="jquery.js" t="Include" />
                 <e p="jquery.min.js" t="Include" />
                 <e p="jquery.min.map" t="Include" />
+                <e p="jquery.slim.js" t="Include" />
+                <e p="jquery.slim.min.js" t="Include" />
+                <e p="jquery.slim.min.map" t="Include" />
               </e>
-            </e>
-            <e p="jquery-validation" t="Include">
-              <e p="LICENSE.md" t="Include" />
-              <e p="dist" t="Include">
-                <e p="additional-methods.js" t="Include" />
-                <e p="additional-methods.min.js" t="Include" />
-                <e p="jquery.validate.js" t="Include" />
-                <e p="jquery.validate.min.js" t="Include" />
-              </e>
-            </e>
-            <e p="jquery-validation-unobtrusive" t="Include">
-              <e p="LICENSE.txt" t="Include" />
-              <e p="jquery.validate.unobtrusive.js" t="Include" />
-              <e p="jquery.validate.unobtrusive.min.js" t="Include" />
             </e>
           </e>
         </e>
       </e>
       <e p="src/Services/Identity/NovelWorld.Identity.Data" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Configurations" t="Include">
+          <e p="AppSettings.cs" t="Include" />
+          <e p="IdentityServerConfig.cs" t="Include" />
+        </e>
+        <e p="Constants" t="Include" />
+        <e p="DTO" t="Include" />
+        <e p="Entities" t="Include" />
+        <e p="Enums" t="Include" />
         <e p="NovelWorld.Identity.Data.csproj" t="IncludeRecursive" />
+        <e p="Requests" t="Include" />
+        <e p="Responses" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -570,8 +755,23 @@
         </e>
       </e>
       <e p="src/Services/Identity/NovelWorld.Identity.Domain" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Attributes" t="Include" />
+        <e p="CommandHandlers" t="Include" />
+        <e p="Commands" t="Include" />
+        <e p="EventHandlers" t="Include" />
+        <e p="Events" t="Include" />
+        <e p="Exceptions" t="Include" />
+        <e p="Extensions" t="Include" />
+        <e p="Mappings" t="Include">
+          <e p="IdentityModelMapping.cs" t="Include" />
+          <e p="IdentityServiceMapping.cs" t="Include" />
+        </e>
         <e p="NovelWorld.Identity.Domain.csproj" t="IncludeRecursive" />
+        <e p="Proxies" t="Include" />
+        <e p="Queries" t="Include">
+          <e p="Abstractions" t="Include" />
+          <e p="Implements" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -582,8 +782,13 @@
         </e>
       </e>
       <e p="src/Services/Identity/NovelWorld.Identity.Infrastructure" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Configurations" t="Include" />
+        <e p="Contexts" t="Include" />
+        <e p="Exceptions" t="Include" />
+        <e p="Extensions" t="Include" />
         <e p="NovelWorld.Identity.Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="Repositories" t="Include" />
+        <e p="UoW" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
