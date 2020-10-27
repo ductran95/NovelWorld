@@ -12,18 +12,7 @@ namespace NovelWorld.Common.Helpers.Implements
 {
     public class ApiClient : IApiClient
     {
-        //private  readonly IRestClient _client = new RestClient().UseSystemTextJson(new JsonSerializerOptions 
-        //{ 
-        //    //PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        //    PropertyNameCaseInsensitive = true
-        //});
-
         private readonly IRestClient _client;
-        //     = new RestClient().UseNewtonsoftJson(new JsonSerializerSettings
-        // {
-        //     ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-        // });
-
         private readonly ILogger<ApiClient> _logger;
 
         public ApiClient(ILogger<ApiClient> logger, IRestClient client)
@@ -99,13 +88,15 @@ namespace NovelWorld.Common.Helpers.Implements
         {
             var request = GetRestRequest(url, method, headers, queries, body, dataFormat);
 
-            _logger.LogTrace("Executing {Method} {url}", method, url);
+            _logger.LogDebug("Executing {Method} {url}", method, url);
             Stopwatch watch = Stopwatch.StartNew();
             var response = _client.Execute<T>(request);
             watch.Stop();
-            _logger.LogTrace("Executed {Method} {url} cost {time} ms", method, url, watch.ElapsedMilliseconds);
-            _logger.LogInformation("Execute {Method} {url} return {Code}; Content: {Content}", method, url,
-                response.StatusCode, response.Content);
+            _logger.LogDebug("Executed {Method} {url} cost {time} ms", method, url, watch.ElapsedMilliseconds);
+            _logger.LogInformation("Executed {Method} {url} return {Code}", method, url,
+                response.StatusCode);
+            _logger.LogDebug("Executed {Method} {url} return Content: {Content}", method, url,
+                response.Content);
 
             if (response.ResponseStatus == ResponseStatus.Completed && (response.StatusCode == HttpStatusCode.OK ||
                                                                         response.StatusCode ==
@@ -123,13 +114,15 @@ namespace NovelWorld.Common.Helpers.Implements
         {
             var request = GetRestRequest(url, method, headers, queries, body, dataFormat);
 
-            _logger.LogTrace("Executing {Method} {url}", method, url);
+            _logger.LogDebug("Executing {Method} {url}", method, url);
             Stopwatch watch = Stopwatch.StartNew();
             var response = await _client.ExecuteAsync<T>(request);
             watch.Stop();
-            _logger.LogTrace("Execute {Method} {url} cost {time} ms", method, url, watch.ElapsedMilliseconds);
-            _logger.LogInformation("Execute {Method} {url} return {Code}; Content: {Content}", method, url,
-                response.StatusCode, response.Content);
+            _logger.LogDebug("Executed {Method} {url} cost {time} ms", method, url, watch.ElapsedMilliseconds);
+            _logger.LogInformation("Executed {Method} {url} return {Code}", method, url,
+                response.StatusCode);
+            _logger.LogDebug("Executed {Method} {url} return Content: {Content}", method, url,
+                response.Content);
 
             if (response.ResponseStatus == ResponseStatus.Completed && (response.StatusCode == HttpStatusCode.OK ||
                                                                         response.StatusCode ==

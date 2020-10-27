@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
+using NovelWorld.EventBus;
 
 namespace NovelWorld.Identity.Domain.Mappings
 {
@@ -9,6 +11,14 @@ namespace NovelWorld.Identity.Domain.Mappings
         {
 
             return services;
+        }
+        
+        public static IServiceProvider SubscribeIntegrationEvents(this IServiceProvider serviceProvider)
+        {
+            var eventBus = serviceProvider.GetRequiredService<IEventBus>();
+
+
+            return serviceProvider;
         }
     }
 }

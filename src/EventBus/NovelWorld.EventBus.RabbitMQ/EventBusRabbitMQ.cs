@@ -84,12 +84,12 @@ namespace NovelWorld.EventBus.RabbitMQ
 
             var eventName = @event.GetType().Name;
 
-            _logger.LogTrace("Creating RabbitMQ channel to publish event: {EventId} ({EventName})", @event.Id, eventName);
+            _logger.LogDebug("Creating RabbitMQ channel to publish event: {EventId} ({EventName})", @event.Id, eventName);
 
             using (var channel = _persistentConnection.CreateModel())
             {
 
-                _logger.LogTrace("Declaring RabbitMQ exchange to publish event: {EventId}", @event.Id);
+                _logger.LogDebug("Declaring RabbitMQ exchange to publish event: {EventId}", @event.Id);
 
                 channel.ExchangeDeclare(exchange: BrokerName, type: "direct");
 
@@ -102,7 +102,7 @@ namespace NovelWorld.EventBus.RabbitMQ
                     var properties = channel.CreateBasicProperties();
                     properties.DeliveryMode = 2; // persistent
 
-                    _logger.LogTrace("Publishing event to RabbitMQ: {EventId}", @event.Id);
+                    _logger.LogDebug("Publishing event to RabbitMQ: {EventId}", @event.Id);
 
                     // ReSharper disable once AccessToDisposedClosure
                     channel.BasicPublish(
@@ -186,7 +186,7 @@ namespace NovelWorld.EventBus.RabbitMQ
 
         private void StartBasicConsume()
         {
-            _logger.LogTrace("Starting RabbitMQ basic consume");
+            _logger.LogDebug("Starting RabbitMQ basic consume");
 
             if (_consumerChannel != null)
             {
@@ -237,7 +237,7 @@ namespace NovelWorld.EventBus.RabbitMQ
                 _persistentConnection.TryConnect();
             }
 
-            _logger.LogTrace("Creating RabbitMQ consumer channel");
+            _logger.LogDebug("Creating RabbitMQ consumer channel");
 
             var channel = _persistentConnection.CreateModel();
 

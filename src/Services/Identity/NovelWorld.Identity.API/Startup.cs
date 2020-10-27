@@ -19,6 +19,7 @@ using NovelWorld.Data.Requests;
 using NovelWorld.Domain.Commands;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
+using NovelWorld.Identity.API.Certificates;
 using NovelWorld.Identity.API.Mappings;
 using NovelWorld.Identity.Data.Configurations;
 using NovelWorld.Identity.Domain.Mappings;
@@ -122,8 +123,8 @@ namespace NovelWorld.Identity.API
                 .AddInMemoryApiResources(appSetting.IdentityServerConfig.ApiResources)
                 .AddInMemoryApiScopes(appSetting.IdentityServerConfig.ApiScopes)
                 .AddInMemoryClients(appSetting.IdentityServerConfig.Clients)
-                .AddDeveloperSigningCredential();
-                // .AddSigningCredential(Certificate.Get());
+                // .AddDeveloperSigningCredential();
+                .AddSigningCredential(Certificate.Get());
 
             // Add ADFS
             if (appSetting.IdentityServerConfig.OpenIdProviders != null && appSetting.IdentityServerConfig.OpenIdProviders.Any())
@@ -181,7 +182,7 @@ namespace NovelWorld.Identity.API
             });
             
             // Subscribe Integrate Event
-            // app.SubscribeIntegrationEvents();
+            app.ApplicationServices.SubscribeIntegrationEvents();
         }
     }
 }

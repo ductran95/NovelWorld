@@ -166,7 +166,7 @@
         </e>
         <e p="Helpers" t="Include">
           <e p="Abstractions" t="Include">
-            <e p="ApiClient.cs" t="Include" />
+            <e p="IApiClient.cs" t="Include" />
           </e>
           <e p="ExpressionHelper.cs" t="Include" />
           <e p="Implements" t="Include">
@@ -474,6 +474,10 @@
       </e>
       <e p="src/Services/Identity/NovelWorld.Identity.API" t="IncludeRecursive">
         <e p="Attributes" t="Include" />
+        <e p="Certificates" t="Include">
+          <e p="Certificate.cs" t="Include" />
+          <e p="idsrv3test.pfx" t="Include" />
+        </e>
         <e p="Contexts" t="Include" />
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />

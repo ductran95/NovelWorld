@@ -3,7 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using NovelWorld.Authentication.Contexts;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Mediator;
 using NovelWorld.Common.Extensions;
@@ -33,15 +32,17 @@ namespace NovelWorld.Domain.Proxies
 
             try
             {
-                _logger.LogInformation("----- Handling command {CommandName} from user {User} and IP {IP} with data ({@Command})", requestName, user, ip, request);
+                _logger.LogInformation("----- Handling command {CommandName} from user {User} and IP {IP}", requestName, user, ip);
+                _logger.LogDebug("----- Command data: {@Command}", request);
                 var response = await next();
-                _logger.LogInformation("----- Command {CommandName} handled - response: {@Response}", requestName, response);
+                _logger.LogInformation("----- Command {CommandName} handled", requestName);
+                _logger.LogDebug("----- Command response: {@Response}", response);
 
                 return response;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "ERROR Handling command {CommandName} ({@Command})", requestName, request);
+                _logger.LogError(ex, "ERROR Handling command {CommandName}", requestName);
                 throw;
             }
         }
@@ -69,13 +70,14 @@ namespace NovelWorld.Domain.Proxies
 
             try
             {
-                _logger.LogInformation("----- Handling event {CommandName} from user {User} and IP {IP} with data ({@Command})", requestName, user, ip, request);
+                _logger.LogInformation("----- Handling event {CommandName} from user {User} and IP {IP}", requestName, user, ip);
+                _logger.LogDebug("----- Event data: {@Command}", request);
                 await next();
                 _logger.LogInformation("----- Event {CommandName} handled", requestName);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "ERROR Handling event {CommandName} ({@Command})", requestName, request);
+                _logger.LogError(ex, "ERROR Handling event {CommandName}", requestName);
                 // Do not throw exception when handling event failed
             }
         }

@@ -33,232 +33,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5131cda8-faeb-4f91-92a0-2fe333bd346e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/SecurityHeadersAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Extensions/SameSiteCookiesServiceCollectionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Controllers/AccountController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Controllers/ConsentController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Controllers/DeviceController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Controllers/DiagnosticsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Controllers/ExternalController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Controllers/GrantsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Extensions/Extensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Mappings/IdentityServiceMapping.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/AccountOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/ExternalProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LoggedOutViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LoginInputModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LoginViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LogoutInputModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LogoutViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/RedirectViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentInputModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ProcessConsentResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ScopeViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Device/DeviceAuthorizationInputModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Device/DeviceAuthorizationViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Diagnostics/DiagnosticsViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Grants/GrantsViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Home/ErrorViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Account/AccessDenied.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Account/LoggedOut.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Account/Login.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Account/Logout.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Consent/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Device/Success.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Device/UserCodeCapture.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Device/UserCodeConfirmation.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Diagnostics/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Grants/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Shared/Redirect.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Shared/_Nav.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Shared/_ScopeListItem.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Shared/_ValidationSummary.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/identityserver.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/css/site.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/css/site.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/icon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/js/signin-redirect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/js/signout-redirect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_breadcrumb.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_button-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_card.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_carousel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_close.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_code.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_custom-forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_functions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_input-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_jumbotron.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_media.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_modal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_nav.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_popover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_print.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_progress.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_root.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_spinners.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_toasts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_tooltip.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_transitions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/bootstrap-grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/bootstrap-reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/bootstrap.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_background-variant.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_border-radius.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_box-shadow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_breakpoints.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_caret.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_deprecate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_float.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_gradients.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_grid-framework.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_hover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_image.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_lists.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_nav-divider.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_reset-text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_resize.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_size.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_table-row.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_text-emphasis.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_text-hide.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_text-truncate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_transition.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/mixins/_visibility.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_align.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_background.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_borders.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_display.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_embed.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_flex.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_float.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_overflow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_position.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_screenreaders.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_shadows.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_sizing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_spacing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_stretched-link.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/utilities/_visibility.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/scss/vendor/_rfs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/dist/jquery.slim.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/dist/jquery.slim.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/dist/jquery.slim.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/Configurations/AppSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/Configurations/IdentityServerConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityModelMapping.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityServiceMapping.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Certificates/Certificate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Certificates/idsrv3test.pfx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/Controllers/ApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Controllers/ApiController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/Mappings/APIServiceMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/Mappings/APIServiceMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/NovelWorld.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/NovelWorld.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/IAuthContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Authentication/Contexts/Implements/IAuthContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/AppSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/AppSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/UrlConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/Configurations/UrlConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Data/NovelWorld.Data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/CommandHandlers/CommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/CommandHandlers/CommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/EventHandlers/EventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/EventHandlers/EventHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Abstractions/ApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Abstractions/IApiClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Implements/ApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Implements/ApiClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/UnitOfWorkProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/UnitOfWorkProxy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Implements/Query.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Queries/Implements/Query.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Contexts/EntityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Contexts/EntityContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/ReadonlyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/Implements/ReadonlyRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/Implements/Repository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/WriteonlyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/Repositories/Implements/WriteonlyRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/UoW/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFramework/UoW/Implements/UnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/IReadonlyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/Abstractions/IReadonlyRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/Abstractions/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/IWriteonlyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/Abstractions/IWriteonlyRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/UoW/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/UoW/Abstractions/IUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/ErrorViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus/NullEventBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus/NullEventBus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/NovelWorld.Identity.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/NovelWorld.Identity.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Home/Privacy.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Shared/Error.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Shared/Error.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/_ViewImports.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/_ViewImports.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Views/_ViewStart.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/js/site.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/dist/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/dist/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/wwwroot/lib/jquery/dist/jquery.min.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/NovelWorld.Identity.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/NovelWorld.Identity.Data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/NovelWorld.Identity.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/NovelWorld.Identity.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Infrastructure/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Infrastructure/NovelWorld.Identity.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Infrastructure/NovelWorld.Identity.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityServiceMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityServiceMapping.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,38 +54,34 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ScopeViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Diagnostics/DiagnosticsViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90ABFEC4-EE68-4FC7-943F-7263B6303307/52/7188d104/RemoteAuthenticationOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Device/DeviceAuthorizationInputModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Device/DeviceAuthorizationViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3F6593CA-4718-44BB-BB07-C17AF8FD794A/77/79060792/SameSiteMode.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/AccountOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Device/DeviceAuthorizationInputModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/ExternalProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LoggedOutViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LoginInputModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1098121E-28B3-4C0B-B823-9F76CB0E2CF1/10/OpenIdConnectOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LoginViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LogoutInputModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/282FF1EC-8146-4D66-BA65-7FE61978E970/f6/9b55f1c8/EnvironmentVariablesExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3F6593CA-4718-44BB-BB07-C17AF8FD794A/77/79060792/SameSiteMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LogoutViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/RedirectViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentInputModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90ABFEC4-EE68-4FC7-943F-7263B6303307/8c/3dd202e2/AuthenticationSchemeOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LoginViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/AccountOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LoginInputModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LoggedOutViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1098121E-28B3-4C0B-B823-9F76CB0E2CF1/10/OpenIdConnectOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LogoutInputModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F85A46B0-E9F8-4732-8DC6-C900E9A965AB/32/6bc49288/IApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/282FF1EC-8146-4D66-BA65-7FE61978E970/f6/9b55f1c8/EnvironmentVariablesExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/AuthorizeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Diagnostics/DiagnosticsViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ProcessConsentResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ScopeViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentInputModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/AuthorizeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CCD939E9-607A-4223-885A-D6223A0D57B3/1d/f1358d02/IServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90ABFEC4-EE68-4FC7-943F-7263B6303307/8c/3dd202e2/AuthenticationSchemeOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90ABFEC4-EE68-4FC7-943F-7263B6303307/52/7188d104/RemoteAuthenticationOptions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LogoutInputModel.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/LogoutViewModel.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Account/RedirectViewModel.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentInputModel.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentOptions.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ConsentViewModel.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ProcessConsentResult.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Consent/ScopeViewModel.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Models/Device/DeviceAuthorizationInputModel.cs" />
@@ -342,10 +123,16 @@
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/appsettings.json" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Program.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Mappings/APIServiceMapping.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityServiceMapping.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Mappings/IdentityServiceMapping.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Startup.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/Configurations/IdentityServerConfig.cs" />
+        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityServiceMapping.cs" />
+        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Certificate/Certificate.cs" />
+        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Certificates/Certificate.cs" />
+        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/Startup.cs" />
+        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.API/NovelWorld.Identity.API.csproj" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Implements/ApiClient.cs" />
+        <option value="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus/NullEventBus.cs" />
       </list>
     </option>
   </component>
@@ -608,7 +395,9 @@
       <workItem from="1603550572821" duration="5431000" />
       <workItem from="1603593900933" duration="3038000" />
       <workItem from="1603613880770" duration="3571000" />
-      <workItem from="1603637696683" duration="3703000" />
+      <workItem from="1603637696683" duration="3811000" />
+      <workItem from="1603714114555" duration="2017000" />
+      <workItem from="1603803545419" duration="1408000" />
     </task>
     <task id="LOCAL-00001" summary="Update structure">
       <created>1601559357949</created>
@@ -680,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603556103936</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update Identity service">
+      <created>1603641490010</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1603641490010</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -725,7 +521,8 @@
     <MESSAGE value="Add Infra Extensions" />
     <MESSAGE value="Update Domain layer" />
     <MESSAGE value="Add event bus, update common files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add event bus, update common files" />
+    <MESSAGE value="Update Identity service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Identity service" />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="274" key="FileChooserDialogImpl" timestamp="1601822593010">
@@ -828,10 +625,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601815744371" />
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1603556105499">
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1603641491798">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603556105499" />
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603641491798" />
     <state x="764" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602080834394">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
