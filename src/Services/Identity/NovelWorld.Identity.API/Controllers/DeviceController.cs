@@ -152,6 +152,10 @@ namespace NovelWorld.Identity.API.Controllers
             {
                 return CreateConsentViewModel(userCode, model, request);
             }
+            else
+            {
+                _logger.LogError("No consent request matching request: {0}", userCode);
+            }
 
             return null;
         }

@@ -76,6 +76,7 @@
           <e p="ApiController.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
+          <e p="HttpContextExtensions.cs" t="Include" />
           <e p="SameSiteCookiesServiceCollectionExtensions.cs" t="Include" />
         </e>
         <e p="Filters" t="Include">
@@ -111,6 +112,9 @@
           <e p="Implements" t="Include">
             <e p="IAuthContext.cs" t="Include" />
           </e>
+        </e>
+        <e p="DTO" t="Include">
+          <e p="AuthenticatedUser.cs" t="Include" />
         </e>
         <e p="Exceptions" t="Include">
           <e p="UnauthenticatedException.cs" t="Include" />
@@ -153,6 +157,7 @@
           <e p="HttpException.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
+          <e p="AssemblyExtensions.cs" t="Include" />
           <e p="EnumExtension.cs" t="Include" />
           <e p="ExpresionExtensions.cs" t="Include" />
           <e p="IEnumerableExtension.cs" t="Include" />
@@ -161,16 +166,21 @@
           <e p="ListExtensions.cs" t="Include" />
           <e p="MethodInfoExtension.cs" t="Include" />
           <e p="ObjectExtensions.cs" t="Include" />
+          <e p="RestsharpExtensions.cs" t="Include" />
           <e p="StringExtensions.cs" t="Include" />
           <e p="TypeExtensions.cs" t="Include" />
         </e>
         <e p="Helpers" t="Include">
           <e p="Abstractions" t="Include">
             <e p="IApiClient.cs" t="Include" />
+            <e p="ICryptoHelper.cs" t="Include" />
+            <e p="IPasswordHasher.cs" t="Include" />
           </e>
           <e p="ExpressionHelper.cs" t="Include" />
           <e p="Implements" t="Include">
-            <e p="ApiClient.cs" t="Include" />
+            <e p="AESCryptoHelper.cs" t="Include" />
+            <e p="PBKDF2PasswordHasher.cs" t="Include" />
+            <e p="RestsharpApiClient.cs" t="Include" />
           </e>
           <e p="ReplaceExpressionVisitor.cs" t="Include" />
         </e>
@@ -202,18 +212,13 @@
           <e p="EventConstants.cs" t="Include" />
           <e p="ValidationRules.cs" t="Include" />
         </e>
-        <e p="DTO" t="Include">
-          <e p="Auth" t="Include">
-            <e p="AuthenticatedUser.cs" t="Include" />
-          </e>
-        </e>
+        <e p="DTO" t="Include" />
         <e p="Entities" t="Include">
-          <e p="Auth" t="Include">
-            <e p="User.cs" t="Include" />
-          </e>
           <e p="Entity.cs" t="Include" />
         </e>
         <e p="Enums" t="Include">
+          <e p="ApiBodyTypeEnum.cs" t="Include" />
+          <e p="ApiMethodEnum.cs" t="Include" />
           <e p="EntityStateEnum.cs" t="Include" />
           <e p="EnvironmentEnum.cs" t="Include" />
         </e>
@@ -255,6 +260,7 @@
           <e p="Event.cs" t="Include" />
         </e>
         <e p="Exceptions" t="Include">
+          <e p="NotFoundException.cs" t="Include" />
           <e p="ValidationException.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
@@ -742,9 +748,13 @@
           <e p="AppSettings.cs" t="Include" />
           <e p="IdentityServerConfig.cs" t="Include" />
         </e>
-        <e p="Constants" t="Include" />
+        <e p="Constants" t="Include">
+          <e p="UserConstants.cs" t="Include" />
+        </e>
         <e p="DTO" t="Include" />
-        <e p="Entities" t="Include" />
+        <e p="Entities" t="Include">
+          <e p="User.cs" t="Include" />
+        </e>
         <e p="Enums" t="Include" />
         <e p="NovelWorld.Identity.Data.csproj" t="IncludeRecursive" />
         <e p="Requests" t="Include" />
@@ -760,8 +770,16 @@
       </e>
       <e p="src/Services/Identity/NovelWorld.Identity.Domain" t="IncludeRecursive">
         <e p="Attributes" t="Include" />
-        <e p="CommandHandlers" t="Include" />
-        <e p="Commands" t="Include" />
+        <e p="CommandHandlers" t="Include">
+          <e p="User" t="Include">
+            <e p="AutoProvisionUserCommandHandler.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Commands" t="Include">
+          <e p="User" t="Include">
+            <e p="AutoProvisionUserCommand.cs" t="Include" />
+          </e>
+        </e>
         <e p="EventHandlers" t="Include" />
         <e p="Events" t="Include" />
         <e p="Exceptions" t="Include" />
@@ -773,8 +791,12 @@
         <e p="NovelWorld.Identity.Domain.csproj" t="IncludeRecursive" />
         <e p="Proxies" t="Include" />
         <e p="Queries" t="Include">
-          <e p="Abstractions" t="Include" />
-          <e p="Implements" t="Include" />
+          <e p="Abstractions" t="Include">
+            <e p="IUserQuery.cs" t="Include" />
+          </e>
+          <e p="Implements" t="Include">
+            <e p="UserQuery.cs" t="Include" />
+          </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -786,12 +808,23 @@
         </e>
       </e>
       <e p="src/Services/Identity/NovelWorld.Identity.Infrastructure" t="IncludeRecursive">
-        <e p="Configurations" t="Include" />
-        <e p="Contexts" t="Include" />
+        <e p="Configurations" t="Include">
+          <e p="UserConfiguration.cs" t="Include" />
+        </e>
+        <e p="Contexts" t="Include">
+          <e p="IdentityContext.cs" t="Include" />
+        </e>
         <e p="Exceptions" t="Include" />
         <e p="Extensions" t="Include" />
         <e p="NovelWorld.Identity.Infrastructure.csproj" t="IncludeRecursive" />
-        <e p="Repositories" t="Include" />
+        <e p="Repositories" t="Include">
+          <e p="Abstracts" t="Include">
+            <e p="IUserRepository.cs" t="Include" />
+          </e>
+          <e p="Implements" t="Include">
+            <e p="UserRepository.cs" t="Include" />
+          </e>
+        </e>
         <e p="UoW" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using NovelWorld.Authentication.DTO;
+using NovelWorld.Identity.Data.Entities;
 
 namespace NovelWorld.Identity.Domain.Mappings
 {
@@ -6,6 +8,11 @@ namespace NovelWorld.Identity.Domain.Mappings
     {
         public IdentityModelMapping()
         {
+            #region User
+
+            CreateMap<User, AuthenticatedUser>().ReverseMap();
+
+            #endregion
         }
     }
 }

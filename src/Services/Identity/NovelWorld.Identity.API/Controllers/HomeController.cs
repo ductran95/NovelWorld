@@ -48,7 +48,7 @@ namespace NovelWorld.Identity.API.Controllers
         {
             var vm = new ErrorViewModel();
 
-            // retrieve error details from identityserver
+            // retrieve error details from Identity Server
             var message = await _interaction.GetErrorContextAsync(errorId);
             if (message != null)
             {

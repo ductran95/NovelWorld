@@ -7,9 +7,9 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using NovelWorld.Authentication.Contexts;
 using NovelWorld.Authentication.Contexts.Implements;
+using NovelWorld.Authentication.DTO;
 using NovelWorld.Authentication.Exceptions;
 using NovelWorld.Data.Constants;
-using NovelWorld.Data.DTO.Auth;
 
 namespace NovelWorld.API.Contexts
 {

@@ -27,14 +27,24 @@ namespace NovelWorld.Infrastructure.EntityFramework.Repositories.Implements
 
         #region Read
 
-        public Task<T> GetById(Guid id, Expression<Func<T, object>> includes = null)
+        public T GetById(Guid id, Expression<Func<T, object>> includes = null)
         {
             return _readonlyRepository.GetById(id, includes);
         }
+        
+        public Task<T> GetByIdAsync(Guid id, Expression<Func<T, object>> includes = null)
+        {
+            return _readonlyRepository.GetByIdAsync(id, includes);
+        }
 
-        public Task<T> GetSingle(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
+        public T GetSingle(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
         {
             return _readonlyRepository.GetSingle(condition, includes);
+        }
+        
+        public Task<T> GetSingleAsync(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
+        {
+            return _readonlyRepository.GetSingleAsync(condition, includes);
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, object>> includes = null)

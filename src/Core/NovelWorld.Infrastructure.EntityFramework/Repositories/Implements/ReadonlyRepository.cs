@@ -20,12 +20,22 @@ namespace NovelWorld.Infrastructure.EntityFramework.Repositories.Implements
             _dbSet = _context.Set<T>();
         }
         
-        public Task<T> GetById(Guid id, Expression<Func<T, object>> includes = null)
+        public T GetById(Guid id, Expression<Func<T, object>> includes = null)
         {
             return GetSingle(x => x.Id == id, includes);
         }
+        
+        public Task<T> GetByIdAsync(Guid id, Expression<Func<T, object>> includes = null)
+        {
+            return GetSingleAsync(x => x.Id == id, includes);
+        }
 
-        public Task<T> GetSingle(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
+        public T GetSingle(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
+        {
+            return GetAll(includes).Where(condition).FirstOrDefault();
+        }
+        
+        public Task<T> GetSingleAsync(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
         {
             return GetAll(includes).Where(condition).FirstOrDefaultAsync();
         }

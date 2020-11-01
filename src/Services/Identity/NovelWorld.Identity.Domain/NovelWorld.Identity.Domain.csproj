@@ -11,15 +11,11 @@
 
     <ItemGroup>
       <Folder Include="Attributes" />
-      <Folder Include="CommandHandlers" />
-      <Folder Include="Commands" />
       <Folder Include="EventHandlers" />
       <Folder Include="Events" />
       <Folder Include="Exceptions" />
       <Folder Include="Extensions" />
       <Folder Include="Proxies" />
-      <Folder Include="Queries\Abstractions" />
-      <Folder Include="Queries\Implements" />
     </ItemGroup>
 
 </Project>

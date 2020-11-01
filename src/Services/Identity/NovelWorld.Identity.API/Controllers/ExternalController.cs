@@ -8,14 +8,18 @@ using IdentityServer4;
 using IdentityServer4.Events;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
-using IdentityServer4.Test;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
+using NovelWorld.Authentication.DTO;
 using NovelWorld.Identity.API.Extensions;
+using NovelWorld.Identity.Domain.Commands;
+using NovelWorld.Identity.Domain.Commands.User;
+using NovelWorld.Identity.Domain.Queries.Abstractions;
+using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.API.Controllers
 {
@@ -23,27 +27,28 @@ namespace NovelWorld.Identity.API.Controllers
     [AllowAnonymous]
     public class ExternalController : Controller
     {
-        private readonly TestUserStore _users;
+        private readonly IMediator _mediator;
         private readonly IIdentityServerInteractionService _interaction;
+        // ReSharper disable once NotAccessedField.Local
         private readonly IClientStore _clientStore;
         private readonly ILogger<ExternalController> _logger;
         private readonly IEventService _events;
+        private readonly IUserQuery _userQuery;
 
         public ExternalController(
+            IMediator mediator,
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IEventService events,
             ILogger<ExternalController> logger,
-            TestUserStore users = null)
+            IUserQuery userQuery)
         {
-            // if the TestUserStore is not in DI, then we'll just use the global users collection
-            // this is where you would plug in your own custom identity management library (e.g. ASP.NET Identity)
-            // _users = users ?? new TestUserStore(TestUsers.Users);
-
+            _mediator = mediator;
             _interaction = interaction;
             _clientStore = clientStore;
             _logger = logger;
             _events = events;
+            _userQuery = userQuery;
         }
 
         /// <summary>
@@ -96,13 +101,13 @@ namespace NovelWorld.Identity.API.Controllers
             }
 
             // lookup our user and external provider info
-            var (user, provider, providerUserId, claims) = FindUserFromExternalProvider(result);
+            var (user, provider, providerUserId, claims) = await FindUserFromExternalProvider(result);
             if (user == null)
             {
                 // this might be where you might initiate a custom workflow for user registration
                 // in this sample we don't show how that would be done, as our sample implementation
                 // simply auto-provisions new external user
-                user = AutoProvisionUser(provider, providerUserId, claims);
+                user =  await AutoProvisionUser(provider, providerUserId, claims);
             }
 
             // this allows us to collect any additional claims or properties
@@ -113,14 +118,14 @@ namespace NovelWorld.Identity.API.Controllers
             ProcessLoginCallback(result, additionalLocalClaims, localSignInProps);
             
             // issue authentication cookie for user
-            var isuser = new IdentityServerUser(user.SubjectId)
+            var issuer = new IdentityServerUser(user.Email)
             {
-                DisplayName = user.Username,
+                DisplayName = user.UserName,
                 IdentityProvider = provider,
                 AdditionalClaims = additionalLocalClaims
             };
 
-            await HttpContext.SignInAsync(isuser, localSignInProps);
+            await HttpContext.SignInAsync(issuer, localSignInProps);
 
             // delete temporary cookie used during external authentication
             await HttpContext.SignOutAsync(IdentityServerConstants.ExternalCookieAuthenticationScheme);
@@ -130,7 +135,7 @@ namespace NovelWorld.Identity.API.Controllers
 
             // check if external login is in the context of an OIDC request
             var context = await _interaction.GetAuthorizationContextAsync(returnUrl);
-            await _events.RaiseAsync(new UserLoginSuccessEvent(provider, providerUserId, user.SubjectId, user.Username, true, context?.Client.ClientId));
+            await _events.RaiseAsync(new UserLoginSuccessEvent(provider, providerUserId, user.Email, user.UserName, true, context?.Client.ClientId));
 
             if (context != null)
             {
@@ -145,7 +150,7 @@ namespace NovelWorld.Identity.API.Controllers
             return Redirect(returnUrl);
         }
 
-        private (TestUser user, string provider, string providerUserId, IEnumerable<Claim> claims) FindUserFromExternalProvider(AuthenticateResult result)
+        private async Task<(AuthenticatedUser user, string provider, string providerUserId, IEnumerable<Claim> claims)> FindUserFromExternalProvider(AuthenticateResult result)
         {
             var externalUser = result.Principal;
 
@@ -164,15 +169,21 @@ namespace NovelWorld.Identity.API.Controllers
             var providerUserId = userIdClaim.Value;
 
             // find external user
-            var user = _users.FindByExternalProvider(provider, providerUserId);
+            var user = await _userQuery.FindByExternalProvider(provider, providerUserId);
 
             return (user, provider, providerUserId, claims);
         }
 
-        private TestUser AutoProvisionUser(string provider, string providerUserId, IEnumerable<Claim> claims)
+        private async Task<AuthenticatedUser> AutoProvisionUser(string provider, string providerUserId, IEnumerable<Claim> claims)
         {
-            var user = _users.AutoProvisionUser(provider, providerUserId, claims.ToList());
-            return user;
+            var autoProvisionUserCommand = new AutoProvisionUserCommand
+            {
+                Provider = provider,
+                ProviderUserId = providerUserId,
+                Claims = claims
+            };
+            
+            return await _mediator.Send(autoProvisionUserCommand);
         }
 
         // if the external login is OIDC-based, there are certain things we need to preserve to make logout work

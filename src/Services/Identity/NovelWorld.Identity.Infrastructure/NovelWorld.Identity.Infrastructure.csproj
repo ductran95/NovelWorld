@@ -11,12 +11,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Configurations" />
-      <Folder Include="Contexts" />
       <Folder Include="Exceptions" />
       <Folder Include="Extensions" />
-      <Folder Include="Repositories" />
       <Folder Include="UoW" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
     </ItemGroup>
 
 </Project>

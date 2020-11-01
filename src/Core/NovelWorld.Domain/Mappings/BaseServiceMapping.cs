@@ -31,7 +31,9 @@ namespace NovelWorld.Domain.Mappings
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
             }));
-            services.AddSingleton<IApiClient, ApiClient>();
+            services.AddSingleton<IApiClient, RestsharpApiClient>();
+            services.AddSingleton<IPasswordHasher, PBKDF2PasswordHasher>();
+            services.AddSingleton<ICryptoHelper, AESCryptoHelper>();
 
             return services;
         }

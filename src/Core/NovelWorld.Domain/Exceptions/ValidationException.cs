@@ -21,7 +21,7 @@ namespace NovelWorld.Domain.Exceptions
         public override HttpException WrapException()
         {
             var errors = this.Errors.Select(x => new Error(x.PropertyName, x.ErrorMessage));
-            return new HttpException(HttpStatusCode.BadRequest, errors, ErrorCodes.BadRequest, this);
+            return new HttpException(HttpStatusCode.BadRequest, errors, Message, this);
         }
     }
 }

@@ -1,5 +1,5 @@
 using System.Net;
-using NovelWorld.Data.DTO.Auth;
+using NovelWorld.Authentication.DTO;
 
 namespace NovelWorld.Authentication.Contexts.Implements
 {

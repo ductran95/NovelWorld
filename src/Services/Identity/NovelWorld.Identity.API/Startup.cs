@@ -15,8 +15,7 @@ using Microsoft.IdentityModel.Logging;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Filters;
 using NovelWorld.API.Mappings;
-using NovelWorld.Data.Requests;
-using NovelWorld.Domain.Commands;
+using NovelWorld.Common.Extensions;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
 using NovelWorld.Identity.API.Certificates;
@@ -41,6 +40,9 @@ namespace NovelWorld.Identity.API
         {
             services.AddControllersWithViews();
             
+            // Get all Novel World assemblies
+            var novelWorldAssemblies = AppDomain.CurrentDomain.GetAssemblies("NovelWorld");
+            
             // Configuration
             var appSetting = new IdentityAppSettings();
             Configuration.Bind(appSetting);
@@ -49,24 +51,17 @@ namespace NovelWorld.Identity.API
             // Add Mediatr
             services.AddTransient<Mediator.IMediator, CustomMediator>();
             services.AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
-            services.AddMediatR(new Type[]
-            {
-                typeof(BaseModelMapping),
-                typeof(IdentityModelMapping)
-            }, configuration => configuration.Using<CustomMediator>());
+            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>());
             services.RegisterPublishStrategies();
             services.RegisterBaseProxies();
 
             // Add AutoMapper
-            services.AddAutoMapper(typeof(BaseModelMapping));
-            services.AddAutoMapper(typeof(IdentityModelMapping));
+            services.AddAutoMapper(novelWorldAssemblies);
             
             // Add Fluent Validation
             services.AddScoped<RequestValidationFilter>();
             services.AddScoped<HttpResponseExceptionFilter>();
-            services.AddValidatorsFromAssemblyContaining(typeof(Request)); // Data.Core project
-            services.AddValidatorsFromAssemblyContaining(typeof(Command)); // Domain.Core project
-            //services.AddValidatorsFromAssemblyContaining(typeof()); // Domain project
+            services.AddValidatorsFromAssemblies(novelWorldAssemblies);
             services.AddMvc(options =>
                 {
                     options.Filters.Add<RequestValidationFilter>();
@@ -98,7 +93,7 @@ namespace NovelWorld.Identity.API
             // Add DI
             services.RegisterAuthContext();
             services.RegisterBaseEventSourcing();
-            services.RegisterServices();
+            services.RegisterServices(Configuration);
             
             // Config CORS
             services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
