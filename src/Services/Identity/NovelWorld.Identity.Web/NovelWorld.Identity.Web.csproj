@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>NovelWorld.Identity.Web</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Core\NovelWorld.API\NovelWorld.API.csproj" />
+      <ProjectReference Include="..\NovelWorld.Identity.Domain\NovelWorld.Identity.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Attributes" />
+      <Folder Include="Contexts" />
+      <Folder Include="Controllers" />
+      <Folder Include="Filters" />
+      <Folder Include="Formatters" />
+      <Folder Include="Results" />
+      <Folder Include="Views" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Certificates\IdentityServerCert.pfx" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="IdentityServer4" Version="4.1.1" />
+    </ItemGroup>
+
+</Project>

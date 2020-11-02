@@ -14,6 +14,7 @@
       <e p="ApiGateways" t="Include" />
       <e p="Core" t="Include" />
       <e p="EventBus" t="Include" />
+      <e p="Migrations" t="Include" />
       <e p="NovelWorld.sln" t="IncludeFlat" />
       <e p="Services" t="Include">
         <e p="Identity" t="Include" />
@@ -27,6 +28,28 @@
       </e>
       <e p="Tools" t="Include" />
       <e p="Web" t="Include" />
+      <e p="migrations/NovelWorld.Identity.DbMigration" t="IncludeRecursive">
+        <e p="Factories" t="Include">
+          <e p="IdentityContextFactory.cs" t="Include" />
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20201102135154_Initial.Designer.cs" t="Include" />
+          <e p="20201102135154_Initial.cs" t="Include" />
+          <e p="IdentityContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="NovelWorld.Identity.DbMigration.csproj" t="IncludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="NovelWorld.Identity.DbMigration.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="src/ApiGateways/NovelWorld.InternalGateway" t="IncludeRecursive">
         <e p="NovelWorld.InternalGateway.csproj" t="IncludeRecursive" />
@@ -478,11 +501,106 @@
           </e>
         </e>
       </e>
-      <e p="src/Services/Identity/NovelWorld.Identity.API" t="IncludeRecursive">
+      <e p="src/Services/Identity/NovelWorld.Identity.Data" t="IncludeRecursive">
+        <e p="Configurations" t="Include">
+          <e p="AppSettings.cs" t="Include" />
+          <e p="IdentityServerConfig.cs" t="Include" />
+        </e>
+        <e p="Constants" t="Include">
+          <e p="UserConstants.cs" t="Include" />
+        </e>
+        <e p="DTO" t="Include" />
+        <e p="Entities" t="Include">
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="Enums" t="Include" />
+        <e p="NovelWorld.Identity.Data.csproj" t="IncludeRecursive" />
+        <e p="Requests" t="Include" />
+        <e p="Responses" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="NovelWorld.Identity.Data.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="src/Services/Identity/NovelWorld.Identity.Domain" t="IncludeRecursive">
+        <e p="Attributes" t="Include" />
+        <e p="CommandHandlers" t="Include">
+          <e p="User" t="Include">
+            <e p="AutoProvisionUserCommandHandler.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Commands" t="Include">
+          <e p="User" t="Include">
+            <e p="AutoProvisionUserCommand.cs" t="Include" />
+          </e>
+        </e>
+        <e p="EventHandlers" t="Include" />
+        <e p="Events" t="Include" />
+        <e p="Exceptions" t="Include" />
+        <e p="Extensions" t="Include" />
+        <e p="Mappings" t="Include">
+          <e p="IdentityModelMapping.cs" t="Include" />
+          <e p="IdentityServiceMapping.cs" t="Include" />
+        </e>
+        <e p="NovelWorld.Identity.Domain.csproj" t="IncludeRecursive" />
+        <e p="Proxies" t="Include" />
+        <e p="Queries" t="Include">
+          <e p="Abstractions" t="Include">
+            <e p="IUserQuery.cs" t="Include" />
+          </e>
+          <e p="Implements" t="Include">
+            <e p="UserQuery.cs" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="NovelWorld.Identity.Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="src/Services/Identity/NovelWorld.Identity.Infrastructure" t="IncludeRecursive">
+        <e p="Configurations" t="Include">
+          <e p="UserConfiguration.cs" t="Include" />
+        </e>
+        <e p="Contexts" t="Include">
+          <e p="IdentityContext.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include" />
+        <e p="Extensions" t="Include" />
+        <e p="NovelWorld.Identity.Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="Repositories" t="Include">
+          <e p="Abstracts" t="Include">
+            <e p="IUserRepository.cs" t="Include" />
+          </e>
+          <e p="Implements" t="Include">
+            <e p="UserRepository.cs" t="Include" />
+          </e>
+        </e>
+        <e p="UoW" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="NovelWorld.Identity.Infrastructure.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="src/Services/Identity/NovelWorld.Identity.Web" t="IncludeRecursive">
         <e p="Attributes" t="Include" />
         <e p="Certificates" t="Include">
           <e p="Certificate.cs" t="Include" />
-          <e p="idsrv3test.pfx" t="Include" />
+          <e p="IdentityServerCert.crt" t="Include" />
+          <e p="IdentityServerCert.includesprivatekey.pem" t="Include" />
+          <e p="IdentityServerCert.key" t="Include" />
+          <e p="IdentityServerCert.pfx" t="Include" />
         </e>
         <e p="Contexts" t="Include" />
         <e p="Controllers" t="Include">
@@ -534,7 +652,7 @@
             <e p="ErrorViewModel.cs" t="Include" />
           </e>
         </e>
-        <e p="NovelWorld.Identity.API.csproj" t="IncludeRecursive" />
+        <e p="NovelWorld.Identity.Web.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
@@ -583,8 +701,8 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="NovelWorld.Identity.API.AssemblyInfo.cs" t="Include" />
-              <e p="NovelWorld.Identity.API.RazorAssemblyInfo.cs" t="Include" />
+              <e p="NovelWorld.Identity.Web.AssemblyInfo.cs" t="Include" />
+              <e p="NovelWorld.Identity.Web.RazorAssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -739,98 +857,6 @@
                 <e p="jquery.slim.min.js" t="Include" />
                 <e p="jquery.slim.min.map" t="Include" />
               </e>
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="src/Services/Identity/NovelWorld.Identity.Data" t="IncludeRecursive">
-        <e p="Configurations" t="Include">
-          <e p="AppSettings.cs" t="Include" />
-          <e p="IdentityServerConfig.cs" t="Include" />
-        </e>
-        <e p="Constants" t="Include">
-          <e p="UserConstants.cs" t="Include" />
-        </e>
-        <e p="DTO" t="Include" />
-        <e p="Entities" t="Include">
-          <e p="User.cs" t="Include" />
-        </e>
-        <e p="Enums" t="Include" />
-        <e p="NovelWorld.Identity.Data.csproj" t="IncludeRecursive" />
-        <e p="Requests" t="Include" />
-        <e p="Responses" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netstandard2.1" t="Include">
-              <e p="NovelWorld.Identity.Data.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="src/Services/Identity/NovelWorld.Identity.Domain" t="IncludeRecursive">
-        <e p="Attributes" t="Include" />
-        <e p="CommandHandlers" t="Include">
-          <e p="User" t="Include">
-            <e p="AutoProvisionUserCommandHandler.cs" t="Include" />
-          </e>
-        </e>
-        <e p="Commands" t="Include">
-          <e p="User" t="Include">
-            <e p="AutoProvisionUserCommand.cs" t="Include" />
-          </e>
-        </e>
-        <e p="EventHandlers" t="Include" />
-        <e p="Events" t="Include" />
-        <e p="Exceptions" t="Include" />
-        <e p="Extensions" t="Include" />
-        <e p="Mappings" t="Include">
-          <e p="IdentityModelMapping.cs" t="Include" />
-          <e p="IdentityServiceMapping.cs" t="Include" />
-        </e>
-        <e p="NovelWorld.Identity.Domain.csproj" t="IncludeRecursive" />
-        <e p="Proxies" t="Include" />
-        <e p="Queries" t="Include">
-          <e p="Abstractions" t="Include">
-            <e p="IUserQuery.cs" t="Include" />
-          </e>
-          <e p="Implements" t="Include">
-            <e p="UserQuery.cs" t="Include" />
-          </e>
-        </e>
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netstandard2.1" t="Include">
-              <e p="NovelWorld.Identity.Domain.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="src/Services/Identity/NovelWorld.Identity.Infrastructure" t="IncludeRecursive">
-        <e p="Configurations" t="Include">
-          <e p="UserConfiguration.cs" t="Include" />
-        </e>
-        <e p="Contexts" t="Include">
-          <e p="IdentityContext.cs" t="Include" />
-        </e>
-        <e p="Exceptions" t="Include" />
-        <e p="Extensions" t="Include" />
-        <e p="NovelWorld.Identity.Infrastructure.csproj" t="IncludeRecursive" />
-        <e p="Repositories" t="Include">
-          <e p="Abstracts" t="Include">
-            <e p="IUserRepository.cs" t="Include" />
-          </e>
-          <e p="Implements" t="Include">
-            <e p="UserRepository.cs" t="Include" />
-          </e>
-        </e>
-        <e p="UoW" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netstandard2.1" t="Include">
-              <e p="NovelWorld.Identity.Infrastructure.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>

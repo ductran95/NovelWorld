@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using NovelWorld.Identity.Data.Entities;
+using NovelWorld.Identity.Infrastructure.Contexts;
 using NovelWorld.Identity.Infrastructure.Repositories.Abstracts;
 using NovelWorld.Infrastructure.EntityFramework.Contexts;
 using NovelWorld.Infrastructure.EntityFramework.Repositories.Implements;
@@ -10,7 +11,7 @@ namespace NovelWorld.Identity.Infrastructure.Repositories.Implements
     public class UserRepository : Repository<User>, IUserRepository
     {
         public UserRepository(
-            EntityContext context, 
+            IdentityContext context, 
             IReadonlyRepository<User> readonlyRepository,
             IWriteonlyRepository<User> writeonlyRepository
             ) : base(context, readonlyRepository, writeonlyRepository)

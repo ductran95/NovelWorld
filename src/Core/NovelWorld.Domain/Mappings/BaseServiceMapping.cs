@@ -37,6 +37,7 @@ namespace NovelWorld.Domain.Mappings
 
             return services;
         }
+        
         public static IServiceCollection RegisterBaseProxies(this IServiceCollection services)
         {
             services.AddTransient(typeof(INotificationPipelineBehavior<>), typeof(NotificationPreProcessorBehavior<>));
@@ -49,7 +50,7 @@ namespace NovelWorld.Domain.Mappings
 
             return services;
         }
-
+        
         public static IServiceCollection RegisterPublishStrategies(this IServiceCollection services)
         {
             services.AddSingleton(sp => new Dictionary<PublishStrategy, Mediator.IPublisher>
