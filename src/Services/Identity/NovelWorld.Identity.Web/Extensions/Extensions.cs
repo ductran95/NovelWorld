@@ -1,7 +1,7 @@
 using System;
 using IdentityServer4.Models;
 using Microsoft.AspNetCore.Mvc;
-using NovelWorld.Identity.Web.Models.Account;
+using NovelWorld.Identity.Data.ViewModels.Account;
 
 namespace NovelWorld.Identity.Web.Extensions
 {

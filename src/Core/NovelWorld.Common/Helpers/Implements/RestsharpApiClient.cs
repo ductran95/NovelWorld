@@ -88,7 +88,7 @@ namespace NovelWorld.Common.Helpers.Implements
         {
             var request = GetRestRequest(url, method.ToRestsharp(), headers, queries, body, bodyType.ToRestsharp());
 
-            _logger.LogDebug("Executing {Method} {url}", method, url);
+            _logger.LogDebug("Executing {Method} {url}, parameters: {Parameters}", method, url, request.Parameters);
             Stopwatch watch = Stopwatch.StartNew();
             var response = _client.Execute<T>(request);
             watch.Stop();
@@ -103,6 +103,32 @@ namespace NovelWorld.Common.Helpers.Implements
                                                                         HttpStatusCode.NoContent))
             {
                 return response.Data;
+            }
+
+            throw new ApiClientException(response.StatusCode, response.ErrorMessage, response.Content,
+                response.ErrorException);
+        }
+        
+        public string Execute(string url, ApiMethodEnum method, Dictionary<string, object> headers,
+            Dictionary<string, object> queries, object body, ApiBodyTypeEnum bodyType = ApiBodyTypeEnum.Json)
+        {
+            var request = GetRestRequest(url, method.ToRestsharp(), headers, queries, body, bodyType.ToRestsharp());
+
+            _logger.LogDebug("Executing {Method} {url}, parameters: {Parameters}", method, url, request.Parameters);
+            Stopwatch watch = Stopwatch.StartNew();
+            var response = _client.Execute(request);
+            watch.Stop();
+            _logger.LogDebug("Executed {Method} {url} cost {time} ms", method, url, watch.ElapsedMilliseconds);
+            _logger.LogInformation("Executed {Method} {url} return {Code}", method, url,
+                response.StatusCode);
+            _logger.LogDebug("Executed {Method} {url} return Content: {Content}", method, url,
+                response.Content);
+
+            if (response.ResponseStatus == ResponseStatus.Completed && (response.StatusCode == HttpStatusCode.OK ||
+                                                                        response.StatusCode ==
+                                                                        HttpStatusCode.NoContent))
+            {
+                return response.Content;
             }
 
             throw new ApiClientException(response.StatusCode, response.ErrorMessage, response.Content,
@@ -129,6 +155,32 @@ namespace NovelWorld.Common.Helpers.Implements
                                                                         HttpStatusCode.NoContent))
             {
                 return response.Data;
+            }
+
+            throw new ApiClientException(response.StatusCode, response.ErrorMessage, response.Content,
+                response.ErrorException);
+        }
+        
+        public async Task<string> ExecuteAsync(string url, ApiMethodEnum method, Dictionary<string, object> headers,
+            Dictionary<string, object> queries, object body, ApiBodyTypeEnum bodyType = ApiBodyTypeEnum.Json)
+        {
+            var request = GetRestRequest(url, method.ToRestsharp(), headers, queries, body, bodyType.ToRestsharp());
+
+            _logger.LogDebug("Executing {Method} {url}", method, url);
+            Stopwatch watch = Stopwatch.StartNew();
+            var response = await _client.ExecuteAsync(request);
+            watch.Stop();
+            _logger.LogDebug("Executed {Method} {url} cost {time} ms", method, url, watch.ElapsedMilliseconds);
+            _logger.LogInformation("Executed {Method} {url} return {Code}", method, url,
+                response.StatusCode);
+            _logger.LogDebug("Executed {Method} {url} return Content: {Content}", method, url,
+                response.Content);
+
+            if (response.ResponseStatus == ResponseStatus.Completed && (response.StatusCode == HttpStatusCode.OK ||
+                                                                        response.StatusCode ==
+                                                                        HttpStatusCode.NoContent))
+            {
+                return response.Content;
             }
 
             throw new ApiClientException(response.StatusCode, response.ErrorMessage, response.Content,

@@ -1,6 +1,6 @@
 ﻿namespace NovelWorld.Data.Constants
 {
-    public static class ValidationRules
+    public static class CommonValidationRules
     {
         //public const int ShortTextFieldMaxLength = int.MaxValue;
         public const int TextFieldMaxLength = 255;

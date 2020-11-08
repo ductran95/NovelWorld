@@ -12,16 +12,19 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
+using Newtonsoft.Json;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Filters;
 using NovelWorld.API.Mappings;
 using NovelWorld.Common.Extensions;
+using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
 using NovelWorld.Identity.Web.Certificates;
 using NovelWorld.Identity.Web.Mappings;
 using NovelWorld.Identity.Data.Configurations;
 using NovelWorld.Identity.Domain.Mappings;
+using NovelWorld.Identity.Domain.Services.Implements;
 using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web
@@ -58,14 +61,14 @@ namespace NovelWorld.Identity.Web
             // Add AutoMapper
             services.AddAutoMapper(novelWorldAssemblies);
             
-            // Add Fluent Validation
+            // Add Fluent Validation, Response filter
             services.AddScoped<RequestValidationFilter>();
-            services.AddScoped<HttpResponseExceptionFilter>();
+            services.AddScoped<HttpSwitchModelResponseExceptionFilter>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
             services.AddMvc(options =>
                 {
                     options.Filters.Add<RequestValidationFilter>();
-                    options.Filters.Add<HttpResponseExceptionFilter>();
+                    options.Filters.Add<HttpSwitchModelResponseExceptionFilter>();
                 })
                 .AddFluentValidation(fv =>
                 {
@@ -76,9 +79,9 @@ namespace NovelWorld.Identity.Web
                 {
                     options.SuppressModelStateInvalidFilter = true;
                 })
-                .AddJsonOptions(options =>
+                .AddNewtonsoftJson(options =>
                 {
-                    //options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 });
 
             ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
@@ -110,8 +113,29 @@ namespace NovelWorld.Identity.Web
             services.AddScoped<SecurityHeadersAttribute>();
             
             // Add HealthCheck
-            services.AddHealthChecks()
-                .AddCheck("self", () => HealthCheckResult.Healthy());
+            var hcBuilder = services.AddHealthChecks()
+                .AddCheck("self", () => HealthCheckResult.Healthy())
+                .AddNpgSql(Configuration.GetConnectionString("DefaultConnection"));
+
+            switch (appSetting.EventBusConfig.Type)
+            {
+                case EventBusTypes.RabbitMQ:
+                    hcBuilder
+                        .AddRabbitMQ(
+                            $"amqp://{appSetting.EventBusConfig.EventBusConnection}",
+                            name: "identity-rabbitmq-check",
+                            tags: new string[] { "rabbitmq" });
+                    break;
+                    
+                case EventBusTypes.AzureServiceBus:
+                    hcBuilder
+                        .AddAzureServiceBusTopic(
+                            appSetting.EventBusConfig.EventBusConnection,
+                            topicName: appSetting.EventBusConfig.SubscriptionClientName,
+                            name: "identity-azureservicebus-check",
+                            tags: new string[] { "azureservicebus" });
+                    break;
+            }
             
             // Add Identity Server
             services.AddIdentityServer()
@@ -119,8 +143,9 @@ namespace NovelWorld.Identity.Web
                 .AddInMemoryApiResources(appSetting.IdentityServerConfig.ApiResources)
                 .AddInMemoryApiScopes(appSetting.IdentityServerConfig.ApiScopes)
                 .AddInMemoryClients(appSetting.IdentityServerConfig.Clients)
+                .AddProfileService<ProfileService>()
                 // .AddDeveloperSigningCredential();
-                .AddSigningCredential(Certificate.Get());
+                .AddSigningCredential(Certificate.Get(appSetting.IdentityServerConfig.CertificatePassword));
 
             // Add ADFS
             if (appSetting.IdentityServerConfig.OpenIdProviders != null && appSetting.IdentityServerConfig.OpenIdProviders.Any())
@@ -151,13 +176,8 @@ namespace NovelWorld.Identity.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
-            app.UseAuthorization();
-            
             app.UseForwardedHeaders();
-
             app.UseCors("CorsPolicy");
             
             // Adds IdentityServer
@@ -165,8 +185,8 @@ namespace NovelWorld.Identity.Web
             app.UseAuthorization();
 
             // Fix a problem with chrome. Chrome enabled a new feature "Cookies without SameSite must be secure", 
-            // the cookies shold be expided from https, but in akaLink, the internal comunicacion in aks and docker compose is http.
-            // To avoid this problem, the policy of cookies shold be in Lax mode.
+            // the cookies should be expired from https, but in akaLink, the internal communication in aks and docker compose is http.
+            // To avoid this problem, the policy of cookies should be in Lax mode.
             app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.None });
 
             app.UseEndpoints(endpoints =>

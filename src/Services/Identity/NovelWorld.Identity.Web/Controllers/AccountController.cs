@@ -5,6 +5,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Events;
@@ -16,10 +17,13 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
+using NovelWorld.Identity.Data.ViewModels.Account;
+using NovelWorld.Identity.Domain.Commands.User;
 using NovelWorld.Identity.Web.Extensions;
-using NovelWorld.Identity.Web.Models.Account;
 using NovelWorld.Identity.Domain.Queries.Abstractions;
+using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
@@ -32,6 +36,9 @@ namespace NovelWorld.Identity.Web.Controllers
     [AllowAnonymous]
     public class AccountController : Controller
     {
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
+        private readonly ILogger<AccountController> _logger;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IClientStore _clientStore;
         private readonly IAuthenticationSchemeProvider _schemeProvider;
@@ -39,12 +46,19 @@ namespace NovelWorld.Identity.Web.Controllers
         private readonly IUserQuery _userQuery;
 
         public AccountController(
+            IMediator mediator,
+            IMapper mapper,
+            ILogger<AccountController> logger,
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
-            IUserQuery userQuery)
+            IUserQuery userQuery
+            )
         {
+            _mediator = mediator;
+            _mapper = mapper;
+            _logger = logger;
             _interaction = interaction;
             _clientStore = clientStore;
             _schemeProvider = schemeProvider;
@@ -113,7 +127,7 @@ namespace NovelWorld.Identity.Web.Controllers
                 if (await _userQuery.ValidateCredentials(model.Email, model.Password))
                 {
                     var user = await _userQuery.FindByEmail(model.Email);
-                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Email, user.FullName,
+                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.Account, user.Email, user.FullName,
                         clientId: context?.Client.ClientId)); // Use email as subjectId
 
                     // only set explicit expiration here if user chooses "remember me". 
@@ -131,7 +145,8 @@ namespace NovelWorld.Identity.Web.Controllers
                     // issue authentication cookie with subject ID and username
                     var issuer = new IdentityServerUser(user.Email)
                     {
-                        DisplayName = user.FullName
+                        DisplayName = user.FullName,
+                        AdditionalClaims = (await _userQuery.GetClaimsFromUser(user)).ToList()
                     };
 
                     await HttpContext.SignInAsync(issuer, props);
@@ -175,6 +190,48 @@ namespace NovelWorld.Identity.Web.Controllers
             return View(vm);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Register()
+        {
+            // build a model so we know what to show on the login page
+            var vm = await BuildLoginViewModelAsync("");
+
+            if (vm.IsExternalLoginOnly)
+            {
+                return NotFound();
+            }
+
+            return View();
+        }
+        
+        [HttpPost]
+        [DelegateUserOnAllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterInputModel model, string button)
+        {
+            // the user clicked the "cancel" button
+            if (button != "register")
+            {
+                // user click cancel, redirect to homepage
+                return Redirect("~/");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var registerUserCommand = _mapper.Map<RegisterUserCommand>(model);
+                await _mediator.Send(registerUserCommand);
+                return Redirect("RegisterDone");
+            }
+
+            // something went wrong, show form with error
+            return View();
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> RegisterDone()
+        {
+            return View();
+        }
 
         /// <summary>
         /// Show logout page

@@ -4,9 +4,9 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using NovelWorld.API.Results;
-using NovelWorld.Common;
 using NovelWorld.Common.Exceptions;
 using NovelWorld.Data.Constants;
+using NovelWorld.Data.DTO;
 
 namespace NovelWorld.API.Attributes
 {
@@ -35,7 +35,7 @@ namespace NovelWorld.API.Attributes
                 }
                 else
                 {
-                    var errorResponse = new List<Error> { new Error(ErrorCodes.InternalServerError, exception.Message) };
+                    var errorResponse = new List<Error> { new Error(CommonErrorCodes.InternalServerError, exception.Message) };
 
                     exceptionToHandle = new HttpException(HttpStatusCode.InternalServerError, errorResponse, exception.Message, exception);
                 }

@@ -111,11 +111,11 @@ namespace NovelWorld.Domain.Mappings
                     {
                         var rabbitMQPersistentConnection = sp.GetRequiredService<IRabbitMQPersistentConnection>();
                         var logger = sp.GetRequiredService<ILogger<EventBusRabbitMQ>>();
-                        var eventBusSubcriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
+                        var eventBusSubscriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
 
                         var retryCount = eventBusConfig.EventBusRetryCount;
 
-                        return new EventBusRabbitMQ(rabbitMQPersistentConnection, logger, sp, eventBusSubcriptionsManager, subscriptionClientName, retryCount);
+                        return new EventBusRabbitMQ(rabbitMQPersistentConnection, logger, sp, eventBusSubscriptionsManager, subscriptionClientName, retryCount);
                     });
 
                     break;
@@ -133,12 +133,12 @@ namespace NovelWorld.Domain.Mappings
 
                     services.AddSingleton<IEventBus, EventBusServiceBus>(sp =>
                     {
-                        var serviceBusPersisterConnection = sp.GetRequiredService<IServiceBusPersistentConnection>();
+                        var serviceBusPersistentConnection = sp.GetRequiredService<IServiceBusPersistentConnection>();
                         var logger = sp.GetRequiredService<ILogger<EventBusServiceBus>>();
-                        var eventBusSubcriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
+                        var eventBusSubscriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
 
-                        return new EventBusServiceBus(serviceBusPersisterConnection, logger, sp,
-                            eventBusSubcriptionsManager, subscriptionClientName);
+                        return new EventBusServiceBus(serviceBusPersistentConnection, logger, sp,
+                            eventBusSubscriptionsManager, subscriptionClientName);
                     });
 
                     break;

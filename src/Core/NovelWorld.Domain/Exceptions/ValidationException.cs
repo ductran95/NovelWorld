@@ -6,6 +6,7 @@ using FluentValidation.Results;
 using NovelWorld.Common;
 using NovelWorld.Common.Exceptions;
 using NovelWorld.Data.Constants;
+using NovelWorld.Data.DTO;
 
 namespace NovelWorld.Domain.Exceptions
 {

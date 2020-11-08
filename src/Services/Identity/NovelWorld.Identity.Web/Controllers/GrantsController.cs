@@ -11,13 +11,14 @@ using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Mvc;
 using NovelWorld.API.Attributes;
-using NovelWorld.Identity.Web.Models.Grants;
+using NovelWorld.Identity.Data.ViewModels.Grants;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
     /// <summary>
     /// This sample controller allows a user to revoke grants given to clients
     /// </summary>
+    [FallbackView("/Home/Index")]
     [SecurityHeaders]
     [Microsoft.AspNetCore.Authorization.Authorize]
     public class GrantsController : Controller

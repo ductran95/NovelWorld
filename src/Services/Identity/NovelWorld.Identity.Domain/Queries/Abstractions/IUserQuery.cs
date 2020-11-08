@@ -11,5 +11,6 @@ namespace NovelWorld.Identity.Domain.Queries.Abstractions
         Task<bool> ValidateCredentials(string email, string password);
         Task<AuthenticatedUser> FindByEmail(string email);
         Task<AuthenticatedUser> FindByExternalProvider(string provider, string providerUserId);
+        Task<IEnumerable<Claim>> GetClaimsFromUser(AuthenticatedUser user);
     }
 }

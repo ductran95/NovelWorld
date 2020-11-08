@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NovelWorld.Identity.Data.Entities;
-using NovelWorld.Infrastructure.EntityFramework.Configurations;
+using NovelWorld.Infrastructure.EntityFrameworkCore.Configurations;
 
 namespace NovelWorld.Identity.Infrastructure.Configurations
 {
-    public class UserConfiguration: EntityConfiguration<User>
+    public class UserConfiguration: EfCoreEntityConfiguration<User>
     {
         public override void Configure(EntityTypeBuilder<User> builder)
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text.Json;
 using NovelWorld.Data.Constants;
+using NovelWorld.Data.DTO;
 
 namespace NovelWorld.Common.Exceptions
 {
@@ -11,7 +12,7 @@ namespace NovelWorld.Common.Exceptions
     {
         public HttpStatusCode StatusCode { get; private set; }
         public string Content { get; private set; }
-        public ApiClientException(HttpStatusCode statusCode, string message = "", string content = "", Exception innerException = null) : base(message, innerException)
+        public ApiClientException(HttpStatusCode statusCode, string message = "", string content = "", Exception innerException = null) : base(!string.IsNullOrEmpty(message) ? message: content, innerException)
         {
             StatusCode = statusCode;
             Content = content;
@@ -44,7 +45,7 @@ namespace NovelWorld.Common.Exceptions
             // Only return ApiClientError when response does not have any
             if (!errorResponse.Any())
             {
-                errorResponse.Add(new Error(ErrorCodes.ApiClientError, $"Code: {this.StatusCode}, Message: {this.Message}, Content: {this.Content}"));
+                errorResponse.Add(new Error(CommonErrorCodes.ApiClientError, $"Code: {this.StatusCode}, Message: {this.Message}, Content: {this.Content}"));
             }
 
             return new HttpException(this.StatusCode, errorResponse, this.Message, this);

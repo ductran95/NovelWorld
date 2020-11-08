@@ -14,6 +14,7 @@ namespace NovelWorld.Infrastructure.EventSourcing.Implements
         public DbEventSource(IEventBus eventBus)
         {
             _eventBus = eventBus;
+            EventList ??= new List<DbChangedEvent>();
         }
         
         public void Add(DbChangedEvent @event)

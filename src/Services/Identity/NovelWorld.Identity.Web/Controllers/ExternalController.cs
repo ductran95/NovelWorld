@@ -16,7 +16,6 @@ using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
 using NovelWorld.Authentication.DTO;
 using NovelWorld.Identity.Web.Extensions;
-using NovelWorld.Identity.Domain.Commands;
 using NovelWorld.Identity.Domain.Commands.User;
 using NovelWorld.Identity.Domain.Queries.Abstractions;
 using NovelWorld.Mediator;
@@ -120,7 +119,7 @@ namespace NovelWorld.Identity.Web.Controllers
             // issue authentication cookie for user
             var issuer = new IdentityServerUser(user.Email)
             {
-                DisplayName = user.UserName,
+                DisplayName = user.Account,
                 IdentityProvider = provider,
                 AdditionalClaims = additionalLocalClaims
             };
@@ -135,7 +134,7 @@ namespace NovelWorld.Identity.Web.Controllers
 
             // check if external login is in the context of an OIDC request
             var context = await _interaction.GetAuthorizationContextAsync(returnUrl);
-            await _events.RaiseAsync(new UserLoginSuccessEvent(provider, providerUserId, user.Email, user.UserName, true, context?.Client.ClientId));
+            await _events.RaiseAsync(new UserLoginSuccessEvent(provider, providerUserId, user.Email, user.Account, true, context?.Client.ClientId));
 
             if (context != null)
             {

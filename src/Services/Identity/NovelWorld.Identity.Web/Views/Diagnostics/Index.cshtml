@@ -1,4 +1,4 @@
-@model NovelWorld.Identity.Web.Models.Diagnostics.DiagnosticsViewModel
+@model NovelWorld.Identity.Data.ViewModels.Diagnostics.DiagnosticsViewModel
 
 <div class="diagnostics-page">
     <div class="lead">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body">
                     <dl>
-                        @foreach (var claim in Model.AuthenticateResult.Principal.Claims)
+                        @foreach (var claim in Model.PrincipalClaims)
                         {
                             <dt>@claim.Type</dt>
                             <dd>@claim.Value</dd>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="card-body">
                     <dl>
-                        @foreach (var prop in Model.AuthenticateResult.Properties.Items)
+                        @foreach (var prop in Model.AuthenticateItems)
                         {
                             <dt>@prop.Key</dt>
                             <dd>@prop.Value</dd>

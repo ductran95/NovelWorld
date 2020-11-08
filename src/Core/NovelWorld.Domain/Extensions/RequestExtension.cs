@@ -22,7 +22,7 @@ namespace NovelWorld.Domain.Extensions
                     var prop = propNames.FirstOrDefault(x => x.ToLower().Equals(filter.Field.ToLower()));
                     if (prop == null)
                     {
-                        errors.Add(new ValidationFailure($"Filters[{i}].Field", ErrorMessages.FieldNotFound));
+                        errors.Add(new ValidationFailure($"Filters[{i}].Field", CommonErrorMessages.FieldNotFound));
                     }
                     else
                     {
@@ -39,7 +39,7 @@ namespace NovelWorld.Domain.Extensions
                     var prop = propNames.FirstOrDefault(x => x.ToLower().Equals(sort.Field.ToLower()));
                     if (prop == null)
                     {
-                        errors.Add(new ValidationFailure($"Filters[{i}].Field", ErrorMessages.FieldNotFound));
+                        errors.Add(new ValidationFailure($"Filters[{i}].Field", CommonErrorMessages.FieldNotFound));
                     }
                     else
                     {

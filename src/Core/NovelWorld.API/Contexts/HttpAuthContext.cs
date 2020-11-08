@@ -5,7 +5,8 @@ using System.Net;
 using System.Security.Claims;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
-using NovelWorld.Authentication.Contexts;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Authentication.DTO;
 using NovelWorld.Authentication.Exceptions;
@@ -15,7 +16,9 @@ namespace NovelWorld.API.Contexts
 {
     public class HttpAuthContext : IAuthContext
     {
-        private readonly AuthenticatedUser _user;
+        private readonly IHttpContextAccessor _contextAccessor;
+        
+        private AuthenticatedUser _user;
         private readonly IPAddress _ip;
 
         public AuthenticatedUser User
@@ -35,24 +38,26 @@ namespace NovelWorld.API.Contexts
 
         public HttpAuthContext(IHttpContextAccessor contextAccessor)
         {
+            _contextAccessor = contextAccessor;
+            
             var context = contextAccessor.HttpContext;
             var contextUser = context.User;
             var claims = contextUser?.Claims;
             if (contextUser != null && claims != null && claims.Any())
             {
-                var idStr = contextUser.FindFirstValue(AdditionalClaims.UserId);
-                var nameStr = contextUser.FindFirstValue(AdditionalClaims.UserName);
-                var fullNameStr = contextUser.FindFirstValue(AdditionalClaims.UserFullName);
-                var emailStr = contextUser.FindFirstValue(AdditionalClaims.UserEmail);
-                var rolesStr = contextUser.FindFirstValue(AdditionalClaims.UserRoles);
+                var idStr = contextUser.FindFirstValue(AdditionalClaimTypes.UserId);
+                var nameStr = contextUser.FindFirstValue(AdditionalClaimTypes.Account);
+                var fullNameStr = contextUser.FindFirstValue(AdditionalClaimTypes.UserFullName);
+                var emailStr = contextUser.FindFirstValue(AdditionalClaimTypes.UserEmail);
+                var rolesStr = contextUser.FindFirstValue(AdditionalClaimTypes.UserRoles);
 
-                if (string.IsNullOrEmpty(idStr))
+                if (!string.IsNullOrEmpty(idStr))
                 {
                     _user = new AuthenticatedUser()
                     {
                         // ReSharper disable once AssignNullToNotNullAttribute
                         Id =  Guid.Parse(idStr),
-                        UserName = nameStr,
+                        Account = nameStr,
                         FullName = fullNameStr,
                         Email = emailStr,
                         Roles = !string.IsNullOrEmpty(rolesStr) ? JsonSerializer.Deserialize<IEnumerable<string>>(rolesStr) : new List<string>()
@@ -61,6 +66,16 @@ namespace NovelWorld.API.Contexts
             }
 
             _ip = context.Connection.RemoteIpAddress;
+        }
+
+        internal void SetDefaultUser()
+        {
+            if (_user == null)
+            {
+                var context = _contextAccessor.HttpContext;
+                var configuration = context.RequestServices.GetRequiredService<IConfiguration>();
+                _user = configuration.GetSection("DefaultUser").Get<AuthenticatedUser>();
+            }
         }
     }
 }

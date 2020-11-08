@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
-using NovelWorld.Identity.Web.Models.Home;
+using NovelWorld.Identity.Data.ViewModels.Home;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
@@ -52,7 +52,9 @@ namespace NovelWorld.Identity.Web.Controllers
             var message = await _interaction.GetErrorContextAsync(errorId);
             if (message != null)
             {
-                vm.Error = message;
+                vm.Error = message.Error;
+                vm.ErrorDescription = message.ErrorDescription;
+                vm.RequestId = message.RequestId;
 
                 if (!_environment.IsDevelopment())
                 {

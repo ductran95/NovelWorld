@@ -2,12 +2,12 @@ using Microsoft.EntityFrameworkCore;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Identity.Data.Entities;
 using NovelWorld.Identity.Infrastructure.Configurations;
-using NovelWorld.Infrastructure.EntityFramework.Contexts;
+using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.EventSourcing.Abstractions;
 
 namespace NovelWorld.Identity.Infrastructure.Contexts
 {
-    public class IdentityContext : EntityContext
+    public class IdentityContext : EfCoreEntityContext
     {
         public IdentityContext(
             DbContextOptions options, 

@@ -6,6 +6,7 @@ using FluentValidation.Results;
 using NovelWorld.Common;
 using NovelWorld.Common.Exceptions;
 using NovelWorld.Data.Constants;
+using NovelWorld.Data.DTO;
 
 namespace NovelWorld.Domain.Exceptions
 {
@@ -22,7 +23,7 @@ namespace NovelWorld.Domain.Exceptions
         {
             var errors = new List<Error>
             {
-                new Error(ErrorCodes.NotFound, string.Format(ErrorMessages.DataNotFound, DataId))
+                new Error(CommonErrorCodes.NotFound, string.Format(CommonErrorMessages.DataNotFound, DataId))
             };
             return new HttpException(HttpStatusCode.NotFound, errors, Message, this);
         }

@@ -9,7 +9,7 @@ namespace NovelWorld.API.Filters
     public class RequestValidationFilter : IActionFilter, IOrderedFilter
     {
         // Run first
-        public int Order => 0;
+        public int Order => 1;
 
         public void OnActionExecuted(ActionExecutedContext context)
         {

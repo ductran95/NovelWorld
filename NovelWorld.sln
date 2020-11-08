@@ -44,7 +44,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Infrastructure",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Infrastructure.Dapper", "src\Core\NovelWorld.Infrastructure.Dapper\NovelWorld.Infrastructure.Dapper.csproj", "{B386F0DE-28FF-47DD-9F63-C785BAA1D715}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Infrastructure.EntityFramework", "src\Core\NovelWorld.Infrastructure.EntityFramework\NovelWorld.Infrastructure.EntityFramework.csproj", "{DB078B88-BBE8-4458-AA8F-243D1147ABFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Infrastructure.EntityFrameworkCore", "src\Core\NovelWorld.Infrastructure.EntityFrameworkCore\NovelWorld.Infrastructure.EntityFrameworkCore.csproj", "{DB078B88-BBE8-4458-AA8F-243D1147ABFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.EventBus", "src\EventBus\NovelWorld.EventBus\NovelWorld.EventBus.csproj", "{5363A5AC-6967-4E50-AE67-38CC0902BABF}"
 EndProject

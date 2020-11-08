@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\src\Core\NovelWorld.Infrastructure.EntityFramework\NovelWorld.Infrastructure.EntityFramework.csproj" />
+      <ProjectReference Include="..\..\..\src\Core\NovelWorld.Infrastructure.EntityFrameworkCore\NovelWorld.Infrastructure.EntityFrameworkCore.csproj" />
     </ItemGroup>
 
 </Project>

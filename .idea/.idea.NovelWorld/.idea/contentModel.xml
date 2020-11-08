@@ -33,8 +33,8 @@
           <e p="IdentityContextFactory.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20201102135154_Initial.Designer.cs" t="Include" />
-          <e p="20201102135154_Initial.cs" t="Include" />
+          <e p="20201108082120_Initial.Designer.cs" t="Include" />
+          <e p="20201108082120_Initial.cs" t="Include" />
           <e p="IdentityContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="NovelWorld.Identity.DbMigration.csproj" t="IncludeRecursive" />
@@ -90,6 +90,8 @@
       <e p="src/Core/NovelWorld.API" t="IncludeRecursive">
         <e p="Attributes" t="Include">
           <e p="AuthorizeAttribute.cs" t="Include" />
+          <e p="DelegateUserOnAllowAnonymousAttribute.cs" t="Include" />
+          <e p="FallbackViewAttribute.cs" t="Include" />
           <e p="SecurityHeadersAttribute.cs" t="Include" />
         </e>
         <e p="Contexts" t="Include">
@@ -99,11 +101,14 @@
           <e p="ApiController.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
+          <e p="ActionContextExtensions.cs" t="Include" />
           <e p="HttpContextExtensions.cs" t="Include" />
           <e p="SameSiteCookiesServiceCollectionExtensions.cs" t="Include" />
         </e>
         <e p="Filters" t="Include">
+          <e p="HttpModelExceptionFilter.cs" t="Include" />
           <e p="HttpResponseExceptionFilter.cs" t="Include" />
+          <e p="HttpSwitchModelResponseExceptionFilter.cs" t="Include" />
           <e p="RequestValidationFilter.cs" t="Include" />
           <e p="SwaggerResponseOperationFilter.cs" t="Include" />
         </e>
@@ -173,7 +178,6 @@
       <e p="src/Core/NovelWorld.Common" t="IncludeRecursive">
         <e p="Attributes" t="Include" />
         <e p="Ensure.cs" t="Include" />
-        <e p="Error.cs" t="Include" />
         <e p="Exceptions" t="Include">
           <e p="ApiClientException.cs" t="Include" />
           <e p="DomainException.cs" t="Include" />
@@ -227,7 +231,7 @@
           <e p="UrlConfig.cs" t="Include" />
         </e>
         <e p="Constants" t="Include">
-          <e p="AdditionalClaims.cs" t="Include" />
+          <e p="AdditionalClaimTypes.cs" t="Include" />
           <e p="AttachmentConstants.cs" t="Include" />
           <e p="DefaultValues.cs" t="Include" />
           <e p="ErrorConstants.cs" t="Include" />
@@ -235,7 +239,9 @@
           <e p="EventConstants.cs" t="Include" />
           <e p="ValidationRules.cs" t="Include" />
         </e>
-        <e p="DTO" t="Include" />
+        <e p="DTO" t="Include">
+          <e p="Error.cs" t="Include" />
+        </e>
         <e p="Entities" t="Include">
           <e p="Entity.cs" t="Include" />
         </e>
@@ -283,6 +289,7 @@
           <e p="Event.cs" t="Include" />
         </e>
         <e p="Exceptions" t="Include">
+          <e p="DuplicateDataException.cs" t="Include" />
           <e p="NotFoundException.cs" t="Include" />
           <e p="ValidationException.cs" t="Include" />
         </e>
@@ -376,36 +383,36 @@
           </e>
         </e>
       </e>
-      <e p="src/Core/NovelWorld.Infrastructure.EntityFramework" t="IncludeRecursive">
+      <e p="src/Core/NovelWorld.Infrastructure.EntityFrameworkCore" t="IncludeRecursive">
         <e p="Configurations" t="Include">
-          <e p="EntityConfiguration.cs" t="Include" />
+          <e p="EfCoreEntityConfiguration.cs" t="Include" />
         </e>
         <e p="Contexts" t="Include">
-          <e p="EntityContext.cs" t="Include" />
+          <e p="EfCoreEntityContext.cs" t="Include" />
         </e>
         <e p="EventSourcing" t="Include" />
         <e p="Extensions" t="Include">
-          <e p="EntityStateEnumExtensions.cs" t="Include" />
-          <e p="QueryableExtension.cs" t="Include" />
+          <e p="EfCoreEntityStateEnumExtensions.cs" t="Include" />
+          <e p="EfCoreQueryableExtension.cs" t="Include" />
         </e>
-        <e p="NovelWorld.Infrastructure.EntityFramework.csproj" t="IncludeRecursive" />
+        <e p="NovelWorld.Infrastructure.EntityFrameworkCore.csproj" t="IncludeRecursive" />
         <e p="Repositories" t="Include">
           <e p="Implements" t="Include">
-            <e p="ReadonlyRepository.cs" t="Include" />
-            <e p="Repository.cs" t="Include" />
-            <e p="WriteonlyRepository.cs" t="Include" />
+            <e p="EfCoreReadonlyRepository.cs" t="Include" />
+            <e p="EfCoreRepository.cs" t="Include" />
+            <e p="EfCoreWriteonlyRepository.cs" t="Include" />
           </e>
         </e>
         <e p="UoW" t="Include">
           <e p="Implements" t="Include">
-            <e p="UnitOfWork.cs" t="Include" />
+            <e p="EfCoreUnitOfWork.cs" t="Include" />
           </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.1" t="Include">
-              <e p="NovelWorld.Infrastructure.EntityFramework.AssemblyInfo.cs" t="Include" />
+              <e p="NovelWorld.Infrastructure.EntityFrameworkCore.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -507,7 +514,9 @@
           <e p="IdentityServerConfig.cs" t="Include" />
         </e>
         <e p="Constants" t="Include">
+          <e p="ErrorConstants.cs" t="Include" />
           <e p="UserConstants.cs" t="Include" />
+          <e p="ValidationRules.cs" t="Include" />
         </e>
         <e p="DTO" t="Include" />
         <e p="Entities" t="Include">
@@ -517,6 +526,39 @@
         <e p="NovelWorld.Identity.Data.csproj" t="IncludeRecursive" />
         <e p="Requests" t="Include" />
         <e p="Responses" t="Include" />
+        <e p="ViewModels" t="Include">
+          <e p="Account" t="Include">
+            <e p="AccountOptions.cs" t="Include" />
+            <e p="ExternalProvider.cs" t="Include" />
+            <e p="LoggedOutViewModel.cs" t="Include" />
+            <e p="LoginInputModel.cs" t="Include" />
+            <e p="LoginViewModel.cs" t="Include" />
+            <e p="LogoutInputModel.cs" t="Include" />
+            <e p="LogoutViewModel.cs" t="Include" />
+            <e p="RedirectViewModel.cs" t="Include" />
+            <e p="RegisterInputModel.cs" t="Include" />
+          </e>
+          <e p="Consent" t="Include">
+            <e p="ConsentInputModel.cs" t="Include" />
+            <e p="ConsentOptions.cs" t="Include" />
+            <e p="ConsentViewModel.cs" t="Include" />
+            <e p="ProcessConsentResult.cs" t="Include" />
+            <e p="ScopeViewModel.cs" t="Include" />
+          </e>
+          <e p="Device" t="Include">
+            <e p="DeviceAuthorizationInputModel.cs" t="Include" />
+            <e p="DeviceAuthorizationViewModel.cs" t="Include" />
+          </e>
+          <e p="Diagnostics" t="Include">
+            <e p="DiagnosticsViewModel.cs" t="Include" />
+          </e>
+          <e p="Grants" t="Include">
+            <e p="GrantsViewModel.cs" t="Include" />
+          </e>
+          <e p="Home" t="Include">
+            <e p="ErrorViewModel.cs" t="Include" />
+          </e>
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -531,11 +573,13 @@
         <e p="CommandHandlers" t="Include">
           <e p="User" t="Include">
             <e p="AutoProvisionUserCommandHandler.cs" t="Include" />
+            <e p="RegisterUserCommandHandler.cs" t="Include" />
           </e>
         </e>
         <e p="Commands" t="Include">
           <e p="User" t="Include">
             <e p="AutoProvisionUserCommand.cs" t="Include" />
+            <e p="RegisterUserCommand.cs" t="Include" />
           </e>
         </e>
         <e p="EventHandlers" t="Include" />
@@ -556,10 +600,16 @@
             <e p="UserQuery.cs" t="Include" />
           </e>
         </e>
+        <e p="Services" t="Include">
+          <e p="Abstractions" t="Include" />
+          <e p="Implements" t="Include">
+            <e p="ProfileService.cs" t="Include" />
+          </e>
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netstandard2.1" t="Include">
+            <e p="netcoreapp3.1" t="Include">
               <e p="NovelWorld.Identity.Domain.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -583,7 +633,11 @@
             <e p="UserRepository.cs" t="Include" />
           </e>
         </e>
-        <e p="UoW" t="Include" />
+        <e p="UoW" t="Include">
+          <e p="Implements" t="Include">
+            <e p="IdentityUnitOfWork.cs" t="Include" />
+          </e>
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -597,9 +651,6 @@
         <e p="Attributes" t="Include" />
         <e p="Certificates" t="Include">
           <e p="Certificate.cs" t="Include" />
-          <e p="IdentityServerCert.crt" t="Include" />
-          <e p="IdentityServerCert.includesprivatekey.pem" t="Include" />
-          <e p="IdentityServerCert.key" t="Include" />
           <e p="IdentityServerCert.pfx" t="Include" />
         </e>
         <e p="Contexts" t="Include" />
@@ -620,38 +671,6 @@
         <e p="Mappings" t="Include">
           <e p="IdentityServiceMapping.cs" t="Include" />
         </e>
-        <e p="Models" t="Include">
-          <e p="Account" t="Include">
-            <e p="AccountOptions.cs" t="Include" />
-            <e p="ExternalProvider.cs" t="Include" />
-            <e p="LoggedOutViewModel.cs" t="Include" />
-            <e p="LoginInputModel.cs" t="Include" />
-            <e p="LoginViewModel.cs" t="Include" />
-            <e p="LogoutInputModel.cs" t="Include" />
-            <e p="LogoutViewModel.cs" t="Include" />
-            <e p="RedirectViewModel.cs" t="Include" />
-          </e>
-          <e p="Consent" t="Include">
-            <e p="ConsentInputModel.cs" t="Include" />
-            <e p="ConsentOptions.cs" t="Include" />
-            <e p="ConsentViewModel.cs" t="Include" />
-            <e p="ProcessConsentResult.cs" t="Include" />
-            <e p="ScopeViewModel.cs" t="Include" />
-          </e>
-          <e p="Device" t="Include">
-            <e p="DeviceAuthorizationInputModel.cs" t="Include" />
-            <e p="DeviceAuthorizationViewModel.cs" t="Include" />
-          </e>
-          <e p="Diagnostics" t="Include">
-            <e p="DiagnosticsViewModel.cs" t="Include" />
-          </e>
-          <e p="Grants" t="Include">
-            <e p="GrantsViewModel.cs" t="Include" />
-          </e>
-          <e p="Home" t="Include">
-            <e p="ErrorViewModel.cs" t="Include" />
-          </e>
-        </e>
         <e p="NovelWorld.Identity.Web.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
@@ -665,6 +684,8 @@
             <e p="LoggedOut.cshtml" t="Include" />
             <e p="Login.cshtml" t="Include" />
             <e p="Logout.cshtml" t="Include" />
+            <e p="Register.cshtml" t="Include" />
+            <e p="RegisterDone.cshtml" t="Include" />
           </e>
           <e p="Consent" t="Include">
             <e p="Index.cshtml" t="Include" />
@@ -698,6 +719,13 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="identityserver.json" t="Include" />
+        <e p="logs" t="Include">
+          <e p="log20201102.txt" t="Include" />
+          <e p="log20201104.txt" t="Include" />
+          <e p="log20201106.txt" t="Include" />
+          <e p="log20201107.txt" t="Include" />
+          <e p="log20201108.txt" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">

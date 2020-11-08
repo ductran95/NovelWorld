@@ -38,8 +38,14 @@ namespace NovelWorld.Common.Helpers.Abstractions
 
         T Execute<T>(string url, ApiMethodEnum method, Dictionary<string, object> headers,
             Dictionary<string, object> queries, object body, ApiBodyTypeEnum bodyType = ApiBodyTypeEnum.Json);
+        
+        string Execute(string url, ApiMethodEnum method, Dictionary<string, object> headers,
+            Dictionary<string, object> queries, object body, ApiBodyTypeEnum bodyType = ApiBodyTypeEnum.Json);
 
         Task<T> ExecuteAsync<T>(string url, ApiMethodEnum method, Dictionary<string, object> headers,
+            Dictionary<string, object> queries, object body, ApiBodyTypeEnum bodyType = ApiBodyTypeEnum.Json);
+        
+        Task<string> ExecuteAsync(string url, ApiMethodEnum method, Dictionary<string, object> headers,
             Dictionary<string, object> queries, object body, ApiBodyTypeEnum bodyType = ApiBodyTypeEnum.Json);
     }
 }

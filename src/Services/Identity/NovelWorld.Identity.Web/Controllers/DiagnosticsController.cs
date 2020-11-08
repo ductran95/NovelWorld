@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Extensions;
-using NovelWorld.Identity.Web.Models.Diagnostics;
+using NovelWorld.Identity.Data.ViewModels.Diagnostics;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
+    [FallbackView("/Home/Index")]
     [SecurityHeaders]
     [Microsoft.AspNetCore.Authorization.Authorize]
     public class DiagnosticsController : Controller
@@ -22,7 +23,8 @@ namespace NovelWorld.Identity.Web.Controllers
                 return NotFound();
             }
 
-            var model = new DiagnosticsViewModel(await HttpContext.AuthenticateAsync());
+            var authenticateResult = await HttpContext.AuthenticateAsync();
+            var model = new DiagnosticsViewModel(authenticateResult.Properties.Items, authenticateResult.Principal.Claims);
             return View(model);
         }
     }

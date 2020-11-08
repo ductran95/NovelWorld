@@ -17,9 +17,9 @@ namespace NovelWorld.Identity.Domain.Commands.User
     {
         public AutoProvisionUserCommandValidator()
         {
-            RuleFor(x => x.Provider).NotNull();
-            RuleFor(x => x.ProviderUserId).NotNull();
-            RuleFor(x => x.Claims).NotNull();
+            RuleFor(x => x.Provider).NotEmpty();
+            RuleFor(x => x.ProviderUserId).NotEmpty();
+            RuleFor(x => x.Claims).NotEmpty();
         }
     }
 }

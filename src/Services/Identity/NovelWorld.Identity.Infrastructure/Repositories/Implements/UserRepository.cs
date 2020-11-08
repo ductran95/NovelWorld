@@ -2,19 +2,15 @@ using System.Threading.Tasks;
 using NovelWorld.Identity.Data.Entities;
 using NovelWorld.Identity.Infrastructure.Contexts;
 using NovelWorld.Identity.Infrastructure.Repositories.Abstracts;
-using NovelWorld.Infrastructure.EntityFramework.Contexts;
-using NovelWorld.Infrastructure.EntityFramework.Repositories.Implements;
-using NovelWorld.Infrastructure.Repositories.Abstractions;
+using NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements;
 
 namespace NovelWorld.Identity.Infrastructure.Repositories.Implements
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class UserRepository : EfCoreRepository<IdentityContext, User>, IUserRepository
     {
         public UserRepository(
-            IdentityContext context, 
-            IReadonlyRepository<User> readonlyRepository,
-            IWriteonlyRepository<User> writeonlyRepository
-            ) : base(context, readonlyRepository, writeonlyRepository)
+            IdentityContext context
+            ) : base(context)
         {
         }
 

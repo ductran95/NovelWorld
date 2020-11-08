@@ -6,7 +6,7 @@ namespace NovelWorld.Identity.Web.Certificates
 {
     static class Certificate
     {
-        public static X509Certificate2 Get()
+        public static X509Certificate2 Get(string password)
         {
             var assembly = typeof(Certificate).GetTypeInfo().Assembly;
             var names = assembly.GetManifestResourceNames();
@@ -18,7 +18,7 @@ namespace NovelWorld.Identity.Web.Certificates
              **********************************************************************************************/
             using (var stream = assembly.GetManifestResourceStream("NovelWorld.Identity.Web.Certificates.IdentityServerCert.pfx"))
             {
-                return new X509Certificate2(ReadStream(stream), "abc*123");
+                return new X509Certificate2(ReadStream(stream), password);
             }
         }
 

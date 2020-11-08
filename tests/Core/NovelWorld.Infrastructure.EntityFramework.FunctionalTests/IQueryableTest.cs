@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using NovelWorld.Infrastructure.EntityFramework.Extensions;
+using NovelWorld.Infrastructure.EntityFrameworkCore.Extensions;
 using Xunit;
 
 namespace NovelWorld.Infrastructure.EntityFramework.FunctionalTests

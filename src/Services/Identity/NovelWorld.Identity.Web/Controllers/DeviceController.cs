@@ -16,11 +16,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NovelWorld.API.Attributes;
-using NovelWorld.Identity.Web.Models.Consent;
+using NovelWorld.Identity.Data.ViewModels.Consent;
+using NovelWorld.Identity.Data.ViewModels.Device;
 using NovelWorld.Identity.Web.Models.Device;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
+    [FallbackView("/Home/Index")]
     [Microsoft.AspNetCore.Authorization.Authorize]
     [SecurityHeaders]
     public class DeviceController : Controller

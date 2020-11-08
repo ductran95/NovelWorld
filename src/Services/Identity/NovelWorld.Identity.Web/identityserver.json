@@ -1,6 +1,6 @@
 {
   "IdentityServerConfig": {
-    "CertificatePassword": "ductran95",
+    "CertificatePassword": "abc*123",
     "ApiScopes": [
       {
         "Name": "api",

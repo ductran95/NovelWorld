@@ -1,9 +1,15 @@
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using IdentityModel;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Authentication.DTO;
+using NovelWorld.Common.Exceptions;
 using NovelWorld.Common.Helpers.Abstractions;
+using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Queries.Implements;
 using NovelWorld.Identity.Domain.Queries.Abstractions;
 using NovelWorld.Identity.Infrastructure.Repositories.Abstracts;
@@ -47,6 +53,22 @@ namespace NovelWorld.Identity.Domain.Queries.Implements
         {
             var user = await _userRepository.GetByEmailAsync(providerUserId);
             return _mapper.Map<AuthenticatedUser>(user);
+        }
+        
+        public async Task<IEnumerable<Claim>> GetClaimsFromUser(AuthenticatedUser user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(JwtClaimTypes.Subject, user.Email),
+                new Claim(JwtClaimTypes.Email, user.Email),
+                new Claim(AdditionalClaimTypes.UserId, user.Id.ToString()),
+                new Claim(AdditionalClaimTypes.Account, user.Account),
+                new Claim(AdditionalClaimTypes.UserFullName, user.FullName),
+                new Claim(AdditionalClaimTypes.UserEmail, user.Email),
+            };
+
+            // TODO: get user's roles
+            return claims;
         }
     }
 }

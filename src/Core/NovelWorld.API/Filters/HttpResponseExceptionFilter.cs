@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Results;
-using NovelWorld.Common;
 using NovelWorld.Common.Exceptions;
 using NovelWorld.Data.Constants;
+using NovelWorld.Data.DTO;
 
 namespace NovelWorld.API.Filters
 {
@@ -29,7 +29,7 @@ namespace NovelWorld.API.Filters
                 return;
             }
 
-            HttpException exceptionToHandle = null;
+            HttpException exceptionToHandle;
 
             if (exception is HttpException httpException)
             {
@@ -41,7 +41,7 @@ namespace NovelWorld.API.Filters
             }
             else
             {
-                var errorResponse = new List<Error> { new Error(ErrorCodes.InternalServerError, exception.Message) };
+                var errorResponse = new List<Error> { new Error(CommonErrorCodes.InternalServerError, exception.Message) };
 
                 exceptionToHandle = new HttpException(HttpStatusCode.InternalServerError, errorResponse, exception.Message, exception);
             }

@@ -14,14 +14,15 @@ using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
+using NovelWorld.Identity.Data.ViewModels.Consent;
 using NovelWorld.Identity.Web.Extensions;
-using NovelWorld.Identity.Web.Models.Consent;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
     /// <summary>
     /// This controller processes the consent UI
     /// </summary>
+    [FallbackView("/Home/Index")]
     [SecurityHeaders]
     [Microsoft.AspNetCore.Authorization.Authorize]
     public class ConsentController : Controller
