@@ -1,22 +1,11 @@
-﻿using System.Net.Http;
+using System.Net.Http;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using NovelWorld.Identity.Data.Configurations;
 
-namespace NovelWorld.Identity.Web.Mappings
+namespace NovelWorld.Identity.Web.Extensions
 {
-    public static class IdentityServiceMapping
+    public static class OpenIdConnectOptionsExtensions
     {
-        public static IServiceCollection AddAppConfig(
-            this IServiceCollection services, IConfiguration config)
-        {
-            services.Configure<IdentityAppSettings>(config);
-            services.Configure<IdentityServerConfig>(config.GetSection(nameof(IdentityServerConfig)));
-
-            return services;
-        }
-        
         public static void SetOpenIdConnectOptions(this OpenIdConnectOptions options, CustomOpenIdConnectOptions existedOptions)
         {
             options.ClientId = existedOptions.ClientId;
