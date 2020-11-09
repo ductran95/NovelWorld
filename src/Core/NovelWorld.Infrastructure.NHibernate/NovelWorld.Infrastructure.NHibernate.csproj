@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NHibernate" Version="5.3.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Configurations" />
+      <Folder Include="Contexts" />
+      <Folder Include="EventSourcing" />
+      <Folder Include="Repositories" />
+      <Folder Include="UoW" />
+    </ItemGroup>
+
+</Project>

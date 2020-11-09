@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="CommandHandlers" />
+      <Folder Include="Commands" />
+      <Folder Include="EventHandlers" />
+      <Folder Include="Events" />
+      <Folder Include="Mappings" />
+      <Folder Include="Proxies" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="10.1.1" />
+      <PackageReference Include="FluentValidation" Version="9.2.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\EventBus\NovelWorld.EventBus.AzureServiceBus\NovelWorld.EventBus.AzureServiceBus.csproj" />
+      <ProjectReference Include="..\..\EventBus\NovelWorld.EventBus.RabbitMQ\NovelWorld.EventBus.RabbitMQ.csproj" />
+      <ProjectReference Include="..\NovelWorld.Authentication\NovelWorld.Authentication.csproj" />
+      <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
+      <ProjectReference Include="..\NovelWorld.Infrastructure\NovelWorld.Infrastructure.csproj" />
+      <ProjectReference Include="..\NovelWorld.Mediator\NovelWorld.Mediator.csproj" />
+    </ItemGroup>
+
+</Project>

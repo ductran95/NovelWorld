@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Core\NovelWorld.Domain\NovelWorld.Domain.csproj" />
+      <ProjectReference Include="..\NovelWorld.Identity.Infrastructure\NovelWorld.Identity.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Attributes" />
+      <Folder Include="EventHandlers" />
+      <Folder Include="Events" />
+      <Folder Include="Exceptions" />
+      <Folder Include="Extensions" />
+      <Folder Include="Proxies" />
+      <Folder Include="Services\Abstractions" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="IdentityServer4" Version="4.1.1" />
+    </ItemGroup>
+
+</Project>

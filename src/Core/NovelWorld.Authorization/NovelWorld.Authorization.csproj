@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Services\Abstractions" />
+      <Folder Include="Services\Implements" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
+    </ItemGroup>
+
+</Project>

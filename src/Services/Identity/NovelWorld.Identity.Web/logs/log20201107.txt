@@ -1,0 +1,535 @@
+[19:41:19] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[19:41:19] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[19:41:19] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[19:41:19] [Fatal] [Microsoft.AspNetCore.Server.Kestrel] Unable to start Kestrel.
+Interop+Crypto+OpenSslCryptographicException: error:2006D080:BIO routines:BIO_new_file:no such file
+   at Interop.Crypto.CheckValidOpenSslHandle(SafeHandle handle)
+   at Internal.Cryptography.Pal.OpenSslX509CertificateReader.FromFile(String fileName, SafePasswordHandle password, X509KeyStorageFlags keyStorageFlags)
+   at System.Security.Cryptography.X509Certificates.X509Certificate..ctor(String fileName, String password, X509KeyStorageFlags keyStorageFlags)
+   at System.Security.Cryptography.X509Certificates.X509Certificate2..ctor(String fileName, String password)
+   at Microsoft.AspNetCore.Server.Kestrel.KestrelConfigurationLoader.LoadCertificate(CertificateConfig certInfo, String endpointName)
+   at Microsoft.AspNetCore.Server.Kestrel.KestrelConfigurationLoader.LoadDefaultCert(ConfigurationReader configReader)
+   at Microsoft.AspNetCore.Server.Kestrel.KestrelConfigurationLoader.Load()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer.ValidateOptions()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+[19:41:59] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[19:41:59] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[19:41:59] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[19:57:08] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[19:57:09] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[19:57:09] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[20:27:50] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[20:27:50] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[20:27:50] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[20:28:07] [Error] [Microsoft.Extensions.Diagnostics.HealthChecks.DefaultHealthCheckService] Health check "npgsql" completed after 180.8367ms with status Unhealthy and 'null'
+[20:35:36] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[20:35:37] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[20:35:37] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[20:36:49] [Error] [NovelWorld.API.Filters.HttpResponseExceptionFilter] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> RegisterUserCommand
+System.Object -> NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand
+NovelWorld.Common.Exceptions.HttpException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> RegisterUserCommand
+System.Object -> NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> RegisterUserCommand
+System.Object -> NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand
+   at lambda_method(Closure , Object , RegisterUserCommand , ResolutionContext )
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 221
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[20:49:31] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[20:49:31] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[20:49:31] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[20:50:18] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] notification does not implement $INotification
+NovelWorld.Common.Exceptions.HttpException: notification does not implement $INotification
+ ---> System.ArgumentException: notification does not implement $INotification
+   at NovelWorld.Mediator.CustomMediator.Publish(Object notification, PublishStrategy strategy, CancellationToken cancellationToken) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Mediator/CustomMediator.cs:line 61
+   at NovelWorld.Mediator.CustomMediator.Publish(Object notification, CancellationToken cancellationToken) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Mediator/CustomMediator.cs:line 31
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[20:50:18] [Error] [Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] An unhandled exception has occurred while executing the request.
+System.ArgumentException: The path in 'value' must start with '/'. (Parameter 'value')
+   at Microsoft.AspNetCore.Http.PathString..ctor(String value)
+   at Microsoft.AspNetCore.Http.PathString.op_Implicit(String s)
+   at NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter.OnException(ExceptionContext context) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Filters/HttpSwitchModelResponseExceptionFilter.cs:line 55
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResourceFilter()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events, IBackChannelLogoutService backChannelLogoutService)
+   at IdentityServer4.Hosting.MutualTlsEndpointMiddleware.Invoke(HttpContext context, IAuthenticationSchemeProvider schemes)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[20:52:47] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[20:52:47] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[20:52:47] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[20:53:27] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] notification does not implement $INotification
+NovelWorld.Common.Exceptions.HttpException: notification does not implement $INotification
+ ---> System.ArgumentException: notification does not implement $INotification
+   at NovelWorld.Mediator.CustomMediator.Publish(Object notification, PublishStrategy strategy, CancellationToken cancellationToken) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Mediator/CustomMediator.cs:line 61
+   at NovelWorld.Mediator.CustomMediator.Publish(Object notification, CancellationToken cancellationToken) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Mediator/CustomMediator.cs:line 31
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[21:16:29] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[21:16:29] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[21:16:29] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[21:17:00] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstances[T](ServiceFactory factory)
+   at MediatR.Internal.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[21:17:00] [Error] [Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter.OnException(ExceptionContext context) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Filters/HttpSwitchModelResponseExceptionFilter.cs:line 71
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResourceFilter()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events, IBackChannelLogoutService backChannelLogoutService)
+   at IdentityServer4.Hosting.MutualTlsEndpointMiddleware.Invoke(HttpContext context, IAuthenticationSchemeProvider schemes)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[21:20:42] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[21:20:43] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[21:20:43] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[21:21:10] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstances[T](ServiceFactory factory)
+   at MediatR.Internal.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[21:21:10] [Error] [Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor] The view '"CustomError"' was not found. Searched locations: ["/Views/Account/CustomError.cshtml", "/Views/Shared/CustomError.cshtml", "/Pages/Shared/CustomError.cshtml"]
+[21:21:10] [Error] [Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The view 'CustomError' was not found. The following locations were searched:
+/Views/Account/CustomError.cshtml
+/Views/Shared/CustomError.cshtml
+/Pages/Shared/CustomError.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAlwaysRunResultFilters>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events, IBackChannelLogoutService backChannelLogoutService)
+   at IdentityServer4.Hosting.MutualTlsEndpointMiddleware.Invoke(HttpContext context, IAuthenticationSchemeProvider schemes)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[21:34:19] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[21:34:19] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[21:34:19] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[21:34:53] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstances[T](ServiceFactory factory)
+   at MediatR.Internal.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[21:34:53] [Error] [Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter.OnException(ExceptionContext context) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Filters/HttpSwitchModelResponseExceptionFilter.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResourceFilter()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events, IBackChannelLogoutService backChannelLogoutService)
+   at IdentityServer4.Hosting.MutualTlsEndpointMiddleware.Invoke(HttpContext context, IAuthenticationSchemeProvider schemes)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[21:41:04] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[21:41:05] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[21:41:05] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[21:41:54] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstances[T](ServiceFactory factory)
+   at MediatR.Internal.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[21:42:35] [Error] [Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Value cannot be null or empty. (Parameter 'viewPath')
+   at Microsoft.AspNetCore.Mvc.ViewEngines.CompositeViewEngine.GetView(String executingFilePath, String viewPath, Boolean isMainPage)
+   at NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter.OnException(ExceptionContext context) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Filters/HttpSwitchModelResponseExceptionFilter.cs:line 83
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResourceFilter()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events, IBackChannelLogoutService backChannelLogoutService)
+   at IdentityServer4.Hosting.MutualTlsEndpointMiddleware.Invoke(HttpContext context, IAuthenticationSchemeProvider schemes)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[21:49:38] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[21:49:39] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[21:49:39] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[21:50:53] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstances[T](ServiceFactory factory)
+   at MediatR.Internal.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[21:53:19] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[21:53:19] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[21:53:19] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[21:53:52] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstances[T](ServiceFactory factory)
+   at MediatR.Internal.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[22:13:03] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[22:13:03] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[22:13:03] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[22:13:30] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstances[T](ServiceFactory factory)
+   at MediatR.Internal.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[22:16:25] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[22:16:25] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[22:16:25] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[22:16:53] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstances[T](ServiceFactory factory)
+   at MediatR.Internal.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[22:17:25] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstances[T](ServiceFactory factory)
+   at MediatR.Internal.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[22:32:10] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[22:32:10] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[22:32:10] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[22:33:02] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] 
+NovelWorld.Common.Exceptions.HttpException
+ ---> NovelWorld.Authentication.Exceptions.UnauthenticatedException
+   at NovelWorld.API.Contexts.HttpAuthContext.get_User() in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 30
+   at NovelWorld.Domain.Proxies.LoggingProxy`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs:line 30
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
+[22:33:02] [Error] [Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter.OnException(ExceptionContext context) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Filters/HttpSwitchModelResponseExceptionFilter.cs:line 93
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResourceFilter()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events, IBackChannelLogoutService backChannelLogoutService)
+   at IdentityServer4.Hosting.MutualTlsEndpointMiddleware.Invoke(HttpContext context, IAuthenticationSchemeProvider schemes)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[22:34:30] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
+[22:34:31] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+[22:34:31] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
+[22:35:12] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] 
+NovelWorld.Common.Exceptions.HttpException
+ ---> NovelWorld.Authentication.Exceptions.UnauthenticatedException
+   at NovelWorld.API.Contexts.HttpAuthContext.get_User() in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 30
+   at NovelWorld.Domain.Proxies.LoggingProxy`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs:line 30
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at NovelWorld.Identity.Web.Controllers.AccountController.Register(RegisterInputModel model, String button) in /mnt/disk1/Projects/NovelWorld/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs:line 222
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   --- End of inner exception stack trace ---
