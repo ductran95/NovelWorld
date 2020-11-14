@@ -96,6 +96,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Identity.DbMigration", "migrations\NovelWorld.Identity.DbMigration\NovelWorld.Identity.DbMigration.csproj", "{99367B6E-6AF7-4518-B4CF-4C3BDEB767D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.MasterData.DbMigration", "migrations\NovelWorld.MasterData.DbMigration\NovelWorld.MasterData.DbMigration.csproj", "{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -142,6 +144,7 @@ Global
 		{FC0D282D-81F6-4548-A372-9D7335D5D8C4} = {523990AE-A997-400E-B7AB-BB4043F974BA}
 		{AF7C597B-4CB5-4FE8-A1CD-AF0767855278} = {C62C11BC-038D-4D74-8E22-31515A2AC229}
 		{99367B6E-6AF7-4518-B4CF-4C3BDEB767D0} = {11971F79-93ED-4A21-9268-1FDEEF604EF5}
+		{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A} = {11971F79-93ED-4A21-9268-1FDEEF604EF5}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2D735515-238B-47CD-95AE-EA9EADD50AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -280,5 +283,9 @@ Global
 		{99367B6E-6AF7-4518-B4CF-4C3BDEB767D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99367B6E-6AF7-4518-B4CF-4C3BDEB767D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99367B6E-6AF7-4518-B4CF-4C3BDEB767D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

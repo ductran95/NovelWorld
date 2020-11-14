@@ -3,24 +3,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NovelWorld.EventBus;
-using NovelWorld.Identity.Data.Configurations;
-using NovelWorld.Identity.Domain.Queries.Abstractions;
-using NovelWorld.Identity.Domain.Queries.Implements;
-using NovelWorld.Identity.Infrastructure.Contexts;
-using NovelWorld.Identity.Infrastructure.Repositories.Abstracts;
-using NovelWorld.Identity.Infrastructure.Repositories.Implements;
-using NovelWorld.Identity.Infrastructure.UoW.Implements;
 using NovelWorld.Infrastructure.UoW.Abstractions;
+using NovelWorld.MasterData.Data.Configurations;
+using NovelWorld.MasterData.Infrastructure.Contexts;
+using NovelWorld.MasterData.Infrastructure.UoW.Implements;
 
-namespace NovelWorld.Identity.Domain.Mappings
+namespace NovelWorld.MasterData.Domain.Mappings
 {
-    public static class IdentityServiceMapping
+    public static class MasterDataServiceMapping
     {
         public static IServiceCollection AddAppConfig(
             this IServiceCollection services, IConfiguration config)
         {
-            services.Configure<IdentityAppSettings>(config);
-            services.Configure<IdentityServerConfig>(config.GetSection(nameof(IdentityServerConfig)));
+            services.Configure<MasterDataAppSettings>(config);
 
             return services;
         }
@@ -49,11 +44,7 @@ namespace NovelWorld.Identity.Domain.Mappings
         private static IServiceCollection RegisterQueries(
             this IServiceCollection services)
         {
-            #region User
-
-            services.AddScoped<IUserQuery, UserQuery>();
-
-            #endregion
+            
 
             return services;
         }
@@ -61,11 +52,7 @@ namespace NovelWorld.Identity.Domain.Mappings
         private static IServiceCollection RegisterRepositories(
             this IServiceCollection services)
         {
-            #region User
-
-            services.AddScoped<IUserRepository, UserRepository>();
-
-            #endregion
+            
 
             return services;
         }
@@ -73,7 +60,7 @@ namespace NovelWorld.Identity.Domain.Mappings
         private static IServiceCollection RegisterContexts(
             this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<IdentityContext>(options =>
+            services.AddDbContext<MasterDataContext>(options =>
             {
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
                 options.EnableDetailedErrors();
@@ -85,7 +72,7 @@ namespace NovelWorld.Identity.Domain.Mappings
         
         private static IServiceCollection RegisterUoW(this IServiceCollection services)
         {
-            services.AddScoped<IUnitOfWork, IdentityUnitOfWork>();
+            services.AddScoped<IUnitOfWork, MasterDataUnitOfWork>();
 
             return services;
         }

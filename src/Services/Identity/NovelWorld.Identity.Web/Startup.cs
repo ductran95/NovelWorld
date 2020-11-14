@@ -21,10 +21,10 @@ using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
 using NovelWorld.Identity.Web.Certificates;
-using NovelWorld.Identity.Web.Mappings;
 using NovelWorld.Identity.Data.Configurations;
 using NovelWorld.Identity.Domain.Mappings;
-using NovelWorld.Identity.Domain.Services.Implements;
+using NovelWorld.Identity.Web.Extensions;
+using NovelWorld.Identity.Web.Services.Implements;
 using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web
@@ -62,6 +62,7 @@ namespace NovelWorld.Identity.Web
             services.AddAutoMapper(novelWorldAssemblies);
             
             // Add Fluent Validation, Response filter
+            services.AddScoped<SecurityHeadersAttribute>();
             services.AddScoped<RequestValidationFilter>();
             services.AddScoped<HttpSwitchModelResponseExceptionFilter>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
@@ -100,17 +101,21 @@ namespace NovelWorld.Identity.Web
             services.RegisterServices(Configuration);
             
             // Config CORS
+            var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");
+            if (allowedOrigin == null)
+            {
+                allowedOrigin = new string[0];
+            }
+
             services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
             {
                 builder
-                    .SetIsOriginAllowed((host) => true)
                     .AllowAnyMethod()
                     .AllowAnyHeader()
-                    .AllowCredentials();
+                    .AllowCredentials()
+                    .WithOrigins(allowedOrigin)
+                    .WithExposedHeaders("Content-Disposition");
             }));
-            
-            // Add Filter
-            services.AddScoped<SecurityHeadersAttribute>();
             
             // Add HealthCheck
             var hcBuilder = services.AddHealthChecks()

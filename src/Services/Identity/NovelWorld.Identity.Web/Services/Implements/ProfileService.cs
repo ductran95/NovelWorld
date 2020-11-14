@@ -7,7 +7,7 @@ using IdentityServer4.Models;
 using IdentityServer4.Services;
 using NovelWorld.Identity.Domain.Queries.Abstractions;
 
-namespace NovelWorld.Identity.Domain.Services.Implements
+namespace NovelWorld.Identity.Web.Services.Implements
 {
     public class ProfileService : IProfileService
     {

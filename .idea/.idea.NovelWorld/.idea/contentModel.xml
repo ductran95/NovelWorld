@@ -4,7 +4,7 @@
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_NovelWorld.262357748.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.7.1/build/netcoreapp2.1" t="Include">
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.8.0/build/netcoreapp2.1" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
     <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.3/build/netcoreapp2.1/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
@@ -46,6 +46,23 @@
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="NovelWorld.Identity.DbMigration.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="migrations/NovelWorld.MasterData.DbMigration" t="IncludeRecursive">
+        <e p="Factories" t="Include">
+          <e p="MasterDataContextFactory.cs" t="Include" />
+        </e>
+        <e p="NovelWorld.MasterData.DbMigration.csproj" t="IncludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="NovelWorld.MasterData.DbMigration.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -600,16 +617,10 @@
             <e p="UserQuery.cs" t="Include" />
           </e>
         </e>
-        <e p="Services" t="Include">
-          <e p="Abstractions" t="Include" />
-          <e p="Implements" t="Include">
-            <e p="ProfileService.cs" t="Include" />
-          </e>
-        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
+            <e p="netstandard2.1" t="Include">
               <e p="NovelWorld.Identity.Domain.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -665,18 +676,21 @@
         </e>
         <e p="Extensions" t="Include">
           <e p="Extensions.cs" t="Include" />
+          <e p="OpenIdConnectOptionsExtensions.cs" t="Include" />
         </e>
         <e p="Filters" t="Include" />
         <e p="Formatters" t="Include" />
-        <e p="Mappings" t="Include">
-          <e p="IdentityServiceMapping.cs" t="Include" />
-        </e>
         <e p="NovelWorld.Identity.Web.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Results" t="Include" />
+        <e p="Services" t="Include">
+          <e p="Implements" t="Include">
+            <e p="ProfileService.cs" t="Include" />
+          </e>
+        </e>
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
           <e p="Account" t="Include">
@@ -948,16 +962,19 @@
         </e>
       </e>
       <e p="src/Services/MasterData/NovelWorld.MasterData.API" t="IncludeRecursive">
-        <e p="Controllers" t="Include">
-          <e p="WeatherForecastController.cs" t="Include" />
-        </e>
+        <e p="Attributes" t="Include" />
+        <e p="Contexts" t="Include" />
+        <e p="Controllers" t="Include" />
+        <e p="Extensions" t="Include" />
+        <e p="Filters" t="Include" />
+        <e p="Formatters" t="Include" />
         <e p="NovelWorld.MasterData.API.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="Results" t="Include" />
         <e p="Startup.cs" t="Include" />
-        <e p="WeatherForecast.cs" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
@@ -970,8 +987,19 @@
         </e>
       </e>
       <e p="src/Services/MasterData/NovelWorld.MasterData.Data" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Configurations" t="Include">
+          <e p="MasterDataAppSettings.cs" t="Include" />
+        </e>
+        <e p="Constants" t="Include">
+          <e p="ErrorConstants.cs" t="Include" />
+          <e p="ValidationRules.cs" t="Include" />
+        </e>
+        <e p="DTO" t="Include" />
+        <e p="Entities" t="Include" />
+        <e p="Enums" t="Include" />
         <e p="NovelWorld.MasterData.Data.csproj" t="IncludeRecursive" />
+        <e p="Requests" t="Include" />
+        <e p="Responses" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -982,8 +1010,23 @@
         </e>
       </e>
       <e p="src/Services/MasterData/NovelWorld.MasterData.Domain" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Attributes" t="Include" />
+        <e p="CommandHandlers" t="Include" />
+        <e p="Commands" t="Include" />
+        <e p="EventHandlers" t="Include" />
+        <e p="Events" t="Include" />
+        <e p="Exceptions" t="Include" />
+        <e p="Extensions" t="Include" />
+        <e p="Mappings" t="Include">
+          <e p="MasterDataModelMapping.cs" t="Include" />
+          <e p="MasterDataServiceMapping.cs" t="Include" />
+        </e>
         <e p="NovelWorld.MasterData.Domain.csproj" t="IncludeRecursive" />
+        <e p="Proxies" t="Include" />
+        <e p="Queries" t="Include">
+          <e p="Abstractions" t="Include" />
+          <e p="Implements" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -994,8 +1037,22 @@
         </e>
       </e>
       <e p="src/Services/MasterData/NovelWorld.MasterData.Infrastructure" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Configurations" t="Include" />
+        <e p="Contexts" t="Include">
+          <e p="MasterDataContext.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include" />
+        <e p="Extensions" t="Include" />
         <e p="NovelWorld.MasterData.Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="Repositories" t="Include">
+          <e p="Abstracts" t="Include" />
+          <e p="Implements" t="Include" />
+        </e>
+        <e p="UoW" t="Include">
+          <e p="Implements" t="Include">
+            <e p="MasterDataUnitOfWork.cs" t="Include" />
+          </e>
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
