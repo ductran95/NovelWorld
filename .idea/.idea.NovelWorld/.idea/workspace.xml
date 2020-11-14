@@ -11,6 +11,8 @@
     <projectFile>src/Core/NovelWorld.Authentication/NovelWorld.Authentication.csproj</projectFile>
     <projectFile>migrations/NovelWorld.Identity.Migration/NovelWorld.Identity.Migration.csproj</projectFile>
     <projectFile>src/Services/Identity/NovelWorld.Identity.Web/NovelWorld.Identity.Web.csproj</projectFile>
+    <projectFile>migrations/NovelWorld.MasterData.DbMigration/NovelWorld.MasterData.DbMigration.csproj</projectFile>
+    <projectFile>tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/NovelWorld.Infrastructure.EntityFramework.FunctionalTests.csproj</projectFile>
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -29,40 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5131cda8-faeb-4f91-92a0-2fe333bd346e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Extensions/OpenIdConnectOptionsExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Configurations/MasterDataAppSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Constants/ErrorConstants.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Constants/ValidationRules.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataModelMapping.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataServiceMapping.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Contexts/MasterDataContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/UoW/Implements/MasterDataUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/NovelWorld.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/NovelWorld.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.NHibernate/NovelWorld.Infrastructure.NHibernate.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.NHibernate/NovelWorld.Infrastructure.NHibernate.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityServiceMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityServiceMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/NovelWorld.Identity.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/NovelWorld.Identity.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Services/Implements/ProfileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Services/Implements/ProfileService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Mappings/IdentityServiceMapping.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/NovelWorld.Identity.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/NovelWorld.Identity.Web.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Controllers/WeatherForecastController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/NovelWorld.MasterData.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/NovelWorld.MasterData.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/WeatherForecast.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/NovelWorld.MasterData.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/NovelWorld.MasterData.Data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/NovelWorld.MasterData.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/NovelWorld.MasterData.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/NovelWorld.MasterData.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/NovelWorld.MasterData.Infrastructure.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/NovelWorld.Infrastructure.EntityFramework.FunctionalTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/NovelWorld.Infrastructure.EntityFramework.FunctionalTests.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,9 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/Repository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/WriteonlyRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/UoW/Implements/UnitOfWork.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreReadonlyRepository.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreWriteonlyRepository.cs" />
         <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreRepository.cs" />
@@ -211,6 +177,9 @@
         <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataServiceMapping.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Properties/launchSettings.json" />
+        <option value="$PROJECT_DIR$/migrations/NovelWorld.MasterData.DbMigration/Program.cs" />
+        <option value="$PROJECT_DIR$/migrations/NovelWorld.MasterData.DbMigration/Factories/IdentityContextFactory.cs" />
+        <option value="$PROJECT_DIR$/migrations/NovelWorld.MasterData.DbMigration/Factories/MasterDataContextFactory.cs" />
       </list>
     </option>
   </component>
@@ -279,6 +248,24 @@
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/migrations/NovelWorld.Identity.DbMigration/NovelWorld.Identity.DbMigration.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="NovelWorld.Infrastructure.EntityFramework.FunctionalTests" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/tests/Core/NovelWorld.Infrastructure.EntityFramework.FunctionalTests/NovelWorld.Infrastructure.EntityFramework.FunctionalTests.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -518,6 +505,7 @@
       <item itemvalue=".NET Project.NovelWorld.Authentication" />
       <item itemvalue=".NET Project.NovelWorld.Identity.Migration" />
       <item itemvalue=".NET Project.NovelWorld.MasterData.DbMigration" />
+      <item itemvalue=".NET Project.NovelWorld.Infrastructure.EntityFramework.FunctionalTests" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -562,6 +550,8 @@
       <workItem from="1604668952721" duration="3252000" />
       <workItem from="1604749216552" duration="14031000" />
       <workItem from="1604820984460" duration="9770000" />
+      <workItem from="1605012567656" duration="681000" />
+      <workItem from="1605355103883" duration="601000" />
     </task>
     <task id="LOCAL-00001" summary="Update structure">
       <created>1601559357949</created>
@@ -661,7 +651,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604331357456</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Master Data structure">
+      <created>1604936308882</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1604936308882</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +707,8 @@
     <MESSAGE value="Update logging behavior" />
     <MESSAGE value="Update login" />
     <MESSAGE value="Done login feature in Identity&#10;TODO: Implement Register" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done login feature in Identity&#10;TODO: Implement Register" />
+    <MESSAGE value="Master Data structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Master Data structure" />
   </component>
   <component name="WindowStateProjectService">
     <state x="635" y="226" width="1081" height="779" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604500766111">
@@ -721,10 +719,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="559" height="505" key="DebuggerActiveHint/0.0.1920.1080@0.0.1920.1080" timestamp="1604830978269" />
-    <state x="744" y="274" key="FileChooserDialogImpl" timestamp="1604320534440">
+    <state x="744" y="274" key="FileChooserDialogImpl" timestamp="1604936093402">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="744" y="274" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1604320534440" />
+    <state x="744" y="274" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1604936093402" />
     <state width="1874" height="484" key="GridCell.Tab.0.bottom" timestamp="1604830995689">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -805,10 +803,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="366" key="GridCell.Tab.4.right/0.0.1920.1080@0.0.1920.1080" timestamp="1604830995685" />
-    <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size" timestamp="1604320554147">
+    <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size" timestamp="1604936118251">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1080@0.0.1920.1080" timestamp="1604320554147" />
+    <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1080@0.0.1920.1080" timestamp="1604936118251" />
     <state x="577" y="200" key="RiderGenerateDialog" timestamp="1604235279275">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -829,10 +827,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601815744371" />
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1604930745890">
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1604936310331">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1604930745890" />
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1604936310331" />
     <state x="764" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602080834394">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -869,27 +867,13 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Services/Implements/ProfileService.cs</url>
           <line>30</line>
-          <properties documentPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Services/Implements/ProfileService.cs" initialLine="30">
-            <startOffsets>
-              <option value="947" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1001" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Services/Implements/ProfileService.cs" initialLine="30" />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Services/Implements/ProfileService.cs</url>
           <line>21</line>
-          <properties documentPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Services/Implements/ProfileService.cs" initialLine="21">
-            <startOffsets>
-              <option value="604" />
-            </startOffsets>
-            <endOffsets>
-              <option value="694" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Services/Implements/ProfileService.cs" initialLine="21" />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
