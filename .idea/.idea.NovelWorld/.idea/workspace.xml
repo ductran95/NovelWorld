@@ -20,59 +20,24 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:develop" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:feature/crud_book" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5131cda8-faeb-4f91-92a0-2fe333bd346e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Author.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Book.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Category.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Chapter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Enums/BookStatusEnum.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Author/AuthorDetailResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Author/AuthorGeneralResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Book/BookDetailResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Book/BookGeneralResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Category/CategoryDetailResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Category/CategoryGeneralResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Chapter/ChapterDetailResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Chapter/ChapterGeneralResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/IAuthorQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/IBookQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/ICategoryQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/IChapterQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/AuthorQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/BookQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/CategoryQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/ChapterQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/AuthorConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/BookConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/CategoryConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/ChapterConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/IAuthorRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/IBookRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/ICategoryRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/IChapterRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/AuthorRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/BookRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/CategoryRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/ChapterRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Exceptions/NotFoundException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Exceptions/NotFoundException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/NovelWorld.MasterData.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/NovelWorld.MasterData.Data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataServiceMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataServiceMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/NovelWorld.MasterData.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/NovelWorld.MasterData.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Contexts/MasterDataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Contexts/MasterDataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/NovelWorld.MasterData.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/NovelWorld.MasterData.Infrastructure.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -595,7 +560,7 @@
       <workItem from="1605355103883" duration="6150000" />
       <workItem from="1605413197143" duration="599000" />
       <workItem from="1605438623692" duration="599000" />
-      <workItem from="1605790470159" duration="1245000" />
+      <workItem from="1605790470159" duration="1549000" />
     </task>
     <task id="LOCAL-00001" summary="Update structure">
       <created>1601559357949</created>
@@ -723,7 +688,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605794640659</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Init master data api">
+      <created>1605794917030</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1605794917030</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -742,7 +714,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop" />
+                        <option value="feature/crud_book" />
                       </list>
                     </value>
                   </entry>
@@ -895,10 +867,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601815744371" />
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1605359502525">
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1605794936141">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605359502525" />
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605794936141" />
     <state x="764" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602080834394">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
