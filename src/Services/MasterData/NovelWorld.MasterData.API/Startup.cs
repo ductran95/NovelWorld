@@ -43,56 +43,57 @@ namespace NovelWorld.MasterData.API
             // Configuration
             var appSetting = new AppSettings();
             Configuration.Bind(appSetting);
-            services.AddBaseAppConfig(Configuration).AddAppConfig(Configuration);
+            services.AddBaseAppConfig(Configuration)
+                    .AddAppConfig(Configuration);
             
             // Add Mediatr
-            services.AddTransient<Mediator.IMediator, CustomMediator>();
-            services.AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
-            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>());
-            services.RegisterPublishStrategies();
-            services.RegisterBaseProxies();
+            services.AddTransient<Mediator.IMediator, CustomMediator>()
+                    .AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>())
+                    .AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>())
+                    .RegisterPublishStrategies()
+                    .RegisterBaseProxies();
 
             // Add AutoMapper
             services.AddAutoMapper(novelWorldAssemblies);
             
             // Add Fluent Validation, Response filter
-            services.AddScoped<SecurityHeadersAttribute>();
-            services.AddScoped<RequestValidationFilter>();
-            services.AddScoped<HttpSwitchModelResponseExceptionFilter>();
+            services.AddScoped<SecurityHeadersAttribute>()
+                    .AddScoped<RequestValidationFilter>()
+                    .AddScoped<HttpSwitchModelResponseExceptionFilter>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
             services.AddMvc(options =>
-                {
-                    options.Filters.Add<RequestValidationFilter>();
-                    options.Filters.Add<HttpSwitchModelResponseExceptionFilter>();
-                })
-                .AddFluentValidation(fv =>
-                {
-                    fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
-                    fv.ImplicitlyValidateChildProperties = true;
-                })
-                .ConfigureApiBehaviorOptions(options =>
-                {
-                    options.SuppressModelStateInvalidFilter = true;
-                })
-                .AddNewtonsoftJson(options =>
-                {
-                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                });
+                    {
+                        options.Filters.Add<RequestValidationFilter>();
+                        options.Filters.Add<HttpSwitchModelResponseExceptionFilter>();
+                    })
+                    .AddFluentValidation(fv =>
+                    {
+                        fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+                        fv.ImplicitlyValidateChildProperties = true;
+                    })
+                    .ConfigureApiBehaviorOptions(options =>
+                    {
+                        options.SuppressModelStateInvalidFilter = true;
+                    })
+                    .AddNewtonsoftJson(options =>
+                    {
+                        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    });
 
             ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
             
             // Add Event Bus
-            services.RegisterBaseEventBus(appSetting.EventBusConfig);
-            services.AddIntegrationEventHandler(new Type[]
-            {
-                typeof(MasterDataModelMapping)
-            });
+            services.RegisterBaseEventBus(appSetting.EventBusConfig)
+                    .AddIntegrationEventHandler(new Type[]
+                    {
+                        typeof(MasterDataModelMapping)
+                    });
             
             // Add DI
-            services.RegisterBaseHelpers();
-            services.RegisterBaseEventSourcing();
-            services.RegisterAuthContext();
-            services.RegisterServices(Configuration);
+            services.RegisterBaseHelpers()
+                    .RegisterBaseEventSourcing()
+                    .RegisterAuthContext()
+                    .RegisterServices(Configuration);
             
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");
@@ -112,7 +113,8 @@ namespace NovelWorld.MasterData.API
             }));
             
             // Add HealthCheck
-            var hcBuilder = services.AddHealthChecks()
+            var hcBuilder = services
+                .AddHealthChecks()
                 .AddCheck("self", () => HealthCheckResult.Healthy())
                 .AddNpgSql(Configuration.GetConnectionString("DefaultConnection"));
 

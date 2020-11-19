@@ -994,12 +994,36 @@
           <e p="ErrorConstants.cs" t="Include" />
           <e p="ValidationRules.cs" t="Include" />
         </e>
-        <e p="DTO" t="Include" />
+        <e p="DTO" t="Include">
+          <e p="Author.cs" t="Include" />
+          <e p="Book.cs" t="Include" />
+          <e p="Category.cs" t="Include" />
+          <e p="Chapter.cs" t="Include" />
+        </e>
         <e p="Entities" t="Include" />
-        <e p="Enums" t="Include" />
+        <e p="Enums" t="Include">
+          <e p="BookStatusEnum.cs" t="Include" />
+        </e>
         <e p="NovelWorld.MasterData.Data.csproj" t="IncludeRecursive" />
         <e p="Requests" t="Include" />
-        <e p="Responses" t="Include" />
+        <e p="Responses" t="Include">
+          <e p="Author" t="Include">
+            <e p="AuthorDetailResponse.cs" t="Include" />
+            <e p="AuthorGeneralResponse.cs" t="Include" />
+          </e>
+          <e p="Book" t="Include">
+            <e p="BookDetailResponse.cs" t="Include" />
+            <e p="BookGeneralResponse.cs" t="Include" />
+          </e>
+          <e p="Category" t="Include">
+            <e p="CategoryDetailResponse.cs" t="Include" />
+            <e p="CategoryGeneralResponse.cs" t="Include" />
+          </e>
+          <e p="Chapter" t="Include">
+            <e p="ChapterDetailResponse.cs" t="Include" />
+            <e p="ChapterGeneralResponse.cs" t="Include" />
+          </e>
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -1024,8 +1048,18 @@
         <e p="NovelWorld.MasterData.Domain.csproj" t="IncludeRecursive" />
         <e p="Proxies" t="Include" />
         <e p="Queries" t="Include">
-          <e p="Abstractions" t="Include" />
-          <e p="Implements" t="Include" />
+          <e p="Abstractions" t="Include">
+            <e p="IAuthorQuery.cs" t="Include" />
+            <e p="IBookQuery.cs" t="Include" />
+            <e p="ICategoryQuery.cs" t="Include" />
+            <e p="IChapterQuery.cs" t="Include" />
+          </e>
+          <e p="Implements" t="Include">
+            <e p="AuthorQuery.cs" t="Include" />
+            <e p="BookQuery.cs" t="Include" />
+            <e p="CategoryQuery.cs" t="Include" />
+            <e p="ChapterQuery.cs" t="Include" />
+          </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -1037,7 +1071,12 @@
         </e>
       </e>
       <e p="src/Services/MasterData/NovelWorld.MasterData.Infrastructure" t="IncludeRecursive">
-        <e p="Configurations" t="Include" />
+        <e p="Configurations" t="Include">
+          <e p="AuthorConfiguration.cs" t="Include" />
+          <e p="BookConfiguration.cs" t="Include" />
+          <e p="CategoryConfiguration.cs" t="Include" />
+          <e p="ChapterConfiguration.cs" t="Include" />
+        </e>
         <e p="Contexts" t="Include">
           <e p="MasterDataContext.cs" t="Include" />
         </e>
@@ -1045,8 +1084,18 @@
         <e p="Extensions" t="Include" />
         <e p="NovelWorld.MasterData.Infrastructure.csproj" t="IncludeRecursive" />
         <e p="Repositories" t="Include">
-          <e p="Abstracts" t="Include" />
-          <e p="Implements" t="Include" />
+          <e p="Abstracts" t="Include">
+            <e p="IAuthorRepository.cs" t="Include" />
+            <e p="IBookRepository.cs" t="Include" />
+            <e p="ICategoryRepository.cs" t="Include" />
+            <e p="IChapterRepository.cs" t="Include" />
+          </e>
+          <e p="Implements" t="Include">
+            <e p="AuthorRepository.cs" t="Include" />
+            <e p="BookRepository.cs" t="Include" />
+            <e p="CategoryRepository.cs" t="Include" />
+            <e p="ChapterRepository.cs" t="Include" />
+          </e>
         </e>
         <e p="UoW" t="Include">
           <e p="Implements" t="Include">

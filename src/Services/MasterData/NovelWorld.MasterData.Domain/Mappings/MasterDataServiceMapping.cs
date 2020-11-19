@@ -6,6 +6,8 @@ using NovelWorld.EventBus;
 using NovelWorld.Infrastructure.UoW.Abstractions;
 using NovelWorld.MasterData.Data.Configurations;
 using NovelWorld.MasterData.Infrastructure.Contexts;
+using NovelWorld.MasterData.Infrastructure.Repositories.Abstracts;
+using NovelWorld.MasterData.Infrastructure.Repositories.Implements;
 using NovelWorld.MasterData.Infrastructure.UoW.Implements;
 
 namespace NovelWorld.MasterData.Domain.Mappings
@@ -35,7 +37,6 @@ namespace NovelWorld.MasterData.Domain.Mappings
         {
             var eventBus = serviceProvider.GetRequiredService<IEventBus>();
 
-
             return serviceProvider;
         }
 
@@ -52,7 +53,10 @@ namespace NovelWorld.MasterData.Domain.Mappings
         private static IServiceCollection RegisterRepositories(
             this IServiceCollection services)
         {
-            
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IChapterRepository, ChapterRepository>();
 
             return services;
         }
