@@ -12,9 +12,9 @@ namespace NovelWorld.Domain.Exceptions
 {
     public class NotFoundException: DomainException
     {
-        public Guid DataId { get; private set; }
+        public object DataId { get; private set; }
 
-        public NotFoundException(Guid dataId, string message = "", Exception innerException = null) : base(message, innerException)
+        public NotFoundException(object dataId, string message = "", Exception innerException = null) : base(message, innerException)
         {
             this.DataId = dataId;
         }

@@ -31,8 +31,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5131cda8-faeb-4f91-92a0-2fe333bd346e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Author.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Book.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Category.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Chapter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Enums/BookStatusEnum.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Author/AuthorDetailResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Author/AuthorGeneralResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Book/BookDetailResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Book/BookGeneralResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Category/CategoryDetailResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Category/CategoryGeneralResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Chapter/ChapterDetailResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Chapter/ChapterGeneralResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/IAuthorQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/IBookQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/ICategoryQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/IChapterQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/AuthorQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/BookQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/CategoryQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/ChapterQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/AuthorConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/BookConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/CategoryConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/ChapterConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/IAuthorRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/IBookRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/ICategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/IChapterRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/AuthorRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/BookRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/CategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/ChapterRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Exceptions/NotFoundException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Exceptions/NotFoundException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/NovelWorld.MasterData.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/NovelWorld.MasterData.Data.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataServiceMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataServiceMapping.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/NovelWorld.MasterData.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/NovelWorld.MasterData.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Contexts/MasterDataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Contexts/MasterDataContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/NovelWorld.MasterData.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/NovelWorld.MasterData.Infrastructure.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,139 +88,139 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/51A24A47-FD62-418C-85E9-7E3F899A598D/B/RelationalEntityTypeBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74B28109-DF63-4BE1-91E3-839583301D4E/82/c2916dc3/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/02/76d844e8/Controller.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71735F77-CC9E-4AF0-B660-62E0A69F7F7E/8/NpgsqlDbContextOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/77BBBD7D-867C-4CD6-99CE-3B1D937294B9/89/ea396246/AuthorizationMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/410C3681-090C-49F8-AAC8-4360BEE8A03D/55/65d88ca8/Method.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/313D5127-40E4-461C-84F3-3DEE6E4F6F58/bc/20998036/NpgSqlHealthCheckBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE83B1C0-1981-4069-9043-65492C9409D9/e6/8314d163/IWebHostEnvironment.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/4c/8a80457d/IViewEngine.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/66E1834F-8F23-4F91-9044-11455BB9E7EC/2/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/85035866-EAF6-436E-A98D-1078986CB32D/e9/8374a8ed/RazorPageBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/b9/a5fd48c5/ViewDataDictionary.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/63/06cc8c10/CustomAttributeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90ABFEC4-EE68-4FC7-943F-7263B6303307/8c/3dd202e2/AuthenticationSchemeOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/12347E5B-AFCD-42B4-8A81-D075BFA223AE/94/dcd17a35/ActionContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1098121E-28B3-4C0B-B823-9F76CB0E2CF1/10/OpenIdConnectOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/313D5127-40E4-461C-84F3-3DEE6E4F6F58/04/dd38a171/NpgSqlHealthCheck.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5D509048-F20E-40CF-AB0A-845C0CE8CDAF/e2/e456d8a8/HostEnvironmentEnvExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74B28109-DF63-4BE1-91E3-839583301D4E/a4/7b0c7ea9/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/C2/ErrorMessage.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F85A46B0-E9F8-4732-8DC6-C900E9A965AB/32/6bc49288/IApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90ABFEC4-EE68-4FC7-943F-7263B6303307/52/7188d104/RemoteAuthenticationOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/92/c2aae43d/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/E7/UserLoginFailureEvent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/14/TestUserStore.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74B28109-DF63-4BE1-91E3-839583301D4E/f1/bdfc8556/DefaultModelMetadata.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/17438B85-4F5F-424F-A251-DB52544D6D95/DD/MigrationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15501BB9-CEF5-426F-A9C4-CDACC295D138/20/4fad6bbd/ClaimsPrincipal.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8AD18A91-99C3-4B57-B92C-1CF583CD6847/1/OptionsServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/156C0238-EF8C-47E3-80EA-18498A6CFBFF/8/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74B28109-DF63-4BE1-91E3-839583301D4E/3c/78e096ad/ActionFilterAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E1085DEF-1BD8-43EE-9AFE-0859E5890E3D/49/JwtClaimTypes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/12347E5B-AFCD-42B4-8A81-D075BFA223AE/e8/18afd6d0/ModelStateDictionary.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6485FCCA-1178-4C08-8628-E4F1F0125678/A/SqlServerDbContextOptionsBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/410C3681-090C-49F8-AAC8-4360BEE8A03D/7a/fdce57b7/DataFormat.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/31/IdentityServerMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/13D/IEventService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5D509048-F20E-40CF-AB0A-845C0CE8CDAF/94/e743bad7/IHostEnvironment.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/a4/e91756c9/MemberInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F055C0ED-DD91-4EF9-9A0A-EE4E82D6B1F9/1/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C1EC258-8F10-4905-A6A3-E6C3F4F92435/a0/b8fbbd5f/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/282FF1EC-8146-4D66-BA65-7FE61978E970/f6/9b55f1c8/EnvironmentVariablesExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D5EDF430-AB5A-4412-A0B9-E75F3C32EB0A/9/EntityFrameworkServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/6c/e38ff172/ViewResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71735F77-CC9E-4AF0-B660-62E0A69F7F7E/8/NpgsqlDbContextOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/02/76d844e8/Controller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/32/MutualTlsEndpointMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/313D5127-40E4-461C-84F3-3DEE6E4F6F58/bc/20998036/NpgSqlHealthCheckBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/12347E5B-AFCD-42B4-8A81-D075BFA223AE/e8/18afd6d0/ModelStateDictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90ABFEC4-EE68-4FC7-943F-7263B6303307/8c/3dd202e2/AuthenticationSchemeOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Home/ErrorViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/ec/64745be8/ICompositeViewEngine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/12347E5B-AFCD-42B4-8A81-D075BFA223AE/94/dcd17a35/ActionContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Device/DeviceAuthorizationViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/ca/51f53c02/Assembly.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Device/DeviceAuthorizationInputModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Account/AccountOptions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4ECB005A-3419-48CE-93A4-447D545E59D0/c6/ee9ad26d/AuthenticationProperties.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/77BBBD7D-867C-4CD6-99CE-3B1D937294B9/89/ea396246/AuthorizationMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Account/LoginInputModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Account/LogoutViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/ca/51f53c02/Assembly.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Account/LoginViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/1a/3d8b4ce2/Attribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Account/LogoutInputModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F055C0ED-DD91-4EF9-9A0A-EE4E82D6B1F9/1/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Account/ExternalProvider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6485FCCA-1178-4C08-8628-E4F1F0125678/A/SqlServerDbContextOptionsBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Account/RedirectViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/5f/91ece781/ViewEngineResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Account/LoggedOutViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Consent/ConsentOptions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3834795B-F41B-4E62-8161-509ECA0F5822/1f/9bcce4f4/IRequest`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Consent/ProcessConsentResult.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Consent/ScopeViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BF073F3F-7286-46B8-B9A7-477AF27B3055/38/a4e5e4f5/RabbitMQHealthCheckBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Consent/ConsentInputModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Consent/ConsentViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F85A46B0-E9F8-4732-8DC6-C900E9A965AB/32/6bc49288/IApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C1EC258-8F10-4905-A6A3-E6C3F4F92435/a0/b8fbbd5f/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Data/ViewModels/Diagnostics/DiagnosticsViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3F6593CA-4718-44BB-BB07-C17AF8FD794A/77/79060792/SameSiteMode.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3834795B-F41B-4E62-8161-509ECA0F5822/1f/9bcce4f4/IRequest`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AC2A44BA-651A-42A1-A2A3-19046B98BBC6/f8/d3961d9f/IAllowAnonymous.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/AuthorizeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CCD939E9-607A-4223-885A-D6223A0D57B3/1d/f1358d02/IServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/58BC2387-A171-46E3-82B3-75A8C2800094/48/5077656a/OptionsConfigurationServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/ec/64745be8/ICompositeViewEngine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74B28109-DF63-4BE1-91E3-839583301D4E/82/c2916dc3/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/410C3681-090C-49F8-AAC8-4360BEE8A03D/7a/fdce57b7/DataFormat.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1098121E-28B3-4C0B-B823-9F76CB0E2CF1/10/OpenIdConnectOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4ECB005A-3419-48CE-93A4-447D545E59D0/c6/ee9ad26d/AuthenticationProperties.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8BCB532A-A6C4-4672-99C0-EA01CD0B1763/72/c963d3d5/DisplayAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90ABFEC4-EE68-4FC7-943F-7263B6303307/52/7188d104/RemoteAuthenticationOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/4c/8a80457d/IViewEngine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/31/IdentityServerMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/1a/3d8b4ce2/Attribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/5f/da7b2065/AppDomain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/313D5127-40E4-461C-84F3-3DEE6E4F6F58/04/dd38a171/NpgSqlHealthCheck.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/13D/IEventService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/66E1834F-8F23-4F91-9044-11455BB9E7EC/2/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/92/c2aae43d/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/E7/UserLoginFailureEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/282FF1EC-8146-4D66-BA65-7FE61978E970/f6/9b55f1c8/EnvironmentVariablesExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/17438B85-4F5F-424F-A251-DB52544D6D95/DD/MigrationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/5f/91ece781/ViewEngineResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5D509048-F20E-40CF-AB0A-845C0CE8CDAF/e2/e456d8a8/HostEnvironmentEnvExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57288065-2238-46FD-BA33-B2CEDA9093F6/14/TestUserStore.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AC2A44BA-651A-42A1-A2A3-19046B98BBC6/f8/d3961d9f/IAllowAnonymous.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D5EDF430-AB5A-4412-A0B9-E75F3C32EB0A/9/EntityFrameworkServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/85035866-EAF6-436E-A98D-1078986CB32D/e9/8374a8ed/RazorPageBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15501BB9-CEF5-426F-A9C4-CDACC295D138/20/4fad6bbd/ClaimsPrincipal.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74B28109-DF63-4BE1-91E3-839583301D4E/a4/7b0c7ea9/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E1085DEF-1BD8-43EE-9AFE-0859E5890E3D/49/JwtClaimTypes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3F6593CA-4718-44BB-BB07-C17AF8FD794A/77/79060792/SameSiteMode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CCD939E9-607A-4223-885A-D6223A0D57B3/1d/f1358d02/IServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C1EC258-8F10-4905-A6A3-E6C3F4F92435/e4/bfc11575/AllowAnonymousAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8AD18A91-99C3-4B57-B92C-1CF583CD6847/1/OptionsServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/63/06cc8c10/CustomAttributeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/156C0238-EF8C-47E3-80EA-18498A6CFBFF/8/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/b9/a5fd48c5/ViewDataDictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BF073F3F-7286-46B8-B9A7-477AF27B3055/38/a4e5e4f5/RabbitMQHealthCheckBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74B28109-DF63-4BE1-91E3-839583301D4E/3c/78e096ad/ActionFilterAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/AuthorizeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1926F6D-9931-4C35-95AE-2396D154FD49/f7/da5a34f1/Rfc2898DeriveBytes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5D509048-F20E-40CF-AB0A-845C0CE8CDAF/94/e743bad7/IHostEnvironment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74B28109-DF63-4BE1-91E3-839583301D4E/f1/bdfc8556/DefaultModelMetadata.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE83B1C0-1981-4069-9043-65492C9409D9/e6/8314d163/IWebHostEnvironment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/410C3681-090C-49F8-AAC8-4360BEE8A03D/55/65d88ca8/Method.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CD09114F-F6B5-4042-BA27-185FEF364470/6c/e38ff172/ViewResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/a4/e91756c9/MemberInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/58BC2387-A171-46E3-82B3-75A8C2800094/48/5077656a/OptionsConfigurationServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/51A24A47-FD62-418C-85E9-7E3F899A598D/B/RelationalEntityTypeBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreReadonlyRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreWriteonlyRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Infrastructure/Repositories/Implements/UserRepository.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/Implements/DbEventSource.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/UoW/Implements/EfCoreUnitOfWork.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Infrastructure/UoW/Implements/IdentityUnitOfWork.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Views/Account/RegisterDone.cshtml" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/DelegateUserOnAllowAnonymousAttribute.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Controllers/AccountController.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/AuthorizeAttribute.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Controllers/ConsentController.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Controllers/DeviceController.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Controllers/GrantsController.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Filters/HttpSwitchModelResponseExceptionFilter.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Attributes/FallbackViewAttribute.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Queries/Implements/IdentityProfileService.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Queries/Abstractions/IUserQuery.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Services/Implements/IdentityProfileService.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Data/Constants/AdditionalClaimTypes.cs" />
-        <option value="$PROJECT_DIR$/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Queries/Implements/UserQuery.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Services/Implements/ProfileService.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Controllers/DiagnosticsController.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Constants/ErrorConstants.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Constants/ValidationRules.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Contexts/IdentityContext.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Contexts/MasterDataContext.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/UoW/Implements/IdentityUnitOfWork.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/UoW/Implements/MasterDataUnitOfWork.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/IdentityModelMapping.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataModelMapping.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/IdentityServiceMapping.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/appsettings.Development.json" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/appsettings.json" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/appsettings.json" />
         <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Program.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Mappings/IdentityServiceMapping.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Extensions/OpenIdConnectOptionsExtensions.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Startup.cs" />
         <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Configurations/MasterDataAppSettings.cs" />
-        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityServiceMapping.cs" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Startup.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Services/Implements/ProfileService.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/NovelWorld.Identity.Domain.csproj" />
-        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataServiceMapping.cs" />
         <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/migrations/NovelWorld.MasterData.DbMigration/Program.cs" />
         <option value="$PROJECT_DIR$/migrations/NovelWorld.MasterData.DbMigration/Factories/IdentityContextFactory.cs" />
         <option value="$PROJECT_DIR$/migrations/NovelWorld.MasterData.DbMigration/Factories/MasterDataContextFactory.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Category.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Author.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/AuthorConfiguration.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Enums/BookStatusEnum.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Book.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/DTO/Chapter.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/ChapterConfiguration.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/BookConfiguration.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Configurations/CategoryConfiguration.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Contexts/MasterDataContext.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/IAuthorRepository.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/AuthorRepository.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/IBookRepository.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/BookRepository.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/ICategoryRepository.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/CategoryRepository.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Abstracts/IChapterRepository.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Infrastructure/Repositories/Implements/ChapterRepository.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Mappings/MasterDataServiceMapping.cs" />
+        <option value="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/Mappings/IdentityServiceMapping.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/Startup.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/IBookQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/ICategoryQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/IChapterQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/BookQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/CategoryQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/ChapterQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Author/AuthorGeneralReponse.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Author/AuthorGeneralResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Author/AuthorDetailResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Book/BookDetailResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Book/BookGeneralResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Category/CategoryDetailResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Category/CategoryGeneralResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Chapter/ChapterDetailResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Data/Responses/Chapter/ChapterGeneralResponse.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Abstractions/IAuthorQuery.cs" />
+        <option value="$PROJECT_DIR$/src/Core/NovelWorld.Domain/Exceptions/NotFoundException.cs" />
+        <option value="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/Queries/Implements/AuthorQuery.cs" />
       </list>
     </option>
   </component>
@@ -552,7 +592,10 @@
       <workItem from="1604749216552" duration="14031000" />
       <workItem from="1604820984460" duration="9770000" />
       <workItem from="1605012567656" duration="681000" />
-      <workItem from="1605355103883" duration="934000" />
+      <workItem from="1605355103883" duration="6150000" />
+      <workItem from="1605413197143" duration="599000" />
+      <workItem from="1605438623692" duration="599000" />
+      <workItem from="1605790470159" duration="1042000" />
     </task>
     <task id="LOCAL-00001" summary="Update structure">
       <created>1601559357949</created>
@@ -666,7 +709,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605359391826</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update workspace.xml">
+      <created>1605359473576</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1605359473576</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,7 +767,8 @@
     <MESSAGE value="Done login feature in Identity&#10;TODO: Implement Register" />
     <MESSAGE value="Master Data structure" />
     <MESSAGE value="Update Api Helper" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Api Helper" />
+    <MESSAGE value="Update workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml" />
   </component>
   <component name="WindowStateProjectService">
     <state x="635" y="226" width="1081" height="779" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604500766111">
@@ -816,10 +867,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="556" y="266" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1080@0.0.1920.1080" timestamp="1604936118251" />
-    <state x="577" y="200" key="RiderGenerateDialog" timestamp="1604235279275">
+    <state x="577" y="200" key="RiderGenerateDialog" timestamp="1605365477878">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="577" y="200" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1604235279275" />
+    <state x="577" y="200" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1605365477878" />
     <state x="708" y="231" width="502" height="635" key="RollbackChangesDialog" timestamp="1604331082881">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -836,10 +887,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601815744371" />
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1604936310331">
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1605359502525">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1604936310331" />
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605359502525" />
     <state x="764" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602080834394">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
