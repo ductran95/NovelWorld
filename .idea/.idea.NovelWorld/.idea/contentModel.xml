@@ -414,6 +414,11 @@
         </e>
         <e p="NovelWorld.Infrastructure.EntityFrameworkCore.csproj" t="IncludeRecursive" />
         <e p="Repositories" t="Include">
+          <e p="Abstractions" t="Include">
+            <e p="IEfCoreReadonlyRepository.cs" t="Include" />
+            <e p="IEfCoreRepository.cs" t="Include" />
+            <e p="IEfCoreWriteonlyRepository.cs" t="Include" />
+          </e>
           <e p="Implements" t="Include">
             <e p="EfCoreReadonlyRepository.cs" t="Include" />
             <e p="EfCoreRepository.cs" t="Include" />

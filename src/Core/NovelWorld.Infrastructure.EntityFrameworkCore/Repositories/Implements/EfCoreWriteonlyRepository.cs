@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NovelWorld.Data.Entities;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
-using NovelWorld.Infrastructure.Repositories.Abstractions;
+using NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Abstractions;
 
 namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
 {
-    public class EfCoreWriteonlyRepository<TContext, T>: IWriteonlyRepository<T> where TContext: EfCoreEntityContext where T: Entity
+    public class EfCoreWriteonlyRepository<TContext, T>: IEfCoreWriteonlyRepository<T> where TContext: EfCoreEntityContext where T: Entity
     {
         protected readonly TContext _context;
         protected readonly DbSet<T> _dbSet;
@@ -21,49 +23,49 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
         public int Add(T entity)
         {
             _dbSet.Add(entity);
-            return _context.SaveChanges();
+            return 1;
         }
 
-        public Task<int> AddAsync(T entity)
+        public Task<int> AddAsync(T entity, CancellationToken cancellationToken = default)
         {
             _dbSet.Add(entity);
-            return _context.SaveChangesAsync();
+            return _context.SaveChangesAsync(cancellationToken);
         }
 
         public int Add(IEnumerable<T> entities)
         {
             _dbSet.AddRange(entities);
-            return _context.SaveChanges();
+            return entities.Count();
         }
 
-        public Task<int> AddAsync(IEnumerable<T> entities)
+        public Task<int> AddAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         {
             _dbSet.AddRange(entities);
-            return _context.SaveChangesAsync();
+            return _context.SaveChangesAsync(cancellationToken);
         }
 
         public int Update(T entity)
         {
             _dbSet.Update(entity);
-            return _context.SaveChanges();
+            return 1;
         }
 
-        public Task<int> UpdateAsync(T entity)
+        public Task<int> UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
             _dbSet.Update(entity);
-            return _context.SaveChangesAsync();
+            return _context.SaveChangesAsync(cancellationToken);
         }
 
         public int Update(IEnumerable<T> entities)
         {
             _dbSet.UpdateRange(entities);
-            return _context.SaveChanges();
+            return entities.Count();
         }
 
-        public Task<int> UpdateAsync(IEnumerable<T> entities)
+        public Task<int> UpdateAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         {
             _dbSet.UpdateRange(entities);
-            return _context.SaveChangesAsync();
+            return _context.SaveChangesAsync(cancellationToken);
         }
 
         public int Delete(T entity, bool isHardDelete = false)
@@ -71,7 +73,7 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             if (isHardDelete)
             {
                 _dbSet.Remove(entity);
-                return _context.SaveChanges();
+                return 1;
             }
             else
             {
@@ -80,17 +82,17 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             }
         }
 
-        public Task<int> DeleteAsync(T entity, bool isHardDelete = false)
+        public Task<int> DeleteAsync(T entity, bool isHardDelete = false, CancellationToken cancellationToken = default)
         {
             if (isHardDelete)
             {
                 _dbSet.Remove(entity);
-                return _context.SaveChangesAsync();
+                return _context.SaveChangesAsync(cancellationToken);
             }
             else
             {
                 entity.IsDeleted = true;
-                return UpdateAsync(entity);
+                return UpdateAsync(entity, cancellationToken);
             }
         }
 
@@ -99,7 +101,7 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             if (isHardDelete)
             {
                 _dbSet.RemoveRange(entities);
-                return _context.SaveChanges();
+                return entities.Count();
             }
             else
             {
@@ -111,12 +113,12 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             }
         }
 
-        public Task<int> DeleteAsync(IEnumerable<T> entities, bool isHardDelete = false)
+        public Task<int> DeleteAsync(IEnumerable<T> entities, bool isHardDelete = false, CancellationToken cancellationToken = default)
         {
             if (isHardDelete)
             {
                 _dbSet.RemoveRange(entities);
-                return _context.SaveChangesAsync();
+                return _context.SaveChangesAsync(cancellationToken);
             }
             else
             {
@@ -124,7 +126,7 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
                 {
                     entity.IsDeleted = true;
                 }
-                return UpdateAsync(entities);
+                return UpdateAsync(entities, cancellationToken);
             }
         }
 
@@ -156,10 +158,10 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
                 }
             }
 
-            return _context.SaveChanges();
+            return entities.Count();
         }
 
-        public Task<int> SaveAsync(IEnumerable<T> entities, bool isHardDelete = false)
+        public Task<int> SaveAsync(IEnumerable<T> entities, bool isHardDelete = false, CancellationToken cancellationToken = default)
         {
             foreach (var entity in entities)
             {
@@ -187,7 +189,17 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
                 }
             }
 
-            return _context.SaveChangesAsync();
+            return _context.SaveChangesAsync(cancellationToken);
+        }
+
+        public int SaveChanges()
+        {
+            return _context.SaveChanges();
+        }
+
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

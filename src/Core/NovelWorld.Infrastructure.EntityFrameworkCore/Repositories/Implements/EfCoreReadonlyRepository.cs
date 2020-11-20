@@ -1,16 +1,17 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NovelWorld.Data.Entities;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Extensions;
-using NovelWorld.Infrastructure.Repositories.Abstractions;
+using NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Abstractions;
 
 namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
 {
-    public class EfCoreReadonlyRepository<TContext, T>: IReadonlyRepository<T> where TContext: EfCoreEntityContext where T: Entity
+    public class EfCoreReadonlyRepository<TContext, T>: IEfCoreReadonlyRepository<T> where TContext: EfCoreEntityContext where T: Entity
     {
         protected readonly TContext _context;
         protected readonly DbSet<T> _dbSet;
@@ -19,41 +20,68 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             _context = context;
             _dbSet = _context.Set<T>();
         }
-        
-        public T GetById(Guid id, Expression<Func<T, object>> includes = null)
+
+        public T GetById(Guid id, Expression<Func<T, object>> includes = null, bool track = false)
         {
-            return GetSingle(x => x.Id == id, includes);
-        }
-        
-        public Task<T> GetByIdAsync(Guid id, Expression<Func<T, object>> includes = null)
-        {
-            return GetSingleAsync(x => x.Id == id, includes);
+            return GetSingle(x => x.Id == id, includes, track);
         }
 
-        public T GetSingle(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
+        public Task<T> GetByIdAsync(Guid id, Expression<Func<T, object>> includes = null, bool track = false,
+            CancellationToken cancellationToken = default)
         {
-            return GetAll(includes).Where(condition).FirstOrDefault();
-        }
-        
-        public Task<T> GetSingleAsync(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
-        {
-            return GetAll(includes).Where(condition).FirstOrDefaultAsync();
+            return GetSingleAsync(x => x.Id == id, includes, track, cancellationToken);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, object>> includes = null)
+        public T GetSingle(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null,
+            bool track = false)
         {
-            var result = _dbSet.AsNoTracking();
-            if (includes != null)
+            return GetAll(includes, track).Where(condition).FirstOrDefault();
+        }
+
+        public Task<T> GetSingleAsync(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null,
+            bool track = false, CancellationToken cancellationToken = default)
+        {
+            return GetAll(includes, track).Where(condition).FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public IQueryable<T> GetAll(Expression<Func<T, object>> includes = null, bool track = false)
+        {
+            var query = _dbSet.AsNoTracking();
+
+            if (track)
             {
-                result = result.Includes(includes);
+                query = _dbSet.AsQueryable();
             }
 
-            return result;
+            if (includes != null)
+            {
+                query = query.Includes(includes);
+            }
+
+            return query;
         }
 
-        public IQueryable<T> GetMultiple(Expression<Func<T, bool>> condition, Expression<Func<T, object>> includes = null)
+        public IQueryable<T> GetMultiple(Expression<Func<T, bool>> condition,
+            Expression<Func<T, object>> includes = null, bool track = false)
         {
-            return GetAll(includes).Where(condition);
+            return GetAll(includes, track).Where(condition);
+        }
+
+        public IQueryable<T> GetAllIncludeDeleted(Expression<Func<T, object>> includes = null, bool track = false)
+        {
+            var query = _dbSet.AsNoTracking();
+
+            if (track)
+            {
+                query = _dbSet.AsQueryable();
+            }
+
+            if (includes != null)
+            {
+                query = query.Includes(includes);
+            }
+
+            return query.IgnoreQueryFilters();
         }
     }
 }
