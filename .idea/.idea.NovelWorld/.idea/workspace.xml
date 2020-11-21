@@ -37,42 +37,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5131cda8-faeb-4f91-92a0-2fe333bd346e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Abstractions/IEfCoreReadonlyRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Abstractions/IEfCoreRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Abstractions/IEfCoreWriteonlyRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NovelWorld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/NovelWorld.Identity.DbMigration/NovelWorld.Identity.DbMigration.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/NovelWorld.Identity.DbMigration/NovelWorld.Identity.DbMigration.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/NovelWorld.MasterData.DbMigration/NovelWorld.MasterData.DbMigration.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/NovelWorld.MasterData.DbMigration/NovelWorld.MasterData.DbMigration.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.API/NovelWorld.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.API/NovelWorld.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/IEnumerableExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Extensions/IEnumerableExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Abstractions/IApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Abstractions/IApiClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Implements/RestsharpApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/Helpers/Implements/RestsharpApiClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Common/NovelWorld.Common.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/NovelWorld.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Domain/NovelWorld.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.Dapper/NovelWorld.Infrastructure.Dapper.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.Dapper/NovelWorld.Infrastructure.Dapper.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/NovelWorld.Infrastructure.EntityFrameworkCore.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/NovelWorld.Infrastructure.EntityFrameworkCore.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreReadonlyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreReadonlyRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreWriteonlyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/Repositories/Implements/EfCoreWriteonlyRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/UoW/Implements/EfCoreUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.EntityFrameworkCore/UoW/Implements/EfCoreUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.NHibernate/NovelWorld.Infrastructure.NHibernate.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure.NHibernate/NovelWorld.Infrastructure.NHibernate.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/Abstractions/IDbEventSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/Abstractions/IDbEventSource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/Implements/DbEventSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/EventSourcing/Implements/DbEventSource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/Abstractions/IReadonlyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/Abstractions/IReadonlyRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/Abstractions/IWriteonlyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/Repositories/Abstractions/IWriteonlyRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/UoW/Abstractions/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Infrastructure/UoW/Abstractions/IUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/NovelWorld.Mediator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/NovelWorld.Mediator/NovelWorld.Mediator.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus.AzureServiceBus/EventBusServiceBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus.AzureServiceBus/EventBusServiceBus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus.RabbitMQ/EventBusRabbitMQ.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus.RabbitMQ/EventBusRabbitMQ.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus/EventHandlers/DynamicIntegrationEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus/EventHandlers/DynamicIntegrationEventHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus/EventHandlers/IntegrationEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus/EventHandlers/IntegrationEventHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus/NovelWorld.EventBus.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventBus/NovelWorld.EventBus/NovelWorld.EventBus.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/NovelWorld.Identity.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Domain/NovelWorld.Identity.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Infrastructure/Repositories/Abstracts/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Infrastructure/Repositories/Abstracts/IUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/NovelWorld.Identity.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Identity/NovelWorld.Identity.Web/NovelWorld.Identity.Web.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/NovelWorld.MasterData.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.API/NovelWorld.MasterData.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/NovelWorld.MasterData.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MasterData/NovelWorld.MasterData.Domain/NovelWorld.MasterData.Domain.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -599,7 +564,8 @@
       <workItem from="1605012567656" duration="681000" />
       <workItem from="1605355103883" duration="934000" />
       <workItem from="1605797484849" duration="589000" />
-      <workItem from="1605876274571" duration="3967000" />
+      <workItem from="1605876274571" duration="5790000" />
+      <workItem from="1605961753807" duration="1777000" />
     </task>
     <task id="LOCAL-00001" summary="Update structure">
       <created>1601559357949</created>
@@ -713,7 +679,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605359391826</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update cancellationToken for Core">
+      <created>1605882640624</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1605882640624</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -764,7 +737,8 @@
     <MESSAGE value="Done login feature in Identity&#10;TODO: Implement Register" />
     <MESSAGE value="Master Data structure" />
     <MESSAGE value="Update Api Helper" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Api Helper" />
+    <MESSAGE value="Update cancellationToken for Core" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update cancellationToken for Core" />
   </component>
   <component name="WindowStateProjectService">
     <state x="635" y="226" width="1081" height="779" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604500766111">
@@ -883,10 +857,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601815744371" />
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1604936310331">
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2" timestamp="1605882641988">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1604936310331" />
+    <state x="556" y="267" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605882641988" />
     <state x="764" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602080834394">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
