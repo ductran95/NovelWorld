@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace NovelWorld.Infrastructure.EventSourcing.Abstractions
@@ -9,6 +10,6 @@ namespace NovelWorld.Infrastructure.EventSourcing.Abstractions
         void Add(DbChangedEvent @event);
         void Remove(DbChangedEvent @event);
         void Publish();
-        Task PublishAsync();
+        Task PublishAsync(CancellationToken cancellationToken = default);
     }
 }

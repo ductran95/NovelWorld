@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -262,7 +263,7 @@ namespace NovelWorld.EventBus.RabbitMQ
             return channel;
         }
 
-        private async Task ProcessEvent(string eventName, string message)
+        private async Task ProcessEvent(string eventName, string message, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Processing RabbitMQ event: {EventName}", eventName);
 
@@ -280,7 +281,7 @@ namespace NovelWorld.EventBus.RabbitMQ
                             dynamic eventData = JObject.Parse(message);
 
                             await Task.Yield();
-                            await handler.Handle(eventData);
+                            await handler.Handle(eventData, cancellationToken);
                         }
                         else
                         {
@@ -292,7 +293,7 @@ namespace NovelWorld.EventBus.RabbitMQ
 
                             await Task.Yield();
                             // ReSharper disable once PossibleNullReferenceException
-                            await (Task)concreteType.GetMethod("Handle").Invoke(handler, new[] { integrationEvent });
+                            await (Task)concreteType.GetMethod("Handle").Invoke(handler, new[] { integrationEvent, cancellationToken });
                         }
                     }
                 }

@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace NovelWorld.Infrastructure.UoW.Abstractions
@@ -8,8 +9,8 @@ namespace NovelWorld.Infrastructure.UoW.Abstractions
         void BeginTransaction();
         Task BeginTransactionAsync();
         void Commit();
-        Task CommitAsync();
+        Task CommitAsync(CancellationToken cancellationToken = default);
         void Rollback();
-        Task RollbackAsync();
+        Task RollbackAsync(CancellationToken cancellationToken = default);
     }
 }

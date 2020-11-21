@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using NovelWorld.EventBus;
 using NovelWorld.Infrastructure.EventSourcing.Abstractions;
@@ -39,7 +40,7 @@ namespace NovelWorld.Infrastructure.EventSourcing.Implements
             }
         }
 
-        public Task PublishAsync()
+        public Task PublishAsync(CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }

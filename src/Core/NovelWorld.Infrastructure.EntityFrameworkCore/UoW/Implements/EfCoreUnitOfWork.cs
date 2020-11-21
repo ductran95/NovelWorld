@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.UoW.Abstractions;
@@ -30,14 +31,16 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.UoW.Implements
 
         public virtual void Commit()
         {
+            _context.SaveChanges();
             var currentTransaction = _context.Database.CurrentTransaction;
             currentTransaction.Commit();
         }
 
-        public virtual Task CommitAsync()
+        public virtual async Task CommitAsync(CancellationToken cancellationToken = default)
         {
+            await _context.SaveChangesAsync(cancellationToken);
             var currentTransaction = _context.Database.CurrentTransaction;
-            return currentTransaction.CommitAsync();
+            await currentTransaction.CommitAsync(cancellationToken);
         }
 
         public virtual void Rollback()
@@ -46,10 +49,10 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.UoW.Implements
             currentTransaction.Rollback();
         }
 
-        public virtual Task RollbackAsync()
+        public virtual async Task RollbackAsync(CancellationToken cancellationToken = default)
         {
             var currentTransaction = _context.Database.CurrentTransaction;
-            return currentTransaction.RollbackAsync();
+            await currentTransaction.RollbackAsync(cancellationToken);
         }
     }
 }
