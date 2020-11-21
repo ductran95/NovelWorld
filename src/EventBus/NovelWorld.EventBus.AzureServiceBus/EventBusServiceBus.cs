@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.DependencyInjection;
@@ -141,7 +142,7 @@ namespace NovelWorld.EventBus.AzureServiceBus
                     var messageData = Encoding.UTF8.GetString(message.Body);
 
                     // Complete the message so that it is not received again.
-                    if (await ProcessEvent(eventName, messageData))
+                    if (await ProcessEvent(eventName, messageData, token))
                     {
                         await _subscriptionClient.CompleteAsync(message.SystemProperties.LockToken);
                     }
@@ -159,7 +160,7 @@ namespace NovelWorld.EventBus.AzureServiceBus
             return Task.CompletedTask;
         }
 
-        private async Task<bool> ProcessEvent(string eventName, string message)
+        private async Task<bool> ProcessEvent(string eventName, string message, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Processing Service Bus event: {EventName}", eventName);
 
@@ -176,7 +177,7 @@ namespace NovelWorld.EventBus.AzureServiceBus
                             var handler = scope.ServiceProvider.GetService(subscription.HandlerType) as DynamicIntegrationEventHandler;
                             if (handler == null) continue;
                             dynamic eventData = JObject.Parse(message);
-                            await handler.Handle(eventData);
+                            await handler.Handle(eventData, cancellationToken);
                         }
                         else
                         {
@@ -186,7 +187,7 @@ namespace NovelWorld.EventBus.AzureServiceBus
                             var integrationEvent = JsonConvert.DeserializeObject(message, eventType, _jsonSerializerSettings);
                             var concreteType = typeof(IntegrationEventHandler<>).MakeGenericType(eventType);
                             // ReSharper disable once PossibleNullReferenceException
-                            await (Task)concreteType.GetMethod("Handle").Invoke(handler, new[] { integrationEvent });
+                            await (Task)concreteType.GetMethod("Handle").Invoke(handler, new[] { integrationEvent, cancellationToken });
                         }
                     }
                 }
