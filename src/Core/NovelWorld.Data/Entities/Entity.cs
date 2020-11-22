@@ -13,8 +13,8 @@ namespace NovelWorld.Data.Entities
         public Guid? ModifiedBy { get; set; }
         public DateTime? DeletedOn { get; set; }
         public Guid? DeletedBy { get; set; }
-        
-        public EntityStateEnum State { get; set; }
+
+        public EntityStateEnum State { get; set; } = EntityStateEnum.UnChange;
 
         public void SetContext(Guid userId)
         {

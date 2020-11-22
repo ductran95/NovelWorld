@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NovelWorld.Data.Entities;
 using NovelWorld.MasterData.Data.Enums;
 
-namespace NovelWorld.MasterData.Data.DTO
+namespace NovelWorld.MasterData.Data.Entities
 {
     public class Book: Entity
     {

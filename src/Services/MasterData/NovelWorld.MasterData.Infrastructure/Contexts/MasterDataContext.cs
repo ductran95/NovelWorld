@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.EventSourcing.Abstractions;
-using NovelWorld.MasterData.Data.DTO;
+using NovelWorld.MasterData.Data.Entities;
 using NovelWorld.MasterData.Infrastructure.Configurations;
 
 namespace NovelWorld.MasterData.Infrastructure.Contexts

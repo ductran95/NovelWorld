@@ -60,7 +60,7 @@ namespace NovelWorld.Infrastructure.Extensions
             return result;
         }
         
-        public static IQueryable<T> Where<T>(this IQueryable<T> query, IEnumerable<FilterRequest> filters)
+        public static IQueryable<T> Filter<T>(this IQueryable<T> query, IEnumerable<FilterRequest> filters)
             where T : class
         {
             if (filters == null || !filters.Any())
@@ -75,7 +75,7 @@ namespace NovelWorld.Infrastructure.Extensions
             return query.Where(exp);
         }
         
-        public static IQueryable<T> OrderBy<T>(this IQueryable<T> query, IEnumerable<SortRequest> sorts)
+        public static IQueryable<T> Sort<T>(this IQueryable<T> query, IEnumerable<SortRequest> sorts)
             where T : class
         {
             if (sorts == null || !sorts.Any())

@@ -1,5 +1,5 @@
 using NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements;
-using NovelWorld.MasterData.Data.DTO;
+using NovelWorld.MasterData.Data.Entities;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.MasterData.Infrastructure.Repositories.Abstracts;
 

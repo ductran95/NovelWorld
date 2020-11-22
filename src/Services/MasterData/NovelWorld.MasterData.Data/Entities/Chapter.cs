@@ -1,7 +1,7 @@
 using System;
 using NovelWorld.Data.Entities;
 
-namespace NovelWorld.MasterData.Data.DTO
+namespace NovelWorld.MasterData.Data.Entities
 {
     public class Chapter: Entity
     {

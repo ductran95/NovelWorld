@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NovelWorld.Data.Constants;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Configurations;
-using NovelWorld.MasterData.Data.DTO;
+using NovelWorld.MasterData.Data.Entities;
 
 namespace NovelWorld.MasterData.Infrastructure.Configurations
 {

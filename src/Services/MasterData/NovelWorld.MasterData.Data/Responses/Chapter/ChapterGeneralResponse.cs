@@ -1,4 +1,4 @@
-namespace NovelWorld.MasterData.Data.Responses.Chapter
+namespace NovelWorld.MasterData.Data.Responses
 {
     public class ChapterGeneralResponse
     {

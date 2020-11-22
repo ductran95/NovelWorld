@@ -99,10 +99,10 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             return 1;
         }
 
-        public Task<int> AddAsync(T entity, CancellationToken cancellationToken = default)
+        public async Task<int> AddAsync(T entity, CancellationToken cancellationToken = default)
         {
-            _dbSet.Add(entity);
-            return _context.SaveChangesAsync(cancellationToken);
+            Add(entity);
+            return await SaveChangesAsync(cancellationToken);
         }
 
         public int Add(IEnumerable<T> entities)
@@ -111,10 +111,10 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             return entities.Count();
         }
 
-        public Task<int> AddAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+        public async Task<int> AddAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         {
-            _dbSet.AddRange(entities);
-            return _context.SaveChangesAsync(cancellationToken);
+            Add(entities);
+            return await SaveChangesAsync(cancellationToken);
         }
 
         public int Update(T entity)
@@ -123,10 +123,10 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             return 1;
         }
 
-        public Task<int> UpdateAsync(T entity, CancellationToken cancellationToken = default)
+        public async Task<int> UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
-            _dbSet.Update(entity);
-            return _context.SaveChangesAsync(cancellationToken);
+            Update(entity);
+            return await SaveChangesAsync(cancellationToken);
         }
 
         public int Update(IEnumerable<T> entities)
@@ -135,10 +135,10 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             return entities.Count();
         }
 
-        public Task<int> UpdateAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+        public async Task<int> UpdateAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         {
-            _dbSet.UpdateRange(entities);
-            return _context.SaveChangesAsync(cancellationToken);
+            Update(entities);
+            return await SaveChangesAsync(cancellationToken);
         }
 
         public int Delete(T entity, bool isHardDelete = false)
@@ -155,18 +155,10 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             }
         }
 
-        public Task<int> DeleteAsync(T entity, bool isHardDelete = false, CancellationToken cancellationToken = default)
+        public async Task<int> DeleteAsync(T entity, bool isHardDelete = false, CancellationToken cancellationToken = default)
         {
-            if (isHardDelete)
-            {
-                _dbSet.Remove(entity);
-                return _context.SaveChangesAsync(cancellationToken);
-            }
-            else
-            {
-                entity.IsDeleted = true;
-                return UpdateAsync(entity, cancellationToken);
-            }
+            Delete(entity);
+            return await SaveChangesAsync(cancellationToken);
         }
 
         public int Delete(IEnumerable<T> entities, bool isHardDelete = false)
@@ -186,21 +178,10 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
             }
         }
 
-        public Task<int> DeleteAsync(IEnumerable<T> entities, bool isHardDelete = false, CancellationToken cancellationToken = default)
+        public async Task<int> DeleteAsync(IEnumerable<T> entities, bool isHardDelete = false, CancellationToken cancellationToken = default)
         {
-            if (isHardDelete)
-            {
-                _dbSet.RemoveRange(entities);
-                return _context.SaveChangesAsync(cancellationToken);
-            }
-            else
-            {
-                foreach (var entity in entities)
-                {
-                    entity.IsDeleted = true;
-                }
-                return UpdateAsync(entities, cancellationToken);
-            }
+            Delete(entities);
+            return await SaveChangesAsync(cancellationToken);
         }
 
         public int Save(IEnumerable<T> entities, bool isHardDelete = false)
@@ -230,39 +211,14 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
                     }
                 }
             }
-
+            
             return entities.Count();
         }
 
-        public Task<int> SaveAsync(IEnumerable<T> entities, bool isHardDelete = false, CancellationToken cancellationToken = default)
+        public async Task<int> SaveAsync(IEnumerable<T> entities, bool isHardDelete = false, CancellationToken cancellationToken = default)
         {
-            foreach (var entity in entities)
-            {
-                // Add
-                if (entity.Id == Guid.Empty)
-                {
-                    _dbSet.Add(entity);
-                }
-                // Update
-                else if(!entity.IsDeleted)
-                {
-                    _dbSet.Update(entity);
-                }
-                // Delete
-                else
-                {
-                    if (isHardDelete)
-                    {
-                        _dbSet.Remove(entity);
-                    }
-                    else
-                    {
-                        _dbSet.Update(entity);
-                    }
-                }
-            }
-
-            return _context.SaveChangesAsync(cancellationToken);
+            Save(entities);
+            return await SaveChangesAsync(cancellationToken);
         }
 
         public int SaveChanges()

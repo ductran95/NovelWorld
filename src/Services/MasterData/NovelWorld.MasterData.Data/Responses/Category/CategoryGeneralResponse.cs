@@ -1,4 +1,4 @@
-namespace NovelWorld.MasterData.Data.Responses.Category
+namespace NovelWorld.MasterData.Data.Responses
 {
     public class CategoryGeneralResponse
     {

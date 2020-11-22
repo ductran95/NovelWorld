@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using NovelWorld.EventBus;
 using NovelWorld.Infrastructure.UoW.Abstractions;
 using NovelWorld.MasterData.Data.Configurations;
+using NovelWorld.MasterData.Domain.Queries.Abstractions;
+using NovelWorld.MasterData.Domain.Queries.Implements;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.MasterData.Infrastructure.Repositories.Abstracts;
 using NovelWorld.MasterData.Infrastructure.Repositories.Implements;
@@ -25,7 +27,8 @@ namespace NovelWorld.MasterData.Domain.Mappings
         public static IServiceCollection RegisterServices(
             this IServiceCollection services, IConfiguration configuration)
         {
-            services.RegisterContexts(configuration)
+            services
+                .RegisterContexts(configuration)
                 .RegisterUoW()
                 .RegisterRepositories()
                 .RegisterQueries();
@@ -45,7 +48,10 @@ namespace NovelWorld.MasterData.Domain.Mappings
         private static IServiceCollection RegisterQueries(
             this IServiceCollection services)
         {
-            
+            services.AddScoped<IAuthorQuery, AuthorQuery>();
+            services.AddScoped<ICategoryQuery, CategoryQuery>();
+            services.AddScoped<IBookQuery, BookQuery>();
+            services.AddScoped<IChapterQuery, ChapterQuery>();
 
             return services;
         }

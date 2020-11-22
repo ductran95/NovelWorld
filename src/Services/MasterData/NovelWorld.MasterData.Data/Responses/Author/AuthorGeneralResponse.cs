@@ -1,4 +1,4 @@
-namespace NovelWorld.MasterData.Data.Responses.Author
+namespace NovelWorld.MasterData.Data.Responses
 {
     public class AuthorGeneralResponse
     {
