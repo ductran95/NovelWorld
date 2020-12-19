@@ -7,12 +7,12 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NovelWorld.Authentication.Contexts.Implements;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.DTO;
 using NovelWorld.Authentication.Exceptions;
 using NovelWorld.Data.Constants;
 
-namespace NovelWorld.API.Contexts
+namespace NovelWorld.API.Contexts.Implements
 {
     public class HttpAuthContext : IAuthContext
     {

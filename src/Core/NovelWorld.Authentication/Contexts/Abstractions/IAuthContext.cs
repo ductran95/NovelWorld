@@ -1,7 +1,7 @@
 using System.Net;
 using NovelWorld.Authentication.DTO;
 
-namespace NovelWorld.Authentication.Contexts.Implements
+namespace NovelWorld.Authentication.Contexts.Abstractions
 {
     public interface IAuthContext
     {
