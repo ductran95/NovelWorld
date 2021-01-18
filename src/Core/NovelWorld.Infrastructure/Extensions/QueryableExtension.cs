@@ -71,7 +71,6 @@ namespace NovelWorld.Infrastructure.Extensions
             Ensure.NotContainNull(filters);
             
             var exp = filters.ToExpression<T>();
-            
             return query.Where(exp);
         }
         
