@@ -56,8 +56,8 @@ namespace NovelWorld.Identity.Web
             services.AddTransient<Mediator.IMediator, CustomMediator>();
             services.AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
             services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>());
-            services.RegisterPublishStrategies();
-            services.RegisterBaseProxies();
+            services.RegisterDefaultPublishStrategies();
+            services.RegisterDefaultProxies();
 
             // Add AutoMapper
             services.AddAutoMapper(novelWorldAssemblies);
@@ -91,17 +91,17 @@ namespace NovelWorld.Identity.Web
             ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
             
             // Add Event Bus
-            services.RegisterBaseEventBus(appSetting.EventBusConfig);
+            services.RegisterDefaultEventBus(appSetting.EventBusConfig);
             services.AddIntegrationEventHandler(new Type[]
             {
                 typeof(IdentityModelMapping)
             });
             
             // Add DI
-            services.RegisterBaseHelpers();
-            services.RegisterBaseEventSourcing();
+            services.RegisterDefaultHelpers();
+            services.RegisterDefaultEventSourcing();
             services.RegisterAuthContext();
-            services.RegisterServices(Configuration);
+            services.RegisterServices();
             
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");

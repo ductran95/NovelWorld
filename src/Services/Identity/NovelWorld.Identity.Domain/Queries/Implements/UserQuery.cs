@@ -5,6 +5,7 @@ using AutoMapper;
 using IdentityModel;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Authentication.DTO;
 using NovelWorld.Common.Exceptions;

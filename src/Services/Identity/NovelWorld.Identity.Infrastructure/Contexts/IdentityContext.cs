@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Identity.Data.Entities;
 using NovelWorld.Identity.Infrastructure.Configurations;

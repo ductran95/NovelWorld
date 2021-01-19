@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Mediator;
 using NovelWorld.Common.Extensions;

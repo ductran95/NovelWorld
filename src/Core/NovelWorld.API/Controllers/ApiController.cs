@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NovelWorld.Authentication.Contexts;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Domain.CommandHandlers;
 using NovelWorld.Mediator;

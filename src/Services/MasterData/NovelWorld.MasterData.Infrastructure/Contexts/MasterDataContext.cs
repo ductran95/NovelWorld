@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.EventSourcing.Abstractions;

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,10 +27,10 @@ namespace NovelWorld.Identity.Domain.Mappings
             return services;
         }
         
-        public static IServiceCollection RegisterServices(
-            this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
-            services.RegisterContexts(configuration)
+            services
+                .RegisterContexts()
                 .RegisterUoW()
                 .RegisterRepositories()
                 .RegisterQueries();
@@ -70,12 +72,12 @@ namespace NovelWorld.Identity.Domain.Mappings
             return services;
         }
 
-        private static IServiceCollection RegisterContexts(
-            this IServiceCollection services, IConfiguration configuration)
+        private static IServiceCollection RegisterContexts(this IServiceCollection services)
         {
-            services.AddDbContext<IdentityContext>(options =>
+            services.AddDbContext<IdentityContext>((sp, options) =>
             {
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+                // ReSharper disable once AssignNullToNotNullAttribute
+                options.UseNpgsql(sp.GetService<DbConnection>());
                 options.EnableDetailedErrors();
                 options.EnableSensitiveDataLogging();
             });

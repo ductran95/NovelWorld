@@ -31,26 +31,26 @@ namespace NovelWorld.Common.Extensions
         public static IOrderedQueryable<T> ApplyOrder<T>(this IQueryable<T> query, string property, string methodName)
         {
             string[] properties = property.Split('.');
-            Type type = typeof(T);
+            Type propertyType = typeof(T);
 
-            ParameterExpression arg = Expression.Parameter(type, "p");
+            ParameterExpression arg = Expression.Parameter(propertyType, "p");
             Expression exp = arg;
 
             foreach (var prop in properties)
             {
-                PropertyInfo pi = type.GetProperty(prop);
+                PropertyInfo pi = propertyType.GetProperty(prop);
                 exp = Expression.Property(exp, pi);
-                type = pi.PropertyType;
+                propertyType = pi.PropertyType;
             }
 
-            Type delegateType = typeof(Func<,>).MakeGenericType(typeof(T), type);
+            Type delegateType = typeof(Func<,>).MakeGenericType(typeof(T), propertyType);
             LambdaExpression lambda = Expression.Lambda(delegateType, exp, arg);
 
             object result = typeof(Queryable).GetMethods().Single(method => method.Name == methodName &&
                                                                             method.IsGenericMethodDefinition &&
                                                                             method.GetGenericArguments().Length == 2 &&
                                                                             method.GetParameters().Length == 2)
-                .MakeGenericMethod(typeof(T), type)
+                .MakeGenericMethod(typeof(T), propertyType)
                 .Invoke(null, new object[] {query, lambda});
 
             return (IOrderedQueryable<T>)result;
