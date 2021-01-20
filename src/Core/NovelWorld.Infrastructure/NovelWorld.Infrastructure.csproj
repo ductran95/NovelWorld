@@ -1,18 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
       <Folder Include="Configurations" />
-      <Folder Include="Contexts" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\EventBus\NovelWorld.EventBus\NovelWorld.EventBus.csproj" />
-      <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
+      <ProjectReference Include="..\NovelWorld.EventBus\NovelWorld.EventBus.csproj" />
+      <ProjectReference Include="..\NovelWorld.Utility\NovelWorld.Utility.csproj" />
       <ProjectReference Include="..\NovelWorld.Data\NovelWorld.Data.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     </ItemGroup>
 
 </Project>

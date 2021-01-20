@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\NovelWorld.Authentication\NovelWorld.Authentication.csproj" />
-      <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
+      <ProjectReference Include="..\NovelWorld.Utility\NovelWorld.Utility.csproj" />
       <ProjectReference Include="..\NovelWorld.Data\NovelWorld.Data.csproj" />
       <ProjectReference Include="..\NovelWorld.Domain\NovelWorld.Domain.csproj" />
     </ItemGroup>

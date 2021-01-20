@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using NovelWorld.Common;
+using NovelWorld.Utility;
 using NovelWorld.Data.Responses;
 using NovelWorld.Infrastructure.Extensions;
 

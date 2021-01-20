@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Net;
-using NovelWorld.Common.Exceptions;
+using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
 

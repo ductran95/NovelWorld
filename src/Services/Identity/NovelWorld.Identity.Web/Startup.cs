@@ -1,5 +1,7 @@
 using System;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -12,11 +14,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
-using Newtonsoft.Json;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Filters;
 using NovelWorld.API.Mappings;
-using NovelWorld.Common.Extensions;
+using NovelWorld.Utility.Extensions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
@@ -55,8 +56,8 @@ namespace NovelWorld.Identity.Web
             services.AddTransient<Mediator.IMediator, CustomMediator>();
             services.AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
             services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>());
-            services.RegisterPublishStrategies();
-            services.RegisterBaseProxies();
+            services.RegisterDefaultPublishStrategies();
+            services.RegisterDefaultProxies();
 
             // Add AutoMapper
             services.AddAutoMapper(novelWorldAssemblies);
@@ -80,25 +81,27 @@ namespace NovelWorld.Identity.Web
                 {
                     options.SuppressModelStateInvalidFilter = true;
                 })
-                .AddNewtonsoftJson(options =>
+                .AddJsonOptions(options =>
                 {
-                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                 });
 
             ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
             
             // Add Event Bus
-            services.RegisterBaseEventBus(appSetting.EventBusConfig);
+            services.RegisterDefaultEventBus(appSetting.EventBusConfig);
             services.AddIntegrationEventHandler(new Type[]
             {
                 typeof(IdentityModelMapping)
             });
             
             // Add DI
-            services.RegisterBaseHelpers();
-            services.RegisterBaseEventSourcing();
+            services.RegisterDefaultHelpers();
+            services.RegisterDefaultEventSourcing();
             services.RegisterAuthContext();
-            services.RegisterServices(Configuration);
+            services.RegisterServices();
             
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");

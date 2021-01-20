@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Results;
-using NovelWorld.Common.Exceptions;
+using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
 

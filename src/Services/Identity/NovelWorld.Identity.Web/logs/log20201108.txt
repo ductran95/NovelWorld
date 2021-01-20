@@ -83,7 +83,7 @@ Npgsql.PostgresException (0x80004005): 42703: column u.Account does not exist
     Line: 3349
     Routine: errorMissingColumn
 [15:18:25] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] 42703: column u.Account does not exist
-NovelWorld.Common.Exceptions.HttpException: 42703: column u.Account does not exist
+NovelWorld.Utility.Exceptions.HttpException: 42703: column u.Account does not exist
  ---> Npgsql.PostgresException (0x80004005): 42703: column u.Account does not exist
    at Npgsql.NpgsqlConnector.<>c__DisplayClass160_0.<<DoReadMessage>g__ReadMessageLong|0>d.MoveNext()
 --- End of stack trace from previous location where exception was thrown ---
@@ -149,7 +149,7 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'source')
    at NovelWorld.Domain.Proxies.AuthorizeProxy`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Domain/Proxies/AuthorizeProxy.cs:line 33
    at NovelWorld.Domain.Proxies.LoggingProxy`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs:line 37
 [15:22:59] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'source')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'source')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'source')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'source')
    at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
    at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
@@ -181,7 +181,7 @@ NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'so
    at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
    --- End of inner exception stack trace ---
 [15:23:53] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Validation Errors for command RegisterUserCommand
-NovelWorld.Common.Exceptions.HttpException: Validation Errors for command RegisterUserCommand
+NovelWorld.Utility.Exceptions.HttpException: Validation Errors for command RegisterUserCommand
  ---> NovelWorld.Domain.Exceptions.ValidationException: Validation Errors for command RegisterUserCommand
    at NovelWorld.Domain.Proxies.ValidationProxy`1.Process(T request, CancellationToken cancellationToken) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Domain/Proxies/ValidationProxy.cs:line 44
    at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
@@ -207,7 +207,7 @@ NovelWorld.Common.Exceptions.HttpException: Validation Errors for command Regist
 [16:12:00] [Information] [NovelWorld.Domain.Proxies.LoggingProxy] ----- Handling command "RegisterUserCommand" from user 96881abe-686b-4036-9533-a3710eef84f3 and IP "::1"
 [16:12:01] [Information] [NovelWorld.Domain.Proxies.LoggingProxy] ----- Command "RegisterUserCommand" handled
 [16:12:10] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -252,7 +252,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 [16:12:48] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [16:12:48] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [16:12:59] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -308,7 +308,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:13:12] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -364,7 +364,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:13:33] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -408,7 +408,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:14:17] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -452,7 +452,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:14:46] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -496,7 +496,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:15:44] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -544,7 +544,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:15:52] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -592,7 +592,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:16:15] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -636,7 +636,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:16:43] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -680,7 +680,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:17:02] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -724,7 +724,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:18:56] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -768,7 +768,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:19:36] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56
@@ -812,7 +812,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 [16:23:05] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Value cannot be null. (Parameter 'input')
-NovelWorld.Common.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
+NovelWorld.Utility.Exceptions.HttpException: Value cannot be null. (Parameter 'input')
  ---> System.ArgumentNullException: Value cannot be null. (Parameter 'input')
    at System.Guid.Parse(String input)
    at NovelWorld.API.Contexts.HttpAuthContext..ctor(IHttpContextAccessor contextAccessor) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 56

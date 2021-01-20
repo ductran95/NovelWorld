@@ -1,4 +1,6 @@
 using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -9,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Filters;
 using NovelWorld.API.Mappings;
@@ -19,7 +20,7 @@ using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
 using NovelWorld.MasterData.Domain.Mappings;
 using NovelWorld.Mediator;
-using NovelWorld.Common.Extensions;
+using NovelWorld.Utility.Extensions;
 
 namespace NovelWorld.MasterData.API
 {
@@ -43,57 +44,58 @@ namespace NovelWorld.MasterData.API
             // Configuration
             var appSetting = new AppSettings();
             Configuration.Bind(appSetting);
-            services.AddBaseAppConfig(Configuration)
-                    .AddAppConfig(Configuration);
+            services.AddBaseAppConfig(Configuration).AddAppConfig(Configuration);
             
             // Add Mediatr
-            services.AddTransient<Mediator.IMediator, CustomMediator>()
-                    .AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>())
-                    .AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>())
-                    .RegisterPublishStrategies()
-                    .RegisterBaseProxies();
+            services.AddTransient<Mediator.IMediator, CustomMediator>();
+            services.AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
+            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>());
+            services.RegisterDefaultPublishStrategies();
+            services.RegisterDefaultProxies();
 
             // Add AutoMapper
             services.AddAutoMapper(novelWorldAssemblies);
             
             // Add Fluent Validation, Response filter
-            services.AddScoped<SecurityHeadersAttribute>()
-                    .AddScoped<RequestValidationFilter>()
-                    .AddScoped<HttpSwitchModelResponseExceptionFilter>();
+            services.AddScoped<SecurityHeadersAttribute>();
+            services.AddScoped<RequestValidationFilter>();
+            services.AddScoped<HttpSwitchModelResponseExceptionFilter>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
             services.AddMvc(options =>
-                    {
-                        options.Filters.Add<RequestValidationFilter>();
-                        options.Filters.Add<HttpSwitchModelResponseExceptionFilter>();
-                    })
-                    .AddFluentValidation(fv =>
-                    {
-                        fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
-                        fv.ImplicitlyValidateChildProperties = true;
-                    })
-                    .ConfigureApiBehaviorOptions(options =>
-                    {
-                        options.SuppressModelStateInvalidFilter = true;
-                    })
-                    .AddNewtonsoftJson(options =>
-                    {
-                        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                    });
+                {
+                    options.Filters.Add<RequestValidationFilter>();
+                    options.Filters.Add<HttpSwitchModelResponseExceptionFilter>();
+                })
+                .AddFluentValidation(fv =>
+                {
+                    fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+                    fv.ImplicitlyValidateChildProperties = true;
+                })
+                .ConfigureApiBehaviorOptions(options =>
+                {
+                    options.SuppressModelStateInvalidFilter = true;
+                })
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                });
 
             ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
             
             // Add Event Bus
-            services.RegisterBaseEventBus(appSetting.EventBusConfig)
-                    .AddIntegrationEventHandler(new Type[]
-                    {
-                        typeof(MasterDataModelMapping)
-                    });
+            services.RegisterDefaultEventBus(appSetting.EventBusConfig);
+            services.AddIntegrationEventHandler(new Type[]
+            {
+                typeof(MasterDataModelMapping)
+            });
             
             // Add DI
-            services.RegisterBaseHelpers()
-                    .RegisterBaseEventSourcing()
-                    .RegisterAuthContext()
-                    .RegisterServices(Configuration);
+            services.RegisterDefaultHelpers();
+            services.RegisterDefaultEventSourcing();
+            services.RegisterAuthContext();
+            services.RegisterServices();
             
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");
@@ -113,8 +115,7 @@ namespace NovelWorld.MasterData.API
             }));
             
             // Add HealthCheck
-            var hcBuilder = services
-                .AddHealthChecks()
+            var hcBuilder = services.AddHealthChecks()
                 .AddCheck("self", () => HealthCheckResult.Healthy())
                 .AddNpgSql(Configuration.GetConnectionString("DefaultConnection"));
 

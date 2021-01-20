@@ -4,8 +4,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{523990AE-A997-400E-B7AB-BB4043F974BA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{2E14ABFC-B67B-4AB2-B6D5-32240699201F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{93027CAB-CA1E-431D-83EC-83D24CCEB297}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1CEFB887-0D47-4C27-9C64-957F1A1B6468}"
@@ -34,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Authentication",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Authorization", "src\Core\NovelWorld.Authorization\NovelWorld.Authorization.csproj", "{9D059BB0-9E0D-4B60-9E97-98F02D3F3CA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Common", "src\Core\NovelWorld.Common\NovelWorld.Common.csproj", "{AAAFEF2B-E20E-4F59-B188-FAA19DA532FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Utility", "src\Core\NovelWorld.Utility\NovelWorld.Utility.csproj", "{AAAFEF2B-E20E-4F59-B188-FAA19DA532FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Data", "src\Core\NovelWorld.Data\NovelWorld.Data.csproj", "{7D94CA3A-0398-4EE0-B478-AB50AD09B246}"
 EndProject
@@ -46,11 +44,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Infrastructure.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Infrastructure.EntityFrameworkCore", "src\Core\NovelWorld.Infrastructure.EntityFrameworkCore\NovelWorld.Infrastructure.EntityFrameworkCore.csproj", "{DB078B88-BBE8-4458-AA8F-243D1147ABFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.EventBus", "src\EventBus\NovelWorld.EventBus\NovelWorld.EventBus.csproj", "{5363A5AC-6967-4E50-AE67-38CC0902BABF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.EventBus", "src\Core\NovelWorld.EventBus\NovelWorld.EventBus.csproj", "{5363A5AC-6967-4E50-AE67-38CC0902BABF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.EventBus.AzureServiceBus", "src\EventBus\NovelWorld.EventBus.AzureServiceBus\NovelWorld.EventBus.AzureServiceBus.csproj", "{244F0E87-A66C-4C00-8FB4-3C22BFA981F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.EventBus.AzureServiceBus", "src\Core\NovelWorld.EventBus.AzureServiceBus\NovelWorld.EventBus.AzureServiceBus.csproj", "{244F0E87-A66C-4C00-8FB4-3C22BFA981F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.EventBus.RabbitMQ", "src\EventBus\NovelWorld.EventBus.RabbitMQ\NovelWorld.EventBus.RabbitMQ.csproj", "{960652B1-2081-4E78-8EC7-5561FAC9BBDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.EventBus.RabbitMQ", "src\Core\NovelWorld.EventBus.RabbitMQ\NovelWorld.EventBus.RabbitMQ.csproj", "{960652B1-2081-4E78-8EC7-5561FAC9BBDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Identity.Web", "src\Services\Identity\NovelWorld.Identity.Web\NovelWorld.Identity.Web.csproj", "{78252015-9396-446D-AFCE-1AF94B904B7D}"
 EndProject
@@ -98,6 +96,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Identity.DbMigra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.MasterData.DbMigration", "migrations\NovelWorld.MasterData.DbMigration\NovelWorld.MasterData.DbMigration.csproj", "{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Mediator.DependencyInjection", "src\Core\NovelWorld.Mediator.DependencyInjection\NovelWorld.Mediator.DependencyInjection.csproj", "{30BD918B-91E9-45AC-9715-CE585D111537}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{BDB36575-9B2C-4FA0-950F-A503E85A2303}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,9 +123,6 @@ Global
 		{722B1652-EEEA-4C24-8023-2B04DF4F0C6D} = {523990AE-A997-400E-B7AB-BB4043F974BA}
 		{B386F0DE-28FF-47DD-9F63-C785BAA1D715} = {523990AE-A997-400E-B7AB-BB4043F974BA}
 		{DB078B88-BBE8-4458-AA8F-243D1147ABFA} = {523990AE-A997-400E-B7AB-BB4043F974BA}
-		{5363A5AC-6967-4E50-AE67-38CC0902BABF} = {2E14ABFC-B67B-4AB2-B6D5-32240699201F}
-		{244F0E87-A66C-4C00-8FB4-3C22BFA981F1} = {2E14ABFC-B67B-4AB2-B6D5-32240699201F}
-		{960652B1-2081-4E78-8EC7-5561FAC9BBDC} = {2E14ABFC-B67B-4AB2-B6D5-32240699201F}
 		{78252015-9396-446D-AFCE-1AF94B904B7D} = {E9D6AB42-EAE0-4B5C-A5A8-04177B083E95}
 		{4C73A88F-04ED-46CD-B2E6-C1FADE59F83A} = {E9D6AB42-EAE0-4B5C-A5A8-04177B083E95}
 		{45FD1486-C681-48B5-9CEF-2AA2ADF635B4} = {E9D6AB42-EAE0-4B5C-A5A8-04177B083E95}
@@ -145,6 +144,10 @@ Global
 		{AF7C597B-4CB5-4FE8-A1CD-AF0767855278} = {C62C11BC-038D-4D74-8E22-31515A2AC229}
 		{99367B6E-6AF7-4518-B4CF-4C3BDEB767D0} = {11971F79-93ED-4A21-9268-1FDEEF604EF5}
 		{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A} = {11971F79-93ED-4A21-9268-1FDEEF604EF5}
+		{5363A5AC-6967-4E50-AE67-38CC0902BABF} = {523990AE-A997-400E-B7AB-BB4043F974BA}
+		{244F0E87-A66C-4C00-8FB4-3C22BFA981F1} = {523990AE-A997-400E-B7AB-BB4043F974BA}
+		{960652B1-2081-4E78-8EC7-5561FAC9BBDC} = {523990AE-A997-400E-B7AB-BB4043F974BA}
+		{30BD918B-91E9-45AC-9715-CE585D111537} = {523990AE-A997-400E-B7AB-BB4043F974BA}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2D735515-238B-47CD-95AE-EA9EADD50AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -287,5 +290,9 @@ Global
 		{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30BD918B-91E9-45AC-9715-CE585D111537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30BD918B-91E9-45AC-9715-CE585D111537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30BD918B-91E9-45AC-9715-CE585D111537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30BD918B-91E9-45AC-9715-CE585D111537}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

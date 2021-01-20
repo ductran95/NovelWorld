@@ -1,7 +1,9 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Data.Entities;
 using NovelWorld.Data.Enums;
@@ -11,59 +13,29 @@ using NovelWorld.Infrastructure.EventSourcing.Abstractions;
 
 namespace NovelWorld.Infrastructure.EntityFrameworkCore.Contexts
 {
-    public class EfCoreEntityContext: DbContext
+    public abstract class EfCoreEntityContext: DbContext
     {
-        private readonly IAuthContext _authContext;
-        private readonly IDbEventSource _dbEventSource;
+        protected readonly IAuthContext _authContext;
+        protected readonly IDbEventSource _dbEventSource;
         
         public EfCoreEntityContext([NotNull] DbContextOptions options, IAuthContext authContext, IDbEventSource dbEventSource): base(options)
         {
             _authContext = authContext;
             _dbEventSource = dbEventSource;
-            
-            // ReSharper disable once VirtualMemberCallInConstructor
-            ChangeTracker.Tracked += OnEntityTracked;
-            // ReSharper disable once VirtualMemberCallInConstructor
-            ChangeTracker.StateChanged += OnEntityStateChanged;
         }
-
-        void OnEntityTracked(object sender, EntityTrackedEventArgs e)
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
-            if (!e.FromQuery && e.Entry.Entity is Entity entity)
-            {
-                var userId = _authContext.User.Id;
-                entity.State = e.Entry.State.GetState(entity.IsDeleted);
-                entity.SetContext(userId);
-
-                CreateDbChangedEvent(entity, userId);
-            }
+            SetContext();
+            return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
-        void OnEntityStateChanged(object sender, EntityStateChangedEventArgs e)
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken())
         {
-            if (e.Entry.Entity is Entity entity)
-            {
-                var userId = _authContext.User.Id;
-                entity.State = e.Entry.State.GetState(entity.IsDeleted);
-                entity.SetContext(userId);
-
-                CreateDbChangedEvent(entity, userId);
-            }
+            SetContext();
+            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
-        // public override int SaveChanges(bool acceptAllChangesOnSuccess)
-        // {
-        //     SetChangedEntitiesContext();
-        //     return base.SaveChanges(acceptAllChangesOnSuccess);
-        // }
-        
-        // public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken())
-        // {
-        //     SetChangedEntitiesContext();
-        //     return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-        // }
-
-        public void CreateDbChangedEvent(Entity entity, Guid userId)
+        protected virtual void CreateDbChangedEvent(Entity entity, Guid userId)
         {
             _dbEventSource.Add(new DbChangedEvent
             {
@@ -74,20 +46,20 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Contexts
             });
         } 
 
-        // public virtual void SetChangedEntitiesContext()
-        // {
-        //     var changedObject = ChangeTracker.Entries();
-        //     var userId = _authContext.User.Id;
-        //     foreach (var entry in changedObject)
-        //     {
-        //         if (entry.Entity is Entity entity)
-        //         {
-        //             entity.State = entry.State.GetState(entity.IsDeleted);
-        //             entity.SetContext(userId);
-        //
-        //             CreateDbChangedEvent(entity, userId);
-        //         }
-        //     }
-        // }
+        protected virtual void SetContext()
+        {
+            var changedObject = ChangeTracker.Entries();
+            var userId = _authContext.User.Id;
+            foreach (var entry in changedObject)
+            {
+                if (entry.Entity is Entity entity)
+                {
+                    entity.State = entry.State.GetState(entity.IsDeleted);
+                    entity.SetContext(userId);
+
+                    CreateDbChangedEvent(entity, userId);
+                }
+            }
+        }
     }
 }

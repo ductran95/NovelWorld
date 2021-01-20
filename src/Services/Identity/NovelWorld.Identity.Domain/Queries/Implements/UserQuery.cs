@@ -5,10 +5,11 @@ using AutoMapper;
 using IdentityModel;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Authentication.DTO;
-using NovelWorld.Common.Exceptions;
-using NovelWorld.Common.Helpers.Abstractions;
+using NovelWorld.Utility.Exceptions;
+using NovelWorld.Utility.Helpers.Abstractions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Queries.Implements;
 using NovelWorld.Identity.Domain.Queries.Abstractions;
@@ -68,7 +69,7 @@ namespace NovelWorld.Identity.Domain.Queries.Implements
             };
 
             // TODO: get user's roles
-            return claims;
+            return await Task.FromResult(claims);
         }
     }
 }

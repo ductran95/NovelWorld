@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using NovelWorld.Common;
+using NovelWorld.Utility;
 using NovelWorld.Data.Requests;
 using NovelWorld.Infrastructure.Exceptions;
-using NovelWorld.Common.Extensions;
+using NovelWorld.Utility.Extensions;
 
 namespace NovelWorld.Infrastructure.Extensions
 {
@@ -71,7 +71,6 @@ namespace NovelWorld.Infrastructure.Extensions
             Ensure.NotContainNull(filters);
             
             var exp = filters.ToExpression<T>();
-            
             return query.Where(exp);
         }
         

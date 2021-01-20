@@ -1,5 +1,5 @@
 using System;
-using NovelWorld.Common;
+using NovelWorld.Utility;
 
 namespace NovelWorld.API.Attributes
 {

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using FluentValidation.Results;
-using NovelWorld.Common;
-using NovelWorld.Common.Exceptions;
+using NovelWorld.Utility;
+using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
 

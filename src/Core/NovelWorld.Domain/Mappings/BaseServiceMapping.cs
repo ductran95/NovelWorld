@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Data.Common;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using NovelWorld.Common.Helpers.Abstractions;
-using NovelWorld.Common.Helpers.Implements;
+using NovelWorld.Utility.Helpers.Abstractions;
+using NovelWorld.Utility.Helpers.Implements;
 using NovelWorld.Data.Configurations;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Proxies;
@@ -15,6 +16,8 @@ using NovelWorld.EventBus.AzureServiceBus;
 using NovelWorld.EventBus.RabbitMQ;
 using NovelWorld.Infrastructure.EventSourcing.Abstractions;
 using NovelWorld.Infrastructure.EventSourcing.Implements;
+using NovelWorld.Infrastructure.Factories.Abstractions;
+using NovelWorld.Infrastructure.Factories.Implements;
 using NovelWorld.Mediator;
 using NovelWorld.Mediator.Pipeline;
 using RabbitMQ.Client;
@@ -25,7 +28,15 @@ namespace NovelWorld.Domain.Mappings
 {
     public static class BaseServiceMapping
     {
-        public static IServiceCollection RegisterBaseHelpers(this IServiceCollection services)
+        public static IServiceCollection RegisterDefaultDbConnectionFactory(this IServiceCollection services, string connectionString)
+        {
+            services.AddSingleton<IDbConnectionFactory>(sp => new SqlConnectionFactory(connectionString));
+            // ReSharper disable once PossibleNullReferenceException
+            services.AddScoped<DbConnection>(sp => sp.GetService<IDbConnectionFactory>().CreateConnection());
+            return services;
+        }
+        
+        public static IServiceCollection RegisterDefaultHelpers(this IServiceCollection services)
         {
             services.AddSingleton(sp => new RestClient().UseNewtonsoftJson(new JsonSerializerSettings
             {
@@ -38,7 +49,7 @@ namespace NovelWorld.Domain.Mappings
             return services;
         }
         
-        public static IServiceCollection RegisterBaseProxies(this IServiceCollection services)
+        public static IServiceCollection RegisterDefaultProxies(this IServiceCollection services)
         {
             services.AddTransient(typeof(INotificationPipelineBehavior<>), typeof(NotificationPreProcessorBehavior<>));
             services.AddTransient(typeof(INotificationPreProcessor<>), typeof(ValidationProxy<>));
@@ -51,7 +62,7 @@ namespace NovelWorld.Domain.Mappings
             return services;
         }
         
-        public static IServiceCollection RegisterPublishStrategies(this IServiceCollection services)
+        public static IServiceCollection RegisterDefaultPublishStrategies(this IServiceCollection services)
         {
             services.AddSingleton(sp => new Dictionary<PublishStrategy, Mediator.IPublisher>
             {
@@ -66,14 +77,14 @@ namespace NovelWorld.Domain.Mappings
             return services;
         }
         
-        public static IServiceCollection RegisterBaseEventSourcing(this IServiceCollection services)
+        public static IServiceCollection RegisterDefaultEventSourcing(this IServiceCollection services)
         {
             services.AddScoped<IDbEventSource, DbEventSource>();
 
             return services;
         }
         
-        public static IServiceCollection RegisterBaseEventBus(this IServiceCollection services, EventBusConfig eventBusConfig)
+        public static IServiceCollection RegisterDefaultEventBus(this IServiceCollection services, EventBusConfig eventBusConfig)
         {
             var subscriptionClientName = eventBusConfig.SubscriptionClientName;
 

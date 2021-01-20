@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using NovelWorld.Common;
+using NovelWorld.Utility;
 using NovelWorld.Data.DTO;
 
 namespace NovelWorld.API.Results

@@ -1,15 +1,12 @@
 ﻿using System;
+using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NovelWorld.EventBus;
 using NovelWorld.Infrastructure.UoW.Abstractions;
 using NovelWorld.MasterData.Data.Configurations;
-using NovelWorld.MasterData.Domain.Queries.Abstractions;
-using NovelWorld.MasterData.Domain.Queries.Implements;
 using NovelWorld.MasterData.Infrastructure.Contexts;
-using NovelWorld.MasterData.Infrastructure.Repositories.Abstracts;
-using NovelWorld.MasterData.Infrastructure.Repositories.Implements;
 using NovelWorld.MasterData.Infrastructure.UoW.Implements;
 
 namespace NovelWorld.MasterData.Domain.Mappings
@@ -24,11 +21,10 @@ namespace NovelWorld.MasterData.Domain.Mappings
             return services;
         }
         
-        public static IServiceCollection RegisterServices(
-            this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
             services
-                .RegisterContexts(configuration)
+                .RegisterContexts()
                 .RegisterUoW()
                 .RegisterRepositories()
                 .RegisterQueries();
@@ -40,6 +36,7 @@ namespace NovelWorld.MasterData.Domain.Mappings
         {
             var eventBus = serviceProvider.GetRequiredService<IEventBus>();
 
+
             return serviceProvider;
         }
 
@@ -48,10 +45,7 @@ namespace NovelWorld.MasterData.Domain.Mappings
         private static IServiceCollection RegisterQueries(
             this IServiceCollection services)
         {
-            services.AddScoped<IAuthorQuery, AuthorQuery>();
-            services.AddScoped<ICategoryQuery, CategoryQuery>();
-            services.AddScoped<IBookQuery, BookQuery>();
-            services.AddScoped<IChapterQuery, ChapterQuery>();
+            
 
             return services;
         }
@@ -59,20 +53,17 @@ namespace NovelWorld.MasterData.Domain.Mappings
         private static IServiceCollection RegisterRepositories(
             this IServiceCollection services)
         {
-            services.AddScoped<IAuthorRepository, AuthorRepository>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IBookRepository, BookRepository>();
-            services.AddScoped<IChapterRepository, ChapterRepository>();
+            
 
             return services;
         }
 
-        private static IServiceCollection RegisterContexts(
-            this IServiceCollection services, IConfiguration configuration)
+        private static IServiceCollection RegisterContexts(this IServiceCollection services)
         {
-            services.AddDbContext<MasterDataContext>(options =>
+            services.AddDbContext<MasterDataContext>((sp, options) =>
             {
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+                // ReSharper disable once AssignNullToNotNullAttribute
+                options.UseNpgsql(sp.GetService<DbConnection>());
                 options.EnableDetailedErrors();
                 options.EnableSensitiveDataLogging();
             });

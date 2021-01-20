@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
 using MediatR.Pipeline;
-using NovelWorld.Common.Extensions;
+using NovelWorld.Utility.Extensions;
 using NovelWorld.Mediator.Pipeline;
 
 namespace NovelWorld.Domain.Proxies
