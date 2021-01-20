@@ -53,8 +53,6 @@ namespace NovelWorld.Identity.Web
             services.AddBaseAppConfig(Configuration).AddAppConfig(Configuration);
             
             // Add Mediatr
-            services.AddScoped<Mediator.IMediator, CustomMediator>();
-            services.AddScoped<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
             services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>().AsScoped().AsScopedHandler());
             services.RegisterDefaultPublishStrategies();
             services.RegisterDefaultProxies();

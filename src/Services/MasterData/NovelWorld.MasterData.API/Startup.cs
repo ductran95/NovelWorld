@@ -47,8 +47,6 @@ namespace NovelWorld.MasterData.API
             services.AddBaseAppConfig(Configuration).AddAppConfig(Configuration);
             
             // Add Mediatr
-            services.AddTransient<Mediator.IMediator, CustomMediator>();
-            services.AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
             services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>().AsScoped().AsScopedHandler());
             services.RegisterDefaultPublishStrategies();
             services.RegisterDefaultProxies();
