@@ -5,7 +5,6 @@ using System.Text.Json.Serialization;
 using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,6 +26,7 @@ using NovelWorld.Identity.Domain.Mappings;
 using NovelWorld.Identity.Web.Extensions;
 using NovelWorld.Identity.Web.Services.Implements;
 using NovelWorld.Mediator;
+using NovelWorld.Mediator.DependencyInjection;
 
 namespace NovelWorld.Identity.Web
 {
@@ -53,9 +53,9 @@ namespace NovelWorld.Identity.Web
             services.AddBaseAppConfig(Configuration).AddAppConfig(Configuration);
             
             // Add Mediatr
-            services.AddTransient<Mediator.IMediator, CustomMediator>();
-            services.AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
-            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>());
+            services.AddScoped<Mediator.IMediator, CustomMediator>();
+            services.AddScoped<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
+            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>().AsScoped().AsScopedHandler());
             services.RegisterDefaultPublishStrategies();
             services.RegisterDefaultProxies();
 

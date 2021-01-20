@@ -4,7 +4,6 @@ using System.Text.Json.Serialization;
 using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +19,7 @@ using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
 using NovelWorld.MasterData.Domain.Mappings;
 using NovelWorld.Mediator;
+using NovelWorld.Mediator.DependencyInjection;
 using NovelWorld.Utility.Extensions;
 
 namespace NovelWorld.MasterData.API
@@ -49,7 +49,7 @@ namespace NovelWorld.MasterData.API
             // Add Mediatr
             services.AddTransient<Mediator.IMediator, CustomMediator>();
             services.AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
-            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>());
+            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>().AsScoped().AsScopedHandler());
             services.RegisterDefaultPublishStrategies();
             services.RegisterDefaultProxies();
 
