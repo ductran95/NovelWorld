@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using NovelWorld.Authentication.Contexts.Implements;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Data.Requests;
 using NovelWorld.Data.Responses;
 using NovelWorld.Domain.Exceptions;

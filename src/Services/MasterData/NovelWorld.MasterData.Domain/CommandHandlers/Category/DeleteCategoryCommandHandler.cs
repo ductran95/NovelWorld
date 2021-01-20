@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
-using NovelWorld.Authentication.Contexts.Implements;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Domain.CommandHandlers;
 using NovelWorld.Domain.Exceptions;
 using NovelWorld.MasterData.Domain.Commands;
