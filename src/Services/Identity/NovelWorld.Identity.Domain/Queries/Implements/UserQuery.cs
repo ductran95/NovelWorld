@@ -69,7 +69,7 @@ namespace NovelWorld.Identity.Domain.Queries.Implements
             };
 
             // TODO: get user's roles
-            return claims;
+            return await Task.FromResult(claims);
         }
     }
 }

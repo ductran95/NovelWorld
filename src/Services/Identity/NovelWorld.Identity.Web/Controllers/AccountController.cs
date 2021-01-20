@@ -228,7 +228,7 @@ namespace NovelWorld.Identity.Web.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> RegisterDone()
+        public IActionResult RegisterDone()
         {
             return View();
         }
