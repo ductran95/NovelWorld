@@ -6,7 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NovelWorld.Authentication\NovelWorld.Authentication.csproj" />
-      <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
+      <ProjectReference Include="..\NovelWorld.Utility\NovelWorld.Utility.csproj" />
       <ProjectReference Include="..\NovelWorld.Data\NovelWorld.Data.csproj" />
       <ProjectReference Include="..\NovelWorld.Domain\NovelWorld.Domain.csproj" />
     </ItemGroup>

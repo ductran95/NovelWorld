@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Authentication.DTO;
-using NovelWorld.Common.Helpers.Abstractions;
+using NovelWorld.Utility.Helpers.Abstractions;
 using NovelWorld.Domain.CommandHandlers;
 using NovelWorld.Identity.Data.Constants;
 using NovelWorld.Identity.Domain.Commands.User;

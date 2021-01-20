@@ -20,7 +20,7 @@ using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
 using NovelWorld.MasterData.Domain.Mappings;
 using NovelWorld.Mediator;
-using NovelWorld.Common.Extensions;
+using NovelWorld.Utility.Extensions;
 
 namespace NovelWorld.MasterData.API
 {

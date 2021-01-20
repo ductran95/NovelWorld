@@ -1,7 +1,7 @@
 using System;
 using System.Text.Json;
 
-namespace NovelWorld.Common.Extensions
+namespace NovelWorld.Utility.Extensions
 {
     public static class JsonExtensions
     {

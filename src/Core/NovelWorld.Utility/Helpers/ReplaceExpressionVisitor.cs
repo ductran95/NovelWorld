@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace NovelWorld.Common.Helpers
+namespace NovelWorld.Utility.Helpers
 {
     public class ReplaceExpressionVisitor: ExpressionVisitor
     {

@@ -32,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Authentication",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Authorization", "src\Core\NovelWorld.Authorization\NovelWorld.Authorization.csproj", "{9D059BB0-9E0D-4B60-9E97-98F02D3F3CA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Common", "src\Core\NovelWorld.Common\NovelWorld.Common.csproj", "{AAAFEF2B-E20E-4F59-B188-FAA19DA532FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Utility", "src\Core\NovelWorld.Utility\NovelWorld.Utility.csproj", "{AAAFEF2B-E20E-4F59-B188-FAA19DA532FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Data", "src\Core\NovelWorld.Data\NovelWorld.Data.csproj", "{7D94CA3A-0398-4EE0-B478-AB50AD09B246}"
 EndProject
@@ -97,6 +97,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.MasterData.DbMigration", "migrations\NovelWorld.MasterData.DbMigration\NovelWorld.MasterData.DbMigration.csproj", "{42A1AE57-79EE-4A6D-9975-5B0ED4AC096A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovelWorld.Mediator.DependencyInjection", "src\Core\NovelWorld.Mediator.DependencyInjection\NovelWorld.Mediator.DependencyInjection.csproj", "{30BD918B-91E9-45AC-9715-CE585D111537}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{BDB36575-9B2C-4FA0-950F-A503E85A2303}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

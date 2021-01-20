@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using NovelWorld.Common.Extensions;
-using NovelWorld.Common.Helpers;
+using NovelWorld.Utility.Extensions;
+using NovelWorld.Utility.Helpers;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.Requests;
 
