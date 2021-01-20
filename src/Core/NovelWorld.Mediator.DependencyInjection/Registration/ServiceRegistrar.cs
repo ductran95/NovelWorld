@@ -236,7 +236,8 @@ namespace NovelWorld.Mediator.DependencyInjection.Registration
                     break;
             }
             
-            services.TryAdd(new ServiceDescriptor(typeof(IMediator), serviceConfiguration.MediatorImplementationType, serviceConfiguration.Lifetime));
+            services.TryAdd(new ServiceDescriptor(typeof(NovelWorld.Mediator.IMediator), serviceConfiguration.MediatorImplementationType, serviceConfiguration.Lifetime));
+            services.TryAdd(new ServiceDescriptor(typeof(MediatR.IMediator), sp => sp.GetService<NovelWorld.Mediator.IMediator>(), serviceConfiguration.Lifetime));
             services.TryAdd(new ServiceDescriptor(typeof(ISender), sp => sp.GetService<IMediator>(), serviceConfiguration.Lifetime));
             services.TryAdd(new ServiceDescriptor(typeof(IPublisher), sp => sp.GetService<IMediator>(), serviceConfiguration.Lifetime));
 
