@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NovelWorld.Common
+namespace NovelWorld.Utility
 {
     public sealed class WriteOnce<T>
     {

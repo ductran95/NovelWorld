@@ -30,7 +30,7 @@ Interop+Crypto+OpenSslCryptographicException: error:2006D080:BIO routines:BIO_ne
 Mapping types:
 Object -> RegisterUserCommand
 System.Object -> NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand
-NovelWorld.Common.Exceptions.HttpException: Missing type map configuration or unsupported mapping.
+NovelWorld.Utility.Exceptions.HttpException: Missing type map configuration or unsupported mapping.
 
 Mapping types:
 Object -> RegisterUserCommand
@@ -55,7 +55,7 @@ System.Object -> NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand
 [20:49:31] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [20:49:31] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [20:50:18] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] notification does not implement $INotification
-NovelWorld.Common.Exceptions.HttpException: notification does not implement $INotification
+NovelWorld.Utility.Exceptions.HttpException: notification does not implement $INotification
  ---> System.ArgumentException: notification does not implement $INotification
    at NovelWorld.Mediator.CustomMediator.Publish(Object notification, PublishStrategy strategy, CancellationToken cancellationToken) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Mediator/CustomMediator.cs:line 61
    at NovelWorld.Mediator.CustomMediator.Publish(Object notification, CancellationToken cancellationToken) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Mediator/CustomMediator.cs:line 31
@@ -94,7 +94,7 @@ System.ArgumentException: The path in 'value' must start with '/'. (Parameter 'v
 [20:52:47] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [20:52:47] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [20:53:27] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] notification does not implement $INotification
-NovelWorld.Common.Exceptions.HttpException: notification does not implement $INotification
+NovelWorld.Utility.Exceptions.HttpException: notification does not implement $INotification
  ---> System.ArgumentException: notification does not implement $INotification
    at NovelWorld.Mediator.CustomMediator.Publish(Object notification, PublishStrategy strategy, CancellationToken cancellationToken) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Mediator/CustomMediator.cs:line 61
    at NovelWorld.Mediator.CustomMediator.Publish(Object notification, CancellationToken cancellationToken) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Mediator/CustomMediator.cs:line 31
@@ -112,7 +112,7 @@ NovelWorld.Common.Exceptions.HttpException: notification does not implement $INo
 [21:16:29] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [21:16:29] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [21:17:00] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
-NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Utility.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
  ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
@@ -162,7 +162,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 [21:20:43] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [21:20:43] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [21:21:10] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
-NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Utility.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
  ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
@@ -217,7 +217,7 @@ System.InvalidOperationException: The view 'CustomError' was not found. The foll
 [21:34:19] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [21:34:19] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [21:34:53] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
-NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Utility.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
  ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
@@ -267,7 +267,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 [21:41:05] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [21:41:05] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [21:41:54] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
-NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Utility.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
  ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
@@ -318,7 +318,7 @@ System.ArgumentException: Value cannot be null or empty. (Parameter 'viewPath')
 [21:49:39] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [21:49:39] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [21:50:53] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
-NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Utility.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
  ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
@@ -349,7 +349,7 @@ NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type '
 [21:53:19] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [21:53:19] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [21:53:52] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
-NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Utility.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
  ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
@@ -380,7 +380,7 @@ NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type '
 [22:13:03] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [22:13:03] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [22:13:30] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
-NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Utility.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
  ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
@@ -411,7 +411,7 @@ NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type '
 [22:16:25] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [22:16:25] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [22:16:53] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
-NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Utility.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
  ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
@@ -439,7 +439,7 @@ NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type '
    at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
    --- End of inner exception stack trace ---
 [22:17:25] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
-NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
+NovelWorld.Utility.Exceptions.HttpException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
  ---> System.InvalidOperationException: Unable to resolve service for type 'NovelWorld.Infrastructure.UoW.Abstractions.IUnitOfWork' while attempting to activate 'NovelWorld.Domain.Proxies.UnitOfWorkProxy`2[NovelWorld.Identity.Domain.Commands.User.RegisterUserCommand,System.Boolean]'.
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
@@ -470,7 +470,7 @@ NovelWorld.Common.Exceptions.HttpException: Unable to resolve service for type '
 [22:32:10] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [22:32:10] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [22:33:02] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] 
-NovelWorld.Common.Exceptions.HttpException
+NovelWorld.Utility.Exceptions.HttpException
  ---> NovelWorld.Authentication.Exceptions.UnauthenticatedException
    at NovelWorld.API.Contexts.HttpAuthContext.get_User() in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 30
    at NovelWorld.Domain.Proxies.LoggingProxy`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs:line 30
@@ -513,7 +513,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 [22:34:31] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
 [22:34:31] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
 [22:35:12] [Error] [NovelWorld.API.Filters.HttpSwitchModelResponseExceptionFilter] 
-NovelWorld.Common.Exceptions.HttpException
+NovelWorld.Utility.Exceptions.HttpException
  ---> NovelWorld.Authentication.Exceptions.UnauthenticatedException
    at NovelWorld.API.Contexts.HttpAuthContext.get_User() in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.API/Contexts/HttpAuthContext.cs:line 30
    at NovelWorld.Domain.Proxies.LoggingProxy`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in /mnt/disk1/Projects/NovelWorld/src/Core/NovelWorld.Domain/Proxies/LoggingProxy.cs:line 30

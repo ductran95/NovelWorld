@@ -5,13 +5,13 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using NovelWorld.Common.Exceptions;
-using NovelWorld.Common.Extensions;
-using NovelWorld.Common.Helpers.Abstractions;
+using NovelWorld.Utility.Exceptions;
+using NovelWorld.Utility.Extensions;
+using NovelWorld.Utility.Helpers.Abstractions;
 using NovelWorld.Data.Enums;
 using RestSharp;
 
-namespace NovelWorld.Common.Helpers.Implements
+namespace NovelWorld.Utility.Helpers.Implements
 {
     public class RestsharpApiClient : IApiClient
     {

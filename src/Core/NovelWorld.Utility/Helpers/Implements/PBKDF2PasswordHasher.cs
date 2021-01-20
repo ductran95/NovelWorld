@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 using System.Security.Cryptography;
-using NovelWorld.Common.Helpers.Abstractions;
+using NovelWorld.Utility.Helpers.Abstractions;
 
-namespace NovelWorld.Common.Helpers.Implements
+namespace NovelWorld.Utility.Helpers.Implements
 {
     public class PBKDF2PasswordHasher : IPasswordHasher
     {

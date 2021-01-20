@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NovelWorld.Common.Extensions
+namespace NovelWorld.Utility.Extensions
 {
     // ReSharper disable once InconsistentNaming
     public static class IEnumerableExtension

@@ -6,7 +6,7 @@ using System.Text.Json;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
 
-namespace NovelWorld.Common.Exceptions
+namespace NovelWorld.Utility.Exceptions
 {
     public class ApiClientException: DomainException
     {

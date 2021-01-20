@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NovelWorld.Common
+namespace NovelWorld.Utility
 {
     public static class Ensure
     {

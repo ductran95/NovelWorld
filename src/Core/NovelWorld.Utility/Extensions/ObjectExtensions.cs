@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json.Linq;
 
-namespace NovelWorld.Common.Extensions
+namespace NovelWorld.Utility.Extensions
 {
     public static class ObjectExtensions
     {

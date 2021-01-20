@@ -22,7 +22,7 @@
       <ProjectReference Include="..\NovelWorld.EventBus.AzureServiceBus\NovelWorld.EventBus.AzureServiceBus.csproj" />
       <ProjectReference Include="..\NovelWorld.EventBus.RabbitMQ\NovelWorld.EventBus.RabbitMQ.csproj" />
       <ProjectReference Include="..\NovelWorld.Authentication\NovelWorld.Authentication.csproj" />
-      <ProjectReference Include="..\NovelWorld.Common\NovelWorld.Common.csproj" />
+      <ProjectReference Include="..\NovelWorld.Utility\NovelWorld.Utility.csproj" />
       <ProjectReference Include="..\NovelWorld.Infrastructure\NovelWorld.Infrastructure.csproj" />
       <ProjectReference Include="..\NovelWorld.Mediator\NovelWorld.Mediator.csproj" />
     </ItemGroup>

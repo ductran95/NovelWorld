@@ -1,4 +1,4 @@
-﻿namespace NovelWorld.Common.Extensions
+﻿namespace NovelWorld.Utility.Extensions
 {
     public static class StringExtensions
     {

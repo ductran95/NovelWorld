@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
-using NovelWorld.Common;
-using NovelWorld.Common.Exceptions;
+using NovelWorld.Utility;
+using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.DTO;
 
 namespace NovelWorld.Domain.Exceptions

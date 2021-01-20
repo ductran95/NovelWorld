@@ -2,9 +2,9 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using NovelWorld.Common.Helpers.Abstractions;
+using NovelWorld.Utility.Helpers.Abstractions;
 
-namespace NovelWorld.Common.Helpers.Implements
+namespace NovelWorld.Utility.Helpers.Implements
 {
     public class AESCryptoHelper: ICryptoHelper
     {

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace NovelWorld.Common.Extensions
+namespace NovelWorld.Utility.Extensions
 {
     public static class EnumExtension
     {

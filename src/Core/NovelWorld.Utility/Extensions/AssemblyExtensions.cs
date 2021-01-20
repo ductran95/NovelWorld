@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace NovelWorld.Common.Extensions
+namespace NovelWorld.Utility.Extensions
 {
     public static class AssemblyExtensions
     {

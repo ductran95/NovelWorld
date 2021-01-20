@@ -7,12 +7,13 @@ namespace NovelWorld.Authentication.Contexts.Implements
 {
     public class DefaultAuthContext: IAuthContext
     {
-        private AuthenticatedUser _user;
+        private readonly AuthenticatedUser _user;
         private readonly IPAddress _ip;
         
         public DefaultAuthContext()
         {
-            
+            _user = null;
+            _ip = null;
         }
         
         public AuthenticatedUser User

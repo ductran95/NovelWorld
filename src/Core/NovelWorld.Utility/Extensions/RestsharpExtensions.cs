@@ -2,7 +2,7 @@ using System;
 using NovelWorld.Data.Enums;
 using RestSharp;
 
-namespace NovelWorld.Common.Extensions
+namespace NovelWorld.Utility.Extensions
 {
     public static class RestsharpExtensions
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using NovelWorld.Data.Constants;
 
-namespace NovelWorld.Common.Extensions
+namespace NovelWorld.Utility.Extensions
 {
     public static class TypeExtensions
     {

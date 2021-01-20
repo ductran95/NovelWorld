@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using NovelWorld.Data.DTO;
 
-namespace NovelWorld.Common.Exceptions
+namespace NovelWorld.Utility.Exceptions
 {
     public class HttpException: Exception
     {

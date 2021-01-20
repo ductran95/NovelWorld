@@ -5,9 +5,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json;
-using NovelWorld.Common.Extensions;
+using NovelWorld.Utility.Extensions;
 
-namespace NovelWorld.Common.Helpers
+namespace NovelWorld.Utility.Helpers
 {
     public static class ExpressionHelper
     {

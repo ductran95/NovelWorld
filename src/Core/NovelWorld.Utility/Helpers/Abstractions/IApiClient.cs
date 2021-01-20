@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NovelWorld.Data.Enums;
 
-namespace NovelWorld.Common.Helpers.Abstractions
+namespace NovelWorld.Utility.Helpers.Abstractions
 {
     public interface IApiClient
     {

@@ -1,4 +1,4 @@
-namespace NovelWorld.Common.Helpers.Abstractions
+namespace NovelWorld.Utility.Helpers.Abstractions
 {
     public interface ICryptoHelper
     {

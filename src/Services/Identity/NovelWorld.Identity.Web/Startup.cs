@@ -17,7 +17,7 @@ using Microsoft.IdentityModel.Logging;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Filters;
 using NovelWorld.API.Mappings;
-using NovelWorld.Common.Extensions;
+using NovelWorld.Utility.Extensions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;

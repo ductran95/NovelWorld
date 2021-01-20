@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using NovelWorld.Common.Extensions;
+using NovelWorld.Utility.Extensions;
 using NovelWorld.EventBus.EventHandlers;
 using NovelWorld.EventBus.Events;
 using Polly;

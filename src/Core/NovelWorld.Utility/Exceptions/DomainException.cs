@@ -1,6 +1,6 @@
 using System;
 
-namespace NovelWorld.Common.Exceptions
+namespace NovelWorld.Utility.Exceptions
 {
     public abstract class DomainException: Exception
     {
