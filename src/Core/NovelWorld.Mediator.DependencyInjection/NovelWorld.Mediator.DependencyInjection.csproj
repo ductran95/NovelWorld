@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NovelWorld.Mediator\NovelWorld.Mediator.csproj" />
+      <ProjectReference Include="..\NovelWorld.Utility\NovelWorld.Utility.csproj" />
     </ItemGroup>
 
 </Project>

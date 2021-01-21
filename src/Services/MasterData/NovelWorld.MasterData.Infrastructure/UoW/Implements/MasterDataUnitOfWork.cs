@@ -4,9 +4,9 @@ using NovelWorld.MasterData.Infrastructure.Contexts;
 
 namespace NovelWorld.MasterData.Infrastructure.UoW.Implements
 {
-    public class MasterDataUnitOfWork: EfCoreUnitOfWork<MasterDataContext>, IUnitOfWork
+    public class MasterDataUnitOfWork: EfCoreUnitOfWork<MasterDataDbContext>, IUnitOfWork
     {
-        public MasterDataUnitOfWork(MasterDataContext context): base(context)
+        public MasterDataUnitOfWork(MasterDataDbContext dbContext): base(dbContext)
         {
         }
     }

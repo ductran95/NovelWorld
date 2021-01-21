@@ -6,10 +6,12 @@ namespace NovelWorld.Utility
     {
         private T _value;
         private bool _hasValue;
+        
         public override string ToString()
         {
             return _hasValue ? Convert.ToString(_value) : string.Empty;
         }
+        
         public T Value
         {
             get
@@ -30,7 +32,8 @@ namespace NovelWorld.Utility
                 this._hasValue = true;
             }
         }
-        public T ValueOrDefault { get { return _value; } }
+        
+        public T ValueOrDefault => _value;
 
         public static implicit operator T(WriteOnce<T> value) { return value.Value; }
     }

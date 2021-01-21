@@ -4,19 +4,17 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NovelWorld.Domain.Extensions;
-using NovelWorld.Infrastructure.EventSourcing;
 using NovelWorld.Infrastructure.EventSourcing.Abstractions;
-using NovelWorld.Infrastructure.UoW;
 using NovelWorld.Infrastructure.UoW.Abstractions;
 
 namespace NovelWorld.Domain.Proxies
 {
-    public class UnitOfWorkProxy<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest: IRequest<TResponse>
+    public sealed class UnitOfWorkProxy<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest: IRequest<TResponse>
     {
         #region Properties
-        protected readonly IUnitOfWork _unitOfWork;
-        protected readonly IDbEventSource _dBEventSource;
-        protected readonly IServiceProvider _services;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IDbEventSource _dBEventSource;
+        private readonly IServiceProvider _services;
         #endregion
 
         #region Constructor
@@ -61,14 +59,14 @@ namespace NovelWorld.Domain.Proxies
                 response = await next();
                 //await _unitOfWork.SaveChangesAsync();
 
-                await _unitOfWork.CommitAsync();
+                await _unitOfWork.CommitAsync(cancellationToken);
 
                 // Publish all DB Event
                 PublishEvent();
             }
             catch(Exception)
             {
-                await _unitOfWork.RollbackAsync();
+                await _unitOfWork.RollbackAsync(cancellationToken);
                 throw;
             }
 
@@ -82,10 +80,11 @@ namespace NovelWorld.Domain.Proxies
             var newDbEventSource = scope.ServiceProvider.GetService<IDbEventSource>();
 
             // Transfer event list from old scope to new scope
+            // ReSharper disable once PossibleNullReferenceException
             newDbEventSource.EventList = _dBEventSource.EventList;
 
             var publishTask = Task.Run(() => newDbEventSource.Publish());
-            publishTask.ContinueWith((task) => scope.Dispose());
+            publishTask.ContinueWith((_) => scope.Dispose());
         }
     }
 }

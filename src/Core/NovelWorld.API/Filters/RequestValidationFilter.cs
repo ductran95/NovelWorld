@@ -29,7 +29,7 @@ namespace NovelWorld.API.Filters
 
                 if (errors.Any())
                 {
-                    throw new ValidationException(errors);
+                    throw new ValidateException(errors);
                 }
             }
         }

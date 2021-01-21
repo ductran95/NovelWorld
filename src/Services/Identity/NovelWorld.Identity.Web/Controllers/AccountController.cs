@@ -21,8 +21,8 @@ using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
 using NovelWorld.Identity.Data.ViewModels.Account;
 using NovelWorld.Identity.Domain.Commands.User;
+using NovelWorld.Identity.Domain.Queries.User;
 using NovelWorld.Identity.Web.Extensions;
-using NovelWorld.Identity.Domain.Queries.Abstractions;
 using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web.Controllers
@@ -43,7 +43,6 @@ namespace NovelWorld.Identity.Web.Controllers
         private readonly IClientStore _clientStore;
         private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly IEventService _events;
-        private readonly IUserQuery _userQuery;
 
         public AccountController(
             IMediator mediator,
@@ -52,8 +51,7 @@ namespace NovelWorld.Identity.Web.Controllers
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,
-            IEventService events,
-            IUserQuery userQuery
+            IEventService events
             )
         {
             _mediator = mediator;
@@ -63,7 +61,6 @@ namespace NovelWorld.Identity.Web.Controllers
             _clientStore = clientStore;
             _schemeProvider = schemeProvider;
             _events = events;
-            _userQuery = userQuery;
         }
 
         /// <summary>
@@ -123,10 +120,20 @@ namespace NovelWorld.Identity.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                // validate username/password against in-memory store
-                if (await _userQuery.ValidateCredentials(model.Email, model.Password))
+                var isCredentialValid = await _mediator.Send(new ValidateUserCredentialCommand()
                 {
-                    var user = await _userQuery.FindByEmail(model.Email);
+                    Email = model.Email,
+                    Password = model.Password
+                });
+                
+                // validate username/password against in-memory store
+                if (isCredentialValid)
+                {
+                    var user = await _mediator.Send(new GetUserByEmailQuery()
+                    {
+                        Email = model.Email
+                    });
+                    
                     await _events.RaiseAsync(new UserLoginSuccessEvent(user.Account, user.Email, user.FullName,
                         clientId: context?.Client.ClientId)); // Use email as subjectId
 
@@ -143,10 +150,14 @@ namespace NovelWorld.Identity.Web.Controllers
                     }
 
                     // issue authentication cookie with subject ID and username
+                    var claims = await _mediator.Send(new GetClaimsFromUserQuery()
+                    {
+                        User = user
+                    });
                     var issuer = new IdentityServerUser(user.Email)
                     {
                         DisplayName = user.FullName,
-                        AdditionalClaims = (await _userQuery.GetClaimsFromUser(user)).ToList()
+                        AdditionalClaims = claims.ToList()
                     };
 
                     await HttpContext.SignInAsync(issuer, props);

@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace NovelWorld.Identity.DbMigration.Migrations
 {
-    [DbContext(typeof(IdentityContext))]
+    [DbContext(typeof(IdentityDbContext))]
     [Migration("20201108082120_Initial")]
     partial class Initial
     {
