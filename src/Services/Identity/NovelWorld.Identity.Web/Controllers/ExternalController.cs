@@ -17,7 +17,7 @@ using NovelWorld.API.Attributes;
 using NovelWorld.Authentication.DTO;
 using NovelWorld.Identity.Web.Extensions;
 using NovelWorld.Identity.Domain.Commands.User;
-using NovelWorld.Identity.Domain.Queries.Abstractions;
+using NovelWorld.Identity.Domain.Queries.User;
 using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web.Controllers
@@ -32,22 +32,20 @@ namespace NovelWorld.Identity.Web.Controllers
         private readonly IClientStore _clientStore;
         private readonly ILogger<ExternalController> _logger;
         private readonly IEventService _events;
-        private readonly IUserQuery _userQuery;
 
         public ExternalController(
             IMediator mediator,
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IEventService events,
-            ILogger<ExternalController> logger,
-            IUserQuery userQuery)
+            ILogger<ExternalController> logger
+            )
         {
             _mediator = mediator;
             _interaction = interaction;
             _clientStore = clientStore;
             _logger = logger;
             _events = events;
-            _userQuery = userQuery;
         }
 
         /// <summary>
@@ -168,7 +166,11 @@ namespace NovelWorld.Identity.Web.Controllers
             var providerUserId = userIdClaim.Value;
 
             // find external user
-            var user = await _userQuery.FindByExternalProvider(provider, providerUserId);
+            var user = await _mediator.Send(new GetUserByExternalProviderQuery()
+            {
+                Provider = provider,
+                ProviderUserId = providerUserId
+            });
 
             return (user, provider, providerUserId, claims);
         }

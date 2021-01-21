@@ -5,30 +5,36 @@ using System.Threading.Tasks;
 using IdentityModel;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
-using NovelWorld.Identity.Domain.Queries.Abstractions;
+using NovelWorld.Identity.Domain.Queries.User;
+using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web.Services.Implements
 {
     public class ProfileService : IProfileService
     {
-        private readonly IUserQuery _userQuery;
+        private readonly IMediator _mediator;
 
-        public ProfileService(IUserQuery userQuery)
+        public ProfileService(IMediator mediator)
         {
-            _userQuery = userQuery;
+            _mediator = mediator;
         }
         public async Task GetProfileDataAsync(ProfileDataRequestContext context)
         {
             var subject = context.Subject ?? throw new ArgumentNullException(nameof(context.Subject));
 
             var email = subject.FindFirstValue(JwtClaimTypes.Subject);
-
-            var user = await _userQuery.FindByEmail(email);
+            var user = await _mediator.Send(new GetUserByEmailQuery()
+            {
+                Email = email
+            });
 
             if (user == null)
                 throw new ArgumentException("Invalid subject identifier");
 
-            var claims = await _userQuery.GetClaimsFromUser(user);
+            var claims = await _mediator.Send(new GetClaimsFromUserQuery()
+            {
+                User = user
+            });
             context.IssuedClaims = claims.ToList();
         }
 
@@ -37,7 +43,10 @@ namespace NovelWorld.Identity.Web.Services.Implements
             var subject = context.Subject ?? throw new ArgumentNullException(nameof(context.Subject));
 
             var email = subject.FindFirstValue(JwtClaimTypes.Subject);
-            var user = await _userQuery.FindByEmail(email);
+            var user = await _mediator.Send(new GetUserByEmailQuery()
+            {
+                Email = email
+            });
 
             context.IsActive = user != null;
         }

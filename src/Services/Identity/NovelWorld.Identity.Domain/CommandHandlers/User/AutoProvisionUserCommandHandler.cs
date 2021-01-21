@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using NovelWorld.Authentication.Contexts.Abstractions;
-using NovelWorld.Authentication.Contexts.Implements;
 using NovelWorld.Authentication.DTO;
 using NovelWorld.Utility.Helpers.Abstractions;
 using NovelWorld.Domain.CommandHandlers;
@@ -21,7 +20,7 @@ namespace NovelWorld.Identity.Domain.CommandHandlers.User
         public AutoProvisionUserCommandHandler(
             IMediator mediator,
             IMapper mapper,
-            ILogger<CommandHandler<AutoProvisionUserCommand, AuthenticatedUser>> logger,
+            ILogger<AutoProvisionUserCommandHandler> logger,
             IAuthContext authContext,
             IPasswordHasher passwordHasher,
             IUserRepository userRepository

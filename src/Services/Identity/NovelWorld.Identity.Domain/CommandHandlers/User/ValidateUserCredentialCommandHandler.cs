@@ -5,22 +5,20 @@ using Microsoft.Extensions.Logging;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Utility.Helpers.Abstractions;
 using NovelWorld.Domain.CommandHandlers;
-using NovelWorld.Domain.Exceptions;
-using NovelWorld.Identity.Data.Constants;
 using NovelWorld.Identity.Domain.Commands.User;
 using NovelWorld.Identity.Infrastructure.Repositories.Abstracts;
 using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Domain.CommandHandlers.User
 {
-    public class RegisterUserCommandHandler : CommandHandler<RegisterUserCommand>
+    public class ValidateUserCredentialCommandHandler : CommandHandler<ValidateUserCredentialCommand, bool>
     {
         private readonly IPasswordHasher _passwordHasher;
         private readonly IUserRepository _userRepository;
-        public RegisterUserCommandHandler(
+        public ValidateUserCredentialCommandHandler(
             IMediator mediator,
             IMapper mapper,
-            ILogger<RegisterUserCommandHandler> logger,
+            ILogger<ValidateUserCredentialCommandHandler> logger,
             IAuthContext authContext,
             IPasswordHasher passwordHasher,
             IUserRepository userRepository
@@ -30,23 +28,16 @@ namespace NovelWorld.Identity.Domain.CommandHandlers.User
             _userRepository = userRepository;
         }
 
-        public override async Task<bool> Handle(RegisterUserCommand request,
+        public override async Task<bool> Handle(ValidateUserCredentialCommand request,
             CancellationToken cancellationToken)
         {
-            var checkUserExist = await _userRepository.GetByEmailAsync(request.Email);
-
-            if (checkUserExist != null)
+            var user =  await _userRepository.GetByEmailAsync(request.Email);
+            if (user == null)
             {
-                throw new DuplicateDataException(ErrorCodes.UserHasExist,
-                    string.Format(ErrorMessages.UserHasExist, request.Email));
+                return false;
             }
-            
-            var user = _mapper.Map<Data.Entities.User>(request);
-            user.Password = _passwordHasher.Hash(request.Password);
-            
-            await _userRepository.AddAsync(user);
 
-            return true;
+            return _passwordHasher.Check(user.Password, request.Password).Verified;
         }
     }
 }
