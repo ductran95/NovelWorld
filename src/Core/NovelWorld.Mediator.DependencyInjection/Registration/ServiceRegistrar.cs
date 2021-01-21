@@ -6,21 +6,22 @@ using MediatR;
 using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using NovelWorld.Utility.Attributes;
 
 namespace NovelWorld.Mediator.DependencyInjection.Registration
 {
     public static class ServiceRegistrar
     {
-        public static void AddMediatRClasses(IServiceCollection services, IEnumerable<Assembly> assembliesToScan)
+        public static void AddMediatRClasses(IServiceCollection services, IEnumerable<Assembly> assembliesToScan, MediatorServiceConfiguration serviceConfiguration)
         {
             assembliesToScan = (assembliesToScan as Assembly[] ?? assembliesToScan).Distinct().ToArray();
 
-            ConnectImplementationsToTypesClosing(typeof(IRequestHandler<,>), services, assembliesToScan, false);
-            ConnectImplementationsToTypesClosing(typeof(INotificationHandler<>), services, assembliesToScan, true);
-            ConnectImplementationsToTypesClosing(typeof(IRequestPreProcessor<>), services, assembliesToScan, true);
-            ConnectImplementationsToTypesClosing(typeof(IRequestPostProcessor<,>), services, assembliesToScan, true);
-            ConnectImplementationsToTypesClosing(typeof(IRequestExceptionHandler<,,>), services, assembliesToScan, true);
-            ConnectImplementationsToTypesClosing(typeof(IRequestExceptionAction<,>), services, assembliesToScan, true);
+            ConnectImplementationsToTypesClosing(typeof(IRequestHandler<,>), services, assembliesToScan, false, serviceConfiguration);
+            ConnectImplementationsToTypesClosing(typeof(INotificationHandler<>), services, assembliesToScan, true, serviceConfiguration);
+            ConnectImplementationsToTypesClosing(typeof(IRequestPreProcessor<>), services, assembliesToScan, true, serviceConfiguration);
+            ConnectImplementationsToTypesClosing(typeof(IRequestPostProcessor<,>), services, assembliesToScan, true, serviceConfiguration);
+            ConnectImplementationsToTypesClosing(typeof(IRequestExceptionHandler<,,>), services, assembliesToScan, true, serviceConfiguration);
+            ConnectImplementationsToTypesClosing(typeof(IRequestExceptionAction<,>), services, assembliesToScan, true, serviceConfiguration);
 
             var multiOpenInterfaces = new[]
             {
@@ -36,12 +37,12 @@ namespace NovelWorld.Mediator.DependencyInjection.Registration
                 var concretions = assembliesToScan
                     .SelectMany(a => a.DefinedTypes)
                     .Where(type => type.FindInterfacesThatClose(multiOpenInterface).Any())
-                    .Where(type => type.IsConcrete() && type.IsOpenGeneric())
+                    .Where(type => type.IsConcrete() && type.IsOpenGeneric() && type.CanAutoRegister())
                     .ToList();
 
                 foreach (var type in concretions)
                 {
-                    services.AddTransient(multiOpenInterface, type);
+                    services.Add(new ServiceDescriptor(multiOpenInterface, type, serviceConfiguration.HandlerLifetime));
                 }
             }
         }
@@ -55,10 +56,11 @@ namespace NovelWorld.Mediator.DependencyInjection.Registration
         /// <param name="services"></param>
         /// <param name="assembliesToScan"></param>
         /// <param name="addIfAlreadyExists"></param>
+        /// <param name="serviceConfiguration"></param>
         private static void ConnectImplementationsToTypesClosing(Type openRequestInterface,
             IServiceCollection services,
             IEnumerable<Assembly> assembliesToScan,
-            bool addIfAlreadyExists)
+            bool addIfAlreadyExists, MediatorServiceConfiguration serviceConfiguration)
         {
             var concretions = new List<Type>();
             var interfaces = new List<Type>();
@@ -67,7 +69,7 @@ namespace NovelWorld.Mediator.DependencyInjection.Registration
                 var interfaceTypes = type.FindInterfacesThatClose(openRequestInterface).ToArray();
                 if (!interfaceTypes.Any()) continue;
 
-                if (type.IsConcrete())
+                if (type.IsConcrete() && type.CanAutoRegister())
                 {
                     concretions.Add(type);
                 }
@@ -85,7 +87,7 @@ namespace NovelWorld.Mediator.DependencyInjection.Registration
                 {
                     foreach (var type in exactMatches)
                     {
-                        services.AddTransient(@interface, type);
+                        services.Add(new ServiceDescriptor(@interface, type, serviceConfiguration.HandlerLifetime));
                     }
                 }
                 else
@@ -97,13 +99,13 @@ namespace NovelWorld.Mediator.DependencyInjection.Registration
 
                     foreach (var type in exactMatches)
                     {
-                        services.TryAddTransient(@interface, type);
+                        services.TryAdd(new ServiceDescriptor(@interface, type, serviceConfiguration.HandlerLifetime));
                     }
                 }
 
                 if (!@interface.IsOpenGeneric())
                 {
-                    AddConcretionsThatCouldBeClosed(@interface, concretions, services);
+                    AddConcretionsThatCouldBeClosed(@interface, concretions, services, serviceConfiguration);
                 }
             }
         }
@@ -130,14 +132,14 @@ namespace NovelWorld.Mediator.DependencyInjection.Registration
             return false;
         }
 
-        private static void AddConcretionsThatCouldBeClosed(Type @interface, List<Type> concretions, IServiceCollection services)
+        private static void AddConcretionsThatCouldBeClosed(Type @interface, List<Type> concretions, IServiceCollection services, MediatorServiceConfiguration serviceConfiguration)
         {
             foreach (var type in concretions
                 .Where(x => x.IsOpenGeneric() && x.CouldCloseTo(@interface)))
             {
                 try
                 {
-                    services.TryAddTransient(@interface, type.MakeGenericType(@interface.GenericTypeArguments));
+                    services.TryAdd(new ServiceDescriptor(@interface, type.MakeGenericType(@interface.GenericTypeArguments), serviceConfiguration.HandlerLifetime));
                 }
                 catch (Exception)
                 {
@@ -166,6 +168,17 @@ namespace NovelWorld.Mediator.DependencyInjection.Registration
         public static bool IsOpenGeneric(this Type type)
         {
             return type.GetTypeInfo().IsGenericTypeDefinition || type.GetTypeInfo().ContainsGenericParameters;
+        }
+
+        public static bool CanAutoRegister(this Type type)
+        {
+            var notAutoRegisterAttribute = type.GetCustomAttribute<NotAutoRegisterAttribute>();
+            if (notAutoRegisterAttribute != null)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public static IEnumerable<Type> FindInterfacesThatClose(this Type pluggedType, Type templateType)
@@ -241,7 +254,7 @@ namespace NovelWorld.Mediator.DependencyInjection.Registration
             services.TryAdd(new ServiceDescriptor(typeof(ISender), sp => sp.GetService<IMediator>(), serviceConfiguration.Lifetime));
             services.TryAdd(new ServiceDescriptor(typeof(IPublisher), sp => sp.GetService<IMediator>(), serviceConfiguration.Lifetime));
 
-            // Use TryAddTransientExact (see below), we dó want to register our Pre/Post processor behavior, even if (a more concrete)
+            // Use TryAddTransientExact (see below), we do want to register our Pre/Post processor behavior, even if (a more concrete)
             // registration for IPipelineBehavior<,> already exists. But only once.
             services.TryAddExact(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>), serviceConfiguration.HandlerLifetime);
             services.TryAddExact(typeof(IPipelineBehavior<,>), typeof(RequestPostProcessorBehavior<,>), serviceConfiguration.HandlerLifetime);

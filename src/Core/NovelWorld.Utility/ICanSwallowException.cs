@@ -1,4 +1,4 @@
-namespace NovelWorld.Domain
+namespace NovelWorld.Utility
 {
     public interface ICanSwallowException
     {

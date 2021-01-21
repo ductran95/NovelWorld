@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using NovelWorld.Utility;
 
 namespace NovelWorld.Domain.Queries
 {

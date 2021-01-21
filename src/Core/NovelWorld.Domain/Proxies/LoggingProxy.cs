@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Domain.Exceptions;
 using NovelWorld.Mediator;
+using NovelWorld.Utility;
 using NovelWorld.Utility.Extensions;
 
 namespace NovelWorld.Domain.Proxies
