@@ -6,17 +6,17 @@ using NovelWorld.MasterData.Infrastructure.Contexts;
 
 namespace NovelWorld.MasterData.DbMigration.Factories
 {
-    public class MasterDataContextFactory: IDesignTimeDbContextFactory<MasterDataContext>
+    public class MasterDataContextFactory: IDesignTimeDbContextFactory<MasterDataDbContext>
     {
-        public MasterDataContext CreateDbContext(string[] args)
+        public MasterDataDbContext CreateDbContext(string[] args)
         {
             var configuration = BuildConfiguration();
 
-            var builder = new DbContextOptionsBuilder<MasterDataContext>()
+            var builder = new DbContextOptionsBuilder<MasterDataDbContext>()
                 .UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
                     x=>x.MigrationsAssembly("NovelWorld.MasterData.DbMigration"));
 
-            return new MasterDataContext(builder.Options, null, null);
+            return new MasterDataDbContext(builder.Options, null, null);
         }
         
         private static IConfigurationRoot BuildConfiguration()

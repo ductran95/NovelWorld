@@ -11,7 +11,7 @@ using NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Abstractions;
 
 namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
 {
-    public class EfCoreReadonlyRepository<TContext, T>: IEfCoreReadonlyRepository<T> where TContext: EfCoreEntityContext where T: Entity
+    public class EfCoreReadonlyRepository<TContext, T>: IEfCoreReadonlyRepository<T> where TContext: EfCoreEntityDbContext where T: Entity
     {
         protected readonly TContext _context;
         protected readonly DbSet<T> _dbSet;

@@ -2,11 +2,12 @@
 
 namespace NovelWorld.Domain.Queries
 {
-    public abstract class Query<T>: IRequest<T>
+    public abstract class Query<T>: IRequest<T>, ICanSwallowException
     {
+        public bool SwallowException { get; set; } = false;
     }
 
-    public abstract class Query : IRequest<bool>
+    public abstract class Query : Query<bool>
     {
     }
 }

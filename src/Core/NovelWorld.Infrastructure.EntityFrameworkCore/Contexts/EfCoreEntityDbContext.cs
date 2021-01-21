@@ -13,12 +13,12 @@ using NovelWorld.Infrastructure.EventSourcing.Abstractions;
 
 namespace NovelWorld.Infrastructure.EntityFrameworkCore.Contexts
 {
-    public abstract class EfCoreEntityContext: DbContext
+    public abstract class EfCoreEntityDbContext: DbContext
     {
         protected readonly IAuthContext _authContext;
         protected readonly IDbEventSource _dbEventSource;
         
-        public EfCoreEntityContext([NotNull] DbContextOptions options, IAuthContext authContext, IDbEventSource dbEventSource): base(options)
+        public EfCoreEntityDbContext([NotNull] DbContextOptions options, IAuthContext authContext, IDbEventSource dbEventSource): base(options)
         {
             _authContext = authContext;
             _dbEventSource = dbEventSource;

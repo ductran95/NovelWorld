@@ -6,17 +6,17 @@ using NovelWorld.Identity.Infrastructure.Contexts;
 
 namespace NovelWorld.Identity.DbMigration.Factories
 {
-    public class IdentityContextFactory: IDesignTimeDbContextFactory<IdentityContext>
+    public class IdentityContextFactory: IDesignTimeDbContextFactory<IdentityDbContext>
     {
-        public IdentityContext CreateDbContext(string[] args)
+        public IdentityDbContext CreateDbContext(string[] args)
         {
             var configuration = BuildConfiguration();
 
-            var builder = new DbContextOptionsBuilder<IdentityContext>()
+            var builder = new DbContextOptionsBuilder<IdentityDbContext>()
                 .UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
                     x=>x.MigrationsAssembly("NovelWorld.Identity.DbMigration"));
 
-            return new IdentityContext(builder.Options, null, null);
+            return new IdentityDbContext(builder.Options, null, null);
         }
         
         private static IConfigurationRoot BuildConfiguration()

@@ -13,7 +13,7 @@ using NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Abstractions;
 namespace NovelWorld.Infrastructure.EntityFrameworkCore.Repositories.Implements
 {
     public class EfCoreRepository<TContext, T> : IEfCoreRepository<T>
-        where TContext : EfCoreEntityContext where T : Entity
+        where TContext : EfCoreEntityDbContext where T : Entity
     {
         protected readonly TContext _context;
         protected readonly DbSet<T> _dbSet;

@@ -10,11 +10,11 @@ using NovelWorld.Data.DTO;
 
 namespace NovelWorld.Domain.Exceptions
 {
-    public class ValidationException: DomainException
+    public class ValidateException: DomainException
     {
         public IEnumerable<ValidationFailure> Errors { get; private set; }
 
-        public ValidationException(IEnumerable<ValidationFailure> errors, string message = "", Exception innerException = null) : base(message, innerException)
+        public ValidateException(IEnumerable<ValidationFailure> errors, string message = "", Exception innerException = null) : base(message, innerException)
         {
             this.Errors = errors;
         }

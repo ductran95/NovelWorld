@@ -1,14 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.Contexts.Implements;
+using NovelWorld.Identity.Data.Entities;
+using NovelWorld.Identity.Infrastructure.Configurations;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.EventSourcing.Abstractions;
 
-namespace NovelWorld.MasterData.Infrastructure.Contexts
+namespace NovelWorld.Identity.Infrastructure.Contexts
 {
-    public class MasterDataContext : EfCoreEntityContext
+    public class IdentityDbContext : EfCoreEntityDbContext
     {
-        public MasterDataContext(
+        public IdentityDbContext(
             DbContextOptions options, 
             IAuthContext authContext, 
             IDbEventSource dbEventSource
@@ -18,6 +20,7 @@ namespace NovelWorld.MasterData.Infrastructure.Contexts
 
         #region DbSets
 
+        public DbSet<User> Users { get; set; }
 
         #endregion
 
@@ -25,6 +28,7 @@ namespace NovelWorld.MasterData.Infrastructure.Contexts
         {
             base.OnModelCreating(modelBuilder);
             
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }

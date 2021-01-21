@@ -9,23 +9,19 @@ using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.QueryHandlers;
 using NovelWorld.Identity.Domain.Queries.User;
-using NovelWorld.Identity.Infrastructure.Repositories.Abstracts;
 using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Domain.QueryHandlers.User
 {
     public class GetClaimsFromUserQueryHandler : QueryHandler<GetClaimsFromUserQuery, IEnumerable<Claim>>
     {
-        private readonly IUserRepository _userRepository;
         public GetClaimsFromUserQueryHandler(
             IMediator mediator,
             IMapper mapper,
             ILogger<GetClaimsFromUserQueryHandler> logger,
-            IAuthContext authContext,
-            IUserRepository userRepository
+            IAuthContext authContext
         ) : base(mediator, mapper, logger, authContext)
         {
-            _userRepository = userRepository;
         }
 
         public override async Task<IEnumerable<Claim>> Handle(GetClaimsFromUserQuery request,

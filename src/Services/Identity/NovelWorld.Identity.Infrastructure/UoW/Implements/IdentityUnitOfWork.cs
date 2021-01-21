@@ -4,9 +4,9 @@ using NovelWorld.Infrastructure.UoW.Abstractions;
 
 namespace NovelWorld.Identity.Infrastructure.UoW.Implements
 {
-    public class IdentityUnitOfWork: EfCoreUnitOfWork<IdentityContext>, IUnitOfWork
+    public class IdentityUnitOfWork: EfCoreUnitOfWork<IdentityDbContext>, IUnitOfWork
     {
-        public IdentityUnitOfWork(IdentityContext context): base(context)
+        public IdentityUnitOfWork(IdentityDbContext dbContext): base(dbContext)
         {
         }
     }
