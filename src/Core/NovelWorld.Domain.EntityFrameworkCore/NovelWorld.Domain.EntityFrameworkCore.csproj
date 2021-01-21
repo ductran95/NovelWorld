@@ -5,7 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="QueryHandlers\Entity" />
+      <ProjectReference Include="..\NovelWorld.Domain\NovelWorld.Domain.csproj" />
+      <ProjectReference Include="..\NovelWorld.Infrastructure.EntityFrameworkCore\NovelWorld.Infrastructure.EntityFrameworkCore.csproj" />
     </ItemGroup>
 
 </Project>
