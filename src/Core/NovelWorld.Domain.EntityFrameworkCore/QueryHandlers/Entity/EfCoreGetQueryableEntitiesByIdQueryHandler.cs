@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,6 +10,7 @@ using NovelWorld.Domain.QueryHandlers;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Extensions;
 using NovelWorld.Mediator;
 using NovelWorld.Utility.Attributes;
+#pragma warning disable 1998
 
 namespace NovelWorld.Domain.EntityFrameworkCore.QueryHandlers.Entity
 {
