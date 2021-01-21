@@ -29,6 +29,7 @@ namespace NovelWorld.Domain.CommandHandlers
             _logger = logger;
             _authContext = authContext;
         }
+        
         public abstract Task<bool> Handle(T request, CancellationToken cancellationToken);
     }
 
@@ -51,6 +52,7 @@ namespace NovelWorld.Domain.CommandHandlers
             _logger = logger;
             _authContext = authContext;
         }
+        
         public abstract Task<TResponse> Handle(T request, CancellationToken cancellationToken);
     }
 }

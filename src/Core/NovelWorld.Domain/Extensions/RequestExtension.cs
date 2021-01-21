@@ -50,7 +50,7 @@ namespace NovelWorld.Domain.Extensions
 
             if (errors.Any())
             {
-                throw new ValidationException(errors, "Validate Paging request fields");
+                throw new ValidateException(errors, "Validate Paging request fields");
             }
         }
 

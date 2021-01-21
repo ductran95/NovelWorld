@@ -12,7 +12,6 @@
       <Folder Include="Configurations" />
       <Folder Include="Contexts" />
       <Folder Include="EventSourcing" />
-      <Folder Include="Repositories" />
       <Folder Include="UoW" />
     </ItemGroup>
 

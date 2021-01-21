@@ -7,10 +7,10 @@ using NovelWorld.Domain.Extensions;
 
 namespace NovelWorld.Domain.Proxies
 {
-    public class AuthorizeProxy<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
+    public sealed class AuthorizeProxy<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         #region Properties
-        protected readonly IServiceProvider _services;
+        private readonly IServiceProvider _services;
         #endregion
 
         #region Constructor

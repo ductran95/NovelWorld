@@ -60,7 +60,7 @@ namespace NovelWorld.MasterData.Domain.Mappings
 
         private static IServiceCollection RegisterContexts(this IServiceCollection services)
         {
-            services.AddDbContext<MasterDataContext>((sp, options) =>
+            services.AddDbContext<MasterDataDbContext>((sp, options) =>
             {
                 // ReSharper disable once AssignNullToNotNullAttribute
                 options.UseNpgsql(sp.GetService<DbConnection>());
