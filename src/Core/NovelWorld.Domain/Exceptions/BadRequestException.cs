@@ -31,7 +31,7 @@ namespace NovelWorld.Domain.Exceptions
                 errors.Add(new Error(CommonErrorCodes.BadRequest, Message));
             }
             
-            return new HttpException(HttpStatusCode.BadRequest, errors, Message, this);
+            return new HttpException(400, errors, Message, this);
         }
     }
 }

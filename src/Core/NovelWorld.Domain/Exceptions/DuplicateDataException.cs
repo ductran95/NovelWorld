@@ -22,7 +22,7 @@ namespace NovelWorld.Domain.Exceptions
             {
                 new Error(Code, Message)
             };
-            return new HttpException(HttpStatusCode.NotFound, errors, Message, this);
+            return new HttpException(400, errors, Message, this);
         }
     }
 }

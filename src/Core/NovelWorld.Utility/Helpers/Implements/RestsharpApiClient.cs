@@ -114,7 +114,7 @@ namespace NovelWorld.Utility.Helpers.Implements
                 return response.Data;
             }
 
-            throw new ApiClientException(response.StatusCode, response.ErrorMessage, response.Content,
+            throw new ApiClientException((int) response.StatusCode, response.ErrorMessage, response.Content,
                 response.ErrorException);
         }
         
@@ -141,7 +141,7 @@ namespace NovelWorld.Utility.Helpers.Implements
                 return response.Data;
             }
 
-            throw new ApiClientException(response.StatusCode, response.ErrorMessage, response.Content,
+            throw new ApiClientException((int) response.StatusCode, response.ErrorMessage, response.Content,
                 response.ErrorException);
         }
 
@@ -167,7 +167,7 @@ namespace NovelWorld.Utility.Helpers.Implements
                 return response.Content;
             }
 
-            throw new ApiClientException(response.StatusCode, response.ErrorMessage, response.Content,
+            throw new ApiClientException((int) response.StatusCode, response.ErrorMessage, response.Content,
                 response.ErrorException);
         }
 
@@ -194,7 +194,7 @@ namespace NovelWorld.Utility.Helpers.Implements
                 return response.Content;
             }
 
-            throw new ApiClientException(response.StatusCode, response.ErrorMessage, response.Content,
+            throw new ApiClientException((int) response.StatusCode, response.ErrorMessage, response.Content,
                 response.ErrorException);
         }
 
@@ -209,7 +209,7 @@ namespace NovelWorld.Utility.Helpers.Implements
             {
                 foreach (var header in headers)
                 {
-                    request.AddHeader(header.Key, header.Value.ToString());
+                    request.AddHeader(header.Key, header.Value.ToString() ?? string.Empty);
                 }
             }
 
@@ -217,7 +217,7 @@ namespace NovelWorld.Utility.Helpers.Implements
             {
                 foreach (var query in queries)
                 {
-                    request.AddQueryParameter(query.Key, query.Value.ToString());
+                    request.AddQueryParameter(query.Key, query.Value.ToString() ?? string.Empty);
                 }
             }
 

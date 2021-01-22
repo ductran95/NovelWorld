@@ -25,7 +25,7 @@ namespace NovelWorld.Domain.Exceptions
             {
                 new Error(CommonErrorCodes.NotFound, string.Format(CommonErrorMessages.DataNotFound, DataId))
             };
-            return new HttpException(HttpStatusCode.NotFound, errors, Message, this);
+            return new HttpException(404, errors, Message, this);
         }
     }
 }

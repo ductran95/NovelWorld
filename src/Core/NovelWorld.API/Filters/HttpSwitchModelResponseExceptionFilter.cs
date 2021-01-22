@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Net;
 using System.Reflection;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -16,6 +14,7 @@ using NovelWorld.API.Results;
 using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
+using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace NovelWorld.API.Filters
 {
@@ -41,11 +40,6 @@ namespace NovelWorld.API.Filters
         {
             var exception = context.Exception;
 
-            if (exception == null)
-            {
-                return;
-            }
-
             HttpException exceptionToHandle;
 
             if (exception is HttpException httpException)
@@ -60,7 +54,7 @@ namespace NovelWorld.API.Filters
             {
                 var errorResponse = new List<Error> { new Error(CommonErrorCodes.InternalServerError, exception.Message) };
 
-                exceptionToHandle = new HttpException(HttpStatusCode.InternalServerError, errorResponse, exception.Message, exception);
+                exceptionToHandle = new HttpException(Status500InternalServerError, errorResponse, exception.Message, exception);
             }
 
             // ReSharper disable once PossibleNullReferenceException
@@ -77,7 +71,7 @@ namespace NovelWorld.API.Filters
 
                 context.Result = new JsonResult(response)
                 {
-                    StatusCode = (int)exceptionToHandle.StatusCode,
+                    StatusCode = exceptionToHandle.StatusCode,
                 };
             }
             else

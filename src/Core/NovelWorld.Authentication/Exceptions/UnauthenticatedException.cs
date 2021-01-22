@@ -16,7 +16,7 @@ namespace NovelWorld.Authentication.Exceptions
                 new Error(CommonErrorCodes.Unauthenticated, CommonErrorMessages.Unauthenticated)
             };
             
-            return new HttpException(HttpStatusCode.Unauthorized, errors, Message, this);
+            return new HttpException(401, errors, Message, this);
         }
     }
 }

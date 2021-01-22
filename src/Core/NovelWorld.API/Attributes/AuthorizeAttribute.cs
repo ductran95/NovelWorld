@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using NovelWorld.API.Results;
 using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
+using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace NovelWorld.API.Attributes
 {
@@ -23,7 +23,7 @@ namespace NovelWorld.API.Attributes
             }
             catch (Exception exception)
             {
-                HttpException exceptionToHandle = null;
+                HttpException exceptionToHandle;
 
                 if (exception is HttpException httpException)
                 {
@@ -37,7 +37,7 @@ namespace NovelWorld.API.Attributes
                 {
                     var errorResponse = new List<Error> { new Error(CommonErrorCodes.InternalServerError, exception.Message) };
 
-                    exceptionToHandle = new HttpException(HttpStatusCode.InternalServerError, errorResponse, exception.Message, exception);
+                    exceptionToHandle = new HttpException(Status500InternalServerError, errorResponse, exception.Message, exception);
                 }
 
                 var response = new Result<bool>
@@ -49,7 +49,7 @@ namespace NovelWorld.API.Attributes
 
                 context.Result = new JsonResult(response)
                 {
-                    StatusCode = (int)exceptionToHandle.StatusCode,
+                    StatusCode = exceptionToHandle.StatusCode,
                 };
             }
         }
