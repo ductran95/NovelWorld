@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NovelWorld.EventBus;
+using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.UoW.Abstractions;
 using NovelWorld.MasterData.Data.Configurations;
 using NovelWorld.MasterData.Infrastructure.Contexts;
@@ -26,8 +27,8 @@ namespace NovelWorld.MasterData.Domain.Mappings
             services
                 .RegisterContexts()
                 .RegisterUoW()
-                .RegisterRepositories()
-                .RegisterQueries();
+                .RegisterQueries()
+                .RegisterCommands();
 
             return services;
         }
@@ -42,6 +43,14 @@ namespace NovelWorld.MasterData.Domain.Mappings
 
         #region Private
 
+        private static IServiceCollection RegisterCommands(
+            this IServiceCollection services)
+        {
+            
+
+            return services;
+        }
+        
         private static IServiceCollection RegisterQueries(
             this IServiceCollection services)
         {
@@ -50,13 +59,6 @@ namespace NovelWorld.MasterData.Domain.Mappings
             return services;
         }
 
-        private static IServiceCollection RegisterRepositories(
-            this IServiceCollection services)
-        {
-            
-
-            return services;
-        }
 
         private static IServiceCollection RegisterContexts(this IServiceCollection services)
         {
@@ -67,6 +69,9 @@ namespace NovelWorld.MasterData.Domain.Mappings
                 options.EnableDetailedErrors();
                 options.EnableSensitiveDataLogging();
             });
+
+            services.AddScoped<EfCoreEntityDbContext>(sp => sp.GetService<MasterDataDbContext>());
+            services.AddScoped<DbContext>(sp => sp.GetService<MasterDataDbContext>());
 
             return services;
         }

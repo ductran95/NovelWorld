@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using NovelWorld.Data.DTO;
 using NovelWorld.Utility;
 using NovelWorld.Data.Responses;
 using NovelWorld.Infrastructure.Extensions;
@@ -28,13 +29,13 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Extensions
         }
 
         
-        public static PagingResponse<T> ToPaging<T>(this IQueryable<T> query, int page, int pageSize)
+        public static PagedData<T> ToPaging<T>(this IQueryable<T> query, int page, int pageSize)
             where T : class
         {
             Ensure.NotNullOrEmpty(page);
             Ensure.NotNullOrEmpty(pageSize);
 
-            var result = new PagingResponse<T>();
+            var result = new PagedData<T>();
             result.Page = page;
             result.PageSize = pageSize;
             result.Total = query.Count();
@@ -44,13 +45,13 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Extensions
             return result;
         }
         
-        public static async Task<PagingResponse<T>> ToPagingAsync<T>(this IQueryable<T> query, int page, int pageSize, CancellationToken cancellationToken = default)
+        public static async Task<PagedData<T>> ToPagingAsync<T>(this IQueryable<T> query, int page, int pageSize, CancellationToken cancellationToken = default)
             where T : class
         {
             Ensure.NotNullOrEmpty(page);
             Ensure.NotNullOrEmpty(pageSize);
 
-            var result = new PagingResponse<T>();
+            var result = new PagedData<T>();
             result.Page = page;
             result.PageSize = pageSize;
             result.Total = await query.CountAsync(cancellationToken);

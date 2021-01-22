@@ -12,6 +12,7 @@ namespace NovelWorld.Data.Constants
     
     public static class CommonErrorMessages
     {
+        public const string QueryIdNotMatchBody = "Query Id is not equivalent to Request Body Id";
         public const string Unauthenticated = "You are not logged in";
         public const string Unauthorized = "You don't have permision to access {0}";
         public const string FieldNotFound = "Field Not Found";

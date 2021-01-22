@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
+using NovelWorld.Data.DTO;
 using NovelWorld.Data.Entities;
 using NovelWorld.Data.Responses;
 
@@ -10,15 +11,15 @@ namespace NovelWorld.Domain.Mappings
         public BaseModelMapping()
         {
             CreateMap<Entity, EntityResponse>().IncludeAllDerived().ReverseMap();
-            CreateMap(typeof(PagingResponse<>), typeof(PagingResponse<>)).ConvertUsing(typeof(PagingResponseConverter<,>));
+            CreateMap(typeof(PagedData<>), typeof(PagedData<>)).ConvertUsing(typeof(PagingResponseConverter<,>));
         }
     }
 
-    public class PagingResponseConverter<TSource, TDestination> : ITypeConverter<PagingResponse<TSource>, PagingResponse<TDestination>>
+    public class PagingResponseConverter<TSource, TDestination> : ITypeConverter<PagedData<TSource>, PagedData<TDestination>>
     {
-        public PagingResponse<TDestination> Convert(PagingResponse<TSource> source, PagingResponse<TDestination> destination, ResolutionContext context)
+        public PagedData<TDestination> Convert(PagedData<TSource> source, PagedData<TDestination> destination, ResolutionContext context)
         {
-            return new PagingResponse<TDestination>()
+            return new PagedData<TDestination>()
             {
                 PageSize = source.PageSize,
                 Total = source.Total,
