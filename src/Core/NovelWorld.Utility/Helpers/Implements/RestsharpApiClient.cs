@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -107,9 +106,7 @@ namespace NovelWorld.Utility.Helpers.Implements
             _logger.LogDebug("Executed {Method} {url} return Content: {Content}", method, url,
                 response.Content);
 
-            if (response.ResponseStatus == ResponseStatus.Completed && (response.StatusCode == HttpStatusCode.OK ||
-                                                                        response.StatusCode ==
-                                                                        HttpStatusCode.NoContent))
+            if (response.ResponseStatus == ResponseStatus.Completed && IsOk((int) response.StatusCode))
             {
                 return response.Data;
             }
@@ -134,9 +131,7 @@ namespace NovelWorld.Utility.Helpers.Implements
             _logger.LogDebug("Executed {Method} {url} return Content: {Content}", method, url,
                 response.Content);
 
-            if (response.ResponseStatus == ResponseStatus.Completed && (response.StatusCode == HttpStatusCode.OK ||
-                                                                        response.StatusCode ==
-                                                                        HttpStatusCode.NoContent))
+            if (response.ResponseStatus == ResponseStatus.Completed && IsOk((int) response.StatusCode))
             {
                 return response.Data;
             }
@@ -160,9 +155,7 @@ namespace NovelWorld.Utility.Helpers.Implements
             _logger.LogDebug("Executed {Method} {url} return Content: {Content}", method, url,
                 response.Content);
 
-            if (response.ResponseStatus == ResponseStatus.Completed && (response.StatusCode == HttpStatusCode.OK ||
-                                                                        response.StatusCode ==
-                                                                        HttpStatusCode.NoContent))
+            if (response.ResponseStatus == ResponseStatus.Completed && IsOk((int) response.StatusCode))
             {
                 return response.Content;
             }
@@ -187,9 +180,7 @@ namespace NovelWorld.Utility.Helpers.Implements
             _logger.LogDebug("Executed {Method} {url} return Content: {Content}", method, url,
                 response.Content);
 
-            if (response.ResponseStatus == ResponseStatus.Completed && (response.StatusCode == HttpStatusCode.OK ||
-                                                                        response.StatusCode ==
-                                                                        HttpStatusCode.NoContent))
+            if (response.ResponseStatus == ResponseStatus.Completed && IsOk((int) response.StatusCode))
             {
                 return response.Content;
             }
@@ -235,6 +226,11 @@ namespace NovelWorld.Utility.Helpers.Implements
             }
 
             return request;
+        }
+
+        private bool IsOk(int statusCode)
+        {
+            return statusCode >= 200 && statusCode < 300;
         }
 
         #endregion
