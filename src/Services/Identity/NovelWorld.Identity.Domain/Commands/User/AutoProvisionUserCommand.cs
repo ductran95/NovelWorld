@@ -6,7 +6,7 @@ using NovelWorld.Domain.Commands;
 
 namespace NovelWorld.Identity.Domain.Commands.User
 {
-    public class AutoProvisionUserCommand: Command<AuthenticatedUser>
+    public class AutoProvisionUserCommand: ICommand<AuthenticatedUser>
     {
         public string Provider { get; set; }
         public string ProviderUserId { get; set; }

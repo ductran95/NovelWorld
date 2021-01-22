@@ -1,6 +1,6 @@
 namespace NovelWorld.Data.Requests
 {
-    public abstract class Request
+    public interface IRequest
     {
         
     }

@@ -10,7 +10,7 @@ using NovelWorld.Mediator;
 
 namespace NovelWorld.Domain.EventHandlers
 {
-    public abstract class EventHandler<T> : MediatR.INotificationHandler<T> where T : Event
+    public abstract class EventHandler<T> : MediatR.INotificationHandler<T> where T : IEvent
     {
         protected readonly IMediator _mediator;
         protected readonly IMapper _mapper;
