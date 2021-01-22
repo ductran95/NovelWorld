@@ -5,7 +5,7 @@ using NovelWorld.Domain.Commands;
 
 namespace NovelWorld.Identity.Domain.Commands.User
 {
-    public class RegisterUserCommand: Command
+    public class RegisterUserCommand: ICommand
     {
         public string Account { get; set; }
         public string FullName { get; set; }

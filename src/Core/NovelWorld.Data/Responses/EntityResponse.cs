@@ -2,7 +2,7 @@ using System;
 
 namespace NovelWorld.Data.Responses
 {
-    public class EntityResponse: Response
+    public class EntityResponse: IResponse
     {
         public Guid Id { get; set; }
         public DateTime CreatedOn { get; set; }

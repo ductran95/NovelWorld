@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace NovelWorld.Data.Responses
 {
-    public class PagingResponse<T>: Response
+    public class PagingResponse<T>: IResponse
     {
         public int Page { get; set; }
         public int PageSize { get; set; }

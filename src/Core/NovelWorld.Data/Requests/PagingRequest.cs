@@ -4,16 +4,16 @@ using System.Collections.Generic;
 
 namespace NovelWorld.Data.Requests
 {
-    public class PagingRequest: Request
+    public class PagingRequest: IRequest
     {
         public int Page { get; set; }
         public int PageSize { get; set; }
         public string Search { get; set; }
-        public IEnumerable<FilterRequest> Filters { get; set; }
-        public IEnumerable<SortRequest> Sorts { get; set; }
+        public List<FilterRequest> Filters { get; set; }
+        public List<SortRequest> Sorts { get; set; }
     }
     
-    public class FilterRequest: Request
+    public class FilterRequest: IRequest
     {
         public string Field { get; set; }
         public string ValueString { get; set; }
@@ -24,7 +24,7 @@ namespace NovelWorld.Data.Requests
         public IEnumerable ValueList { get; set; }
     }
     
-    public class SortRequest: Request
+    public class SortRequest: IRequest
     {
         public string Field { get; set; }
         public bool Asc { get; set; }
