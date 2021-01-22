@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Net;
-using NovelWorld.Utility;
 using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.DTO;
 

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using FluentValidation.Results;
 using NovelWorld.Data.Constants;
 using NovelWorld.Utility.Exceptions;
