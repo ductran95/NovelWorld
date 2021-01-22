@@ -5,7 +5,7 @@ using NovelWorld.Domain.Queries;
 
 namespace NovelWorld.Identity.Domain.Queries.User
 {
-    public class GetClaimsFromUserQuery: Query<IEnumerable<Claim>>
+    public class GetClaimsFromUserQuery: IQuery<IEnumerable<Claim>>
     {
         public AuthenticatedUser User { get; set; }
     }

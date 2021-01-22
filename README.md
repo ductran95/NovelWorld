@@ -17,6 +17,11 @@
     * Manage user's reading list, reading history
     * Manage user's notification/email
     * Export/Download book
+   
+## Code structure
+1. Domain layer:
+    * DTO with suffix Command, Query only use for internal 
+    * DTO with suffix Request use for API and cross-service exchange
     
 ## Run migrations
 1. Identity Service

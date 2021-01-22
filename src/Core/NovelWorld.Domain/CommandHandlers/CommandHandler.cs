@@ -10,7 +10,7 @@ using NovelWorld.Mediator;
 
 namespace NovelWorld.Domain.CommandHandlers
 {
-    public abstract class CommandHandler<T> : MediatR.IRequestHandler<T, bool> where T : Command
+    public abstract class CommandHandler<T> : MediatR.IRequestHandler<T, bool> where T : ICommand
     {
         protected readonly IMediator _mediator;
         protected readonly IMapper _mapper;
@@ -33,7 +33,7 @@ namespace NovelWorld.Domain.CommandHandlers
         public abstract Task<bool> Handle(T request, CancellationToken cancellationToken);
     }
 
-    public abstract class CommandHandler<T, TResponse> : MediatR.IRequestHandler<T, TResponse> where T : Command<TResponse>
+    public abstract class CommandHandler<T, TResponse> : MediatR.IRequestHandler<T, TResponse> where T : ICommand<TResponse>
     {
         protected readonly IMediator _mediator;
         protected readonly IMapper _mapper;

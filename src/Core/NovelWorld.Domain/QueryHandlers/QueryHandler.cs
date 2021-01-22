@@ -8,7 +8,7 @@ using NovelWorld.Mediator;
 
 namespace NovelWorld.Domain.QueryHandlers
 {
-    public abstract class QueryHandler<T> : MediatR.IRequestHandler<T, bool> where T : Query
+    public abstract class QueryHandler<T> : MediatR.IRequestHandler<T, bool> where T : IQuery
     {
         protected readonly IMediator _mediator;
         protected readonly IMapper _mapper;
@@ -31,7 +31,7 @@ namespace NovelWorld.Domain.QueryHandlers
         public abstract Task<bool> Handle(T request, CancellationToken cancellationToken);
     }
 
-    public abstract class QueryHandler<T, TResponse> : MediatR.IRequestHandler<T, TResponse> where T : Query<TResponse>
+    public abstract class QueryHandler<T, TResponse> : MediatR.IRequestHandler<T, TResponse> where T : IQuery<TResponse>
     {
         protected readonly IMediator _mediator;
         protected readonly IMapper _mapper;

@@ -3,7 +3,7 @@ using NovelWorld.Data.Enums;
 
 namespace NovelWorld.Data.Entities
 {
-    public class Entity
+    public abstract class Entity
     {
         public Guid Id { get; set; }
         public bool IsDeleted { get; set; }

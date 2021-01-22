@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace NovelWorld.Domain.Commands.Entity
 {
-    public class DeleteEntityCommand<T>: Command<int> where T: Data.Entities.Entity
+    public class DeleteEntityCommand<T>: ICommand<int> where T: Data.Entities.Entity
     {
         public Guid? Id { get; set; }
         public List<Guid> Ids { get; set; }
