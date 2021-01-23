@@ -81,6 +81,20 @@ namespace NovelWorld.MasterData.API.Controllers
             return Result(response);
         }
         
+        [HttpPut]
+        public async Task<Result<bool>> UploadCover([FromQuery] Guid id, [FromForm] IFormFile cover)
+        {
+            var request = new UploadBookCoverRequest()
+            {
+                Id = id,
+                Cover = cover
+            };
+            
+            var response = await _mediator.Send(request);
+
+            return Result(response);
+        }
+        
         [HttpDelete]
         public async Task<Result<bool>> Delete([FromQuery] Guid id)
         {
