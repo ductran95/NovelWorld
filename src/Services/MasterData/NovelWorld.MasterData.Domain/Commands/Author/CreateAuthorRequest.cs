@@ -9,7 +9,7 @@ namespace NovelWorld.MasterData.Domain.Commands.Author
     public class CreateAuthorRequest: ICommand<Guid>, IRequest
     {
         public string Name { get; set; }
-        public string Summary { get; set; }
+        public string Description { get; set; }
     }
     
     public class CreateAuthorRequestValidator: AbstractValidator<CreateAuthorRequest>
@@ -17,7 +17,7 @@ namespace NovelWorld.MasterData.Domain.Commands.Author
         public CreateAuthorRequestValidator()
         {
             RuleFor(x => x.Name).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
-            RuleFor(x => x.Summary).MaximumLength(CommonValidationRules.TextAreaMaxLength);
+            RuleFor(x => x.Description).MaximumLength(CommonValidationRules.TextAreaMaxLength);
         }
     }
 }

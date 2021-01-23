@@ -13,7 +13,7 @@ namespace NovelWorld.MasterData.Infrastructure.Configurations
             base.Configure(builder);
             builder.ToTable("Books", schema: "masterdata");
             builder.Property(x => x.Name).IsRequired().IsUnicode().HasMaxLength(CommonValidationRules.TextFieldMaxLength);
-            builder.Property(x => x.Summary).IsRequired().IsUnicode().HasMaxLength(CommonValidationRules.TextAreaMaxLength);
+            builder.Property(x => x.Description).IsUnicode().HasMaxLength(CommonValidationRules.TextAreaMaxLength);
             builder.Property(x => x.Cover).IsRequired().IsUnicode();
         }
     }

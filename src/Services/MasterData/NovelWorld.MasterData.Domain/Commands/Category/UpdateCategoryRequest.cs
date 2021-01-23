@@ -10,7 +10,7 @@ namespace NovelWorld.MasterData.Domain.Commands.Category
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Summary { get; set; }
+        public string Description { get; set; }
     }
     
     public class UpdateCategoryRequestValidator: AbstractValidator<UpdateCategoryRequest>
@@ -19,7 +19,7 @@ namespace NovelWorld.MasterData.Domain.Commands.Category
         {
             RuleFor(x => x.Id).NotEmpty();
             RuleFor(x => x.Name).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
-            RuleFor(x => x.Summary).MaximumLength(CommonValidationRules.TextAreaMaxLength);
+            RuleFor(x => x.Description).MaximumLength(CommonValidationRules.TextAreaMaxLength);
         }
     }
 }

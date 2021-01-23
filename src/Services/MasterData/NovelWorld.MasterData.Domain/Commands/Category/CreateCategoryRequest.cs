@@ -9,7 +9,7 @@ namespace NovelWorld.MasterData.Domain.Commands.Category
     public class CreateCategoryRequest: ICommand<Guid>, IRequest
     {
         public string Name { get; set; }
-        public string Summary { get; set; }
+        public string Description { get; set; }
     }
     
     public class CreateCategoryRequestValidator: AbstractValidator<CreateCategoryRequest>
@@ -17,7 +17,7 @@ namespace NovelWorld.MasterData.Domain.Commands.Category
         public CreateCategoryRequestValidator()
         {
             RuleFor(x => x.Name).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
-            RuleFor(x => x.Summary).MaximumLength(CommonValidationRules.TextAreaMaxLength);
+            RuleFor(x => x.Description).MaximumLength(CommonValidationRules.TextAreaMaxLength);
         }
     }
 }
