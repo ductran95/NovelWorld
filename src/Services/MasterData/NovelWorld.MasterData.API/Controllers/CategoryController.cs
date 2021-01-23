@@ -9,28 +9,28 @@ using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Exceptions;
 using NovelWorld.MasterData.Data.Responses;
-using NovelWorld.MasterData.Domain.Commands.Author;
-using NovelWorld.MasterData.Domain.Queries.Author;
+using NovelWorld.MasterData.Domain.Commands.Category;
+using NovelWorld.MasterData.Domain.Queries.Category;
 using NovelWorld.Mediator;
 using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace NovelWorld.MasterData.API.Controllers
 {
-    public class AuthorController : ApiController
+    public class CategoryController : ApiController
     {
-        public AuthorController(
+        public CategoryController(
             IMediator mediator, 
             IMapper mapper, 
-            ILogger<AuthorController> logger, 
+            ILogger<CategoryController> logger, 
             IAuthContext authContext
             ) : base(mediator, mapper, logger, authContext)
         {
         }
         
         [HttpGet]
-        public async Task<Result<AuthorDetailResponse>> GetDetail([FromQuery] Guid id)
+        public async Task<Result<CategoryDetailResponse>> GetDetail([FromQuery] Guid id)
         {
-            var request = new GetDetailAuthorRequest()
+            var request = new GetDetailCategoryRequest()
             {
                 Id = id
             };
@@ -41,9 +41,9 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpGet]
-        public async Task<ListingResult<AuthorGeneralResponse>> GetAll()
+        public async Task<ListingResult<CategoryGeneralResponse>> GetAll()
         {
-            var request = new GetAllAuthorRequest();
+            var request = new GetAllCategoryRequest();
 
             var response = await _mediator.Send(request);
 
@@ -51,7 +51,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpPost]
-        public async Task<PagingResult<AuthorGeneralResponse>> Search([FromBody] SearchAuthorRequest request)
+        public async Task<PagingResult<CategoryGeneralResponse>> Search([FromBody] SearchCategoryRequest request)
         {
             var response = await _mediator.Send(request);
 
@@ -59,7 +59,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpPost]
-        public async Task<Result<Guid>> Create([FromBody] CreateAuthorRequest request)
+        public async Task<Result<Guid>> Create([FromBody] CreateCategoryRequest request)
         {
             var response = await _mediator.Send(request);
 
@@ -67,7 +67,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpPut]
-        public async Task<Result<bool>> Update([FromQuery] Guid id, [FromBody] UpdateAuthorRequest request)
+        public async Task<Result<bool>> Update([FromQuery] Guid id, [FromBody] UpdateCategoryRequest request)
         {
             if (id != request.Id)
             {
@@ -83,7 +83,7 @@ namespace NovelWorld.MasterData.API.Controllers
         [HttpDelete]
         public async Task<Result<bool>> Delete([FromQuery] Guid id)
         {
-            var request = new DeleteAuthorRequest()
+            var request = new DeleteCategoryRequest()
             {
                 Id = id
             };

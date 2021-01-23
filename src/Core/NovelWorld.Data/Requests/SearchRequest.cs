@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace NovelWorld.Data.Requests
 {
-    public class PagingRequest: IRequest
+    public class SearchRequest: IRequest
     {
         public int Page { get; set; }
         public int PageSize { get; set; }

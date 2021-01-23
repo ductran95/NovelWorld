@@ -15,14 +15,14 @@ using NovelWorld.Mediator;
 
 namespace NovelWorld.MasterData.Domain.QueryHandlers.Author
 {
-    public sealed class GetPagingAuthorRequestHandler : QueryHandler<GetPagingAuthorRequest, PagedData<AuthorGeneralResponse>>
+    public sealed class SearchAuthorRequestHandler : QueryHandler<SearchAuthorRequest, PagedData<AuthorGeneralResponse>>
     {
         private readonly MasterDataDbContext _dbContext;
         
-        public GetPagingAuthorRequestHandler(
+        public SearchAuthorRequestHandler(
             IMediator mediator, 
             IMapper mapper,
-            ILogger<GetPagingAuthorRequestHandler> logger, 
+            ILogger<SearchAuthorRequestHandler> logger, 
             IAuthContext authContext,
             MasterDataDbContext dbContext
         ) : base(mediator,
@@ -31,7 +31,7 @@ namespace NovelWorld.MasterData.Domain.QueryHandlers.Author
             _dbContext = dbContext;
         }
 
-        public override async Task<PagedData<AuthorGeneralResponse>> Handle(GetPagingAuthorRequest request, CancellationToken cancellationToken)
+        public override async Task<PagedData<AuthorGeneralResponse>> Handle(SearchAuthorRequest request, CancellationToken cancellationToken)
         {
             var authors = _dbContext.Authors.AsNoTracking();
             authors = authors.Filter(request.Filters).Sort(request.Sorts);

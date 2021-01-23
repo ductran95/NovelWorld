@@ -5,14 +5,14 @@ namespace NovelWorld.Utility.Extensions
 {
     public static class RequestExtension
     {
-        public static void RemoveFilter(this PagingRequest request, FilterRequest filter)
+        public static void RemoveFilter(this SearchRequest request, FilterRequest filter)
         {
             var list = request.Filters.ToList();
             list.Remove(filter);
             request.Filters = list;
         }
 
-        public static void RemoveSort(this PagingRequest request, SortRequest sort)
+        public static void RemoveSort(this SearchRequest request, SortRequest sort)
         {
             var list = request.Sorts.ToList();
             list.Remove(sort);

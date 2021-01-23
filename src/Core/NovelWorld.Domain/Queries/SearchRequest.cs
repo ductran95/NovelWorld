@@ -5,13 +5,13 @@ using NovelWorld.Domain.Validators;
 
 namespace NovelWorld.Domain.Queries
 {
-    public class PagingRequest<T>: PagingRequest, IQuery<PagedData<T>>
+    public class SearchRequest<T>: SearchRequest, IQuery<PagedData<T>>
     {
     }
     
-    public class PagingRequestValidator<T>: AbstractValidator<PagingRequest<T>>
+    public class SearchRequestValidator<T>: AbstractValidator<SearchRequest<T>>
     {
-        public PagingRequestValidator()
+        public SearchRequestValidator()
         {
             RuleFor(x => x.Page).GreaterThan(0);
             RuleFor(x => x.PageSize).GreaterThan(0);

@@ -4,13 +4,13 @@ using NovelWorld.MasterData.Data.Responses;
 
 namespace NovelWorld.MasterData.Domain.Queries.Author
 {
-    public class GetPagingAuthorRequest: PagingRequest<AuthorGeneralResponse>
+    public class SearchAuthorRequest: SearchRequest<AuthorGeneralResponse>
     {
     }
     
-    public class GetPagingAuthorRequestValidator: AbstractValidator<GetPagingAuthorRequest>
+    public class SearchAuthorRequestValidator: AbstractValidator<SearchAuthorRequest>
     {
-        public GetPagingAuthorRequestValidator()
+        public SearchAuthorRequestValidator()
         {
             
         }

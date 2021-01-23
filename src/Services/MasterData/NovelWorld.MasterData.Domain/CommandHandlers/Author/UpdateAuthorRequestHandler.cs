@@ -10,7 +10,7 @@ using NovelWorld.MasterData.Domain.Commands.Author;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.Mediator;
 
-namespace NovelWorld.MasterData.Domain.CommandHandlers
+namespace NovelWorld.MasterData.Domain.CommandHandlers.Author
 {
     public sealed class UpdateAuthorRequestHandler : CommandHandler<UpdateAuthorRequest>
     {

@@ -5,20 +5,20 @@ using AutoMapper;
 using Microsoft.Extensions.Logging;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Domain.CommandHandlers;
-using NovelWorld.MasterData.Domain.Commands.Author;
+using NovelWorld.MasterData.Domain.Commands.Category;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.Mediator;
 
-namespace NovelWorld.MasterData.Domain.CommandHandlers.Author
+namespace NovelWorld.MasterData.Domain.CommandHandlers.Category
 {
-    public sealed class CreateAuthorRequestHandler : CommandHandler<CreateAuthorRequest, Guid>
+    public sealed class CreateCategoryRequestHandler : CommandHandler<CreateCategoryRequest, Guid>
     {
         private readonly MasterDataDbContext _dbContext;
         
-        public CreateAuthorRequestHandler(
+        public CreateCategoryRequestHandler(
             IMediator mediator, 
             IMapper mapper,
-            ILogger<CreateAuthorRequestHandler> logger, 
+            ILogger<CreateCategoryRequestHandler> logger, 
             IAuthContext authContext,
             MasterDataDbContext dbContext
             ) : base(mediator,
@@ -28,12 +28,12 @@ namespace NovelWorld.MasterData.Domain.CommandHandlers.Author
         }
 
 
-        public override async Task<Guid> Handle(CreateAuthorRequest request, CancellationToken cancellationToken)
+        public override async Task<Guid> Handle(CreateCategoryRequest request, CancellationToken cancellationToken)
         {
-            var author = _mapper.Map<Data.Entities.Author>(request);
-            _ = await _dbContext.Authors.AddAsync(author, cancellationToken);
+            var category = _mapper.Map<Data.Entities.Category>(request);
+            _ = await _dbContext.Categories.AddAsync(category, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
-            return author.Id;
+            return category.Id;
         }
     }
 }
