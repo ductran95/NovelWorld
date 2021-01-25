@@ -10,16 +10,16 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NovelWorld.Identity.DbMigration.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    [Migration("20201108082120_Initial")]
+    [Migration("20210125062325_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.1.9")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .UseIdentityByDefaultColumns()
+                .HasAnnotation("Relational:MaxIdentifierLength", 63)
+                .HasAnnotation("ProductVersion", "5.0.2");
 
             modelBuilder.Entity("NovelWorld.Identity.Data.Entities.User", b =>
                 {
@@ -71,7 +71,7 @@ namespace NovelWorld.Identity.DbMigration.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users","identity");
+                    b.ToTable("Users", "identity");
                 });
 #pragma warning restore 612, 618
         }
