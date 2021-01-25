@@ -3,21 +3,25 @@ using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus;
-using NovelWorld.Identity.Data.Configurations;
+using NovelWorld.Identity.Domain.Configurations;
 using NovelWorld.Identity.Infrastructure.Contexts;
 using NovelWorld.Identity.Infrastructure.UoW.Implements;
+using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.UoW.Abstractions;
 
 namespace NovelWorld.Identity.Domain.Mappings
 {
-    public static class IdentityServiceMapping
+    public static class ServiceMapping
     {
-        public static IServiceCollection AddAppConfig(
+        public static IServiceCollection RegisterAppConfig(
             this IServiceCollection services, IConfiguration config)
         {
+            services.RegisterDefaultAppConfig(config);
+            
             services.Configure<IdentityAppSettings>(config);
-            services.Configure<IdentityServerConfig>(config.GetSection(nameof(IdentityServerConfig)));
+            services.Configure<IdentityServerConfiguration>(config.GetSection(nameof(IdentityServerConfiguration)));
 
             return services;
         }
@@ -25,7 +29,7 @@ namespace NovelWorld.Identity.Domain.Mappings
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
             services
-                .RegisterContexts()
+                .RegisterDbContexts()
                 .RegisterUoW();
 
             return services;
@@ -41,7 +45,7 @@ namespace NovelWorld.Identity.Domain.Mappings
 
         #region Private
 
-        private static IServiceCollection RegisterContexts(this IServiceCollection services)
+        private static IServiceCollection RegisterDbContexts(this IServiceCollection services)
         {
             services.AddDbContext<IdentityDbContext>((sp, options) =>
             {
@@ -50,6 +54,9 @@ namespace NovelWorld.Identity.Domain.Mappings
                 options.EnableDetailedErrors();
                 options.EnableSensitiveDataLogging();
             });
+            
+            services.AddScoped<EfCoreEntityDbContext>(sp => sp.GetService<IdentityDbContext>());
+            services.AddScoped<DbContext>(sp => sp.GetService<IdentityDbContext>());
 
             return services;
         }

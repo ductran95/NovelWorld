@@ -9,9 +9,9 @@ using NovelWorld.MasterData.Domain.Commands.Chapter;
 
 namespace NovelWorld.MasterData.Domain.Mappings
 {
-    public class MasterDataModelMapping : Profile
+    public class ModelMapping : Profile
     {
-        public MasterDataModelMapping()
+        public ModelMapping()
         {
             #region Author
 

@@ -1,6 +1,6 @@
 using System.Net.Http;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using NovelWorld.Identity.Data.Configurations;
+using NovelWorld.Identity.Domain.Configurations;
 
 namespace NovelWorld.Identity.Web.Extensions
 {

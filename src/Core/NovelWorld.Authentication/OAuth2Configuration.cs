@@ -1,6 +1,6 @@
-namespace NovelWorld.Data.Configurations
+namespace NovelWorld.Authentication
 {
-    public class OAuth2Config
+    public class OAuth2Configuration
     {
         public string Issuer { get; set; }
         public string Audience { get; set; }

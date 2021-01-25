@@ -6,9 +6,9 @@ using NovelWorld.Identity.Domain.Commands.User;
 
 namespace NovelWorld.Identity.Domain.Mappings
 {
-    public class IdentityModelMapping : Profile
+    public class ModelMapping : Profile
     {
-        public IdentityModelMapping()
+        public ModelMapping()
         {
             #region User
 

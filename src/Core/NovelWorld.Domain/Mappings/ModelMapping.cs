@@ -6,9 +6,9 @@ using NovelWorld.Data.Responses;
 
 namespace NovelWorld.Domain.Mappings
 {
-    public class BaseModelMapping : Profile
+    public class ModelMapping : Profile
     {
-        public BaseModelMapping()
+        public ModelMapping()
         {
             CreateMap<Entity, EntityResponse>().IncludeAllDerived().ReverseMap();
             CreateMap(typeof(PagedData<>), typeof(PagedData<>)).ConvertUsing(typeof(PagingResponseConverter<,>));

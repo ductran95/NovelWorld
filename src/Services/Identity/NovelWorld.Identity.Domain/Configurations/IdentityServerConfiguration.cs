@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using IdentityServer4.Models;
 
-namespace NovelWorld.Identity.Data.Configurations
+namespace NovelWorld.Identity.Domain.Configurations
 {
-    public class IdentityServerConfig
+    public class IdentityServerConfiguration
     {
         public string CertificatePassword { get; set; }
         // ApiResources define the apis in your system

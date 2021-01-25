@@ -8,8 +8,8 @@ using Microsoft.Extensions.Options;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Domain.CommandHandlers;
 using NovelWorld.Domain.Exceptions;
-using NovelWorld.MasterData.Data.Configurations;
 using NovelWorld.MasterData.Domain.Commands.Book;
+using NovelWorld.MasterData.Domain.Configurations;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.Mediator;
 
@@ -44,7 +44,7 @@ namespace NovelWorld.MasterData.Domain.CommandHandlers.Book
                 throw new NotFoundException(request.Id);
             }
 
-            var filePath = Path.Combine(_appSetting.AttachmentConfig.RootPath, "Cover");
+            var filePath = Path.Combine(_appSetting.StorageConfiguration.RootPath, "Cover");
             Directory.CreateDirectory(filePath);
 
             var fileExt = Path.GetExtension(request.Cover.FileName);

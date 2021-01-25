@@ -1,6 +1,6 @@
-namespace NovelWorld.Data.Configurations
+namespace NovelWorld.Storage
 {
-    public class AttachmentConfig
+    public class StorageConfiguration
     {
         public string Mode { get; set; }
         public string RootPath { get; set; }

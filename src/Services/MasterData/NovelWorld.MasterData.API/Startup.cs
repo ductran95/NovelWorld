@@ -13,14 +13,17 @@ using Microsoft.Extensions.Hosting;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Filters;
 using NovelWorld.API.Mappings;
-using NovelWorld.Data.Configurations;
 using NovelWorld.Data.Constants;
+using NovelWorld.Domain.Configurations;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
+using NovelWorld.Infrastructure.Mappings;
 using NovelWorld.MasterData.Domain.Mappings;
 using NovelWorld.Mediator;
 using NovelWorld.Mediator.DependencyInjection;
 using NovelWorld.Utility.Extensions;
+using NovelWorld.Utility.Mappings;
+using ModelMapping = NovelWorld.MasterData.Domain.Mappings.ModelMapping;
 
 namespace NovelWorld.MasterData.API
 {
@@ -44,12 +47,11 @@ namespace NovelWorld.MasterData.API
             // Configuration
             var appSetting = new AppSettings();
             Configuration.Bind(appSetting);
-            services.AddBaseAppConfig(Configuration).AddAppConfig(Configuration);
+            services.RegisterAppConfig(Configuration);
             
             // Add Mediatr
             services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>().AsScoped().AsScopedHandler());
-            services.RegisterDefaultPublishStrategies();
-            services.RegisterDefaultProxies();
+            services.RegisterDefaultMediator();
 
             // Add AutoMapper
             services.AddAutoMapper(novelWorldAssemblies);
@@ -83,16 +85,16 @@ namespace NovelWorld.MasterData.API
             ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
             
             // Add Event Bus
-            services.RegisterDefaultEventBus(appSetting.EventBusConfig);
-            services.AddIntegrationEventHandler(new Type[]
+            services.RegisterDefaultEventBus(appSetting.EventBusConfiguration);
+            services.RegisterIntegrationEventHandler(new Type[]
             {
-                typeof(MasterDataModelMapping)
+                typeof(ModelMapping)
             });
             
             // Add DI
             services.RegisterDefaultHelpers();
             services.RegisterDefaultEventSourcing();
-            services.RegisterAuthContext();
+            services.RegisterHttpAuthContext();
             services.RegisterServices();
             
             // Config CORS
@@ -117,12 +119,12 @@ namespace NovelWorld.MasterData.API
                 .AddCheck("self", () => HealthCheckResult.Healthy())
                 .AddNpgSql(Configuration.GetConnectionString("DefaultConnection"));
 
-            switch (appSetting.EventBusConfig.Type)
+            switch (appSetting.EventBusConfiguration.Type)
             {
                 case EventBusTypes.RabbitMQ:
                     hcBuilder
                         .AddRabbitMQ(
-                            $"amqp://{appSetting.EventBusConfig.EventBusConnection}",
+                            $"amqp://{appSetting.EventBusConfiguration.EventBusConnection}",
                             name: "identity-rabbitmq-check",
                             tags: new string[] { "rabbitmq" });
                     break;
@@ -130,8 +132,8 @@ namespace NovelWorld.MasterData.API
                 case EventBusTypes.AzureServiceBus:
                     hcBuilder
                         .AddAzureServiceBusTopic(
-                            appSetting.EventBusConfig.EventBusConnection,
-                            topicName: appSetting.EventBusConfig.SubscriptionClientName,
+                            appSetting.EventBusConfiguration.EventBusConnection,
+                            topicName: appSetting.EventBusConfiguration.SubscriptionClientName,
                             name: "identity-azureservicebus-check",
                             tags: new string[] { "azureservicebus" });
                     break;

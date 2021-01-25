@@ -1,6 +1,6 @@
-namespace NovelWorld.Data.Configurations
+namespace NovelWorld.EventBus
 {
-    public class EventBusConfig
+    public class EventBusConfiguration
     {
         public string Type { get; set; }
         public string SubscriptionClientName { get; set; }

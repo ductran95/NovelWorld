@@ -3,20 +3,23 @@ using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.UoW.Abstractions;
-using NovelWorld.MasterData.Data.Configurations;
+using NovelWorld.MasterData.Domain.Configurations;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.MasterData.Infrastructure.UoW.Implements;
 
 namespace NovelWorld.MasterData.Domain.Mappings
 {
-    public static class MasterDataServiceMapping
+    public static class ServiceMapping
     {
-        public static IServiceCollection AddAppConfig(
+        public static IServiceCollection RegisterAppConfig(
             this IServiceCollection services, IConfiguration config)
         {
+            services.RegisterDefaultAppConfig(config);
+            
             services.Configure<MasterDataAppSettings>(config);
 
             return services;
