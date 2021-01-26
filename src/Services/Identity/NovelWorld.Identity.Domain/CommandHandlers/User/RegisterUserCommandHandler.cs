@@ -35,7 +35,7 @@ namespace NovelWorld.Identity.Domain.CommandHandlers.User
         public override async Task<bool> Handle(RegisterUserCommand request,
             CancellationToken cancellationToken)
         {
-            var existedUser = await _mediator.Send(new GetUserByEmailQuery()
+            var existedUser = await _mediator.Send(new GetAuthenticatedUserByEmailQuery()
             {
                 Email = request.Email
             });

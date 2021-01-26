@@ -3,13 +3,17 @@ using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NovelWorld.ConnectionProvider.Mappings;
+using NovelWorld.ConnectionProvider.PostgreSql.Mappings;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
+using NovelWorld.Infrastructure.Mappings;
 using NovelWorld.Infrastructure.UoW.Abstractions;
 using NovelWorld.MasterData.Domain.Configurations;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.MasterData.Infrastructure.UoW.Implements;
+using NovelWorld.Utility.Mappings;
 
 namespace NovelWorld.MasterData.Domain.Mappings
 {
@@ -25,10 +29,14 @@ namespace NovelWorld.MasterData.Domain.Mappings
             return services;
         }
         
-        public static IServiceCollection RegisterServices(this IServiceCollection services)
+        public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration config)
         {
             services
-                .RegisterContexts()
+                .RegisterDefaultHelpers()
+                .RegisterPostgreSqlDbConnectionFactory(config.GetConnectionString("DefaultConnection"))
+                .RegisterDefaultDbConnection()
+                .RegisterDefaultEventSourcing()
+                .RegisterDbContexts()
                 .RegisterUoW()
                 .RegisterQueries()
                 .RegisterCommands();
@@ -62,8 +70,7 @@ namespace NovelWorld.MasterData.Domain.Mappings
             return services;
         }
 
-
-        private static IServiceCollection RegisterContexts(this IServiceCollection services)
+        private static IServiceCollection RegisterDbContexts(this IServiceCollection services)
         {
             services.AddDbContext<MasterDataDbContext>((sp, options) =>
             {

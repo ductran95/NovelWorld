@@ -1,8 +1,8 @@
 using System.Data.Common;
 using System.Data.SqlClient;
-using NovelWorld.Infrastructure.Factories.Abstractions;
+using NovelWorld.ConnectionProvider.Factories.Abstractions;
 
-namespace NovelWorld.Infrastructure.Factories.Implements
+namespace NovelWorld.ConnectionProvider.SqlServer.Factories.Implements
 {
     public class SqlConnectionFactory: IDbConnectionFactory
     {

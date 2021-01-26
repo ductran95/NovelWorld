@@ -1,8 +1,9 @@
+@using NovelWorld.Data.DTO
 @model NovelWorld.Identity.Data.ViewModels.Home.ErrorViewModel
 
 @{
-    var error = Model?.Error;
-    var errorDescription = Model?.ErrorDescription;
+    var errors = (IEnumerable<Error>) (Model?.Errors ?? ViewData["Errors"]);
+    var errorCount = errors?.Count() ?? 0;
     var requestId = Model?.RequestId;
 }
 
@@ -14,19 +15,22 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="alert alert-danger">
-                Sorry, there was an error
+                Sorry, there was @(errorCount > 1 ? "errors" : "an error")
 
-                @if (error != null)
+                @if (errors != null && errors.Any())
                 {
-                    <strong>
-                        <em>
-                            : @error
-                        </em>
-                    </strong>
-
-                    if (errorDescription != null)
+                    @foreach (var error in errors)
                     {
-                        <div>@errorDescription</div>
+                        <strong>
+                            <em>
+                                : @error.Code
+                            </em>
+                        </strong>
+
+                        if (error.Message != null)
+                        {
+                            <div>@error.Message</div>
+                        }
                     }
                 }
             </div>

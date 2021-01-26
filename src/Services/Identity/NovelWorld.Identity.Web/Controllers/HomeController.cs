@@ -2,7 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using IdentityServer4.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -10,60 +12,48 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
+using NovelWorld.API.Controllers;
+using NovelWorld.Authentication.Contexts.Abstractions;
+using NovelWorld.Authentication.Exceptions;
+using NovelWorld.Data.DTO;
 using NovelWorld.Identity.Data.ViewModels.Home;
+using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
     [SecurityHeaders]
     [AllowAnonymous]
-    public class HomeController : Controller
+    public class HomeController : MvcController
     {
         private readonly IIdentityServerInteractionService _interaction;
-        private readonly IWebHostEnvironment _environment;
-        private readonly ILogger _logger;
 
-        public HomeController(IIdentityServerInteractionService interaction, IWebHostEnvironment environment, ILogger<HomeController> logger)
+        public HomeController(
+            IWebHostEnvironment environment,
+            IMediator mediator,
+            IMapper mapper,
+            ILogger<HomeController> logger,
+            IAuthContext authContext,
+            IIdentityServerInteractionService interaction
+            ) : base(environment, mediator, mapper, logger, authContext)
         {
             _interaction = interaction;
-            _environment = environment;
-            _logger = logger;
         }
 
         public IActionResult Index()
         {
-            if (_environment.IsDevelopment())
+            if (_environment.IsProduction())
             {
-                // only show in development
-                return View();
+                _logger.LogInformation("Homepage is disabled in production. Returning 404.");
+                return NotFound();
             }
 
-            _logger.LogInformation("Homepage is disabled in production. Returning 404.");
-            return NotFound();
+            // only show in development
+            return View();
         }
 
-        /// <summary>
-        /// Shows the error page
-        /// </summary>
-        public async Task<IActionResult> Error(string errorId)
+        public IActionResult Test()
         {
-            var vm = new ErrorViewModel();
-
-            // retrieve error details from Identity Server
-            var message = await _interaction.GetErrorContextAsync(errorId);
-            if (message != null)
-            {
-                vm.Error = message.Error;
-                vm.ErrorDescription = message.ErrorDescription;
-                vm.RequestId = message.RequestId;
-
-                if (!_environment.IsDevelopment())
-                {
-                    // only show in development
-                    message.ErrorDescription = null;
-                }
-            }
-
-            return View("Error", vm);
+            throw new UnauthenticatedException();
         }
     }
 }

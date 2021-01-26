@@ -1,6 +1,6 @@
 using System.Data.Common;
 
-namespace NovelWorld.Infrastructure.Factories.Abstractions
+namespace NovelWorld.ConnectionProvider.Factories.Abstractions
 {
     public interface IDbConnectionFactory
     {

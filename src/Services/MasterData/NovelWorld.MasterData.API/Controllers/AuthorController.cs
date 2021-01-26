@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Controllers;
@@ -19,11 +20,12 @@ namespace NovelWorld.MasterData.API.Controllers
     public class AuthorController : ApiController
     {
         public AuthorController(
+            IWebHostEnvironment environment,
             IMediator mediator, 
             IMapper mapper, 
             ILogger<AuthorController> logger, 
             IAuthContext authContext
-            ) : base(mediator, mapper, logger, authContext)
+            ) : base(environment, mediator, mapper, logger, authContext)
         {
         }
         

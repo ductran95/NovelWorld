@@ -9,13 +9,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NovelWorld.ConnectionProvider\NovelWorld.ConnectionProvider.csproj" />
       <ProjectReference Include="..\NovelWorld.EventBus\NovelWorld.EventBus.csproj" />
       <ProjectReference Include="..\NovelWorld.Utility\NovelWorld.Utility.csproj" />
       <ProjectReference Include="..\NovelWorld.Data\NovelWorld.Data.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     </ItemGroup>
 
 </Project>

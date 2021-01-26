@@ -14,8 +14,8 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
 using NovelWorld.API.Attributes;
-using NovelWorld.API.Filters;
 using NovelWorld.API.Mappings;
+using NovelWorld.API.Middlewares;
 using NovelWorld.Utility.Extensions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Mappings;
@@ -25,11 +25,8 @@ using NovelWorld.Identity.Domain.Configurations;
 using NovelWorld.Identity.Domain.Mappings;
 using NovelWorld.Identity.Web.Extensions;
 using NovelWorld.Identity.Web.Services.Implements;
-using NovelWorld.Infrastructure.Mappings;
 using NovelWorld.Mediator;
 using NovelWorld.Mediator.DependencyInjection;
-using NovelWorld.Mediator.Mappings;
-using NovelWorld.Utility.Mappings;
 using ModelMapping = NovelWorld.Identity.Domain.Mappings.ModelMapping;
 
 namespace NovelWorld.Identity.Web
@@ -65,14 +62,9 @@ namespace NovelWorld.Identity.Web
             
             // Add Fluent Validation, Response filter
             services.AddScoped<SecurityHeadersAttribute>();
-            services.AddScoped<RequestValidationFilter>();
-            services.AddScoped<HttpSwitchModelResponseExceptionFilter>();
+            services.AddScoped<DelegateUserOnAllowAnonymousAttribute>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
-            services.AddMvc(options =>
-                {
-                    options.Filters.Add<RequestValidationFilter>();
-                    options.Filters.Add<HttpSwitchModelResponseExceptionFilter>();
-                })
+            services.AddMvc()
                 .AddFluentValidation(fv =>
                 {
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
@@ -99,10 +91,8 @@ namespace NovelWorld.Identity.Web
             });
             
             // Add DI
-            services.RegisterDefaultHelpers();
-            services.RegisterDefaultEventSourcing();
             services.RegisterHttpAuthContext();
-            services.RegisterServices();
+            services.RegisterServices(Configuration);
             
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");
@@ -178,7 +168,7 @@ namespace NovelWorld.Identity.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseMvcExceptionHandler();
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }

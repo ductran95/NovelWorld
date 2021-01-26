@@ -41,8 +41,7 @@ namespace NovelWorld.API.Filters
                 exceptionToHandle = new HttpException(Status500InternalServerError, errorResponse, exception.Message, exception);
             }
 
-            // ReSharper disable once PossibleNullReferenceException
-            _logger.LogError(exceptionToHandle, exceptionToHandle.InnerException.Message);
+            _logger.LogError(exceptionToHandle, exceptionToHandle.InnerException != null ? exceptionToHandle.InnerException.Message : exceptionToHandle.Message);
 
             var response = new Result<object>()
             {

@@ -17,12 +17,10 @@ using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Configurations;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
-using NovelWorld.Infrastructure.Mappings;
 using NovelWorld.MasterData.Domain.Mappings;
 using NovelWorld.Mediator;
 using NovelWorld.Mediator.DependencyInjection;
 using NovelWorld.Utility.Extensions;
-using NovelWorld.Utility.Mappings;
 using ModelMapping = NovelWorld.MasterData.Domain.Mappings.ModelMapping;
 
 namespace NovelWorld.MasterData.API
@@ -59,12 +57,10 @@ namespace NovelWorld.MasterData.API
             // Add Fluent Validation, Response filter
             services.AddScoped<SecurityHeadersAttribute>();
             services.AddScoped<RequestValidationFilter>();
-            services.AddScoped<HttpSwitchModelResponseExceptionFilter>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
             services.AddMvc(options =>
                 {
                     options.Filters.Add<RequestValidationFilter>();
-                    options.Filters.Add<HttpSwitchModelResponseExceptionFilter>();
                 })
                 .AddFluentValidation(fv =>
                 {
@@ -92,10 +88,8 @@ namespace NovelWorld.MasterData.API
             });
             
             // Add DI
-            services.RegisterDefaultHelpers();
-            services.RegisterDefaultEventSourcing();
             services.RegisterHttpAuthContext();
-            services.RegisterServices();
+            services.RegisterServices(Configuration);
             
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");
@@ -146,6 +140,10 @@ namespace NovelWorld.MasterData.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseApiExceptionHandler();
             }
 
             // app.UseHttpsRedirection();

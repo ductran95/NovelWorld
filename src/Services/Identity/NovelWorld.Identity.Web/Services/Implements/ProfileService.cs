@@ -23,7 +23,7 @@ namespace NovelWorld.Identity.Web.Services.Implements
             var subject = context.Subject ?? throw new ArgumentNullException(nameof(context.Subject));
 
             var email = subject.FindFirstValue(JwtClaimTypes.Subject);
-            var user = await _mediator.Send(new GetUserByEmailQuery()
+            var user = await _mediator.Send(new GetAuthenticatedUserByEmailQuery()
             {
                 Email = email
             });
@@ -43,7 +43,7 @@ namespace NovelWorld.Identity.Web.Services.Implements
             var subject = context.Subject ?? throw new ArgumentNullException(nameof(context.Subject));
 
             var email = subject.FindFirstValue(JwtClaimTypes.Subject);
-            var user = await _mediator.Send(new GetUserByEmailQuery()
+            var user = await _mediator.Send(new GetAuthenticatedUserByEmailQuery()
             {
                 Email = email
             });

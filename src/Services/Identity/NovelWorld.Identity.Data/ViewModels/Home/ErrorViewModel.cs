@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Collections.Generic;
 using NovelWorld.Data.DTO;
 
 namespace NovelWorld.Identity.Data.ViewModels.Home
@@ -10,15 +11,15 @@ namespace NovelWorld.Identity.Data.ViewModels.Home
     {
         public ErrorViewModel()
         {
+            Errors = new List<Error>();
         }
 
-        public ErrorViewModel(string error)
+        public ErrorViewModel(List<Error> errors)
         {
-            Error = error;
+            Errors = errors;
         }
 
-        public string Error { get; set; }
-        public string ErrorDescription { get; set; }
+        public List<Error> Errors { get; set; }
         public string RequestId { get; set; }
     }
 }

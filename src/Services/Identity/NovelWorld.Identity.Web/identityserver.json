@@ -1,5 +1,5 @@
 {
-  "IdentityServerConfig": {
+  "IdentityServerConfiguration": {
     "CertificatePassword": "abc*123",
     "ApiScopes": [
       {

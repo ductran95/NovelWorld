@@ -5,33 +5,45 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
+using NovelWorld.API.Controllers;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Identity.Data.ViewModels.Grants;
+using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
     /// <summary>
     /// This sample controller allows a user to revoke grants given to clients
     /// </summary>
-    [FallbackView("/Home/Index")]
     [SecurityHeaders]
     [Microsoft.AspNetCore.Authorization.Authorize]
-    public class GrantsController : Controller
+    public class GrantsController : MvcController
     {
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IClientStore _clients;
         private readonly IResourceStore _resources;
         private readonly IEventService _events;
 
-        public GrantsController(IIdentityServerInteractionService interaction,
+        public GrantsController(
+            IWebHostEnvironment environment,
+            IMediator mediator,
+            IMapper mapper,
+            ILogger<GrantsController> logger,
+            IAuthContext authContext,
+            IIdentityServerInteractionService interaction,
             IClientStore clients,
             IResourceStore resources,
-            IEventService events)
+            IEventService events
+            ) : base(environment, mediator, mapper, logger, authContext)
         {
             _interaction = interaction;
             _clients = clients;

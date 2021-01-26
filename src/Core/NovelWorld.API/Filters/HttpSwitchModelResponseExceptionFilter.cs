@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using NovelWorld.API.Attributes;
-using NovelWorld.API.Extensions;
+using Microsoft.Extensions.Options;
+using NovelWorld.API.Middlewares;
 using NovelWorld.API.Results;
 using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
@@ -20,20 +17,31 @@ namespace NovelWorld.API.Filters
 {
     public class HttpSwitchModelResponseExceptionFilter : IExceptionFilter
     {
-        private const string APIPrefix = "/api";
-
-        public string FallbackView { get; set; } = "Views/Home/Index";
+        public const string APIPrefix = "/api";
+        
         public int Order { get; set; } = 10;
+        
         private readonly ILogger<HttpSwitchModelResponseExceptionFilter> _logger;
         private readonly IModelMetadataProvider _modelMetadataProvider;
+        private readonly MvcExceptionHandlerOptions _options;
 
         public HttpSwitchModelResponseExceptionFilter(
             ILogger<HttpSwitchModelResponseExceptionFilter> logger,
-            IModelMetadataProvider modelMetadataProvider
+            IModelMetadataProvider modelMetadataProvider,
+            IOptions<MvcExceptionHandlerOptions> options
             )
         {
             _logger = logger;
             _modelMetadataProvider = modelMetadataProvider;
+            
+            if (options != null && options.Value != null)
+            {
+                _options = options.Value;
+            }
+            else
+            {
+                _options = new MvcExceptionHandlerOptions();
+            }
         }
 
         public void OnException(ExceptionContext context)
@@ -57,14 +65,13 @@ namespace NovelWorld.API.Filters
                 exceptionToHandle = new HttpException(Status500InternalServerError, errorResponse, exception.Message, exception);
             }
 
-            // ReSharper disable once PossibleNullReferenceException
-            _logger.LogError(exceptionToHandle, exceptionToHandle.InnerException.Message);
+            _logger.LogError(exceptionToHandle, exceptionToHandle.InnerException != null ? exceptionToHandle.InnerException.Message : exceptionToHandle.Message);
 
             if (context.HttpContext.Request.Path.StartsWithSegments(APIPrefix))
             {
-                var response = new Result<bool>()
+                var response = new Result<object>()
                 {
-                    Data = false,
+                    Data = null,
                     Success = false,
                     Errors = exceptionToHandle.Errors
                 };
@@ -76,33 +83,47 @@ namespace NovelWorld.API.Filters
             }
             else
             {
-                var currentViewName = context.GetViewName();
-                if (context.ActionDescriptor is ControllerActionDescriptor action)
+                IActionResult result;
+
+                try
                 {
-                    var fallbackView = action.MethodInfo.GetCustomAttribute<FallbackViewAttribute>(true);
-                    if (fallbackView != null)
+                    switch (exceptionToHandle.StatusCode)
                     {
-                        currentViewName = fallbackView.ViewName;
+                        case Status401Unauthorized:
+                            result = new RedirectResult(_options.UnauthenticatedUrl);
+                            break;
+
+                        case Status403Forbidden:
+                            result = new RedirectResult(_options.UnauthorizedUrl);
+                            break;
+
+                        case Status404NotFound:
+                            result = new RedirectResult(_options.NotFoundUrl);
+                            break;
+
+                        default:
+                            result = new ViewResult {ViewName = _options.ErrorView};
+
+                            var viewResult = (ViewResult) result;
+                            viewResult.ViewData = new ViewDataDictionary(_modelMetadataProvider,
+                                context.ModelState);
+                            viewResult.ViewData.Add("Exception", exceptionToHandle);
+                            viewResult.ViewData.Add("Errors", exceptionToHandle.Errors);
+                            break;
                     }
-                }
-                var viewEngine = context.HttpContext.RequestServices.GetRequiredService<ICompositeViewEngine>();
-                var result = new ViewResult {ViewName = currentViewName};
                 
-                if (!viewEngine.GetView(null, result.ViewName, true).Success && !viewEngine.FindView(context, result.ViewName, true).Success)
+                    context.Result = result;
+                }
+                catch (Exception ex)
                 {
-                    result.ViewName = FallbackView;
+                    _logger.LogError(ex, "Error View not found");
+                    context.Result = new JsonResult(exceptionToHandle.Errors)
+                    {
+                        StatusCode = exceptionToHandle.StatusCode,
+                    };
                 }
-                
-                result.ViewData = new ViewDataDictionary(_modelMetadataProvider,
-                    context.ModelState);
-                result.ViewData.Add("Exception", context.Exception);
-                foreach (var error in exceptionToHandle.Errors)
-                {
-                    result.ViewData.ModelState.AddModelError(error.Code, error.Message);
-                }
-                
-                context.Result = result;
             }
+            
             context.ExceptionHandled = true;
         }
     }

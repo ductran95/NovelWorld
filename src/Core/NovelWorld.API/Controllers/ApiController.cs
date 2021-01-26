@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AutoMapper;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,18 +16,21 @@ namespace NovelWorld.API.Controllers
     [Route("api/[controller]/[action]")]
     public abstract class ApiController: ControllerBase
     {
+        protected readonly IWebHostEnvironment _environment;
         protected readonly IMediator _mediator;
         protected readonly IMapper _mapper;
         protected readonly ILogger<ApiController> _logger;
         protected readonly IAuthContext _authContext;
         
         public ApiController(
+            IWebHostEnvironment environment,
             IMediator mediator, 
             IMapper mapper, 
             ILogger<ApiController> logger, 
             IAuthContext authContext
         )
         {
+            _environment = environment;
             _mediator = mediator;
             _mapper = mapper;
             _logger = logger;

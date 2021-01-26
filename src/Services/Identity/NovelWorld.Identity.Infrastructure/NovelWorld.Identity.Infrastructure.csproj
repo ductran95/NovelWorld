@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Core\NovelWorld.ConnectionProvider.PostgreSql\NovelWorld.ConnectionProvider.PostgreSql.csproj" />
       <ProjectReference Include="..\..\..\Core\NovelWorld.Infrastructure.EntityFrameworkCore\NovelWorld.Infrastructure.EntityFrameworkCore.csproj" />
       <ProjectReference Include="..\..\..\Core\NovelWorld.Infrastructure\NovelWorld.Infrastructure.csproj" />
       <ProjectReference Include="..\NovelWorld.Identity.Data\NovelWorld.Identity.Data.csproj" />

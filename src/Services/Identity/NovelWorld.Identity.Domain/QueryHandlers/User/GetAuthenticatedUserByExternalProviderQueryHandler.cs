@@ -12,13 +12,13 @@ using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Domain.QueryHandlers.User
 {
-    public class GetUserByExternalProviderQueryHandler : QueryHandler<GetUserByExternalProviderQuery, AuthenticatedUser>
+    public class GetAuthenticatedUserByExternalProviderQueryHandler : QueryHandler<GetAuthenticatedUserByExternalProviderQuery, AuthenticatedUser>
     {
         private readonly IdentityDbContext _dbContext;
-        public GetUserByExternalProviderQueryHandler(
+        public GetAuthenticatedUserByExternalProviderQueryHandler(
             IMediator mediator,
             IMapper mapper,
-            ILogger<GetUserByExternalProviderQueryHandler> logger,
+            ILogger<GetAuthenticatedUserByExternalProviderQueryHandler> logger,
             IAuthContext authContext,
             IdentityDbContext dbContext
         ) : base(mediator, mapper, logger, authContext)
@@ -26,7 +26,7 @@ namespace NovelWorld.Identity.Domain.QueryHandlers.User
             _dbContext = dbContext;
         }
 
-        public override async Task<AuthenticatedUser> Handle(GetUserByExternalProviderQuery request,
+        public override async Task<AuthenticatedUser> Handle(GetAuthenticatedUserByExternalProviderQuery request,
             CancellationToken cancellationToken)
         {
             var user =  await _dbContext.Users.FirstOrDefaultAsync(x=>x.Email == request.ProviderUserId, cancellationToken: cancellationToken);

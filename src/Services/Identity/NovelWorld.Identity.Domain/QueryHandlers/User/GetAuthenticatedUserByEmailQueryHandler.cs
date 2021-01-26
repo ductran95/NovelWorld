@@ -12,14 +12,14 @@ using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Domain.QueryHandlers.User
 {
-    public class GetUserByEmailQueryHandler : QueryHandler<GetUserByEmailQuery, AuthenticatedUser>
+    public class GetAuthenticatedUserByEmailQueryHandler : QueryHandler<GetAuthenticatedUserByEmailQuery, AuthenticatedUser>
     {
         private readonly IdentityDbContext _dbContext;
         
-        public GetUserByEmailQueryHandler(
+        public GetAuthenticatedUserByEmailQueryHandler(
             IMediator mediator,
             IMapper mapper,
-            ILogger<GetUserByEmailQueryHandler> logger,
+            ILogger<GetAuthenticatedUserByEmailQueryHandler> logger,
             IAuthContext authContext,
             IdentityDbContext dbContext
         ) : base(mediator, mapper, logger, authContext)
@@ -27,7 +27,7 @@ namespace NovelWorld.Identity.Domain.QueryHandlers.User
             _dbContext = dbContext;
         }
 
-        public override async Task<AuthenticatedUser> Handle(GetUserByEmailQuery request,
+        public override async Task<AuthenticatedUser> Handle(GetAuthenticatedUserByEmailQuery request,
             CancellationToken cancellationToken)
         {
             var user =  await _dbContext.Users.FirstOrDefaultAsync(x=>x.Email == request.Email, cancellationToken: cancellationToken);

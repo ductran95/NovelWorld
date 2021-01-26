@@ -6,39 +6,45 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
 using IdentityServer4.Validation;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
+using NovelWorld.API.Controllers;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Identity.Data.ViewModels.Consent;
 using NovelWorld.Identity.Web.Extensions;
+using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
     /// <summary>
     /// This controller processes the consent UI
     /// </summary>
-    [FallbackView("/Home/Index")]
     [SecurityHeaders]
     [Microsoft.AspNetCore.Authorization.Authorize]
-    public class ConsentController : Controller
+    public class ConsentController : MvcController
     {
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IEventService _events;
-        private readonly ILogger<ConsentController> _logger;
 
         public ConsentController(
+            IWebHostEnvironment environment,
+            IMediator mediator,
+            IMapper mapper,
+            ILogger<ConsentController> logger,
+            IAuthContext authContext,
             IIdentityServerInteractionService interaction,
-            IEventService events,
-            ILogger<ConsentController> logger)
+            IEventService events) : base(environment, mediator, mapper, logger, authContext)
         {
             _interaction = interaction;
             _events = events;
-            _logger = logger;
         }
 
         /// <summary>

@@ -6,42 +6,49 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using IdentityServer4.Configuration;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
 using IdentityServer4.Validation;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NovelWorld.API.Attributes;
+using NovelWorld.API.Controllers;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Identity.Data.ViewModels.Consent;
 using NovelWorld.Identity.Data.ViewModels.Device;
 using NovelWorld.Identity.Web.Models.Device;
+using NovelWorld.Mediator;
 
 namespace NovelWorld.Identity.Web.Controllers
 {
-    [FallbackView("/Home/Index")]
     [Microsoft.AspNetCore.Authorization.Authorize]
     [SecurityHeaders]
-    public class DeviceController : Controller
+    public class DeviceController : MvcController
     {
         private readonly IDeviceFlowInteractionService _interaction;
         private readonly IEventService _events;
         private readonly IOptions<IdentityServerOptions> _options;
-        private readonly ILogger<DeviceController> _logger;
 
         public DeviceController(
+            IWebHostEnvironment environment,
+            IMediator mediator,
+            IMapper mapper,
+            ILogger<DeviceController> logger,
+            IAuthContext authContext,
             IDeviceFlowInteractionService interaction,
             IEventService eventService,
-            IOptions<IdentityServerOptions> options,
-            ILogger<DeviceController> logger)
+            IOptions<IdentityServerOptions> options
+            ) : base(environment, mediator, mapper, logger, authContext)
         {
             _interaction = interaction;
             _events = eventService;
             _options = options;
-            _logger = logger;
         }
 
         [HttpGet]

@@ -3,13 +3,17 @@ using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NovelWorld.ConnectionProvider.Mappings;
+using NovelWorld.ConnectionProvider.PostgreSql.Mappings;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus;
 using NovelWorld.Identity.Domain.Configurations;
 using NovelWorld.Identity.Infrastructure.Contexts;
 using NovelWorld.Identity.Infrastructure.UoW.Implements;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
+using NovelWorld.Infrastructure.Mappings;
 using NovelWorld.Infrastructure.UoW.Abstractions;
+using NovelWorld.Utility.Mappings;
 
 namespace NovelWorld.Identity.Domain.Mappings
 {
@@ -26,11 +30,17 @@ namespace NovelWorld.Identity.Domain.Mappings
             return services;
         }
         
-        public static IServiceCollection RegisterServices(this IServiceCollection services)
+        public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration config)
         {
             services
+                .RegisterDefaultHelpers()
+                .RegisterPostgreSqlDbConnectionFactory(config.GetConnectionString("DefaultConnection"))
+                .RegisterDefaultDbConnection()
+                .RegisterDefaultEventSourcing()
                 .RegisterDbContexts()
-                .RegisterUoW();
+                .RegisterUoW()
+                .RegisterQueries()
+                .RegisterCommands();
 
             return services;
         }
@@ -45,6 +55,22 @@ namespace NovelWorld.Identity.Domain.Mappings
 
         #region Private
 
+        private static IServiceCollection RegisterCommands(
+            this IServiceCollection services)
+        {
+            
+
+            return services;
+        }
+        
+        private static IServiceCollection RegisterQueries(
+            this IServiceCollection services)
+        {
+            
+
+            return services;
+        }
+        
         private static IServiceCollection RegisterDbContexts(this IServiceCollection services)
         {
             services.AddDbContext<IdentityDbContext>((sp, options) =>
