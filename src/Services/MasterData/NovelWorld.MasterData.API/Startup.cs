@@ -1,15 +1,22 @@
 using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.IO;
+using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Filters;
 using NovelWorld.API.Mappings;
@@ -91,6 +98,33 @@ namespace NovelWorld.MasterData.API
             services.RegisterHttpAuthContext();
             services.RegisterServices(Configuration);
             
+            // Authentication
+            JwtSecurityTokenHandler.DefaultInboundClaimFilter.Clear();
+            services
+                .AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+                {
+                    options.Authority = appSetting.OAuth2Configuration.Issuer;
+                    options.Audience = appSetting.OAuth2Configuration.Audience;
+                    options.RequireHttpsMetadata = true;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = true,
+                        ValidAudience = appSetting.OAuth2Configuration.Audience,
+                        ValidateIssuer = true,
+                        ValidIssuer = appSetting.OAuth2Configuration.Issuer,
+                        ValidateLifetime = true,
+                        NameClaimType = AdditionalClaimTypes.Account
+                    };
+                });
+            
+            // Authorization
+            services.AddAuthorization();
+            
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");
             if (allowedOrigin == null)
@@ -132,6 +166,41 @@ namespace NovelWorld.MasterData.API
                             tags: new string[] { "azureservicebus" });
                     break;
             }
+            
+            // Swagger UI
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo {Title = "Master Data API", Version = "v1"});
+                options.TagActionsBy(api => new List<string>
+                {
+                    !string.IsNullOrEmpty(api.GroupName)
+                        ? api.GroupName
+                        : api.ActionDescriptor.RouteValues["controller"]
+                });
+                options.OrderActionsBy(api => $"{api.GroupName}{api.ActionDescriptor.RouteValues["controller"]}");
+                options.DocInclusionPredicate((_, _) => true);
+                options.CustomSchemaIds(type => type.FullName);
+                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.OAuth2,
+                    Flows = new OpenApiOAuthFlows()
+                    {
+                        Implicit = new OpenApiOAuthFlow
+                        {
+                            AuthorizationUrl = new Uri($"{appSetting.OAuth2Configuration.Issuer}/connect/authorize"),
+                            TokenUrl = new Uri($"{appSetting.OAuth2Configuration.Issuer}/connect/token"),
+                            Scopes = new Dictionary<string, string>
+                            {
+                                {"api", "Master Data API"}
+                            }
+                        }
+                    }
+                });
+
+                var xmlFIle = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFIle);
+                options.IncludeXmlComments(xmlPath);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -152,7 +221,7 @@ namespace NovelWorld.MasterData.API
             app.UseRouting();
             app.UseForwardedHeaders();
             app.UseCors("CorsPolicy");
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

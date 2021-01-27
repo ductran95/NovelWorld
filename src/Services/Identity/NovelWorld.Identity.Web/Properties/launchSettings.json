@@ -23,7 +23,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "NovelWorld.Identity.Web (staging)": {
+    "NovelWorld.Identity.Web (Staging)": {
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:44301;http://localhost:8001",
@@ -31,7 +31,7 @@
         "ASPNETCORE_ENVIRONMENT": "Staging"
       }
     },
-    "NovelWorld.Identity.Web (production)": {
+    "NovelWorld.Identity.Web (Production)": {
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:44301;http://localhost:8001",
