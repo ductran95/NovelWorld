@@ -63,12 +63,8 @@ namespace NovelWorld.MasterData.API
             
             // Add Fluent Validation, Response filter
             services.AddScoped<SecurityHeadersAttribute>();
-            services.AddScoped<RequestValidationFilter>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
-            services.AddMvc(options =>
-                {
-                    options.Filters.Add<RequestValidationFilter>();
-                })
+            services.AddMvc()
                 .AddFluentValidation(fv =>
                 {
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
@@ -200,6 +196,8 @@ namespace NovelWorld.MasterData.API
                 var xmlFIle = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFIle);
                 options.IncludeXmlComments(xmlPath);
+                
+                options.OperationFilter<SwaggerResponseOperationFilter>();
             });
         }
 

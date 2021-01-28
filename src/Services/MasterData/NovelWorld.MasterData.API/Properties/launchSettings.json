@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:8002"
+      "applicationUrl": "http://localhost:8003"
     }
   },
   "profiles": {
@@ -20,7 +20,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:8002",
+      "applicationUrl": "http://localhost:8003",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -29,7 +29,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:8002",
+      "applicationUrl": "http://localhost:8003",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Staging"
       }
@@ -38,7 +38,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:8002",
+      "applicationUrl": "http://localhost:8003",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       }

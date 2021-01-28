@@ -18,6 +18,11 @@ namespace NovelWorld.API.Filters
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
+            OnActionExecutingInternal(context);
+        }
+
+        internal static void OnActionExecutingInternal(ActionExecutingContext context)
+        {
             if(context.Result == null && !context.ModelState.IsValid)
             {
                 IEnumerable<ValidationFailure> errors = new List<ValidationFailure>();
@@ -32,6 +37,19 @@ namespace NovelWorld.API.Filters
                     throw new BadRequestException(errors);
                 }
             }
+        }
+    }
+
+    public class RequestValidationFilterAttribute : ActionFilterAttribute
+    {
+        public RequestValidationFilterAttribute()
+        {
+            Order = 1;
+        }
+
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            RequestValidationFilter.OnActionExecutingInternal(context);
         }
     }
 }

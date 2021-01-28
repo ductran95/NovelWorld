@@ -1,11 +1,11 @@
 ﻿@using NovelWorld.Data.DTO
-@if (!ViewContext.ModelState.IsValid || Context.Items["Errors"] != null)
+@if (!ViewContext.ModelState.IsValid || ViewData["Errors"] != null)
 {
     <div class="alert alert-danger">
         <strong>Error</strong>
-        @if (Context.Items["Errors"] != null)
+        @if (ViewData["Errors"] != null)
         {
-            var errors = Context.Items["Errors"] as IEnumerable<Error>;
+            var errors = ViewData["Errors"] as IEnumerable<Error>;
             <div class="danger validation-summary-errors" data-valmsg-summary="true">
                 <ul>
                     @foreach (var error in errors)

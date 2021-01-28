@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using NovelWorld.API.Middlewares;
 using NovelWorld.API.Results;
 using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
@@ -46,6 +46,11 @@ namespace NovelWorld.API.Filters
 
         public void OnException(ExceptionContext context)
         {
+            OnExceptionInternal(context, _logger, _options, _modelMetadataProvider);
+        }
+        
+        internal static void OnExceptionInternal(ExceptionContext context, ILogger logger, MvcExceptionHandlerOptions options, IModelMetadataProvider modelMetadataProvider)
+        {
             var exception = context.Exception;
 
             HttpException exceptionToHandle;
@@ -65,7 +70,7 @@ namespace NovelWorld.API.Filters
                 exceptionToHandle = new HttpException(Status500InternalServerError, errorResponse, exception.Message, exception);
             }
 
-            _logger.LogError(exceptionToHandle, exceptionToHandle.InnerException != null ? exceptionToHandle.InnerException.Message : exceptionToHandle.Message);
+            logger.LogError(exceptionToHandle, exceptionToHandle.InnerException != null ? exceptionToHandle.InnerException.Message : exceptionToHandle.Message);
 
             if (context.HttpContext.Request.Path.StartsWithSegments(APIPrefix))
             {
@@ -90,22 +95,22 @@ namespace NovelWorld.API.Filters
                     switch (exceptionToHandle.StatusCode)
                     {
                         case Status401Unauthorized:
-                            result = new RedirectResult(_options.UnauthenticatedUrl);
+                            result = new RedirectResult(options.UnauthenticatedUrl);
                             break;
 
                         case Status403Forbidden:
-                            result = new RedirectResult(_options.UnauthorizedUrl);
+                            result = new RedirectResult(options.UnauthorizedUrl);
                             break;
 
                         case Status404NotFound:
-                            result = new RedirectResult(_options.NotFoundUrl);
+                            result = new RedirectResult(options.NotFoundUrl);
                             break;
 
                         default:
-                            result = new ViewResult {ViewName = _options.ErrorView};
+                            result = new ViewResult {ViewName = options.ErrorView};
 
                             var viewResult = (ViewResult) result;
-                            viewResult.ViewData = new ViewDataDictionary(_modelMetadataProvider,
+                            viewResult.ViewData = new ViewDataDictionary(modelMetadataProvider,
                                 context.ModelState);
                             viewResult.ViewData.Add("Exception", exceptionToHandle);
                             viewResult.ViewData.Add("Errors", exceptionToHandle.Errors);
@@ -116,7 +121,7 @@ namespace NovelWorld.API.Filters
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Error View not found");
+                    logger.LogError(ex, "Error View not found");
                     context.Result = new JsonResult(exceptionToHandle.Errors)
                     {
                         StatusCode = exceptionToHandle.StatusCode,
@@ -125,6 +130,28 @@ namespace NovelWorld.API.Filters
             }
             
             context.ExceptionHandled = true;
+        }
+    }
+
+    public class HttpSwitchModelResponseExceptionFilterAttribute : ExceptionFilterAttribute
+    {
+        public HttpSwitchModelResponseExceptionFilterAttribute()
+        {
+            Order = 10;
+        }
+        
+        public override void OnException(ExceptionContext context)
+        {
+            var logger = context.HttpContext.RequestServices
+                .GetService<ILogger<HttpSwitchModelResponseExceptionFilterAttribute>>();
+            
+            var options = context.HttpContext.RequestServices
+                .GetService<MvcExceptionHandlerOptions>();
+            
+            var modelMetadataProvider = context.HttpContext.RequestServices
+                .GetService<IModelMetadataProvider>();
+            
+            HttpSwitchModelResponseExceptionFilter.OnExceptionInternal(context, logger, options, modelMetadataProvider);
         }
     }
 }

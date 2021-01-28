@@ -76,8 +76,8 @@ namespace NovelWorld.API.Controllers
             {
                 _logger.LogError(exceptionToHandle, exceptionToHandle.InnerException != null ? exceptionToHandle.InnerException.Message : exceptionToHandle.Message);
             
-                HttpContext.Items.TryAdd("Exception", exceptionToHandle);
-                HttpContext.Items.TryAdd("Errors", exceptionToHandle.Errors);
+                ViewData.TryAdd("Exception", exceptionToHandle);
+                ViewData.TryAdd("Errors", exceptionToHandle.Errors);
             }
         }
     }
