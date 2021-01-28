@@ -30,7 +30,7 @@ namespace NovelWorld.MasterData.API.Controllers
         {
         }
         
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<Result<BookDetailResponse>> GetDetail([FromQuery] Guid id)
         {
             var request = new GetDetailBookRequest()
@@ -53,7 +53,7 @@ namespace NovelWorld.MasterData.API.Controllers
             return ListingResult(response);
         }
         
-        [HttpPost]
+        [HttpPost("Search")]
         public async Task<PagingResult<BookGeneralResponse>> Search([FromBody] SearchBookRequest request)
         {
             var response = await _mediator.Send(request);
@@ -69,7 +69,7 @@ namespace NovelWorld.MasterData.API.Controllers
             return Result(response, Status201Created);
         }
         
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<Result<bool>> Update([FromQuery] Guid id, [FromBody] UpdateBookRequest request)
         {
             if (id != request.Id)
@@ -83,7 +83,7 @@ namespace NovelWorld.MasterData.API.Controllers
             return Result(response);
         }
         
-        [HttpPut]
+        [HttpPut("{id}/UploadCover")]
         public async Task<Result<bool>> UploadCover([FromQuery] Guid id, [FromForm] IFormFile cover)
         {
             var request = new UploadBookCoverRequest()
@@ -97,7 +97,7 @@ namespace NovelWorld.MasterData.API.Controllers
             return Result(response);
         }
         
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<Result<bool>> Delete([FromQuery] Guid id)
         {
             var request = new DeleteBookRequest()

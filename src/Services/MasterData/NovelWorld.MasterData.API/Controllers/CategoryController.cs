@@ -29,7 +29,7 @@ namespace NovelWorld.MasterData.API.Controllers
         {
         }
         
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<Result<CategoryDetailResponse>> GetDetail([FromQuery] Guid id)
         {
             var request = new GetDetailCategoryRequest()
@@ -52,7 +52,7 @@ namespace NovelWorld.MasterData.API.Controllers
             return ListingResult(response);
         }
         
-        [HttpPost]
+        [HttpPost("Search")]
         public async Task<PagingResult<CategoryGeneralResponse>> Search([FromBody] SearchCategoryRequest request)
         {
             var response = await _mediator.Send(request);
@@ -68,7 +68,7 @@ namespace NovelWorld.MasterData.API.Controllers
             return Result(response, Status201Created);
         }
         
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<Result<bool>> Update([FromQuery] Guid id, [FromBody] UpdateCategoryRequest request)
         {
             if (id != request.Id)
@@ -82,7 +82,7 @@ namespace NovelWorld.MasterData.API.Controllers
             return Result(response);
         }
         
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<Result<bool>> Delete([FromQuery] Guid id)
         {
             var request = new DeleteCategoryRequest()
