@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -17,6 +18,7 @@ using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace NovelWorld.MasterData.API.Controllers
 {
+    [Authorize]
     public class CategoryController : ApiController
     {
         public CategoryController(
@@ -30,7 +32,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpGet("{id}")]
-        public async Task<Result<CategoryDetailResponse>> GetDetail([FromQuery] Guid id)
+        public async Task<Result<CategoryDetailResponse>> GetDetail(Guid id)
         {
             var request = new GetDetailCategoryRequest()
             {
@@ -69,7 +71,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpPut("{id}")]
-        public async Task<Result<bool>> Update([FromQuery] Guid id, [FromBody] UpdateCategoryRequest request)
+        public async Task<Result<bool>> Update(Guid id, [FromBody] UpdateCategoryRequest request)
         {
             if (id != request.Id)
             {
@@ -83,7 +85,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpDelete("{id}")]
-        public async Task<Result<bool>> Delete([FromQuery] Guid id)
+        public async Task<Result<bool>> Delete(Guid id)
         {
             var request = new DeleteCategoryRequest()
             {

@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,7 @@ using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace NovelWorld.MasterData.API.Controllers
 {
+    [Authorize]
     public class BookController : ApiController
     {
         public BookController(
@@ -31,7 +33,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpGet("{id}")]
-        public async Task<Result<BookDetailResponse>> GetDetail([FromQuery] Guid id)
+        public async Task<Result<BookDetailResponse>> GetDetail(Guid id)
         {
             var request = new GetDetailBookRequest()
             {
@@ -70,7 +72,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpPut("{id}")]
-        public async Task<Result<bool>> Update([FromQuery] Guid id, [FromBody] UpdateBookRequest request)
+        public async Task<Result<bool>> Update(Guid id, [FromBody] UpdateBookRequest request)
         {
             if (id != request.Id)
             {
@@ -84,7 +86,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpPut("{id}/UploadCover")]
-        public async Task<Result<bool>> UploadCover([FromQuery] Guid id, [FromForm] IFormFile cover)
+        public async Task<Result<bool>> UploadCover(Guid id, [FromForm] IFormFile cover)
         {
             var request = new UploadBookCoverRequest()
             {
@@ -98,7 +100,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpDelete("{id}")]
-        public async Task<Result<bool>> Delete([FromQuery] Guid id)
+        public async Task<Result<bool>> Delete(Guid id)
         {
             var request = new DeleteBookRequest()
             {

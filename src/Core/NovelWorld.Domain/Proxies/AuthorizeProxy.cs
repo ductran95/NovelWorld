@@ -24,11 +24,11 @@ namespace NovelWorld.Domain.Proxies
         {
             var requestHandler = _services.GetService<IRequestHandler<TRequest, TResponse>>();
 
-            var authAttribute = requestHandler.GetAuthorizeAttribute();
-
-            if(authAttribute != null)
-            {
-            }
+            // var authAttribute = requestHandler.GetAuthorizeAttribute();
+            //
+            // if(authAttribute != null)
+            // {
+            // }
 
             return await next();
         }

@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -17,6 +18,7 @@ using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace NovelWorld.MasterData.API.Controllers
 {
+    [Authorize]
     public class AuthorController : ApiController
     {
         public AuthorController(
@@ -30,7 +32,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpGet("{id}")]
-        public async Task<Result<AuthorDetailResponse>> GetDetail([FromQuery] Guid id)
+        public async Task<Result<AuthorDetailResponse>> GetDetail(Guid id)
         {
             var request = new GetDetailAuthorRequest()
             {
@@ -48,7 +50,7 @@ namespace NovelWorld.MasterData.API.Controllers
             var request = new GetAllAuthorRequest();
 
             var response = await _mediator.Send(request);
-
+            
             return ListingResult(response);
         }
         
@@ -69,7 +71,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpPut("{id}")]
-        public async Task<Result<bool>> Update([FromQuery] Guid id, [FromBody] UpdateAuthorRequest request)
+        public async Task<Result<bool>> Update(Guid id, [FromBody] UpdateAuthorRequest request)
         {
             if (id != request.Id)
             {
@@ -83,7 +85,7 @@ namespace NovelWorld.MasterData.API.Controllers
         }
         
         [HttpDelete("{id}")]
-        public async Task<Result<bool>> Delete([FromQuery] Guid id)
+        public async Task<Result<bool>> Delete(Guid id)
         {
             var request = new DeleteAuthorRequest()
             {

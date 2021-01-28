@@ -11,15 +11,19 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Filters;
+using NovelWorld.API.Formatters;
 using NovelWorld.API.Mappings;
+using NovelWorld.Authentication;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Configurations;
 using NovelWorld.Domain.Mappings;
@@ -44,8 +48,6 @@ namespace NovelWorld.MasterData.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            
             // Get all Novel World assemblies
             var novelWorldAssemblies = AppDomain.CurrentDomain.GetAssemblies("NovelWorld");
             
@@ -55,7 +57,10 @@ namespace NovelWorld.MasterData.API
             services.RegisterAppConfig(Configuration);
             
             // Add Mediatr
-            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>().AsScoped().AsScopedHandler());
+            services.AddMediatR(novelWorldAssemblies, configuration =>
+            {
+                configuration.Using<CustomMediator>().AsScoped().AsScopedHandler();
+            });
             services.RegisterDefaultMediator();
 
             // Add AutoMapper
@@ -66,7 +71,11 @@ namespace NovelWorld.MasterData.API
             services.AddScoped<RequestValidationAttribute>();
             services.AddScoped<DelegateUserOnAllowAnonymousAttribute>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
-            services.AddMvc()
+            services.AddControllers(options =>
+                {
+                    options.RespectBrowserAcceptHeader = true;
+                    options.InputFormatters.Add(new TextPlainInputFormatter());
+                })
                 .AddFluentValidation(fv =>
                 {
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
@@ -78,7 +87,7 @@ namespace NovelWorld.MasterData.API
                 })
                 .AddJsonOptions(options =>
                 {
-                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                    // options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                 });
@@ -108,7 +117,7 @@ namespace NovelWorld.MasterData.API
                 {
                     options.Authority = appSetting.OAuth2Configuration.Issuer;
                     options.Audience = appSetting.OAuth2Configuration.Audience;
-                    options.RequireHttpsMetadata = true;
+                    options.RequireHttpsMetadata = appSetting.OAuth2Configuration.RequireHttps;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateAudience = true,
@@ -168,7 +177,7 @@ namespace NovelWorld.MasterData.API
             // Swagger UI
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo {Title = "Master Data API", Version = "v1"});
+                options.SwaggerDoc("v1", new OpenApiInfo {Title = "NovelWorld Master Data API", Version = "v1"});
                 options.TagActionsBy(api => new List<string>
                 {
                     !string.IsNullOrEmpty(api.GroupName)
@@ -189,17 +198,17 @@ namespace NovelWorld.MasterData.API
                             TokenUrl = new Uri($"{appSetting.OAuth2Configuration.Issuer}/connect/token"),
                             Scopes = new Dictionary<string, string>
                             {
-                                {"api", "Master Data API"}
+                                {appSetting.OAuth2Configuration.ApiScope, "NovelWorld API"}
                             }
                         }
                     }
                 });
 
-                var xmlFIle = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFIle);
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 options.IncludeXmlComments(xmlPath);
                 
-                options.OperationFilter<SwaggerResponseOperationFilter>();
+                options.OperationFilter<SwaggerResponseOperationFilter>(appSetting.OAuth2Configuration.ApiScope);
             });
         }
 
@@ -228,6 +237,18 @@ namespace NovelWorld.MasterData.API
             {
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/health");
+            });
+
+            // ReSharper disable once PossibleNullReferenceException
+            var oauthConfig = app.ApplicationServices.GetService<IOptions<OAuth2Configuration>>().Value;
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("../swagger/v1/swagger.json", "NovelWorld Master Data API v1");
+                options.OAuthClientId(oauthConfig.SwaggerClientId);
+                options.OAuthClientSecret(oauthConfig.SwaggerClientSecret);
+                options.OAuthAppName(oauthConfig.SwaggerAppName);
+                options.OAuthRealm(oauthConfig.SwaggerRealm);
             });
             
             // Subscribe Integrate Event

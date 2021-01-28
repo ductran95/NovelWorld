@@ -14,6 +14,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
 using NovelWorld.API.Attributes;
+using NovelWorld.API.Formatters;
 using NovelWorld.API.Mappings;
 using NovelWorld.API.Middlewares;
 using NovelWorld.Utility.Extensions;
@@ -43,8 +44,6 @@ namespace NovelWorld.Identity.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            
             // Get all Novel World assemblies
             var novelWorldAssemblies = AppDomain.CurrentDomain.GetAssemblies("NovelWorld");
             
@@ -64,7 +63,12 @@ namespace NovelWorld.Identity.Web
             services.AddScoped<SecurityHeadersAttribute>();
             services.AddScoped<DelegateUserOnAllowAnonymousAttribute>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
-            services.AddMvc()
+            services
+                .AddMvc(options =>
+                {
+                    options.RespectBrowserAcceptHeader = true;
+                    options.InputFormatters.Add(new TextPlainInputFormatter());
+                })
                 .AddFluentValidation(fv =>
                 {
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
@@ -76,7 +80,7 @@ namespace NovelWorld.Identity.Web
                 })
                 .AddJsonOptions(options =>
                 {
-                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                    // options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                 });
@@ -137,7 +141,11 @@ namespace NovelWorld.Identity.Web
             }
             
             // Add Identity Server
-            services.AddIdentityServer()
+            services
+                .AddIdentityServer(options =>
+                {
+                    options.UserInteraction.ErrorUrl = "/Error";
+                })
                 .AddInMemoryIdentityResources(appSetting.IdentityServerConfiguration.IdentityResources)
                 .AddInMemoryApiResources(appSetting.IdentityServerConfiguration.ApiResources)
                 .AddInMemoryApiScopes(appSetting.IdentityServerConfiguration.ApiScopes)
