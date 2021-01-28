@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NovelWorld.Utility.Exceptions;
@@ -14,16 +13,14 @@ using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace NovelWorld.API.Filters
 {
-    public class HttpModelExceptionFilter : IExceptionFilter
+    public class MvcExceptionHandlerFilter : IExceptionFilter
     {
-        public int Order { get; set; } = 10;
-        
-        private readonly ILogger<HttpModelExceptionFilter> _logger;
+        private readonly ILogger<MvcExceptionHandlerFilter> _logger;
         private readonly IModelMetadataProvider _modelMetadataProvider;
         private readonly MvcExceptionHandlerOptions _options;
 
-        public HttpModelExceptionFilter(
-            ILogger<HttpModelExceptionFilter> logger,
+        public MvcExceptionHandlerFilter(
+            ILogger<MvcExceptionHandlerFilter> logger,
             IModelMetadataProvider modelMetadataProvider,
             IOptions<MvcExceptionHandlerOptions> options
             )
@@ -110,28 +107,6 @@ namespace NovelWorld.API.Filters
             }
             
             context.ExceptionHandled = true;
-        }
-    }
-
-    public class HttpModelExceptionFilterAttribute : ExceptionFilterAttribute
-    {
-        public HttpModelExceptionFilterAttribute()
-        {
-            Order = 10;
-        }
-
-        public override void OnException(ExceptionContext context)
-        {
-            var logger = context.HttpContext.RequestServices
-                .GetService<ILogger<HttpModelExceptionFilterAttribute>>();
-            
-            var options = context.HttpContext.RequestServices
-                .GetService<MvcExceptionHandlerOptions>();
-            
-            var modelMetadataProvider = context.HttpContext.RequestServices
-                .GetService<IModelMetadataProvider>();
-            
-            HttpModelExceptionFilter.OnExceptionInternal(context, logger, options, modelMetadataProvider);
         }
     }
 }

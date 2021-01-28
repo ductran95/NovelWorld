@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NovelWorld.API.Filters;
+using NovelWorld.API.Attributes;
 using NovelWorld.API.Results;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Data.DTO;
@@ -14,7 +13,7 @@ using static Microsoft.AspNetCore.Http.StatusCodes;
 namespace NovelWorld.API.Controllers
 {
     [ApiController]
-    [RequestValidationFilter]
+    [RequestValidation]
     [Route("api/[controller]")]
     public abstract class ApiController: ControllerBase
     {

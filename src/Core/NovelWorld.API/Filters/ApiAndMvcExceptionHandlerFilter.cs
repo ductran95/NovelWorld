@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NovelWorld.API.Results;
@@ -15,18 +14,16 @@ using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace NovelWorld.API.Filters
 {
-    public class HttpSwitchModelResponseExceptionFilter : IExceptionFilter
+    public class ApiAndMvcExceptionHandlerFilter : IExceptionFilter
     {
         public const string APIPrefix = "/api";
         
-        public int Order { get; set; } = 10;
-        
-        private readonly ILogger<HttpSwitchModelResponseExceptionFilter> _logger;
+        private readonly ILogger<ApiAndMvcExceptionHandlerFilter> _logger;
         private readonly IModelMetadataProvider _modelMetadataProvider;
         private readonly MvcExceptionHandlerOptions _options;
 
-        public HttpSwitchModelResponseExceptionFilter(
-            ILogger<HttpSwitchModelResponseExceptionFilter> logger,
+        public ApiAndMvcExceptionHandlerFilter(
+            ILogger<ApiAndMvcExceptionHandlerFilter> logger,
             IModelMetadataProvider modelMetadataProvider,
             IOptions<MvcExceptionHandlerOptions> options
             )
@@ -130,28 +127,6 @@ namespace NovelWorld.API.Filters
             }
             
             context.ExceptionHandled = true;
-        }
-    }
-
-    public class HttpSwitchModelResponseExceptionFilterAttribute : ExceptionFilterAttribute
-    {
-        public HttpSwitchModelResponseExceptionFilterAttribute()
-        {
-            Order = 10;
-        }
-        
-        public override void OnException(ExceptionContext context)
-        {
-            var logger = context.HttpContext.RequestServices
-                .GetService<ILogger<HttpSwitchModelResponseExceptionFilterAttribute>>();
-            
-            var options = context.HttpContext.RequestServices
-                .GetService<MvcExceptionHandlerOptions>();
-            
-            var modelMetadataProvider = context.HttpContext.RequestServices
-                .GetService<IModelMetadataProvider>();
-            
-            HttpSwitchModelResponseExceptionFilter.OnExceptionInternal(context, logger, options, modelMetadataProvider);
         }
     }
 }

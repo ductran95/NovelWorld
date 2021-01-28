@@ -63,6 +63,8 @@ namespace NovelWorld.MasterData.API
             
             // Add Fluent Validation, Response filter
             services.AddScoped<SecurityHeadersAttribute>();
+            services.AddScoped<RequestValidationAttribute>();
+            services.AddScoped<DelegateUserOnAllowAnonymousAttribute>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
             services.AddMvc()
                 .AddFluentValidation(fv =>

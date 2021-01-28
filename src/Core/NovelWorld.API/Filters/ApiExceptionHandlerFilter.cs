@@ -11,12 +11,11 @@ using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace NovelWorld.API.Filters
 {
-    public class HttpResponseExceptionFilter : IExceptionFilter
+    public class ApiExceptionHandlerFilter : IExceptionFilter
     {
-        public int Order { get; set; } = 10;
-        private readonly ILogger<HttpResponseExceptionFilter> _logger;
+        private readonly ILogger<ApiExceptionHandlerFilter> _logger;
 
-        public HttpResponseExceptionFilter(ILogger<HttpResponseExceptionFilter> logger)
+        public ApiExceptionHandlerFilter(ILogger<ApiExceptionHandlerFilter> logger)
         {
             _logger = logger;
         }
@@ -61,22 +60,6 @@ namespace NovelWorld.API.Filters
                 StatusCode = exceptionToHandle.StatusCode,
             };
             context.ExceptionHandled = true;
-        }
-    }
-
-    public class HttpResponseExceptionFilterAttribute : ExceptionFilterAttribute
-    {
-        public HttpResponseExceptionFilterAttribute()
-        {
-            Order = 10;
-        }
-
-        public override void OnException(ExceptionContext context)
-        {
-            var logger = context.HttpContext.RequestServices
-                .GetService<ILogger<HttpResponseExceptionFilterAttribute>>();
-            
-            HttpResponseExceptionFilter.OnExceptionInternal(context, logger);
         }
     }
 }

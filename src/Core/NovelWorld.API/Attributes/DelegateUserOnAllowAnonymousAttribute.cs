@@ -1,12 +1,5 @@
-using System.Reflection;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.DependencyInjection;
-using NovelWorld.API.Contexts;
-using NovelWorld.API.Contexts.Implements;
-using NovelWorld.Authentication.Contexts.Abstractions;
-using NovelWorld.Authentication.Contexts.Implements;
+using NovelWorld.API.Filters;
 
 namespace NovelWorld.API.Attributes
 {
@@ -20,18 +13,7 @@ namespace NovelWorld.API.Attributes
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            if (context.ActionDescriptor is ControllerActionDescriptor action)
-            {
-                var allowAnonymous = action.MethodInfo.GetCustomAttribute<AllowAnonymousAttribute>(true);
-                if (allowAnonymous != null)
-                {
-                    var authContext = context.HttpContext.RequestServices.GetRequiredService<IAuthContext>();
-                    if (authContext != null && authContext is HttpAuthContext httpAuthContext)
-                    {
-                        httpAuthContext.SetDefaultUser();
-                    }
-                }
-            }
+            DelegateUserOnAllowAnonymousFilter.OnActionExecutingInternal(context);
         }
     }
 }
