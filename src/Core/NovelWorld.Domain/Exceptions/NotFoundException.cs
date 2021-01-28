@@ -1,9 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using FluentValidation.Results;
-using NovelWorld.Utility;
 using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
@@ -12,9 +8,9 @@ namespace NovelWorld.Domain.Exceptions
 {
     public class NotFoundException: DomainException
     {
-        public Guid DataId { get; private set; }
+        public object DataId { get; private set; }
 
-        public NotFoundException(Guid dataId, string message = "", Exception innerException = null) : base(message, innerException)
+        public NotFoundException(object dataId, string message = "", Exception innerException = null) : base(message, innerException)
         {
             this.DataId = dataId;
         }
@@ -25,7 +21,7 @@ namespace NovelWorld.Domain.Exceptions
             {
                 new Error(CommonErrorCodes.NotFound, string.Format(CommonErrorMessages.DataNotFound, DataId))
             };
-            return new HttpException(HttpStatusCode.NotFound, errors, Message, this);
+            return new HttpException(404, errors, Message, this);
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Net;
 using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
@@ -25,7 +24,7 @@ namespace NovelWorld.Authorization.Exceptions
                 new Error(CommonErrorCodes.Unauthorized, string.Format(CommonErrorMessages.Unauthorized, moduleAction))
             };
             
-            return new HttpException(HttpStatusCode.Forbidden, errors, Message, this);
+            return new HttpException(403, errors, Message, this);
         }
     }
 }

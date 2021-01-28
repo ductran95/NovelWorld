@@ -15,10 +15,13 @@ using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
+using NovelWorld.API.Controllers;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Identity.Data.ViewModels.Account;
 using NovelWorld.Identity.Domain.Commands.User;
 using NovelWorld.Identity.Domain.Queries.User;
@@ -34,29 +37,25 @@ namespace NovelWorld.Identity.Web.Controllers
     /// </summary>
     [SecurityHeaders]
     [AllowAnonymous]
-    public class AccountController : Controller
+    public class AccountController : MvcController
     {
-        private readonly IMediator _mediator;
-        private readonly IMapper _mapper;
-        private readonly ILogger<AccountController> _logger;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IClientStore _clientStore;
         private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly IEventService _events;
 
         public AccountController(
+            IWebHostEnvironment environment,
             IMediator mediator,
             IMapper mapper,
             ILogger<AccountController> logger,
+            IAuthContext authContext,
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,
             IEventService events
-            )
+        ) : base(environment, mediator, mapper, logger, authContext)
         {
-            _mediator = mediator;
-            _mapper = mapper;
-            _logger = logger;
             _interaction = interaction;
             _clientStore = clientStore;
             _schemeProvider = schemeProvider;
@@ -72,10 +71,17 @@ namespace NovelWorld.Identity.Web.Controllers
             // build a model so we know what to show on the login page
             var vm = await BuildLoginViewModelAsync(returnUrl);
 
-            if (vm.IsExternalLoginOnly)
+            try
             {
-                // we only have one option for logging in and it's an external provider
-                return RedirectToAction("Challenge", "External", new {scheme = vm.ExternalLoginScheme, returnUrl});
+                if (vm.IsExternalLoginOnly)
+                {
+                    // we only have one option for logging in and it's an external provider
+                    return RedirectToAction("Challenge", "External", new {scheme = vm.ExternalLoginScheme, returnUrl});
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
             }
 
             return View(vm);
@@ -88,82 +94,22 @@ namespace NovelWorld.Identity.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginInputModel model, string button)
         {
-            // check if we are in the context of an authorization request
-            var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
-
-            // the user clicked the "cancel" button
-            if (button != "login")
+            try
             {
-                if (context != null)
+                // check if we are in the context of an authorization request
+                var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
+
+                // the user clicked the "cancel" button
+                if (button != "login")
                 {
-                    // if the user cancels, send a result back into IdentityServer as if they 
-                    // denied the consent (even if this client does not require consent).
-                    // this will send back an access denied OIDC error response to the client.
-                    await _interaction.DenyAuthorizationAsync(context, AuthorizationError.AccessDenied);
-
-                    // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
-                    if (context.IsNativeClient())
-                    {
-                        // The client is native, so this change in how to
-                        // return the response is for better UX for the end user.
-                        return this.LoadingPage("Redirect", model.ReturnUrl);
-                    }
-
-                    return Redirect(model.ReturnUrl);
-                }
-                else
-                {
-                    // since we don't have a valid context, then we just go back to the home page
-                    return Redirect("~/");
-                }
-            }
-
-            if (ModelState.IsValid)
-            {
-                var isCredentialValid = await _mediator.Send(new ValidateUserCredentialCommand()
-                {
-                    Email = model.Email,
-                    Password = model.Password
-                });
-                
-                // validate username/password against in-memory store
-                if (isCredentialValid)
-                {
-                    var user = await _mediator.Send(new GetUserByEmailQuery()
-                    {
-                        Email = model.Email
-                    });
-                    
-                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.Account, user.Email, user.FullName,
-                        clientId: context?.Client.ClientId)); // Use email as subjectId
-
-                    // only set explicit expiration here if user chooses "remember me". 
-                    // otherwise we rely upon expiration configured in cookie middleware.
-                    AuthenticationProperties props = null;
-                    if (AccountOptions.AllowRememberLogin && model.RememberLogin)
-                    {
-                        props = new AuthenticationProperties
-                        {
-                            IsPersistent = true,
-                            ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
-                        };
-                    }
-
-                    // issue authentication cookie with subject ID and username
-                    var claims = await _mediator.Send(new GetClaimsFromUserQuery()
-                    {
-                        User = user
-                    });
-                    var issuer = new IdentityServerUser(user.Email)
-                    {
-                        DisplayName = user.FullName,
-                        AdditionalClaims = claims.ToList()
-                    };
-
-                    await HttpContext.SignInAsync(issuer, props);
-
                     if (context != null)
                     {
+                        // if the user cancels, send a result back into IdentityServer as if they 
+                        // denied the consent (even if this client does not require consent).
+                        // this will send back an access denied OIDC error response to the client.
+                        await _interaction.DenyAuthorizationAsync(context, AuthorizationError.AccessDenied);
+
+                        // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
                         if (context.IsNativeClient())
                         {
                             // The client is native, so this change in how to
@@ -171,29 +117,96 @@ namespace NovelWorld.Identity.Web.Controllers
                             return this.LoadingPage("Redirect", model.ReturnUrl);
                         }
 
-                        // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
                         return Redirect(model.ReturnUrl);
-                    }
-
-                    // request for a local page
-                    if (Url.IsLocalUrl(model.ReturnUrl))
-                    {
-                        return Redirect(model.ReturnUrl);
-                    }
-                    else if (string.IsNullOrEmpty(model.ReturnUrl))
-                    {
-                        return Redirect("~/");
                     }
                     else
                     {
-                        // user might have clicked on a malicious link - should be logged
-                        throw new Exception("invalid return URL");
+                        // since we don't have a valid context, then we just go back to the home page
+                        return Redirect("~/");
                     }
                 }
 
-                await _events.RaiseAsync(new UserLoginFailureEvent(model.Email, "invalid credentials",
-                    clientId: context?.Client.ClientId));
-                ModelState.AddModelError(string.Empty, AccountOptions.InvalidCredentialsErrorMessage);
+                if (ModelState.IsValid)
+                {
+                    var isCredentialValid = await _mediator.Send(new ValidateUserCredentialCommand()
+                    {
+                        Email = model.Email,
+                        Password = model.Password
+                    });
+
+                    // validate username/password against in-memory store
+                    if (isCredentialValid)
+                    {
+                        var user = await _mediator.Send(new GetAuthenticatedUserByEmailQuery()
+                        {
+                            Email = model.Email
+                        });
+
+                        await _events.RaiseAsync(new UserLoginSuccessEvent(user.Account, user.Email, user.FullName,
+                            clientId: context?.Client.ClientId)); // Use email as subjectId
+
+                        // only set explicit expiration here if user chooses "remember me". 
+                        // otherwise we rely upon expiration configured in cookie middleware.
+                        AuthenticationProperties props = null;
+                        if (AccountOptions.AllowRememberLogin && model.RememberLogin)
+                        {
+                            props = new AuthenticationProperties
+                            {
+                                IsPersistent = true,
+                                ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
+                            };
+                        }
+
+                        // issue authentication cookie with subject ID and username
+                        var claims = await _mediator.Send(new GetClaimsFromUserQuery()
+                        {
+                            User = user
+                        });
+                        var issuer = new IdentityServerUser(user.Email)
+                        {
+                            DisplayName = user.FullName,
+                            AdditionalClaims = claims.ToList()
+                        };
+
+                        await HttpContext.SignInAsync(issuer, props);
+
+                        if (context != null)
+                        {
+                            if (context.IsNativeClient())
+                            {
+                                // The client is native, so this change in how to
+                                // return the response is for better UX for the end user.
+                                return this.LoadingPage("Redirect", model.ReturnUrl);
+                            }
+
+                            // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
+                            return Redirect(model.ReturnUrl);
+                        }
+
+                        // request for a local page
+                        if (Url.IsLocalUrl(model.ReturnUrl))
+                        {
+                            return Redirect(model.ReturnUrl);
+                        }
+                        else if (string.IsNullOrEmpty(model.ReturnUrl))
+                        {
+                            return Redirect("~/");
+                        }
+                        else
+                        {
+                            // user might have clicked on a malicious link - should be logged
+                            throw new Exception("invalid return URL");
+                        }
+                    }
+
+                    await _events.RaiseAsync(new UserLoginFailureEvent(model.Email, "invalid credentials",
+                        clientId: context?.Client.ClientId));
+                    ModelState.AddModelError(string.Empty, AccountOptions.InvalidCredentialsErrorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
             }
 
             // something went wrong, show form with error
@@ -207,37 +220,51 @@ namespace NovelWorld.Identity.Web.Controllers
             // build a model so we know what to show on the login page
             var vm = await BuildLoginViewModelAsync("");
 
-            if (vm.IsExternalLoginOnly)
+            try
             {
-                return NotFound();
+                if (vm.IsExternalLoginOnly)
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
             }
 
             return View();
         }
-        
+
         [HttpPost]
         [DelegateUserOnAllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterInputModel model, string button)
         {
-            // the user clicked the "cancel" button
-            if (button != "register")
+            try
             {
-                // user click cancel, redirect to homepage
-                return Redirect("~/");
-            }
+                // the user clicked the "cancel" button
+                if (button != "register")
+                {
+                    // user click cancel, redirect to homepage
+                    return Redirect("~/");
+                }
 
-            if (ModelState.IsValid)
+                if (ModelState.IsValid)
+                {
+                    var registerUserCommand = _mapper.Map<RegisterUserCommand>(model);
+                    await _mediator.Send(registerUserCommand);
+                    return Redirect("RegisterDone");
+                }
+            }
+            catch (Exception ex)
             {
-                var registerUserCommand = _mapper.Map<RegisterUserCommand>(model);
-                await _mediator.Send(registerUserCommand);
-                return Redirect("RegisterDone");
+                HandleException(ex);
             }
 
             // something went wrong, show form with error
             return View();
         }
-        
+
         [HttpGet]
         public IActionResult RegisterDone()
         {
@@ -253,11 +280,18 @@ namespace NovelWorld.Identity.Web.Controllers
             // build a model so the logout page knows what to display
             var vm = await BuildLogoutViewModelAsync(logoutId);
 
-            if (vm.ShowLogoutPrompt == false)
+            try
             {
-                // if the request for logout was properly authenticated from IdentityServer, then
-                // we don't need to show the prompt and can just log the user out directly.
-                return await Logout(vm);
+                if (vm.ShowLogoutPrompt == false)
+                {
+                    // if the request for logout was properly authenticated from IdentityServer, then
+                    // we don't need to show the prompt and can just log the user out directly.
+                    return await Logout(vm);
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
             }
 
             return View(vm);
@@ -273,25 +307,32 @@ namespace NovelWorld.Identity.Web.Controllers
             // build a model so the logged out page knows what to display
             var vm = await BuildLoggedOutViewModelAsync(model.LogoutId);
 
-            if (User?.Identity.IsAuthenticated == true)
+            try
             {
-                // delete local authentication cookie
-                await HttpContext.SignOutAsync();
+                if (User?.Identity?.IsAuthenticated == true)
+                {
+                    // delete local authentication cookie
+                    await HttpContext.SignOutAsync();
 
-                // raise the logout event
-                await _events.RaiseAsync(new UserLogoutSuccessEvent(User.GetSubjectId(), User.GetDisplayName()));
+                    // raise the logout event
+                    await _events.RaiseAsync(new UserLogoutSuccessEvent(User.GetSubjectId(), User.GetDisplayName()));
+                }
+
+                // check if we need to trigger sign-out at an upstream identity provider
+                if (vm.TriggerExternalSignout)
+                {
+                    // build a return URL so the upstream provider will redirect back
+                    // to us after the user has logged out. this allows us to then
+                    // complete our single sign-out processing.
+                    string url = Url.Action("Logout", new {logoutId = vm.LogoutId});
+
+                    // this triggers a redirect to the external provider for sign-out
+                    return SignOut(new AuthenticationProperties {RedirectUri = url}, vm.ExternalAuthenticationScheme);
+                }
             }
-
-            // check if we need to trigger sign-out at an upstream identity provider
-            if (vm.TriggerExternalSignout)
+            catch (Exception ex)
             {
-                // build a return URL so the upstream provider will redirect back
-                // to us after the user has logged out. this allows us to then
-                // complete our single sign-out processing.
-                string url = Url.Action("Logout", new {logoutId = vm.LogoutId});
-
-                // this triggers a redirect to the external provider for sign-out
-                return SignOut(new AuthenticationProperties {RedirectUri = url}, vm.ExternalAuthenticationScheme);
+                HandleException(ex);
             }
 
             return View("LoggedOut", vm);

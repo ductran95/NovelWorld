@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using NovelWorld.Data.DTO;
 using NovelWorld.Utility;
 using NovelWorld.Data.Responses;
 using NovelWorld.Infrastructure.Extensions;
@@ -27,18 +29,34 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Extensions
         }
 
         
-        public static async Task<PagingResponse<T>> ToPaging<T>(this IQueryable<T> query, int page, int pageSize)
+        public static PagedData<T> ToPaging<T>(this IQueryable<T> query, int page, int pageSize)
             where T : class
         {
             Ensure.NotNullOrEmpty(page);
             Ensure.NotNullOrEmpty(pageSize);
 
-            var result = new PagingResponse<T>();
+            var result = new PagedData<T>();
             result.Page = page;
             result.PageSize = pageSize;
-            result.Total = await query.CountAsync();
+            result.Total = query.Count();
             result.TotalPage = result.Total / result.PageSize + (result.Total % result.PageSize > 0 ? 1 : 0);
-            result.Data = await query.GetPage(page, pageSize).ToListAsync();
+            result.Data = query.GetPage(page, pageSize).ToList();
+            
+            return result;
+        }
+        
+        public static async Task<PagedData<T>> ToPagingAsync<T>(this IQueryable<T> query, int page, int pageSize, CancellationToken cancellationToken = default)
+            where T : class
+        {
+            Ensure.NotNullOrEmpty(page);
+            Ensure.NotNullOrEmpty(pageSize);
+
+            var result = new PagedData<T>();
+            result.Page = page;
+            result.PageSize = pageSize;
+            result.Total = await query.CountAsync(cancellationToken);
+            result.TotalPage = result.Total / result.PageSize + (result.Total % result.PageSize > 0 ? 1 : 0);
+            result.Data = await query.GetPage(page, pageSize).ToListAsync(cancellationToken);
             
             return result;
         }

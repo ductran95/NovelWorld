@@ -43,7 +43,7 @@ namespace NovelWorld.Domain.Proxies
 
                 return response;
             }
-            catch (ValidateException validateException)
+            catch (BadRequestException validateException)
             {
                 _logger.LogError(validateException, validateException.Message, requestName);
                 throw;

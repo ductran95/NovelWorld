@@ -8,12 +8,14 @@ namespace NovelWorld.API.Filters
 {
     public class SwaggerResponseOperationFilter : IOperationFilter
     {
+        private readonly string _apiScope;
+        public SwaggerResponseOperationFilter(string apiScope)
+        {
+            _apiScope = apiScope;
+        }
+        
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
-            // Add 400 Bad Request, 404 Not found
-            operation.Responses.TryAdd("400", new OpenApiResponse { Description = "BadRequest" });
-            operation.Responses.TryAdd("404", new OpenApiResponse { Description = "NotFound" });
-
             // Check for authorize attribute
             var hasAuthorize = context.MethodInfo.DeclaringType.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any() ||
                                context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any();
@@ -23,18 +25,18 @@ namespace NovelWorld.API.Filters
             operation.Responses.TryAdd("401", new OpenApiResponse { Description = "Unauthenticated" });
             operation.Responses.TryAdd("403", new OpenApiResponse { Description = "Unauthorized" });
 
-            var oAuthScheme = new OpenApiSecurityScheme
+            var oauth2Scheme = new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "oauth2" }
+                Reference = new OpenApiReference {Type = ReferenceType.SecurityScheme, Id = "oauth2"}
             };
 
             operation.Security = new List<OpenApiSecurityRequirement>
+            {
+                new OpenApiSecurityRequirement
                 {
-                    new OpenApiSecurityRequirement
-                    {
-                        [ oAuthScheme ] = new [] { "api" }
-                    }
-                };
+                    [oauth2Scheme] = new[] { _apiScope }
+                }
+            };
         }
     }
 }

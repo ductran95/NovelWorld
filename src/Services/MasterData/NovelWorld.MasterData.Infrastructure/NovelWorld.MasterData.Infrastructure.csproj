@@ -5,17 +5,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Core\NovelWorld.ConnectionProvider.PostgreSql\NovelWorld.ConnectionProvider.PostgreSql.csproj" />
       <ProjectReference Include="..\..\..\Core\NovelWorld.Infrastructure.EntityFrameworkCore\NovelWorld.Infrastructure.EntityFrameworkCore.csproj" />
       <ProjectReference Include="..\..\..\Core\NovelWorld.Infrastructure\NovelWorld.Infrastructure.csproj" />
       <ProjectReference Include="..\NovelWorld.MasterData.Data\NovelWorld.MasterData.Data.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Configurations" />
       <Folder Include="Exceptions" />
       <Folder Include="Extensions" />
-      <Folder Include="Repositories\Abstracts" />
-      <Folder Include="Repositories\Implements" />
     </ItemGroup>
 
     <ItemGroup>

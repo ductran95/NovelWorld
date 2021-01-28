@@ -2,6 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -9,19 +11,19 @@
       <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="5.0.1" />
       <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="5.0.1" />
       <PackageReference Include="FluentValidation.AspNetCore" Version="9.4.0" />
-      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.2" />
       <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Core\NovelWorld.API\NovelWorld.API.csproj" />
+      <ProjectReference Include="..\..\..\Core\NovelWorld.Mediator.DependencyInjection\NovelWorld.Mediator.DependencyInjection.csproj" />
       <ProjectReference Include="..\NovelWorld.MasterData.Domain\NovelWorld.MasterData.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Attributes" />
       <Folder Include="Contexts" />
-      <Folder Include="Controllers" />
       <Folder Include="Extensions" />
       <Folder Include="Filters" />
       <Folder Include="Formatters" />

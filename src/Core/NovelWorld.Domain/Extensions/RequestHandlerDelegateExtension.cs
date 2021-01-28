@@ -19,12 +19,12 @@ namespace NovelWorld.Domain.Extensions
 
             return uow;
         }
-        
-        public static AuthorizeAttribute GetAuthorizeAttribute<TRequest, TResponse>(this IRequestHandler<TRequest, TResponse> handler) where TRequest: IRequest<TResponse>
-        {
-            var authorizeAttribute = handler.GetType().GetCustomAttribute<AuthorizeAttribute>();
-
-            return authorizeAttribute;
-        }
+        //
+        // public static AuthorizeAttribute GetAuthorizeAttribute<TRequest, TResponse>(this IRequestHandler<TRequest, TResponse> handler) where TRequest: IRequest<TResponse>
+        // {
+        //     var authorizeAttribute = handler.GetType().GetCustomAttribute<AuthorizeAttribute>();
+        //
+        //     return authorizeAttribute;
+        // }
     }
 }

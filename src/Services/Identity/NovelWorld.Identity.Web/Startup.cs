@@ -5,7 +5,6 @@ using System.Text.Json.Serialization;
 using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -15,18 +14,21 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
 using NovelWorld.API.Attributes;
-using NovelWorld.API.Filters;
+using NovelWorld.API.Formatters;
 using NovelWorld.API.Mappings;
+using NovelWorld.API.Middlewares;
 using NovelWorld.Utility.Extensions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus.Extensions;
 using NovelWorld.Identity.Web.Certificates;
-using NovelWorld.Identity.Data.Configurations;
+using NovelWorld.Identity.Domain.Configurations;
 using NovelWorld.Identity.Domain.Mappings;
 using NovelWorld.Identity.Web.Extensions;
 using NovelWorld.Identity.Web.Services.Implements;
 using NovelWorld.Mediator;
+using NovelWorld.Mediator.DependencyInjection;
+using ModelMapping = NovelWorld.Identity.Domain.Mappings.ModelMapping;
 
 namespace NovelWorld.Identity.Web
 {
@@ -42,35 +44,30 @@ namespace NovelWorld.Identity.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            
             // Get all Novel World assemblies
             var novelWorldAssemblies = AppDomain.CurrentDomain.GetAssemblies("NovelWorld");
             
             // Configuration
             var appSetting = new IdentityAppSettings();
             Configuration.Bind(appSetting);
-            services.AddBaseAppConfig(Configuration).AddAppConfig(Configuration);
+            services.RegisterAppConfig(Configuration);
             
             // Add Mediatr
-            services.AddTransient<Mediator.IMediator, CustomMediator>();
-            services.AddTransient<MediatR.IMediator>(p => p.GetService<Mediator.IMediator>());
-            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>());
-            services.RegisterDefaultPublishStrategies();
-            services.RegisterDefaultProxies();
+            services.AddMediatR(novelWorldAssemblies, configuration => configuration.Using<CustomMediator>().AsScoped().AsScopedHandler());
+            services.RegisterDefaultMediator();
 
             // Add AutoMapper
             services.AddAutoMapper(novelWorldAssemblies);
             
             // Add Fluent Validation, Response filter
             services.AddScoped<SecurityHeadersAttribute>();
-            services.AddScoped<RequestValidationFilter>();
-            services.AddScoped<HttpSwitchModelResponseExceptionFilter>();
+            services.AddScoped<DelegateUserOnAllowAnonymousAttribute>();
             services.AddValidatorsFromAssemblies(novelWorldAssemblies);
-            services.AddMvc(options =>
+            services
+                .AddMvc(options =>
                 {
-                    options.Filters.Add<RequestValidationFilter>();
-                    options.Filters.Add<HttpSwitchModelResponseExceptionFilter>();
+                    options.RespectBrowserAcceptHeader = true;
+                    options.InputFormatters.Add(new TextPlainInputFormatter());
                 })
                 .AddFluentValidation(fv =>
                 {
@@ -83,7 +80,7 @@ namespace NovelWorld.Identity.Web
                 })
                 .AddJsonOptions(options =>
                 {
-                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                    // options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                 });
@@ -91,17 +88,15 @@ namespace NovelWorld.Identity.Web
             ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
             
             // Add Event Bus
-            services.RegisterDefaultEventBus(appSetting.EventBusConfig);
-            services.AddIntegrationEventHandler(new Type[]
+            services.RegisterDefaultEventBus(appSetting.EventBusConfiguration);
+            services.RegisterIntegrationEventHandler(new Type[]
             {
-                typeof(IdentityModelMapping)
+                typeof(ModelMapping)
             });
             
             // Add DI
-            services.RegisterDefaultHelpers();
-            services.RegisterDefaultEventSourcing();
-            services.RegisterAuthContext();
-            services.RegisterServices();
+            services.RegisterHttpAuthContext();
+            services.RegisterServices(Configuration);
             
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");
@@ -125,12 +120,12 @@ namespace NovelWorld.Identity.Web
                 .AddCheck("self", () => HealthCheckResult.Healthy())
                 .AddNpgSql(Configuration.GetConnectionString("DefaultConnection"));
 
-            switch (appSetting.EventBusConfig.Type)
+            switch (appSetting.EventBusConfiguration.Type)
             {
                 case EventBusTypes.RabbitMQ:
                     hcBuilder
                         .AddRabbitMQ(
-                            $"amqp://{appSetting.EventBusConfig.EventBusConnection}",
+                            $"amqp://{appSetting.EventBusConfiguration.EventBusConnection}",
                             name: "identity-rabbitmq-check",
                             tags: new string[] { "rabbitmq" });
                     break;
@@ -138,28 +133,32 @@ namespace NovelWorld.Identity.Web
                 case EventBusTypes.AzureServiceBus:
                     hcBuilder
                         .AddAzureServiceBusTopic(
-                            appSetting.EventBusConfig.EventBusConnection,
-                            topicName: appSetting.EventBusConfig.SubscriptionClientName,
+                            appSetting.EventBusConfiguration.EventBusConnection,
+                            topicName: appSetting.EventBusConfiguration.SubscriptionClientName,
                             name: "identity-azureservicebus-check",
                             tags: new string[] { "azureservicebus" });
                     break;
             }
             
             // Add Identity Server
-            services.AddIdentityServer()
-                .AddInMemoryIdentityResources(appSetting.IdentityServerConfig.IdentityResources)
-                .AddInMemoryApiResources(appSetting.IdentityServerConfig.ApiResources)
-                .AddInMemoryApiScopes(appSetting.IdentityServerConfig.ApiScopes)
-                .AddInMemoryClients(appSetting.IdentityServerConfig.Clients)
+            services
+                .AddIdentityServer(options =>
+                {
+                    options.UserInteraction.ErrorUrl = "/Error";
+                })
+                .AddInMemoryIdentityResources(appSetting.IdentityServerConfiguration.IdentityResources)
+                .AddInMemoryApiResources(appSetting.IdentityServerConfiguration.ApiResources)
+                .AddInMemoryApiScopes(appSetting.IdentityServerConfiguration.ApiScopes)
+                .AddInMemoryClients(appSetting.IdentityServerConfiguration.Clients)
                 .AddProfileService<ProfileService>()
                 // .AddDeveloperSigningCredential();
-                .AddSigningCredential(Certificate.Get(appSetting.IdentityServerConfig.CertificatePassword));
+                .AddSigningCredential(Certificate.Get(appSetting.IdentityServerConfiguration.CertificatePassword));
 
             // Add ADFS
-            if (appSetting.IdentityServerConfig.OpenIdProviders != null && appSetting.IdentityServerConfig.OpenIdProviders.Any())
+            if (appSetting.IdentityServerConfiguration.OpenIdProviders != null && appSetting.IdentityServerConfiguration.OpenIdProviders.Any())
             {
                 var authBuilder = services.AddAuthentication();
-                foreach (var option in appSetting.IdentityServerConfig.OpenIdProviders)
+                foreach (var option in appSetting.IdentityServerConfiguration.OpenIdProviders)
                 {
                     authBuilder.AddOpenIdConnect(option.AuthenticationScheme, option.DisplayName, o => o.SetOpenIdConnectOptions(option));
                 }
@@ -177,7 +176,7 @@ namespace NovelWorld.Identity.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseMvcExceptionHandler();
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }

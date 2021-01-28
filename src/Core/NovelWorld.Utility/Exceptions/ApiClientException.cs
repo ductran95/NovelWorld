@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text.Json;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
@@ -10,9 +9,9 @@ namespace NovelWorld.Utility.Exceptions
 {
     public class ApiClientException: DomainException
     {
-        public HttpStatusCode StatusCode { get; private set; }
+        public int StatusCode { get; private set; }
         public string Content { get; private set; }
-        public ApiClientException(HttpStatusCode statusCode, string message = "", string content = "", Exception innerException = null) : base(!string.IsNullOrEmpty(message) ? message: content, innerException)
+        public ApiClientException(int statusCode, string message = "", string content = "", Exception innerException = null) : base(!string.IsNullOrEmpty(message) ? message: content, innerException)
         {
             StatusCode = statusCode;
             Content = content;

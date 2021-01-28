@@ -7,13 +7,13 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Core\NovelWorld.API\NovelWorld.API.csproj" />
+      <ProjectReference Include="..\..\..\Core\NovelWorld.Mediator.DependencyInjection\NovelWorld.Mediator.DependencyInjection.csproj" />
       <ProjectReference Include="..\NovelWorld.Identity.Domain\NovelWorld.Identity.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Attributes" />
       <Folder Include="Contexts" />
-      <Folder Include="Controllers" />
       <Folder Include="Filters" />
       <Folder Include="Formatters" />
       <Folder Include="Results" />
@@ -30,7 +30,6 @@
       <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="5.0.1" />
       <PackageReference Include="FluentValidation.AspNetCore" Version="9.4.0" />
       <PackageReference Include="IdentityServer4" Version="4.1.1" />
-      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
       <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
     </ItemGroup>
 

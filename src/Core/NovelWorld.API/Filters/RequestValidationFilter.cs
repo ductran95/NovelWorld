@@ -8,7 +8,6 @@ namespace NovelWorld.API.Filters
 {
     public class RequestValidationFilter : IActionFilter, IOrderedFilter
     {
-        // Run first
         public int Order => 1;
 
         public void OnActionExecuted(ActionExecutedContext context)
@@ -17,6 +16,11 @@ namespace NovelWorld.API.Filters
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
+        {
+            OnActionExecutingInternal(context);
+        }
+
+        internal static void OnActionExecutingInternal(ActionExecutingContext context)
         {
             if(context.Result == null && !context.ModelState.IsValid)
             {
@@ -29,7 +33,7 @@ namespace NovelWorld.API.Filters
 
                 if (errors.Any())
                 {
-                    throw new ValidateException(errors);
+                    throw new BadRequestException(errors);
                 }
             }
         }

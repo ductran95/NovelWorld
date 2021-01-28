@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using AutoMapper;
 using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Events;
@@ -10,10 +11,13 @@ using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NovelWorld.API.Attributes;
+using NovelWorld.API.Controllers;
+using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Authentication.DTO;
 using NovelWorld.Identity.Web.Extensions;
 using NovelWorld.Identity.Domain.Commands.User;
@@ -24,27 +28,26 @@ namespace NovelWorld.Identity.Web.Controllers
 {
     [SecurityHeaders]
     [AllowAnonymous]
-    public class ExternalController : Controller
+    public class ExternalController : MvcController
     {
-        private readonly IMediator _mediator;
         private readonly IIdentityServerInteractionService _interaction;
         // ReSharper disable once NotAccessedField.Local
         private readonly IClientStore _clientStore;
-        private readonly ILogger<ExternalController> _logger;
         private readonly IEventService _events;
 
         public ExternalController(
+            IWebHostEnvironment environment,
             IMediator mediator,
+            IMapper mapper,
+            ILogger<ExternalController> logger,
+            IAuthContext authContext,
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
-            IEventService events,
-            ILogger<ExternalController> logger
-            )
+            IEventService events
+            ) : base(environment, mediator, mapper, logger, authContext)
         {
-            _mediator = mediator;
             _interaction = interaction;
             _clientStore = clientStore;
-            _logger = logger;
             _events = events;
         }
 
@@ -166,7 +169,7 @@ namespace NovelWorld.Identity.Web.Controllers
             var providerUserId = userIdClaim.Value;
 
             // find external user
-            var user = await _mediator.Send(new GetUserByExternalProviderQuery()
+            var user = await _mediator.Send(new GetAuthenticatedUserByExternalProviderQuery()
             {
                 Provider = provider,
                 ProviderUserId = providerUserId

@@ -1,7 +1,23 @@
-﻿@if (ViewContext.ModelState.IsValid == false)
+﻿@using NovelWorld.Data.DTO
+@if (!ViewContext.ModelState.IsValid || ViewData["Errors"] != null)
 {
     <div class="alert alert-danger">
         <strong>Error</strong>
-        <div asp-validation-summary="All" class="danger"></div>
+        @if (ViewData["Errors"] != null)
+        {
+            var errors = ViewData["Errors"] as IEnumerable<Error>;
+            <div class="danger validation-summary-errors" data-valmsg-summary="true">
+                <ul>
+                    @foreach (var error in errors)
+                    {
+                        <li>@(!string.IsNullOrEmpty(error.Message) ? error.Message : error.Code)</li>
+                    }
+                </ul>
+            </div>
+        }
+        @if (!ViewContext.ModelState.IsValid)
+        {
+            <div asp-validation-summary="All" class="danger"></div>
+        }
     </div>
 }

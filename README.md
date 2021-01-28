@@ -27,3 +27,6 @@
 1. Identity Service
     * dotnet ef migrations add Initial --project migrations/NovelWorld.Identity.DbMigration
     * dotnet ef database update --project migrations/NovelWorld.Identity.DbMigration
+2. Identity Service
+   * dotnet ef migrations add Initial --project migrations/NovelWorld.MasterData.DbMigration
+   * dotnet ef database update --project migrations/NovelWorld.MasterData.DbMigration   

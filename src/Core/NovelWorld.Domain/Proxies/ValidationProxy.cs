@@ -32,7 +32,7 @@ namespace NovelWorld.Domain.Proxies
 
                 if (errors.Any())
                 {
-                    throw new ValidateException(errors, $"Validation Errors for {requestName}");
+                    throw new BadRequestException(errors, $"Validation Errors for {requestName}");
                 }
             }
         }

@@ -1,19 +1,19 @@
 {
-  "IdentityServerConfig": {
+  "IdentityServerConfiguration": {
     "CertificatePassword": "abc*123",
     "ApiScopes": [
       {
-        "Name": "api",
+        "Name": "novelworld_api",
         "DisplayName": "NovelWorld API",
         "Required": false
       }
     ],
     "ApiResources": [
       {
-        "Name": "novel_world",
+        "Name": "novelworld",
         "DisplayName": "NovelWorld API Audience",
         "Required": false,
-        "Scopes": [ "api" ],
+        "Scopes": [ "novelworld_api" ],
         "ApiSecrets": [ { "Value": "1SGj3V3jJ0hBTuFz+hPTeLir1WBoCTt5zwqKYpa7iWM=" } ] // ehBqlsRMcHTgApXhNDUH
       }
     ],
@@ -31,31 +31,31 @@
     ],
     "Clients": [
       {
-        "ClientId": "angular_web",
-        "ClientName": "Angular SPA OpenId Client",
+        "ClientId": "novelworld_angular_web",
+        "ClientName": "NovelWorld Angular SPA OpenId Client",
         "ClientSecrets": [ { "Value": "1SGj3V3jJ0hBTuFz+hPTeLir1WBoCTt5zwqKYpa7iWM=" } ], // ehBqlsRMcHTgApXhNDUH
-        "AllowedGrantTypes": [ "implicit" ],
+        "AllowedGrantTypes": [ "hybrid" ],
         "AllowAccessTokensViaBrowser": true,
         "RequireConsent": false,
         "RedirectUris": [ "http://localhost:4200" ],
         "PostLogoutRedirectUris": [ "http://localhost:4200" ],
-        "AllowedScopes": [ "openid", "profile", "api" ],
+        "AllowedScopes": [ "openid", "profile", "novelworld_api" ],
         "AccessTokenLifetime": 3600,
         "IdentityTokenLifetime": 3600
       },
       {
-        "ClientId": "novel_world_api_swagger",
-        "ClientName": "NovelWorld API Swagger UI Client",
+        "ClientId": "novelworld_masterdata_swagger",
+        "ClientName": "NovelWorld Master Data API Swagger UI Client",
         "AllowedGrantTypes": [ "implicit" ],
         "AllowAccessTokensViaBrowser": true,
         "RequireConsent": false,
         "RedirectUris": [
-          "http://localhost:8001/swagger/oauth2-redirect.html"
+          "http://localhost:8003/swagger/oauth2-redirect.html"
         ],
         "PostLogoutRedirectUris": [
-          "http://localhost:8001/swagger/"
+          "http://localhost:8003/swagger/"
         ],
-        "AllowedScopes": [ "openid", "profile", "api" ]
+        "AllowedScopes": [ "openid", "profile", "novelworld_api" ]
       }
     ],
     "OpenIdProviders": [

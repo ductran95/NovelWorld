@@ -10,7 +10,7 @@ namespace NovelWorld.EventBus.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddIntegrationEventHandler(this IServiceCollection services, IEnumerable<Assembly> assemblies)
+        public static IServiceCollection RegisterIntegrationEventHandler(this IServiceCollection services, IEnumerable<Assembly> assemblies)
         {
             if (!assemblies.Any())
             {
@@ -23,8 +23,8 @@ namespace NovelWorld.EventBus.Extensions
             return services;
         }
 
-        public static IServiceCollection AddIntegrationEventHandler(this IServiceCollection services, IEnumerable<Type> handlerAssemblyMarkerTypes)
-            => services.AddIntegrationEventHandler(handlerAssemblyMarkerTypes.Select(t => t.GetTypeInfo().Assembly));
+        public static IServiceCollection RegisterIntegrationEventHandler(this IServiceCollection services, IEnumerable<Type> handlerAssemblyMarkerTypes)
+            => services.RegisterIntegrationEventHandler(handlerAssemblyMarkerTypes.Select(t => t.GetTypeInfo().Assembly));
 
         private static void GetIntegrationEventHandler(Type openRequestInterface,
             IServiceCollection services,

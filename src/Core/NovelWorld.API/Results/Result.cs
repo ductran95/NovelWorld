@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using NovelWorld.Utility;
 using NovelWorld.Data.DTO;
 
@@ -10,14 +11,5 @@ namespace NovelWorld.API.Results
         public T Data { get; set; }
         public bool Success { get; set; }
         public IEnumerable<Error> Errors { get; set; }
-        
-        public static Result<T> Create(T data)
-        {
-            return new Result<T>
-            {
-                Success = true,
-                Data = data
-            };
-        }
     }
 }

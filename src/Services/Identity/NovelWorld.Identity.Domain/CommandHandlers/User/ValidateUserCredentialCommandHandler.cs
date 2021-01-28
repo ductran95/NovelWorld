@@ -1,12 +1,12 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Utility.Helpers.Abstractions;
 using NovelWorld.Domain.CommandHandlers;
 using NovelWorld.Identity.Domain.Commands.User;
-using NovelWorld.Identity.Domain.Queries.User;
 using NovelWorld.Identity.Infrastructure.Contexts;
 using NovelWorld.Mediator;
 
@@ -33,18 +33,14 @@ namespace NovelWorld.Identity.Domain.CommandHandlers.User
         public override async Task<bool> Handle(ValidateUserCredentialCommand request,
             CancellationToken cancellationToken)
         {
-            var user = await _mediator.Send(new GetUserByEmailQuery()
-            {
-                Email = request.Email
-            });
+            var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == request.Email, cancellationToken: cancellationToken);
             
             if (user == null)
             {
                 return false;
             }
 
-            // return _passwordHasher.Check(user.Password, request.Password).Verified;
-            return _passwordHasher.Check("", request.Password).Verified;
+            return _passwordHasher.Check(user.Password, request.Password).Verified;
         }
     }
 }

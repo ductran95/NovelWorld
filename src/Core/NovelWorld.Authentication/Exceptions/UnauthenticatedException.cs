@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Net;
 using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.DTO;
@@ -16,7 +15,7 @@ namespace NovelWorld.Authentication.Exceptions
                 new Error(CommonErrorCodes.Unauthenticated, CommonErrorMessages.Unauthenticated)
             };
             
-            return new HttpException(HttpStatusCode.Unauthorized, errors, Message, this);
+            return new HttpException(401, errors, Message, this);
         }
     }
 }
