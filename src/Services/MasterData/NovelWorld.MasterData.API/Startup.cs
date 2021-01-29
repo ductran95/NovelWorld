@@ -153,7 +153,7 @@ namespace NovelWorld.MasterData.API
                 case EventBusTypes.RabbitMQ:
                     hcBuilder
                         .AddRabbitMQ(
-                            $"amqp://{appSetting.EventBusConfiguration.Connection}",
+                            $"amqp://{appSetting.EventBusConfiguration.ConnectionString}",
                             name: "identity-rabbitmq-check",
                             tags: new string[] { "rabbitmq" });
                     break;
@@ -161,7 +161,7 @@ namespace NovelWorld.MasterData.API
                 case EventBusTypes.AzureServiceBus:
                     hcBuilder
                         .AddAzureServiceBusTopic(
-                            appSetting.EventBusConfiguration.Connection,
+                            appSetting.EventBusConfiguration.ConnectionString,
                             topicName: appSetting.EventBusConfiguration.SubscriptionClientName,
                             name: "identity-azureservicebus-check",
                             tags: new string[] { "azureservicebus" });

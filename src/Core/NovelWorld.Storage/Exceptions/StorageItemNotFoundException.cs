@@ -1,6 +1,6 @@
 using System;
 
-namespace NovelWorld.Storage.Extensions
+namespace NovelWorld.Storage.Exceptions
 {
     public class StorageItemNotFoundException: Exception
     {

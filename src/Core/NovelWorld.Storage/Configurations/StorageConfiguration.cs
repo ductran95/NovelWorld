@@ -4,7 +4,6 @@ namespace NovelWorld.Storage.Configurations
     {
         public string Type { get; set; }
         public string RootPath { get; set; }
-        public string Account { get; set; }
-        public string Password { get; set; }
+        public string ConnectionString { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace NovelWorld.EventBus.AzureServiceBus.Mappings
                 
                 var logger = sp.GetRequiredService<ILogger<DefaultServiceBusPersistentConnection>>();
 
-                var serviceBusConnectionString = eventBusConfig.Connection;
+                var serviceBusConnectionString = eventBusConfig.ConnectionString;
                 return new ServiceBusConnectionStringBuilder(serviceBusConnectionString);
             });
 

@@ -22,7 +22,7 @@ namespace NovelWorld.EventBus.RabbitMQ.Mappings
                 var eventBusConfig = sp.GetService<IOptions<EventBusConfiguration>>().Value;
                 return new ConnectionFactory()
                 {
-                    Uri = new Uri(eventBusConfig.Connection),
+                    Uri = new Uri(eventBusConfig.ConnectionString),
                     DispatchConsumersAsync = true
                 };
             });

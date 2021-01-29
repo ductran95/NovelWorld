@@ -4,7 +4,7 @@ namespace NovelWorld.EventBus.Configurations
     {
         public string Type { get; set; }
         public string SubscriptionClientName { get; set; }
-        public string Connection { get; set; }
+        public string ConnectionString { get; set; }
         public int RetryCount { get; set; } = 5;
     }
 }
