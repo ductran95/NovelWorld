@@ -31,7 +31,9 @@ namespace NovelWorld.MasterData.Domain.QueryHandlers.Chapter
 
         public override async Task<ChapterDetailResponse> Handle(GetDetailChapterRequest request, CancellationToken cancellationToken)
         {
-            var chapter = await _dbContext.Chapters.FirstOrDefaultAsync(x=>x.Id == request.Id, cancellationToken: cancellationToken);
+            var chapter = await _dbContext.Chapters
+                .Include(x=>x.Book)
+                .FirstOrDefaultAsync(x=>x.Id == request.Id, cancellationToken: cancellationToken);
 
             if (chapter == null)
             {

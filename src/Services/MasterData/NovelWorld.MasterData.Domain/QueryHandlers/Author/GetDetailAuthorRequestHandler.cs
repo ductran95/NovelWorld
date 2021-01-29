@@ -31,7 +31,9 @@ namespace NovelWorld.MasterData.Domain.QueryHandlers.Author
 
         public override async Task<AuthorDetailResponse> Handle(GetDetailAuthorRequest request, CancellationToken cancellationToken)
         {
-            var author = await _dbContext.Authors.FirstOrDefaultAsync(x=>x.Id == request.Id, cancellationToken: cancellationToken);
+            var author = await _dbContext.Authors
+                .Include(x=>x.Books)
+                .FirstOrDefaultAsync(x=>x.Id == request.Id, cancellationToken: cancellationToken);
 
             if (author == null)
             {

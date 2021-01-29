@@ -31,7 +31,9 @@ namespace NovelWorld.MasterData.Domain.QueryHandlers.Category
 
         public override async Task<CategoryDetailResponse> Handle(GetDetailCategoryRequest request, CancellationToken cancellationToken)
         {
-            var category = await _dbContext.Categories.FirstOrDefaultAsync(x=>x.Id == request.Id, cancellationToken: cancellationToken);
+            var category = await _dbContext.Categories
+                .Include(x=>x.Books)
+                .FirstOrDefaultAsync(x=>x.Id == request.Id, cancellationToken: cancellationToken);
 
             if (category == null)
             {
