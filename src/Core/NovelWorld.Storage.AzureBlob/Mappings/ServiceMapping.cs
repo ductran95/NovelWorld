@@ -8,7 +8,7 @@ namespace NovelWorld.Storage.AzureBlob.Mappings
 {
     public static class ServiceMapping
     {
-        public static IServiceCollection RegisterAzureBlob(this IServiceCollection services, StorageConfiguration storageConfiguration)
+        public static IServiceCollection RegisterAzureBlob(this IServiceCollection services)
         {
             services.TryAddSingleton<IStorageProvider, AzureBlobStorageProvider>();
             

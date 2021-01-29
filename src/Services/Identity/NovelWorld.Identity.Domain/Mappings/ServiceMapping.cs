@@ -18,7 +18,9 @@ using NovelWorld.Identity.Infrastructure.UoW.Implements;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.Mappings;
 using NovelWorld.Infrastructure.UoW.Abstractions;
+using NovelWorld.Storage.AzureBlob.Mappings;
 using NovelWorld.Storage.Configurations;
+using NovelWorld.Storage.Local.Mappings;
 using NovelWorld.Utility.Mappings;
 
 namespace NovelWorld.Identity.Domain.Mappings
@@ -45,6 +47,7 @@ namespace NovelWorld.Identity.Domain.Mappings
                 .RegisterDbContexts(appSettings.DbConfiguration)
                 .RegisterUoW()
                 .RegisterEventBus(appSettings.EventBusConfiguration)
+                .RegisterStorage(appSettings.StorageConfiguration)
                 .RegisterQueries()
                 .RegisterCommands();
 
@@ -94,6 +97,22 @@ namespace NovelWorld.Identity.Domain.Mappings
         
                 default:
                     services.RegisterDefaultEventBus();
+                    break;
+            }
+        
+            return services;
+        }
+        
+        private static IServiceCollection RegisterStorage(this IServiceCollection services, StorageConfiguration storageConfiguration)
+        {
+            switch (storageConfiguration.Type)
+            {
+                case StorageTypes.Local:
+                    services.RegisterLocalStorage();
+                    break;
+        
+                case StorageTypes.AzureBlob:
+                    services.RegisterAzureBlob();
                     break;
             }
         

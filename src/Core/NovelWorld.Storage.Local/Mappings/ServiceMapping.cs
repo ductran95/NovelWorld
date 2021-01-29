@@ -8,7 +8,7 @@ namespace NovelWorld.Storage.Local.Mappings
 {
     public static class ServiceMapping
     {
-        public static IServiceCollection RegisterLocalStorage(this IServiceCollection services, StorageConfiguration storageConfiguration)
+        public static IServiceCollection RegisterLocalStorage(this IServiceCollection services)
         {
             services.TryAddSingleton<IStorageProvider, LocalStorageProvider>();
             
