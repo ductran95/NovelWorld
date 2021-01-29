@@ -16,7 +16,7 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Extensions
         public static IQueryable<T> Includes<T>(this IQueryable<T> query, Expression<Func<T, object>> includes)
             where T : class
         {
-            Ensure.NotNull(includes);
+            Check.NotNull(includes);
 
             var includeProps = includes.GetIncludeProperties();
 
@@ -32,8 +32,8 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Extensions
         public static PagedData<T> ToPaging<T>(this IQueryable<T> query, int page, int pageSize)
             where T : class
         {
-            Ensure.NotNullOrEmpty(page);
-            Ensure.NotNullOrEmpty(pageSize);
+            Check.NotNullOrEmpty(page);
+            Check.NotNullOrEmpty(pageSize);
 
             var result = new PagedData<T>();
             result.Page = page;
@@ -48,8 +48,8 @@ namespace NovelWorld.Infrastructure.EntityFrameworkCore.Extensions
         public static async Task<PagedData<T>> ToPagingAsync<T>(this IQueryable<T> query, int page, int pageSize, CancellationToken cancellationToken = default)
             where T : class
         {
-            Ensure.NotNullOrEmpty(page);
-            Ensure.NotNullOrEmpty(pageSize);
+            Check.NotNullOrEmpty(page);
+            Check.NotNullOrEmpty(pageSize);
 
             var result = new PagedData<T>();
             result.Page = page;

@@ -7,9 +7,9 @@ namespace NovelWorld.ConnectionProvider.SqlServer.Mappings
 {
     public static class ServiceMapping
     {
-        public static IServiceCollection RegisterSqlServerDbConnectionFactory(this IServiceCollection services, string connectionString)
+        public static IServiceCollection RegisterSqlServerDbConnectionFactory(this IServiceCollection services)
         {
-            services.TryAddSingleton<IDbConnectionFactory>(_ => new SqlConnectionFactory(connectionString));
+            services.TryAddSingleton<IDbConnectionFactory, SqlConnectionFactory>();
             return services;
         }
     }

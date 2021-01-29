@@ -22,7 +22,7 @@ namespace NovelWorld.Infrastructure.Extensions
         public static IEnumerable<string> GetIncludeProperties<T>(this Expression<Func<T, object>> includes)
             where T : class
         {
-            Ensure.NotNull(includes);
+            Check.NotNull(includes);
 
             var result = new List<string>();
 
@@ -68,7 +68,7 @@ namespace NovelWorld.Infrastructure.Extensions
                 return query;
             }
             
-            Ensure.NotContainNull(filters);
+            Check.NotContainNull(filters);
             
             var exp = filters.ToExpression<T>();
             return query.Where(exp);
@@ -82,7 +82,7 @@ namespace NovelWorld.Infrastructure.Extensions
                 return query;
             }
             
-            Ensure.NotContainNull(sorts);
+            Check.NotContainNull(sorts);
 
             var firstSort = sorts.FirstOrDefault();
             IOrderedQueryable<T> result = null;
@@ -116,8 +116,8 @@ namespace NovelWorld.Infrastructure.Extensions
         public static IQueryable<T> GetPage<T>(this IQueryable<T> query, int page, int pageSize)
             where T : class
         {
-            Ensure.NotNullOrEmpty(page);
-            Ensure.NotNullOrEmpty(pageSize);
+            Check.NotNullOrEmpty(page);
+            Check.NotNullOrEmpty(pageSize);
 
             var skip = (page - 1) * pageSize;
             

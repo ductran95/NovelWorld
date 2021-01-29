@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -16,10 +15,9 @@ using Microsoft.IdentityModel.Logging;
 using NovelWorld.API.Attributes;
 using NovelWorld.API.Formatters;
 using NovelWorld.API.Mappings;
-using NovelWorld.API.Middlewares;
 using NovelWorld.Utility.Extensions;
-using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Mappings;
+using NovelWorld.EventBus.Configurations;
 using NovelWorld.EventBus.Extensions;
 using NovelWorld.Identity.Web.Certificates;
 using NovelWorld.Identity.Domain.Configurations;
@@ -28,7 +26,6 @@ using NovelWorld.Identity.Web.Extensions;
 using NovelWorld.Identity.Web.Services.Implements;
 using NovelWorld.Mediator;
 using NovelWorld.Mediator.DependencyInjection;
-using ModelMapping = NovelWorld.Identity.Domain.Mappings.ModelMapping;
 
 namespace NovelWorld.Identity.Web
 {
@@ -48,7 +45,7 @@ namespace NovelWorld.Identity.Web
             var novelWorldAssemblies = AppDomain.CurrentDomain.GetAssemblies("NovelWorld");
             
             // Configuration
-            var appSetting = new IdentityAppSettings();
+            var appSetting = new AppSettings();
             Configuration.Bind(appSetting);
             services.RegisterAppConfig(Configuration);
             
@@ -88,15 +85,11 @@ namespace NovelWorld.Identity.Web
             ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
             
             // Add Event Bus
-            services.RegisterDefaultEventBus(appSetting.EventBusConfiguration);
-            services.RegisterIntegrationEventHandler(new Type[]
-            {
-                typeof(ModelMapping)
-            });
+            services.RegisterIntegrationEventHandler(novelWorldAssemblies);
             
             // Add DI
             services.RegisterHttpAuthContext();
-            services.RegisterServices(Configuration);
+            services.RegisterServices(appSetting);
             
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");
@@ -125,7 +118,7 @@ namespace NovelWorld.Identity.Web
                 case EventBusTypes.RabbitMQ:
                     hcBuilder
                         .AddRabbitMQ(
-                            $"amqp://{appSetting.EventBusConfiguration.EventBusConnection}",
+                            $"amqp://{appSetting.EventBusConfiguration.ConnectionString}",
                             name: "identity-rabbitmq-check",
                             tags: new string[] { "rabbitmq" });
                     break;
@@ -133,7 +126,7 @@ namespace NovelWorld.Identity.Web
                 case EventBusTypes.AzureServiceBus:
                     hcBuilder
                         .AddAzureServiceBusTopic(
-                            appSetting.EventBusConfiguration.EventBusConnection,
+                            appSetting.EventBusConfiguration.ConnectionString,
                             topicName: appSetting.EventBusConfiguration.SubscriptionClientName,
                             name: "identity-azureservicebus-check",
                             tags: new string[] { "azureservicebus" });

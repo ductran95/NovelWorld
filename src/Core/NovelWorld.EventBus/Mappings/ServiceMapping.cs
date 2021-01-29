@@ -1,5 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using NovelWorld.EventBus.Bus.Abstractions;
+using NovelWorld.EventBus.Bus.Implements;
+using NovelWorld.EventBus.SubscriptionsManagers.Abstractions;
+using NovelWorld.EventBus.SubscriptionsManagers.Implements;
 
 namespace NovelWorld.EventBus.Mappings
 {

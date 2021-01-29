@@ -3,16 +3,24 @@ using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NovelWorld.Authentication.Configurations;
+using NovelWorld.ConnectionProvider.Configurations;
 using NovelWorld.ConnectionProvider.Mappings;
 using NovelWorld.ConnectionProvider.PostgreSql.Mappings;
-using NovelWorld.Domain.Mappings;
-using NovelWorld.EventBus;
+using NovelWorld.EventBus.AzureServiceBus.Mappings;
+using NovelWorld.EventBus.Bus.Abstractions;
+using NovelWorld.EventBus.Configurations;
+using NovelWorld.EventBus.Mappings;
+using NovelWorld.EventBus.RabbitMQ.Mappings;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.Mappings;
 using NovelWorld.Infrastructure.UoW.Abstractions;
 using NovelWorld.MasterData.Domain.Configurations;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.MasterData.Infrastructure.UoW.Implements;
+using NovelWorld.Storage.AzureBlob.Mappings;
+using NovelWorld.Storage.Configurations;
+using NovelWorld.Storage.Local.Mappings;
 using NovelWorld.Utility.Mappings;
 
 namespace NovelWorld.MasterData.Domain.Mappings
@@ -22,22 +30,23 @@ namespace NovelWorld.MasterData.Domain.Mappings
         public static IServiceCollection RegisterAppConfig(
             this IServiceCollection services, IConfiguration config)
         {
-            services.RegisterDefaultAppConfig(config);
-            
-            services.Configure<MasterDataAppSettings>(config);
+            services.Configure<AppSettings>(config);
+            services.Configure<OAuth2Configuration>(config.GetSection(nameof(OAuth2Configuration)));
+            services.Configure<EventBusConfiguration>(config.GetSection(nameof(EventBusConfiguration)));
+            services.Configure<StorageConfiguration>(config.GetSection(nameof(StorageConfiguration)));
 
             return services;
         }
         
-        public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection RegisterServices(this IServiceCollection services, AppSettings appSettings)
         {
             services
                 .RegisterDefaultHelpers()
-                .RegisterPostgreSqlDbConnectionFactory(config.GetConnectionString("DefaultConnection"))
-                .RegisterDefaultDbConnection()
                 .RegisterDefaultEventSourcing()
-                .RegisterDbContexts()
+                .RegisterDbContexts(appSettings.DbConfiguration)
                 .RegisterUoW()
+                .RegisterEventBus(appSettings.EventBusConfiguration)
+                .RegisterStorage(appSettings.StorageConfiguration)
                 .RegisterQueries()
                 .RegisterCommands();
 
@@ -69,17 +78,64 @@ namespace NovelWorld.MasterData.Domain.Mappings
 
             return services;
         }
-
-        private static IServiceCollection RegisterDbContexts(this IServiceCollection services)
+        
+        private static IServiceCollection RegisterEventBus(this IServiceCollection services, EventBusConfiguration eventBusConfig)
         {
-            services.AddDbContext<MasterDataDbContext>((sp, options) =>
+            services.RegisterDefaultEventBusSubscriptionsManager();
+        
+            switch (eventBusConfig.Type)
             {
-                // ReSharper disable once AssignNullToNotNullAttribute
-                options.UseNpgsql(sp.GetService<DbConnection>());
-                options.EnableDetailedErrors();
-                options.EnableSensitiveDataLogging();
-            });
-
+                case EventBusTypes.RabbitMQ:
+                    services.RegisterRabbitMQ();
+                    break;
+        
+                case EventBusTypes.AzureServiceBus:
+                    services.RegisterAzureServiceBus();
+                    break;
+        
+                default:
+                    services.RegisterDefaultEventBus();
+                    break;
+            }
+        
+            return services;
+        }
+        
+        private static IServiceCollection RegisterStorage(this IServiceCollection services, StorageConfiguration storageConfiguration)
+        {
+            switch (storageConfiguration.Type)
+            {
+                case StorageTypes.Local:
+                    services.RegisterLocalStorage();
+                    break;
+        
+                case StorageTypes.AzureBlob:
+                    services.RegisterAzureBlob();
+                    break;
+            }
+        
+            return services;
+        }
+        
+        private static IServiceCollection RegisterDbContexts(this IServiceCollection services, DbConfiguration dbConfiguration)
+        {
+            switch (dbConfiguration.Type)
+            {
+                case DbTypes.PostgreSql:
+                    services
+                        .RegisterPostgreSqlDbConnectionFactory()
+                        .AddDbContext<MasterDataDbContext>((sp, options) =>
+                        {
+                            // ReSharper disable once AssignNullToNotNullAttribute
+                            options.UseNpgsql(sp.GetService<DbConnection>());
+                            options.EnableDetailedErrors();
+                            options.EnableSensitiveDataLogging();
+                        });
+                    break;
+                
+            }
+            
+            services.RegisterDefaultDbConnection();
             services.AddScoped<EfCoreEntityDbContext>(sp => sp.GetService<MasterDataDbContext>());
             services.AddScoped<DbContext>(sp => sp.GetService<MasterDataDbContext>());
 

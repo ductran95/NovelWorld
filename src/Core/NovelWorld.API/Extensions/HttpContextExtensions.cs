@@ -31,11 +31,11 @@ namespace NovelWorld.API.Extensions
 
         public static async Task WriteActionResultAsync(this HttpContext httpContext, ViewResult result, RouteData routeData = null)
         {
-            Ensure.NotNull(httpContext);
-            Ensure.NotNull(result);
+            Check.NotNull(httpContext);
+            Check.NotNull(result);
 
             var executor = httpContext.RequestServices.GetService<IActionResultExecutor<ViewResult>>();
-            Ensure.NotNull(executor);
+            Check.NotNull(executor);
 
             var newRouteData = routeData ?? httpContext.GetRouteData() ?? EmptyRouteData;
             var actionContext = new ActionContext(httpContext, newRouteData, EmptyActionDescriptor, result.ViewData.ModelState);

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using NovelWorld.EventBus;
+using NovelWorld.EventBus.Bus.Abstractions;
 using NovelWorld.Infrastructure.EventSourcing.Abstractions;
 
 namespace NovelWorld.Infrastructure.EventSourcing.Implements
