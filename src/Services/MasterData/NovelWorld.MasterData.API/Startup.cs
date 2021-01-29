@@ -97,7 +97,7 @@ namespace NovelWorld.MasterData.API
             
             // Add DI
             services.RegisterHttpAuthContext();
-            services.RegisterServices(Configuration);
+            services.RegisterServices(appSetting);
             
             // Authentication
             JwtSecurityTokenHandler.DefaultInboundClaimFilter.Clear();
@@ -153,7 +153,7 @@ namespace NovelWorld.MasterData.API
                 case EventBusTypes.RabbitMQ:
                     hcBuilder
                         .AddRabbitMQ(
-                            $"amqp://{appSetting.EventBusConfiguration.EventBusConnection}",
+                            $"amqp://{appSetting.EventBusConfiguration.Connection}",
                             name: "identity-rabbitmq-check",
                             tags: new string[] { "rabbitmq" });
                     break;
@@ -161,7 +161,7 @@ namespace NovelWorld.MasterData.API
                 case EventBusTypes.AzureServiceBus:
                     hcBuilder
                         .AddAzureServiceBusTopic(
-                            appSetting.EventBusConfiguration.EventBusConnection,
+                            appSetting.EventBusConfiguration.Connection,
                             topicName: appSetting.EventBusConfiguration.SubscriptionClientName,
                             name: "identity-azureservicebus-check",
                             tags: new string[] { "azureservicebus" });

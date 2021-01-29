@@ -2,29 +2,37 @@
 using System.IO;
 using System.Net.Sockets;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using NovelWorld.EventBus.Configurations;
+using NovelWorld.EventBus.RabbitMQ.Connections.Abstractions;
 using Polly;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using RabbitMQ.Client.Exceptions;
 
-namespace NovelWorld.EventBus.RabbitMQ
+namespace NovelWorld.EventBus.RabbitMQ.Connections.Implements
 {
     public class DefaultRabbitMQPersistentConnection
        : IRabbitMQPersistentConnection
     {
         private readonly IConnectionFactory _connectionFactory;
         private readonly ILogger<DefaultRabbitMQPersistentConnection> _logger;
-        private readonly int _retryCount;
+        private readonly EventBusConfiguration _configuration;
+        
         IConnection _connection;
         bool _disposed;
 
         private readonly object _syncRoot = new object();
 
-        public DefaultRabbitMQPersistentConnection(IConnectionFactory connectionFactory, ILogger<DefaultRabbitMQPersistentConnection> logger, int retryCount = 5)
+        public DefaultRabbitMQPersistentConnection(
+            IConnectionFactory connectionFactory, 
+            ILogger<DefaultRabbitMQPersistentConnection> logger, 
+            IOptions<EventBusConfiguration> configuration
+            )
         {
             _connectionFactory = connectionFactory ?? throw new ArgumentNullException(nameof(connectionFactory));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _retryCount = retryCount;
+            _configuration = configuration.Value;
         }
 
         public bool IsConnected
@@ -69,7 +77,7 @@ namespace NovelWorld.EventBus.RabbitMQ
             {
                 var policy = Policy.Handle<SocketException>()
                     .Or<BrokerUnreachableException>()
-                    .WaitAndRetry(_retryCount, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)), (ex, time) =>
+                    .WaitAndRetry(_configuration.RetryCount, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)), (ex, time) =>
                     {
                         _logger.LogWarning(ex, "RabbitMQ Client could not connect after {TimeOut}s ({ExceptionMessage})", $"{time.TotalSeconds:n1}", ex.Message);
                     }

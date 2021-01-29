@@ -1,7 +1,7 @@
 ﻿using NovelWorld.EventBus.EventHandlers;
 using NovelWorld.EventBus.Events;
 
-namespace NovelWorld.EventBus
+namespace NovelWorld.EventBus.Bus.Abstractions
 {
     public interface IEventBus
     {

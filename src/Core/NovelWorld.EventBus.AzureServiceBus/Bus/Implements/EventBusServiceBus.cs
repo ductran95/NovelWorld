@@ -5,15 +5,23 @@ using System.Threading.Tasks;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NovelWorld.EventBus.AzureServiceBus.Connections.Abstractions;
+using NovelWorld.EventBus.Bus.Abstractions;
+using NovelWorld.EventBus.Configurations;
 using NovelWorld.EventBus.EventHandlers;
 using NovelWorld.EventBus.Events;
+using NovelWorld.EventBus.SubscriptionsManagers.Abstractions;
+using NovelWorld.EventBus.SubscriptionsManagers.Implements;
 
-namespace NovelWorld.EventBus.AzureServiceBus
+namespace NovelWorld.EventBus.AzureServiceBus.Bus.Implements
 {
     public class EventBusServiceBus : IEventBus
     {
+        private const string IntegrationEventSuffix = "IntegrationEvent";
+        
         private static readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings
         {
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -24,17 +32,22 @@ namespace NovelWorld.EventBus.AzureServiceBus
         private readonly IEventBusSubscriptionsManager _subsManager;
         private readonly SubscriptionClient _subscriptionClient;
         private readonly IServiceProvider _serviceProvider;
-        private const string IntegrationEventSuffix = "IntegrationEvent";
+        private readonly EventBusConfiguration _configuration;
 
-        public EventBusServiceBus(IServiceBusPersistentConnection serviceBusPersistentConnection,
-            ILogger<EventBusServiceBus> logger, IServiceProvider serviceProvider, IEventBusSubscriptionsManager subsManager, string subscriptionClientName)
+        public EventBusServiceBus(
+            IServiceBusPersistentConnection serviceBusPersistentConnection,
+            ILogger<EventBusServiceBus> logger, 
+            IServiceProvider serviceProvider, 
+            IEventBusSubscriptionsManager subsManager, 
+            IOptions<EventBusConfiguration> configuration
+            )
         {
             _serviceBusPersistentConnection = serviceBusPersistentConnection;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _subsManager = subsManager ?? new InMemoryEventBusSubscriptionsManager();
-
+            _configuration = configuration.Value;
             _subscriptionClient = new SubscriptionClient(serviceBusPersistentConnection.ServiceBusConnectionStringBuilder,
-                subscriptionClientName);
+                _configuration.SubscriptionClientName);
             _serviceProvider = serviceProvider;
 
             RemoveDefaultRule();

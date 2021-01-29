@@ -89,7 +89,7 @@ namespace NovelWorld.Identity.Web
             
             // Add DI
             services.RegisterHttpAuthContext();
-            services.RegisterServices(Configuration);
+            services.RegisterServices(appSetting);
             
             // Config CORS
             var allowedOrigin = Configuration.GetValue<string[]>("AllowedOrigins");
@@ -118,7 +118,7 @@ namespace NovelWorld.Identity.Web
                 case EventBusTypes.RabbitMQ:
                     hcBuilder
                         .AddRabbitMQ(
-                            $"amqp://{appSetting.EventBusConfiguration.EventBusConnection}",
+                            $"amqp://{appSetting.EventBusConfiguration.Connection}",
                             name: "identity-rabbitmq-check",
                             tags: new string[] { "rabbitmq" });
                     break;
@@ -126,7 +126,7 @@ namespace NovelWorld.Identity.Web
                 case EventBusTypes.AzureServiceBus:
                     hcBuilder
                         .AddAzureServiceBusTopic(
-                            appSetting.EventBusConfiguration.EventBusConnection,
+                            appSetting.EventBusConfiguration.Connection,
                             topicName: appSetting.EventBusConfiguration.SubscriptionClientName,
                             name: "identity-azureservicebus-check",
                             tags: new string[] { "azureservicebus" });

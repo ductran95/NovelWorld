@@ -1,4 +1,4 @@
-namespace NovelWorld.EventBus
+namespace NovelWorld.EventBus.Queues.Abstractions
 {
     public interface IIntegrationEventQueue
     {

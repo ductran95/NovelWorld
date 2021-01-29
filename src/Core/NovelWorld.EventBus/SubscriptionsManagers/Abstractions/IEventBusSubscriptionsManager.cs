@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NovelWorld.EventBus.EventHandlers;
 using NovelWorld.EventBus.Events;
 
-namespace NovelWorld.EventBus
+namespace NovelWorld.EventBus.SubscriptionsManagers.Abstractions
 {
     public interface IEventBusSubscriptionsManager
     {

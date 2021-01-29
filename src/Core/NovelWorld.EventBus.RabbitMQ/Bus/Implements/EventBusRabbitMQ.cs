@@ -5,17 +5,23 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using NovelWorld.Utility.Extensions;
+using NovelWorld.EventBus.Bus.Abstractions;
+using NovelWorld.EventBus.Configurations;
 using NovelWorld.EventBus.EventHandlers;
 using NovelWorld.EventBus.Events;
+using NovelWorld.EventBus.RabbitMQ.Connections.Abstractions;
+using NovelWorld.EventBus.SubscriptionsManagers.Abstractions;
+using NovelWorld.EventBus.SubscriptionsManagers.Implements;
+using NovelWorld.Utility.Extensions;
 using Polly;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using RabbitMQ.Client.Exceptions;
 
-namespace NovelWorld.EventBus.RabbitMQ
+namespace NovelWorld.EventBus.RabbitMQ.Bus.Implements
 {
     public class EventBusRabbitMQ : IEventBus, IDisposable
     {
@@ -30,21 +36,26 @@ namespace NovelWorld.EventBus.RabbitMQ
         private readonly ILogger<EventBusRabbitMQ> _logger;
         private readonly IEventBusSubscriptionsManager _subsManager;
         private readonly IServiceProvider _serviceProvider;
-        private readonly int _retryCount;
+        private readonly EventBusConfiguration _configuration;
 
         private IModel _consumerChannel;
         private string _queueName;
 
-        public EventBusRabbitMQ(IRabbitMQPersistentConnection persistentConnection, ILogger<EventBusRabbitMQ> logger,
-            IServiceProvider serviceProvider, IEventBusSubscriptionsManager subsManager, string queueName = null, int retryCount = 5)
+        public EventBusRabbitMQ(
+            IRabbitMQPersistentConnection persistentConnection, 
+            ILogger<EventBusRabbitMQ> logger,
+            IServiceProvider serviceProvider, 
+            IEventBusSubscriptionsManager subsManager, 
+            IOptions<EventBusConfiguration> configuration
+            )
         {
             _persistentConnection = persistentConnection ?? throw new ArgumentNullException(nameof(persistentConnection));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _subsManager = subsManager ?? new InMemoryEventBusSubscriptionsManager();
             _serviceProvider = serviceProvider;
-            _queueName = queueName;
+            _queueName = _configuration.SubscriptionClientName;
             _consumerChannel = CreateConsumerChannel();
-            _retryCount = retryCount;
+            _configuration = configuration.Value;
             _subsManager.OnEventRemoved += SubsManager_OnEventRemoved;
         }
 
@@ -78,7 +89,7 @@ namespace NovelWorld.EventBus.RabbitMQ
 
             var policy = Policy.Handle<BrokerUnreachableException>()
                 .Or<SocketException>()
-                .WaitAndRetry(_retryCount, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)), (ex, time) =>
+                .WaitAndRetry(_configuration.RetryCount, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)), (ex, time) =>
                 {
                     _logger.LogWarning(ex, "Could not publish event: {EventId} after {Timeout}s ({ExceptionMessage})", @event.Id, $"{time.TotalSeconds:n1}", ex.Message);
                 });

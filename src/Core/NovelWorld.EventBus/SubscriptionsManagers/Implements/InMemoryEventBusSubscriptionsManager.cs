@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using NovelWorld.EventBus.EventHandlers;
 using NovelWorld.EventBus.Events;
+using NovelWorld.EventBus.SubscriptionsManagers.Abstractions;
 
-namespace NovelWorld.EventBus
+namespace NovelWorld.EventBus.SubscriptionsManagers.Implements
 {
     public class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptionsManager
     {

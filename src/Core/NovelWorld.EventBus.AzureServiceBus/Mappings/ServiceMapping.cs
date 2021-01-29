@@ -2,35 +2,33 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using NovelWorld.EventBus.AzureServiceBus.Bus.Implements;
+using NovelWorld.EventBus.AzureServiceBus.Connections.Abstractions;
+using NovelWorld.EventBus.AzureServiceBus.Connections.Implements;
+using NovelWorld.EventBus.Bus.Abstractions;
 using NovelWorld.EventBus.Configurations;
+using NovelWorld.EventBus.SubscriptionsManagers.Abstractions;
 
 namespace NovelWorld.EventBus.AzureServiceBus.Mappings
 {
     public static class ServiceMapping
     {
-        public static IServiceCollection RegisterAzureServiceBus(this IServiceCollection services, EventBusConfiguration eventBusConfig)
+        public static IServiceCollection RegisterAzureServiceBus(this IServiceCollection services)
         {
-            var subscriptionClientName = eventBusConfig.SubscriptionClientName;
-            
-            services.TryAddSingleton<IServiceBusPersistentConnection>(sp =>
+            services.TryAddSingleton<ServiceBusConnectionStringBuilder>(sp =>
             {
+                // ReSharper disable once PossibleNullReferenceException
+                var eventBusConfig = sp.GetService<IOptions<EventBusConfiguration>>().Value;
+                
                 var logger = sp.GetRequiredService<ILogger<DefaultServiceBusPersistentConnection>>();
 
-                var serviceBusConnectionString = eventBusConfig.EventBusConnection;
-                var serviceBusConnection = new ServiceBusConnectionStringBuilder(serviceBusConnectionString);
-
-                return new DefaultServiceBusPersistentConnection(serviceBusConnection, logger);
+                var serviceBusConnectionString = eventBusConfig.Connection;
+                return new ServiceBusConnectionStringBuilder(serviceBusConnectionString);
             });
 
-            services.TryAddSingleton<IEventBus>(sp =>
-            {
-                var serviceBusPersistentConnection = sp.GetRequiredService<IServiceBusPersistentConnection>();
-                var logger = sp.GetRequiredService<ILogger<EventBusServiceBus>>();
-                var eventBusSubscriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
-
-                return new EventBusServiceBus(serviceBusPersistentConnection, logger, sp,
-                    eventBusSubscriptionsManager, subscriptionClientName);
-            });
+            services.TryAddSingleton<IServiceBusPersistentConnection, DefaultServiceBusPersistentConnection>();
+            services.TryAddSingleton<IEventBus, EventBusServiceBus>();
             
             return services;
         }

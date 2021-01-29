@@ -13,4 +13,8 @@
       <ProjectReference Include="..\..\Core\NovelWorld.Utility\NovelWorld.Utility.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Queues\Implements" />
+    </ItemGroup>
+
 </Project>

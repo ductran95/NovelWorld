@@ -7,9 +7,9 @@ namespace NovelWorld.ConnectionProvider.PostgreSql.Mappings
 {
     public static class ServiceMapping
     {
-        public static IServiceCollection RegisterPostgreSqlDbConnectionFactory(this IServiceCollection services, string connectionString)
+        public static IServiceCollection RegisterPostgreSqlDbConnectionFactory(this IServiceCollection services)
         {
-            services.TryAddSingleton<IDbConnectionFactory>(_ => new NpgsqlConnectionFactory(connectionString));
+            services.TryAddSingleton<IDbConnectionFactory, NpgsqlConnectionFactory>();
             return services;
         }
     }

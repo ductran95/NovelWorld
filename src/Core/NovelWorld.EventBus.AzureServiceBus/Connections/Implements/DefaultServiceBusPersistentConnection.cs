@@ -1,24 +1,34 @@
 ﻿using System;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using NovelWorld.EventBus.AzureServiceBus.Connections.Abstractions;
+using NovelWorld.EventBus.Configurations;
 
-namespace NovelWorld.EventBus.AzureServiceBus
+namespace NovelWorld.EventBus.AzureServiceBus.Connections.Implements
 {
     public class DefaultServiceBusPersistentConnection : IServiceBusPersistentConnection
     {
         private readonly ILogger<DefaultServiceBusPersistentConnection> _logger;
         private readonly ServiceBusConnectionStringBuilder _serviceBusConnectionStringBuilder;
+        private readonly EventBusConfiguration _configuration;
         private ITopicClient _topicClient;
-
+        
         bool _disposed;
 
-        public DefaultServiceBusPersistentConnection(ServiceBusConnectionStringBuilder serviceBusConnectionStringBuilder,
-            ILogger<DefaultServiceBusPersistentConnection> logger)
+        public DefaultServiceBusPersistentConnection(
+            ServiceBusConnectionStringBuilder serviceBusConnectionStringBuilder,
+            ILogger<DefaultServiceBusPersistentConnection> logger,
+            IOptions<EventBusConfiguration> configuration
+            )
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             _serviceBusConnectionStringBuilder = serviceBusConnectionStringBuilder ??
                 throw new ArgumentNullException(nameof(serviceBusConnectionStringBuilder));
+
+            _configuration = configuration.Value;
+            
             _topicClient = new TopicClient(_serviceBusConnectionStringBuilder, RetryPolicy.Default);
         }
 

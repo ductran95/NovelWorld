@@ -1,4 +1,6 @@
 using System.Data.Common;
+using Microsoft.Extensions.Options;
+using NovelWorld.ConnectionProvider.Configurations;
 using NovelWorld.ConnectionProvider.Factories.Abstractions;
 using Npgsql;
 
@@ -6,18 +8,18 @@ namespace NovelWorld.ConnectionProvider.PostgreSql.Factories.Implements
 {
     public class NpgsqlConnectionFactory: IDbConnectionFactory
     {
-        protected readonly string _connectionString;
+        protected readonly DbConfiguration _configuration;
 
-        public string ConnectionString => _connectionString;
+        public DbConfiguration Configuration => _configuration;
         
-        public NpgsqlConnectionFactory(string connectionString)
+        public NpgsqlConnectionFactory(IOptions<DbConfiguration> configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration.Value;
         }
 
         public DbConnection CreateConnection()
         {
-            return new NpgsqlConnection(ConnectionString);
+            return new NpgsqlConnection(_configuration.ConnectionString);
         }
     }
 }

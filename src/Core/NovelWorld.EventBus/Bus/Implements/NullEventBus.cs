@@ -1,7 +1,8 @@
-﻿using NovelWorld.EventBus.EventHandlers;
+﻿using NovelWorld.EventBus.Bus.Abstractions;
+using NovelWorld.EventBus.EventHandlers;
 using NovelWorld.EventBus.Events;
 
-namespace NovelWorld.EventBus
+namespace NovelWorld.EventBus.Bus.Implements
 {
     public class NullEventBus : IEventBus
     {
