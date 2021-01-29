@@ -1,8 +1,8 @@
-using NovelWorld.Authentication;
-using NovelWorld.EventBus;
-using NovelWorld.Storage;
+using NovelWorld.Authentication.Configurations;
+using NovelWorld.EventBus.Configurations;
+using NovelWorld.Storage.Configurations;
 
-namespace NovelWorld.Domain.Configurations
+namespace NovelWorld.MasterData.Domain.Configurations
 {
     public class AppSettings
     {

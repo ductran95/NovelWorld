@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using NovelWorld.EventBus.Configurations;
 
 namespace NovelWorld.EventBus.AzureServiceBus.Mappings
 {

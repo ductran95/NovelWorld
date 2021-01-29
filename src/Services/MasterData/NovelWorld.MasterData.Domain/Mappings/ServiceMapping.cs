@@ -3,16 +3,22 @@ using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NovelWorld.Authentication.Configurations;
 using NovelWorld.ConnectionProvider.Mappings;
 using NovelWorld.ConnectionProvider.PostgreSql.Mappings;
 using NovelWorld.Domain.Mappings;
 using NovelWorld.EventBus;
+using NovelWorld.EventBus.AzureServiceBus.Mappings;
+using NovelWorld.EventBus.Configurations;
+using NovelWorld.EventBus.Mappings;
+using NovelWorld.EventBus.RabbitMQ.Mappings;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Contexts;
 using NovelWorld.Infrastructure.Mappings;
 using NovelWorld.Infrastructure.UoW.Abstractions;
 using NovelWorld.MasterData.Domain.Configurations;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.MasterData.Infrastructure.UoW.Implements;
+using NovelWorld.Storage.Configurations;
 using NovelWorld.Utility.Mappings;
 
 namespace NovelWorld.MasterData.Domain.Mappings
@@ -22,9 +28,10 @@ namespace NovelWorld.MasterData.Domain.Mappings
         public static IServiceCollection RegisterAppConfig(
             this IServiceCollection services, IConfiguration config)
         {
-            services.RegisterDefaultAppConfig(config);
-            
-            services.Configure<MasterDataAppSettings>(config);
+            services.Configure<AppSettings>(config);
+            services.Configure<OAuth2Configuration>(config.GetSection(nameof(OAuth2Configuration)));
+            services.Configure<EventBusConfiguration>(config.GetSection(nameof(EventBusConfiguration)));
+            services.Configure<StorageConfiguration>(config.GetSection(nameof(StorageConfiguration)));
 
             return services;
         }
@@ -38,6 +45,7 @@ namespace NovelWorld.MasterData.Domain.Mappings
                 .RegisterDefaultEventSourcing()
                 .RegisterDbContexts()
                 .RegisterUoW()
+                .RegisterEventBus(new EventBusConfiguration())
                 .RegisterQueries()
                 .RegisterCommands();
 
@@ -67,6 +75,30 @@ namespace NovelWorld.MasterData.Domain.Mappings
         {
             
 
+            return services;
+        }
+        
+        private static IServiceCollection RegisterEventBus(this IServiceCollection services, EventBusConfiguration eventBusConfig)
+        {
+            services.RegisterDefaultEventBusSubscriptionsManager();
+        
+            switch (eventBusConfig.Type)
+            {
+                case EventBusTypes.RabbitMQ:
+                    services.RegisterRabbitMQ(eventBusConfig);
+        
+                    break;
+        
+                case EventBusTypes.AzureServiceBus:
+                    services.RegisterAzureServiceBus(eventBusConfig);
+        
+                    break;
+        
+                default:
+                    services.RegisterDefaultEventBus();
+                    break;
+            }
+        
             return services;
         }
 

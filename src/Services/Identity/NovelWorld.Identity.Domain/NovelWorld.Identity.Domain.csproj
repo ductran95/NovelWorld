@@ -6,6 +6,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Core\NovelWorld.Domain\NovelWorld.Domain.csproj" />
+      <ProjectReference Include="..\..\..\Core\NovelWorld.EventBus.AzureServiceBus\NovelWorld.EventBus.AzureServiceBus.csproj" />
+      <ProjectReference Include="..\..\..\Core\NovelWorld.EventBus.RabbitMQ\NovelWorld.EventBus.RabbitMQ.csproj" />
+      <ProjectReference Include="..\..\..\Core\NovelWorld.Storage\NovelWorld.Storage.csproj" />
       <ProjectReference Include="..\NovelWorld.Identity.Infrastructure\NovelWorld.Identity.Infrastructure.csproj" />
     </ItemGroup>
 

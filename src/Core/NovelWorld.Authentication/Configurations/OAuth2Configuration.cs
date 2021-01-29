@@ -1,4 +1,4 @@
-namespace NovelWorld.Authentication
+namespace NovelWorld.Authentication.Configurations
 {
     public class OAuth2Configuration
     {

@@ -1,4 +1,4 @@
-﻿namespace NovelWorld.Data.Constants
+﻿namespace NovelWorld.EventBus.Configurations
 {
     public static class EventBusTypes
     {

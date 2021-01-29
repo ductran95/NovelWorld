@@ -1,4 +1,4 @@
-namespace NovelWorld.EventBus
+namespace NovelWorld.EventBus.Configurations
 {
     public class EventBusConfiguration
     {

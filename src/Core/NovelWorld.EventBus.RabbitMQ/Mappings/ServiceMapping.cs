@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using NovelWorld.EventBus.Configurations;
 using RabbitMQ.Client;
 
 namespace NovelWorld.EventBus.RabbitMQ.Mappings

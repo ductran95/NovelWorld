@@ -18,7 +18,7 @@ namespace NovelWorld.MasterData.Domain.CommandHandlers.Book
     public sealed class UploadBookCoverRequestHandler : CommandHandler<UploadBookCoverRequest>
     {
         private readonly MasterDataDbContext _dbContext;
-        private readonly MasterDataAppSettings _appSetting;
+        private readonly AppSettings _appSetting;
         
         public UploadBookCoverRequestHandler(
             IMediator mediator, 
@@ -26,7 +26,7 @@ namespace NovelWorld.MasterData.Domain.CommandHandlers.Book
             ILogger<UploadBookCoverRequestHandler> logger, 
             IAuthContext authContext,
             MasterDataDbContext dbContext,
-            IOptions<MasterDataAppSettings> appSetting
+            IOptions<AppSettings> appSetting
         ) : base(mediator,
             mapper, logger, authContext)
         {

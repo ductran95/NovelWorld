@@ -4,14 +4,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Reflection;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -23,16 +21,16 @@ using NovelWorld.API.Attributes;
 using NovelWorld.API.Filters;
 using NovelWorld.API.Formatters;
 using NovelWorld.API.Mappings;
-using NovelWorld.Authentication;
+using NovelWorld.Authentication.Configurations;
 using NovelWorld.Data.Constants;
-using NovelWorld.Domain.Configurations;
 using NovelWorld.Domain.Mappings;
+using NovelWorld.EventBus.Configurations;
 using NovelWorld.EventBus.Extensions;
+using NovelWorld.MasterData.Domain.Configurations;
 using NovelWorld.MasterData.Domain.Mappings;
 using NovelWorld.Mediator;
 using NovelWorld.Mediator.DependencyInjection;
 using NovelWorld.Utility.Extensions;
-using ModelMapping = NovelWorld.MasterData.Domain.Mappings.ModelMapping;
 
 namespace NovelWorld.MasterData.API
 {
@@ -95,11 +93,7 @@ namespace NovelWorld.MasterData.API
             ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
             
             // Add Event Bus
-            services.RegisterDefaultEventBus(appSetting.EventBusConfiguration);
-            services.RegisterIntegrationEventHandler(new Type[]
-            {
-                typeof(ModelMapping)
-            });
+            services.RegisterIntegrationEventHandler(novelWorldAssemblies);
             
             // Add DI
             services.RegisterHttpAuthContext();
