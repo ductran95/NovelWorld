@@ -1,3 +1,0 @@
-[22:33:11] [Information] [IdentityServer4.Startup] Starting IdentityServer4 version "4.1.1+cebd52f5bc61bdefc262fd20739d4d087c6f961f"
-[22:33:11] [Information] [IdentityServer4.Startup] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
-[22:33:11] [Information] [IdentityServer4.Startup] Using the default authentication scheme "idsrv" for IdentityServer
