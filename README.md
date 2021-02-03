@@ -3,17 +3,18 @@
 1. Identity
     * Login, logout using OIDC
     * Register new user
-    * Manage user data (name, dob, avatar)
+    * Update user data (name, dob, avatar)
 2. Master Data
     * CRUD Category
     * CRUD Book
     * CRUD Book's Chapters
-    * CRUD Book's Comments
     * CRUD other data (FAQ, About, Contact)
 3. Library
     * Query book by top reading, top comment, latest update
     * Suggest books based on user history/favorite
 4. Reader
+    * CRUD Book's Comments
+    * Rate book
     * Manage user's reading list, reading history
     * Manage user's notification/email
     * Export/Download book

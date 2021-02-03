@@ -119,6 +119,7 @@ namespace NovelWorld.MasterData.API
                         ValidateIssuer = true,
                         ValidIssuer = appSetting.OAuth2Configuration.Issuer,
                         ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
                         NameClaimType = AdditionalClaimTypes.Account
                     };
                 });
