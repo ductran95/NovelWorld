@@ -4,21 +4,20 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Domain.CommandHandlers;
 using NovelWorld.Domain.Exceptions;
 using NovelWorld.MasterData.Domain.Commands.Book;
-using NovelWorld.MasterData.Domain.Configurations;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.Mediator;
+using NovelWorld.Storage.Providers.Abstractions;
 
 namespace NovelWorld.MasterData.Domain.CommandHandlers.Book
 {
     public sealed class UploadBookCoverRequestHandler : CommandHandler<UploadBookCoverRequest>
     {
         private readonly MasterDataDbContext _dbContext;
-        private readonly AppSettings _appSetting;
+        private readonly IStorageProvider _storageProvider;
         
         public UploadBookCoverRequestHandler(
             IMediator mediator, 
@@ -26,12 +25,12 @@ namespace NovelWorld.MasterData.Domain.CommandHandlers.Book
             ILogger<UploadBookCoverRequestHandler> logger, 
             IAuthContext authContext,
             MasterDataDbContext dbContext,
-            IOptions<AppSettings> appSetting
+            IStorageProvider storageProvider
         ) : base(mediator,
             mapper, logger, authContext)
         {
             _dbContext = dbContext;
-            _appSetting = appSetting.Value;
+            _storageProvider = storageProvider;
         }
 
 
@@ -44,18 +43,21 @@ namespace NovelWorld.MasterData.Domain.CommandHandlers.Book
                 throw new NotFoundException(request.Id);
             }
 
-            var filePath = Path.Combine(_appSetting.StorageConfiguration.RootPath, "Cover");
-            Directory.CreateDirectory(filePath);
-
             var fileExt = Path.GetExtension(request.Cover.FileName);
-            filePath = Path.Combine(filePath, $"Book_Cover_{request.Id}{fileExt}");
-            
-            using (var stream = System.IO.File.Create(filePath))
+            var fileName = $"Book_Cover_{request.Id}{fileExt}";
+
+            using (var stream = new MemoryStream())
             {
                 await request.Cover.CopyToAsync(stream, cancellationToken);
+                if (string.IsNullOrEmpty(book.Cover))
+                {
+                    book.Cover = await _storageProvider.Create(stream, fileName, cancellationToken);
+                }
+                else
+                {
+                    book.Cover = await _storageProvider.Update(book.Cover, stream, fileName, cancellationToken);
+                }
             }
-
-            book.Cover = filePath;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
             return true;
