@@ -9,6 +9,7 @@ using NovelWorld.Domain.QueryHandlers;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Extensions;
 using NovelWorld.Infrastructure.Extensions;
 using NovelWorld.MasterData.Data.Responses;
+using NovelWorld.MasterData.Data.Responses.Author;
 using NovelWorld.MasterData.Domain.Queries.Author;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.Mediator;

@@ -7,6 +7,7 @@ using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Domain.Exceptions;
 using NovelWorld.Domain.QueryHandlers;
 using NovelWorld.MasterData.Data.Responses;
+using NovelWorld.MasterData.Data.Responses.Author;
 using NovelWorld.MasterData.Domain.Queries.Author;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.Mediator;

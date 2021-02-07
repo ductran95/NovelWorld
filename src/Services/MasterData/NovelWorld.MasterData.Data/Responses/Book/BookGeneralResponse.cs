@@ -1,9 +1,10 @@
 using System;
+using NovelWorld.Data.Responses;
 using NovelWorld.MasterData.Data.Enums;
 
-namespace NovelWorld.MasterData.Data.Responses
+namespace NovelWorld.MasterData.Data.Responses.Book
 {
-    public class BookGeneralResponse
+    public class BookGeneralResponse: EntityResponse
     {
         public string Name { get; set; }
         public string Description { get; set; }

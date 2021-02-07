@@ -12,6 +12,7 @@ using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Exceptions;
 using NovelWorld.MasterData.Data.Responses;
+using NovelWorld.MasterData.Data.Responses.Book;
 using NovelWorld.MasterData.Domain.Commands.Book;
 using NovelWorld.MasterData.Domain.Queries.Book;
 using NovelWorld.Mediator;
@@ -20,6 +21,7 @@ using static Microsoft.AspNetCore.Http.StatusCodes;
 namespace NovelWorld.MasterData.API.Controllers
 {
     [Authorize]
+    [Route("api/[controller]")]
     public class BookController : ApiController
     {
         public BookController(
@@ -76,7 +78,7 @@ namespace NovelWorld.MasterData.API.Controllers
         {
             if (id != request.Id)
             {
-                throw new BadRequestException(message: CommonErrorMessages.QueryIdNotMatchBody);
+                throw new BadRequestException(message: CommonErrorMessages.QueryDataNotMatchBody);
             }
             
             request.Id = id;

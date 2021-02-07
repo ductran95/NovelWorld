@@ -1,6 +1,6 @@
 using NovelWorld.Data.Responses;
 
-namespace NovelWorld.MasterData.Data.Responses
+namespace NovelWorld.MasterData.Data.Responses.Author
 {
     public class AuthorGeneralResponse: EntityResponse
     {

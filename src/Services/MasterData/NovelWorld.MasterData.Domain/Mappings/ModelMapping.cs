@@ -2,6 +2,10 @@
 using AutoMapper;
 using NovelWorld.MasterData.Data.Entities;
 using NovelWorld.MasterData.Data.Responses;
+using NovelWorld.MasterData.Data.Responses.Author;
+using NovelWorld.MasterData.Data.Responses.Book;
+using NovelWorld.MasterData.Data.Responses.Category;
+using NovelWorld.MasterData.Data.Responses.Chapter;
 using NovelWorld.MasterData.Domain.Commands.Author;
 using NovelWorld.MasterData.Domain.Commands.Book;
 using NovelWorld.MasterData.Domain.Commands.Category;

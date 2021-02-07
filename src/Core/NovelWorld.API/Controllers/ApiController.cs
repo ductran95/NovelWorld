@@ -15,7 +15,6 @@ namespace NovelWorld.API.Controllers
     [ApiController]
     [RequestValidation]
     [ApiConventionType(typeof(DefaultApiConventions))]
-    [Route("api/[controller]")]
     public abstract class ApiController: ControllerBase
     {
         protected readonly IWebHostEnvironment _environment;
