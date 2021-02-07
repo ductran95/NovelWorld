@@ -1,4 +1,6 @@
 # Novel World app - demo for microservice
+# List Actor - User Case
+
 ## Reader (logged in)
 1. Identity
     * Login, logout using OIDC
@@ -43,7 +45,7 @@
 1. Identity
     * Login, logout using OIDC
     * Register new user
-    * Manage user data (name, dob, avatar)
+    * Update user data (name, dob, avatar)
 2. Master Data
     * CRUD Category
     * CRUD Book

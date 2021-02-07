@@ -1,8 +1,9 @@
 using System;
+using NovelWorld.Data.Responses;
 
-namespace NovelWorld.MasterData.Data.Responses
+namespace NovelWorld.MasterData.Data.Responses.Chapter
 {
-    public class ChapterGeneralResponse
+    public class ChapterGeneralResponse: EntityResponse
     {
         public int? Number { get; set; }
         public string Name { get; set; }

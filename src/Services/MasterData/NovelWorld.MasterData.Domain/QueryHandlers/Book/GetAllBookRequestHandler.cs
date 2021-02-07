@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using NovelWorld.Authentication.Contexts.Abstractions;
 using NovelWorld.Domain.QueryHandlers;
 using NovelWorld.MasterData.Data.Responses;
+using NovelWorld.MasterData.Data.Responses.Book;
 using NovelWorld.MasterData.Domain.Queries.Book;
 using NovelWorld.MasterData.Infrastructure.Contexts;
 using NovelWorld.Mediator;
