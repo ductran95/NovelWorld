@@ -15,7 +15,6 @@
       <Folder Include="Commands" />
       <Folder Include="EventHandlers" />
       <Folder Include="Events" />
-      <Folder Include="Exceptions" />
       <Folder Include="Extensions" />
       <Folder Include="Mappings" />
       <Folder Include="Proxies" />

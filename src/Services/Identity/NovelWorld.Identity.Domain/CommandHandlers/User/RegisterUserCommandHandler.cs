@@ -11,6 +11,7 @@ using NovelWorld.Identity.Domain.Commands.User;
 using NovelWorld.Identity.Domain.Queries.User;
 using NovelWorld.Identity.Infrastructure.Contexts;
 using NovelWorld.Mediator;
+using NovelWorld.Shared.Domain.Exceptions;
 
 namespace NovelWorld.Identity.Domain.CommandHandlers.User
 {
