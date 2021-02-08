@@ -31,6 +31,7 @@ namespace NovelWorld.Identity.Domain.Mappings
             this IServiceCollection services, IConfiguration config)
         {
             services.Configure<AppSettings>(config);
+            services.Configure<DbConfiguration>(config.GetSection(nameof(DbConfiguration)));
             services.Configure<OAuth2Configuration>(config.GetSection(nameof(OAuth2Configuration)));
             services.Configure<EventBusConfiguration>(config.GetSection(nameof(EventBusConfiguration)));
             services.Configure<StorageConfiguration>(config.GetSection(nameof(StorageConfiguration)));

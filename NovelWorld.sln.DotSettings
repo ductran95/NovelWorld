@@ -9,4 +9,5 @@
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/Abbreviations/=MVC/@EntryIndexedValue">MVC</s:String>
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/Abbreviations/=PBKDF/@EntryIndexedValue">PBKDF</s:String>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=azureservicebus/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=masterdata/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Writeonly/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

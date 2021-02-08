@@ -9,4 +9,19 @@
       <ProjectReference Include="..\NovelWorld.Shared.Data\NovelWorld.Shared.Data.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Attributes" />
+      <Folder Include="CommandHandlers" />
+      <Folder Include="Commands" />
+      <Folder Include="EventHandlers" />
+      <Folder Include="Events" />
+      <Folder Include="Exceptions" />
+      <Folder Include="Extensions" />
+      <Folder Include="Mappings" />
+      <Folder Include="Proxies" />
+      <Folder Include="Queries" />
+      <Folder Include="QueryHandlers" />
+      <Folder Include="Validators" />
+    </ItemGroup>
+
 </Project>

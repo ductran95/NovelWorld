@@ -3,6 +3,7 @@ using FluentValidation;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.Requests;
 using NovelWorld.Domain.Commands;
+using NovelWorld.Shared.Data.Constants;
 
 namespace NovelWorld.Reader.Domain.Commands.BookComment
 {
@@ -23,7 +24,7 @@ namespace NovelWorld.Reader.Domain.Commands.BookComment
             RuleFor(x => x.Id).NotEmpty();
             RuleFor(x => x.UserId).NotEmpty();
             RuleFor(x => x.BookId).NotEmpty();
-            RuleFor(x => x.Content).MaximumLength(CommonValidationRules.TextAreaMaxLength);
+            RuleFor(x => x.Content).MaximumLength(SharedValidationRules.TextAreaMaxLength);
         }
     }
 }
