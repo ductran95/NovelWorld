@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using NovelWorld.Utility.Exceptions;
 using NovelWorld.Data.DTO;
+using NovelWorld.Utility.Exceptions;
 
-namespace NovelWorld.Domain.Exceptions
+namespace NovelWorld.Shared.Domain.Exceptions
 {
     public class DuplicateDataException: DomainException
     {

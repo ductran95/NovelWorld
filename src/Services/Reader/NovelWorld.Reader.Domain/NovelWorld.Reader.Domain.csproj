@@ -17,6 +17,7 @@
       <ProjectReference Include="..\..\..\Core\NovelWorld.Domain\NovelWorld.Domain.csproj" />
       <ProjectReference Include="..\..\..\Core\NovelWorld.EventBus.AzureServiceBus\NovelWorld.EventBus.AzureServiceBus.csproj" />
       <ProjectReference Include="..\..\..\Core\NovelWorld.EventBus.RabbitMQ\NovelWorld.EventBus.RabbitMQ.csproj" />
+      <ProjectReference Include="..\..\..\Shared\NovelWorld.Shared.Domain\NovelWorld.Shared.Domain.csproj" />
       <ProjectReference Include="..\NovelWorld.Reader.Infrastructure\NovelWorld.Reader.Infrastructure.csproj" />
     </ItemGroup>
 

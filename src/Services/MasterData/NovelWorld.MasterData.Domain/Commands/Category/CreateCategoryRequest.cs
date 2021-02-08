@@ -3,6 +3,7 @@ using FluentValidation;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.Requests;
 using NovelWorld.Domain.Commands;
+using NovelWorld.Shared.Data.Constants;
 
 namespace NovelWorld.MasterData.Domain.Commands.Category
 {
@@ -16,8 +17,8 @@ namespace NovelWorld.MasterData.Domain.Commands.Category
     {
         public CreateCategoryRequestValidator()
         {
-            RuleFor(x => x.Name).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
-            RuleFor(x => x.Description).MaximumLength(CommonValidationRules.TextAreaMaxLength);
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(SharedValidationRules.TextFieldMaxLength);
+            RuleFor(x => x.Description).MaximumLength(SharedValidationRules.TextAreaMaxLength);
         }
     }
 }

@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Core\NovelWorld.Data\NovelWorld.Data.csproj" />
+      <ProjectReference Include="..\..\..\Shared\NovelWorld.Shared.Data\NovelWorld.Shared.Data.csproj" />
     </ItemGroup>
 
 </Project>

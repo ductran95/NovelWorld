@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NovelWorld.Data.Constants;
 using NovelWorld.Infrastructure.EntityFrameworkCore.Configurations;
 using NovelWorld.Reader.Data.Entities;
+using NovelWorld.Shared.Data.Constants;
 
 namespace NovelWorld.Reader.Infrastructure.Configurations
 {
@@ -12,7 +13,7 @@ namespace NovelWorld.Reader.Infrastructure.Configurations
         {
             base.Configure(builder);
             builder.ToTable("Bookmarks", schema: "reader");
-            builder.Property(x => x.Note).IsRequired().IsUnicode().HasMaxLength(CommonValidationRules.TextAreaMaxLength);
+            builder.Property(x => x.Note).IsRequired().IsUnicode().HasMaxLength(SharedValidationRules.TextAreaMaxLength);
         }
     }
 }

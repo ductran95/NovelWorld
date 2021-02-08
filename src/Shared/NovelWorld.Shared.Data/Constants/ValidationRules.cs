@@ -1,6 +1,6 @@
-﻿namespace NovelWorld.Data.Constants
+﻿namespace NovelWorld.Shared.Data.Constants
 {
-    public static class CommonValidationRules
+    public static class SharedValidationRules
     {
         //public const int ShortTextFieldMaxLength = int.MaxValue;
         public const int TextFieldMaxLength = 255;

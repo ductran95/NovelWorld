@@ -2,6 +2,7 @@ using System;
 using FluentValidation;
 using NovelWorld.Data.Constants;
 using NovelWorld.Domain.Commands;
+using NovelWorld.Shared.Data.Constants;
 
 namespace NovelWorld.Identity.Domain.Commands.User
 {
@@ -20,13 +21,13 @@ namespace NovelWorld.Identity.Domain.Commands.User
     {
         public RegisterUserCommandValidator()
         {
-            RuleFor(x => x.Account).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
-            RuleFor(x => x.FullName).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
-            RuleFor(x => x.Email).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength).EmailAddress();
-            RuleFor(x => x.PhoneNumber).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
-            RuleFor(x => x.Address).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
+            RuleFor(x => x.Account).NotEmpty().MaximumLength(SharedValidationRules.TextFieldMaxLength);
+            RuleFor(x => x.FullName).NotEmpty().MaximumLength(SharedValidationRules.TextFieldMaxLength);
+            RuleFor(x => x.Email).NotEmpty().MaximumLength(SharedValidationRules.TextFieldMaxLength).EmailAddress();
+            RuleFor(x => x.PhoneNumber).NotEmpty().MaximumLength(SharedValidationRules.TextFieldMaxLength);
+            RuleFor(x => x.Address).NotEmpty().MaximumLength(SharedValidationRules.TextFieldMaxLength);
             RuleFor(x => x.DoB).LessThan(DateTime.Today);
-            RuleFor(x => x.Password).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
+            RuleFor(x => x.Password).NotEmpty().MaximumLength(SharedValidationRules.TextFieldMaxLength);
         }
     }
 }

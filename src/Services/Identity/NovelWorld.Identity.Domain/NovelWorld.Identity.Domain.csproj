@@ -11,6 +11,7 @@
       <ProjectReference Include="..\..\..\Core\NovelWorld.Storage.AzureBlob\NovelWorld.Storage.AzureBlob.csproj" />
       <ProjectReference Include="..\..\..\Core\NovelWorld.Storage.Local\NovelWorld.Storage.Local.csproj" />
       <ProjectReference Include="..\..\..\Core\NovelWorld.Storage\NovelWorld.Storage.csproj" />
+      <ProjectReference Include="..\..\..\Shared\NovelWorld.Shared.Domain\NovelWorld.Shared.Domain.csproj" />
       <ProjectReference Include="..\NovelWorld.Identity.Infrastructure\NovelWorld.Identity.Infrastructure.csproj" />
     </ItemGroup>
 

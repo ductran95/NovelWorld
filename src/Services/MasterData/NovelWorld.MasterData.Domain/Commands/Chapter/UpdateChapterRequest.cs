@@ -3,6 +3,7 @@ using FluentValidation;
 using NovelWorld.Data.Constants;
 using NovelWorld.Data.Requests;
 using NovelWorld.Domain.Commands;
+using NovelWorld.Shared.Data.Constants;
 
 namespace NovelWorld.MasterData.Domain.Commands.Chapter
 {
@@ -21,7 +22,7 @@ namespace NovelWorld.MasterData.Domain.Commands.Chapter
         {
             RuleFor(x => x.Id).NotEmpty();
             RuleFor(x => x.Number).GreaterThan(0).When(x => x.Number != null);
-            RuleFor(x => x.Name).NotEmpty().MaximumLength(CommonValidationRules.TextFieldMaxLength);
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(SharedValidationRules.TextFieldMaxLength);
             RuleFor(x => x.Content).NotEmpty();
             RuleFor(x => x.BookId).NotEmpty();
         }
